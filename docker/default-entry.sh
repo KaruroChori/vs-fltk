@@ -3,7 +3,7 @@
 set -e
 /docker/main_entry.sh
 
-su builder -c "bash -l -c '\
+su builder -c "DISPLAY=$DISPLAY bash -l -c '\
   cd /workspace && \
   bun install &&
   bun run codegen &&
