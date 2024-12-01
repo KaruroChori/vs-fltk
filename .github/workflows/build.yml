@@ -101,4 +101,9 @@ jobs:
         bun run codegen
         meson setup --reconfigure build/ --buildtype=release --native-file toolchains/flatpak.ini
         meson compile -C build/ vs:executable
-
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: logs
+        path: |
+          build/meson-logs/**/*
