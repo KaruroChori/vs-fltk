@@ -97,6 +97,7 @@ jobs:
           libpng \
           meson \
           ninja \
+          sqlite3 \
           sqlitecpp
         brew install --cask xquartz
         cd /opt/homebrew/opt/llvm/bin
