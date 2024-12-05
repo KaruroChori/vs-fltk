@@ -85,18 +85,25 @@ jobs:
       CPPFLAGS: '-I/opt/homebrew/opt/llvm/include'
     steps:
     - uses: actions/checkout@v4
-    - name: Install dependencies
+    - name: Cache Homebrew
+      uses: actions/cache@v3
+      with:
+        path: |
+          /usr/local/Cellar
+          /usr/local/opt
+        key: brew-cache-${{ runner.os }}-${{ hashFiles('.github/workflows/Brewfile') }}
+        restore-keys: |
+          brew-cache-${{ runner.os }}-
+
+    - name: Install Dependencies
       run: |
         curl -fsSL https://bun.sh/install | bash
         PATH=$HOME/.bun/bin:$PATH
         brew update
-        brew install \
-          llvm@19 \
-          freeglut \
-          libpng \
-          meson \
-          ninja
-        brew install --cask xquartz
+        brew bundle --file=.github/workflows/Brewfile || {
+          echo "Some dependencies failed to install, running brew doctor..."
+          brew doctor
+        }
         cd /opt/homebrew/opt/llvm/bin
         #ln -s clang++ clang++-19
         PATH=/opt/homebrew/opt/llvm/bin:$PATH

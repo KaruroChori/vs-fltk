@@ -1,0 +1,6 @@
+brew "llvm@19"
+brew "freeglut"
+brew "libpng"
+brew "meson"
+brew "ninja"
+cask "xquartz"
