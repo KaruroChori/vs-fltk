@@ -49,7 +49,8 @@ jobs:
             freeglut3-dev \
             libcurl4-openssl-dev \
             libpng-dev \
-            libsqlite3-0 \
+            libsqlite3-dev \
+            libsqlitecpp-dev \
             python3-pip \
             python3-setuptools
           python3 -m pip install meson ninja
@@ -96,7 +97,9 @@ jobs:
           freeglut \
           libpng \
           meson \
-          ninja
+          ninja \
+          sqlite3 \
+          sqlitecpp
         brew install --cask xquartz
         cd /opt/homebrew/opt/llvm/bin
         #ln -s clang++ clang++-19
