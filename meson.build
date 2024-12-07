@@ -30,7 +30,6 @@ opt_fltk.add_cmake_defines(
         'FLTK_BUILD_TEST': false,
         'FLTK_BUILD_OPTIONS': false,
         'FLTK_BUILD_SHARED_LIBS': true,
-        'FLTK_BACKEND_X11': true,
         'CMAKE_POSITION_INDEPENDENT_CODE': true,
     },
 )
