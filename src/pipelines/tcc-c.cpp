@@ -81,7 +81,7 @@ std::shared_ptr<tcc> tcc_c_pipeline(bool is_runtime, vs::ui_base* obj, const cha
     script->add_sym("vs_set", (void *)+[](ui_base* w,const char* k, const void* v){if(w==nullptr)return -1;std::string tmp = std::string("#s_")+k;return w->use_setter(w->resolve_symbol_local(tmp.c_str(), false), v);});
     script->add_sym("vs_get", (void *)+[](ui_base* w,const char* k, void** v){if(w==nullptr)return -1;std::string tmp = std::string("#g_")+k;return w->use_getter(w->resolve_symbol_local(tmp.c_str(), false), v);});
     
-
+    LIB(snprintf);
     // Fragments of stdlib
     // --- cstring
     LIB(memcpy);
