@@ -75,6 +75,7 @@ jobs:
           bun run codegen
           bun run meson-setup.clang-release
           meson compile -C build/ vs:executable
+          bun run test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -115,7 +116,7 @@ jobs:
           # Unclear fix to be investigated
           rm subprojects/libtcc/VERSION
           meson compile -C build/ vs:executable
-          meson test test_resolver-paths -C build -v
+          bun run test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
