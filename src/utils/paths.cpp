@@ -56,7 +56,7 @@ std::pair<bool, std::string> resolve_path::normalizer(const char *parent, const 
             continue;
         }
         else if(child[j]=='/' && j!=child_len-1){
-                j++;
+            j++;
         }
         else{
             ret[ptr]=child[j];
