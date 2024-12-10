@@ -69,12 +69,7 @@ jobs:
           fi
 
       - name: Configure and build
-        run: |
-          cmake --version
-          bun install
-          bun run codegen
-          bun run meson-setup.clang-release
-          meson compile -C build/ vs:executable
+        run: scripts/build-default.sh
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -107,14 +102,7 @@ jobs:
           echo "PATH=$PATH" >> $GITHUB_ENV
 
       - name: Configure and build
-        run: |
-          cmake --version
-          bun install
-          bun run codegen
-          meson setup -Dforce_x11_backend=true --reconfigure build/ --buildtype=release --native-file toolchains/flatpak.ini
-          # Unclear fix to be investigated
-          rm subprojects/libtcc/VERSION
-          meson compile -C build/ vs:executable
+        run: scripts/build-default.sh
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:

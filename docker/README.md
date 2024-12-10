@@ -18,28 +18,21 @@ Replace the values for `HOSTUID` and `HOSTGID` with your system `uid` and `gid`.
 Then, from the source root, to enter the build environment:
 
 ```sh
-docker-compose -f docker/docker-compose.yml run --rm  dev
+docker compose -f docker/docker-compose.yml run --rm  dev
 ```
 
 From there, you can run the commands to build the app. You can use your
 regular IDE to make changes, and then test them by building within the
-container.
-
-To start the container and build the app non-interactively:
+container. A convenience script is available:
 
 ```sh
-export ENTRYPOINT=/entry-build.sh
+scripts/build-default
 ```
 
-And use the same command as shown above.
-
-Remember to unset `ENTRYPOINT` when you wish to start the container with only
-a prompt.
-
-All of the above methods will mount your current directory as _/vs-workspace_
-inside the container. Your username will be _builder_. By default, you will
-not have root privileges (which are not necessary to build and test). However,
-you can use `sudo` if you need to run `apt` or any other commands that require
+When starting the container, your current directory will be mounted at
+_/vs-workspace_. Your username will be _builder_. By default, you will not
+have root privileges (which are not necessary to build and test). However, you
+can use `sudo` if you need to run `apt` or any other commands that require
 root access.
 
 ## Notes
@@ -112,7 +105,7 @@ necessary devices. Here's a general guide:
 3. **Run the container with access to the display:**
    When starting the container, pass the display environment variable
    (`$DISPLAY`) and mount the X11 socket. Instead of *dev" for the last
-   argument of `docker-compose` (see above), use *xgui\*, which essentially
+   argument of `docker-compose` (see above), use *x11-dev\*, which essentially
    adds these three arguments (through the compose configuration):
 
    ```sh

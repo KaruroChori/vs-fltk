@@ -9,6 +9,8 @@ services:
       HOSTUID: $HOSTUID
       HOSTGID: $HOSTGID
       WORKSPACE: $WORKSPACE
+      VS_COMMONS_DIR: $WORKSPACE/build/commons/
+      VS_LOG_LEVEL: debug
 
     volumes:
       - ${PWD}:${WORKSPACE}

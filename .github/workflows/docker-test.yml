@@ -69,4 +69,4 @@ jobs:
           docker compose -f docker/docker-compose.yml run --rm  dev
         env:
           ENTRYPOINT: /entry-build.sh
-          WORKSPACE: ${{ github.workspace }}/vs-workspace
+          WORKSPACE: /vs-workspace
