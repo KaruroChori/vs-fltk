@@ -8,7 +8,6 @@ RUN \
     apt install -y curl && \
     curl -s https://archive.swiftlang.xyz/install.sh | bash && \
     apt install -y \
-        build-essential \
         ca-certificates \
         clang-19 \
         cmake \
@@ -17,9 +16,6 @@ RUN \
         libcurl4-openssl-dev \
         libpango1.0-dev \
         libpng-dev \
-        libsqlite3-0 \
-        libsqlitecpp-dev \
-        libtcc-dev \
         lsb-release \
         meson \
         pkg-config \
@@ -29,7 +25,7 @@ RUN \
         wget
 
 RUN useradd -m builder -s /bin/bash && passwd -d builder
-RUN echo "builder ALL=(ALL) ALL" >> /etc/sudoers
+RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /home/builder
 USER builder
 
