@@ -62,8 +62,8 @@ endif
 
 if get_option('use_system_fltk')
     libfltk_dep = dependency('fltk', required: false)
-    libfltk_images_dep = dependency('fltk-images', required: false)
-    libfltk_forms_dep = dependency('fltk-forms', required: false)
+    libfltk_images_dep = dependency('fltk_images', required: false)
+    libfltk_forms_dep = dependency('fltk_forms', required: false)
     if libfltk_dep.found() == false or libfltk_images_dep.found() == false or libfltk_forms_dep.found() == false
         libfltk_dep = dependency(
             'FLTK',
@@ -74,13 +74,13 @@ if get_option('use_system_fltk')
         libfltk_images_dep = dependency(
             'FLTK',
             method: 'cmake',
-            modules: ['fltk_images-shared'],
+            modules: ['images-shared'],
             required: false,
         ) #cc.find_library('fltk_images', dirs: ['/usr/lib'], required: false)
         libfltk_forms_dep = dependency(
             'FLTK',
             method: 'cmake',
-            modules: ['fltk_forms-shared'],
+            modules: ['forms-shared'],
             required: false,
         ) #cc.find_library('fltk_forms', dirs: ['/usr/lib'], required: false)
         if libfltk_dep.found() == false or libfltk_images_dep.found() == false or libfltk_forms_dep.found() == false
