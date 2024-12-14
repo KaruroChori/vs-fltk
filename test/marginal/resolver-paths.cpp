@@ -29,6 +29,12 @@ int main(){
     ret+=test_normalizer("/hello world/banana/quick-js/ww/a", "/hello world/banana/", "quick-js/../quick-js/ww/a", false, false);
     ret+=test_normalizer("/hello world/banana/ww/a", "/hello world/banana/", "quick-js/./.././ww/a", false, false);
     ret+=test_normalizer("/a/b../", "/a/", "b../", false, false);
+    ret+=test_normalizer("/a/b", "/a/", "/b", false, false);
+    ret+=test_normalizer("/a/", "/a/", "/b", false, true);
+    ret+=test_normalizer("/a/", "/a/", "", false, true);
+    ret+=test_normalizer("/a/c./d../", "/a/", "b../../c./d../", false, false);
+    ret+=test_normalizer("/hello world/banana/quick-js/a", "/hello world/banana/", "quick-js//////a", false, false);
+    ret+=test_normalizer("/hello world/banana/quick-js/a", "/hello world/banana/", "/quick-js/a", false, false);
 
     std::cerr<<"ret = "<<ret<<"\n";
     assert(ret==0);
