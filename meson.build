@@ -61,11 +61,31 @@ if need_pugixml or get_option('use_system_pugixml') == false
 endif
 
 if get_option('use_system_fltk')
-    libfltk_dep = dependency('fltk', version: '>=1.4', required: false)
-    libfltk_images_dep = dependency('fltk-images', version: '>=1.4', required: false)
-    libfltk_forms_dep = dependency('fltk-forms', version: '>=1.4', required: false)
+    libfltk_dep = dependency('fltk', required: false)
+    libfltk_images_dep = dependency('fltk-images', required: false)
+    libfltk_forms_dep = dependency('fltk-forms', required: false)
     if libfltk_dep.found() == false or libfltk_images_dep.found() == false or libfltk_forms_dep.found() == false
-        need_fltk = true
+        libfltk_dep = dependency(
+            'FLTK',
+            method: 'cmake',
+            modules: ['fltk-shared'],
+            required: false,
+        ) #cc.find_library('fltk', dirs: ['/usr/lib'], required: false)
+        libfltk_images_dep = dependency(
+            'FLTK',
+            method: 'cmake',
+            modules: ['fltk-images-shared'],
+            required: false,
+        ) #cc.find_library('fltk_images', dirs: ['/usr/lib'], required: false)
+        libfltk_forms_dep = dependency(
+            'FLTK',
+            method: 'cmake',
+            modules: ['fltk-forms-shared'],
+            required: false,
+        ) #cc.find_library('fltk_forms', dirs: ['/usr/lib'], required: false)
+        if libfltk_dep.found() == false or libfltk_images_dep.found() == false or libfltk_forms_dep.found() == false
+            need_fltk = true
+        endif
     endif
 endif
 if need_fltk == true or get_option('use_system_fltk') == false

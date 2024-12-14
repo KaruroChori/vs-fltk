@@ -53,7 +53,7 @@ else
   if [ "$(uname)" != "Darwin" ]; then
     bun run meson-setup.clang-release
   else
-    meson setup -Dforce_x11_backend=true --reconfigure build --buildtype=release --native-file toolchains/flatpak.ini
+    meson setup -Dforce_x11_backend=false --reconfigure build --buildtype=release --native-file toolchains/flatpak.ini
     # Unclear fix to be investigated
     rm subprojects/libtcc/VERSION
   fi
