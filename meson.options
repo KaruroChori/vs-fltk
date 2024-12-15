@@ -11,6 +11,8 @@ option('use_wamr', type: 'boolean', value: true)
 option('use_lua', type: 'boolean', value: true)
 option('use_luajit', type: 'boolean', value: false)
 
+option('use_riscv', type: 'boolean', value: true)
+
 # If present, else build it manually
 option('use_system_fltk', type: 'boolean', value: true)
 option('use_system_pugixml', type: 'boolean', value: false)

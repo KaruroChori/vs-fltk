@@ -112,6 +112,7 @@ if get_option('use_quickjs')
     opt_quickjs.add_cmake_defines(
         {
             'CMAKE_POSITION_INDEPENDENT_CODE': true,
+            'BUILD_SHARED_LIBS': true,
         },
     )
 
@@ -123,10 +124,24 @@ if get_option('use_quickjs')
 endif
 
 if get_option('use_tcc')
-    libtcc_proj = subproject('libtcc')
-    libtcc_dep = libtcc_proj.get_variable('libtcc_dep')
+    libtcc_proj = subproject('libtcc') #, default_options: 'default_library=static')
+    libtcc_dep = declare_dependency(dependencies: libtcc_proj.get_variable('libtcc_dep'))
 
     vs_fltk_deps += libtcc_dep
+endif
+
+if get_option('use_riscv')
+    opt_riscv = cmake.subproject_options()
+    opt_riscv.add_cmake_defines(
+        {
+            'CMAKE_POSITION_INDEPENDENT_CODE': true,
+            'RISCV_LIBTCC_DISTRO_PACKAGE': true,
+        },
+    )
+    riscv_proj = cmake.subproject('riscv', options: opt_riscv)
+    riscv_dep = riscv_proj.get_variable('riscv_dep')
+
+    vs_fltk_deps += riscv_dep
 endif
 
 md4c_proj = cmake.subproject('md4c')
@@ -188,7 +203,7 @@ endif
 #TODO: support networking_simple
 if get_option('use_networking_simple')
     libhttp_proj = subproject('libhttp')
-    libhttp_dep = libhttp_proj.get_variable('libhttp_dep')
+    libhttp_dep = libhttp_proj.get_variable('http_dep')
 
     vs_fltk_deps += libhttp_dep
 endif
