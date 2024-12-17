@@ -1,0 +1,106 @@
+\doxysection{vs.\+h}
+\hypertarget{bindings_2native_2include_2vs_8h_source}{}\label{bindings_2native_2include_2vs_8h_source}\index{bindings/native/include/vs.h@{bindings/native/include/vs.h}}
+\mbox{\hyperlink{bindings_2native_2include_2vs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \ \textcolor{keywordtype}{void}*\ node\_t;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ node\_t\ vs\_self;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum}\ log\_severety\_t\{}
+\DoxyCodeLine{00018\ \ \ LOG\_INFO,}
+\DoxyCodeLine{00019\ \ \ LOG\_OK,}
+\DoxyCodeLine{00020\ \ \ LOG\_WARNING,}
+\DoxyCodeLine{00021\ \ \ LOG\_CONTINUE,}
+\DoxyCodeLine{00022\ \ \ LOG\_PANIC,}
+\DoxyCodeLine{00023\ \ \ LOG\_LOG,}
+\DoxyCodeLine{00024\ \ \ LOG\_LVL\_NORMAL\ =\ 0x00,}
+\DoxyCodeLine{00025\ \ \ LOG\_LVL\_SILENT\ =\ 0x10,}
+\DoxyCodeLine{00026\ \ \ LOG\_LVL\_VERBOSE\ =\ 0x20,}
+\DoxyCodeLine{00027\ \ \ LOG\_LVL\_DEBUG\ =\ 0x40,}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ log\_severety\_t\ log\_severety\_t;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00033\ \ \ \ \ UNKNOWN=1,\ CALLBACK,\ DRAW,\ SETTER,\ GETTER,}
+\DoxyCodeLine{00034\ \ \ \}\ mode:3;}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00036\ \ \ \ \ NATIVE=1,\ QUICKJS,\ WASM,\ EXTERNAL,\ LUA}
+\DoxyCodeLine{00037\ \ \ \}\ type:5;}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ symbol;}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\ \mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}}\{}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\ symbol;}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\ ctx\_apply;}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ found\_at;}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}}\ \mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}\{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{00054\ \ \ int(*setter)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00055\ \ \ int(*getter)(\textcolor{keywordtype}{char}**);}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}\ \mbox{\hyperlink{structvs__field__t}{vs\_field\_t}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//extern\ int\ printf(const\ char*restrict,\ ...);}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_log(\textcolor{keywordtype}{int}\ severety,\ node\_t\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string},\ ...);}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ \$\$log(self,sev,string,\ ...)\ vs\_log(sev,self,string,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ \$log(sev,string,\ ...)\ vs\_log(sev,vs\_self,string,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ node\_t\ vs\_resolve\_name(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ node\_t\ vs\_resolve\_name\_path(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ \$\$(self,string)\ vs\_resolve\_name\_path(self,string)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ \$(string)\ vs\_resolve\_name\_path(vs\_self,string)}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}}\ vs\_resolve\_symbol(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ \$\$resolve\_symbol(self,string)\ vs\_resolve\_symbol(self,string)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ \$resolve\_symbol(string)\ vs\_resolve\_symbol(vs\_self,string)}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_apply\_prop(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ v);}
+\DoxyCodeLine{00078\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_get\_computed(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ v);}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ \$\$prop(self,key,value)\ vs\_apply\_prop(self,key,value)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ \$\$computed(self,key,value)\ vs\_get\_computed(self,key,value)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ \$\$mixin(self,value)\ vs\_apply\_prop(self,"{}mixin"{},value)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ \$prop(key,value)\ vs\_apply\_prop(vs\_self,key,value)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ \$computed(key,value)\ vs\_get\_computed(vs\_self,key,value)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ \$mixin(value)\ vs\_apply\_prop(vs\_self,"{}mixin"{},value)}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_set(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ v);}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ \$\$set(self,k,v)\ vs\_set(self,k,v)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ \$set(k,v)\ vs\_set(vs\_self,k,v)}}
+\DoxyCodeLine{00089\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_get(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keywordtype}{char}**\ v);}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ \$\$get(self,k,v)\ vs\_get(self,k,\&v)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ \$get(k,v)\ vs\_get(vs\_self,k,\&v)}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ vs\_debug(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ \$\$debug(k,v)\ vs\_debug(k,v)}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ CONCAT\_(prefix,\ suffix)\ prefix\#\#suffix}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ CONCAT(prefix,\ suffix)\ CONCAT\_(prefix,\ suffix)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ MAKE\_UNIQUE\_VARIABLE\_NAME(prefix)\ CONCAT(prefix\#\#\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//Utility\ functions\ to\ export\ symbols}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ \$callback(x)\ \ void*\ \_\_EXPORT\_CB\_\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ \$cb(x)\ \ \ \ \ \ \ \ void*\ \_\_EXPORT\_CB\_\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ \$plotter(x)\ \ \ void*\ \_\_EXPORT\_DRW\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ \$field\ \ \ \ \ \ \ \ vs\_field\_t\ MAKE\_UNIQUE\_VARIABLE\_NAME(\_\_EXPORT\_FIELD\_)=\ }}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ \$fn(x)\ \ \ \ \ \ \ \ void*\ \_\_EXPORT\_UKN\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{//Extra\ functions}}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{char}*\ itoa(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{char}*\ result,\ \textcolor{keywordtype}{int}\ base);}
+
+\end{DoxyCode}

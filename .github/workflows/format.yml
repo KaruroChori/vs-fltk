@@ -1,0 +1,17 @@
+name: Format Bot
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}-format
+  cancel-in-progress: true
+
+on:
+  workflow_call:
+jobs:
+  fake-format-clang:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
+  fake-format-meson:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
+  #Add here a task for each language to be supported.

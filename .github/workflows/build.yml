@@ -1,0 +1,103 @@
+name: Building & Testing
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}-build
+  cancel-in-progress: true
+
+on:
+  workflow_call:
+  push:
+    branches: [master]
+    paths:
+      - "**"
+      - "!**.yml"
+      - "!docs/**"
+      - "!docker/**"
+      - "!**.md"
+      - "**/build.yml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "**"
+      - "!**.yml"
+      - "!docs/**"
+      - "!docker/**"
+      - "!**.md"
+      - "**/build.yml"
+
+jobs:
+  format-checks:
+    uses: ./.github/workflows/format.yml
+  linux-amd64:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    env:
+      CC: clang-19
+      CXX: clang++-19
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
+          sudo apt update
+          sudo apt remove -y firefox
+          sudo apt upgrade -y
+          sudo apt install -y \
+            freeglut3-dev \
+            libcurl4-openssl-dev \
+            libpng-dev \
+            libsqlite3-0 \
+            python3-pip \
+            python3-setuptools
+          python3 -m pip install meson ninja
+          # for clang
+          sudo apt install -y wget gpg gnupg software-properties-common
+          curl -LO https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 19 # install clang-19
+      - name: Configure and build
+        run: scripts/build-default.sh
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-meson-logs
+          path: |
+            build/meson-logs/**/*
+  macos-arm64:
+    runs-on: macos-14
+    timeout-minutes: 8
+    env:
+      LDFLAGS: "-L/opt/homebrew/opt/llvm/lib"
+      CPPFLAGS: "-I/opt/homebrew/opt/llvm/include"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          PATH=$HOME/.bun/bin:$PATH
+          brew update
+          brew install \
+            llvm@19 \
+            freeglut \
+            libpng \
+            meson \
+            ninja \
+            fltk
+          brew install --cask xquartz
+          cd /opt/homebrew/opt/llvm/bin
+          #ln -s clang++ clang++-19
+          PATH=/opt/homebrew/opt/llvm/bin:$PATH
+          echo "PATH=$PATH" >> $GITHUB_ENV
+
+      - name: Configure and build
+        run: scripts/build-default.sh
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos14-meson-logs
+          path: |
+            build/meson-logs/**/*

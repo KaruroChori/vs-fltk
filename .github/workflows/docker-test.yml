@@ -1,0 +1,72 @@
+name: Test Build-Env Docker Image
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}-docker-test
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: master
+    paths:
+      - "docker/**"
+      - "!**.md"
+      - "**docker-test.yml"
+
+jobs:
+  build-test-env-image:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_CACHE_DEST: ${{ github.workspace }}/.docker/buildx-cache
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set variables
+        run: |
+          OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}
+          echo "OWNER_LC=$OWNER_LC" >>${GITHUB_ENV}
+          echo "IMAGE=ghcr.io/$OWNER_LC/vs-fltk:build-env" >>${GITHUB_ENV}
+
+      - name: Check if Dockerfile has changed
+        run: |
+          echo "do_build=false" >> $GITHUB_ENV
+          if [ "${{ github.ref }}" != "refs/heads/master" ]; then
+            FILES=$(git diff --name-only HEAD~1 HEAD)
+            if echo "$FILES" | grep -qE "^docker/Dockerfile$"; then
+              echo "do_build=true" >> $GITHUB_ENV
+            fi
+          fi
+
+      - name: Cache Docker layers
+        if: ${{ env.do_build == 'true' }}
+        id: docker-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DOCKER_CACHE_DEST }}
+          key: ${{ runner.os }}-docker-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      - name: Set up Docker Buildx
+        if: ${{ env.do_build == 'true' }}
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        if: ${{ env.do_build == 'true' }}
+        run: |
+          docker buildx build \
+            ./docker \
+            -f docker/Dockerfile \
+            -t $IMAGE \
+            --cache-to=type=local,dest=${{ env.DOCKER_CACHE_DEST }} \
+            --cache-from=type=local,src=${{ env.DOCKER_CACHE_DEST }} \
+            --load
+
+      - name: Run commands in Docker container
+        run: |
+          export HOSTUID=$(id -u) HOSTGID=$(id -g)
+          docker compose -f docker/docker-compose.yml run --rm  dev
+        env:
+          ENTRYPOINT: /entry-build.sh
+          WORKSPACE: /vs-workspace

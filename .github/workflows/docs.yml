@@ -1,0 +1,37 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    permissions:
+      contents: write
+      pages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Build
+        run: |
+          sudo apt install -y \
+            doxygen \
+            python3-pip \
+            python3-setuptools
+          python3 -m pip install mkdocs mkdocs-github-admonitions-plugin mkdocs-get-deps
+          mkdir dist
+          doxygen
+          mkdocs
+          bun install -g gh-pages
+      - name: Deploy
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          gh-pages -d dist -e . -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

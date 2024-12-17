@@ -1,0 +1,16 @@
+.cache
+build/ 
+subprojects/*
+!subprojects/*.wrap
+!subprojects/packagefiles/
+*.autogen.*
+*.autofrag.*
+/dist/
+/node_modules/
+/bun.lockb
+/private/
+/logs/
+/.flatpak-builder/
+
+# Contains variables specific for the user
+/docker/.env
