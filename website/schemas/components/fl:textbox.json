@@ -1,0 +1,19 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Blabla bla",
+  "type": "leaf",
+  "exposed": true,
+  "headers": ["FL/Fl_Button.H"],
+  "codegen": {
+    "extends": "ui<Fl_Button>"
+  },
+  "extends": "fl:base",
+  "fields": {
+    "somethig": {
+      "type": "string",
+      "setter": "",
+      "getter": "",
+      "alias": ["alias-a", "alias-b"]
+    }
+  }
+}

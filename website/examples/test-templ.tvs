@@ -1,0 +1,9 @@
+<app>
+    <fl:window label="Hello world" box="0,0,400,400">
+        <s:for tag="entry" in="/static-data/items">
+            <s:footer><fl:label label="Header" box="0,0,100,100"/></s:footer>
+            <s:item><fl:label label="Item" box="100,0,100,100"/></s:item>
+            <s:header><fl:label label="Header" box="200,0,100,100"/></s:header>
+        </s:for>
+    </fl:window>
+</app>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vs:app xmlns:vs="vs.core" xmlns:fltk="vs.fltk">
+    <fltk:window label="Hello!" box="0,0,320,320">
+        <vs:mixin bg.color="#111111"/>
+    </fltk:window>
+</vs:app>

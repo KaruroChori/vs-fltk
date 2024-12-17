@@ -1,0 +1,10 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Basic input element",
+  "exposed": true,
+  "type": "leaf",
+  "headers": ["FL/Fl_Input.H"],
+  "extends": "fl:base",
+  "codegen": { "extends": "ui<Fl_Input>" },
+  "fields": {}
+}

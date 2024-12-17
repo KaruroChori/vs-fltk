@@ -1,0 +1,10 @@
+{
+    "$schema": "../../commons/schemas/json-component.schema.json",
+    "description": "Basic button element",
+    "exposed": true,
+    "type": "leaf",
+    "headers": ["FL/Fl_Button.H"],
+    "extends": "fl:base",
+    "codegen": {"extends": "ui<Fl_Button>"},
+    "fields": {}
+}

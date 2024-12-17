@@ -1,0 +1,50 @@
+\doxysection{env.\+hpp}
+\hypertarget{env_8hpp_source}{}\label{env_8hpp_source}\index{include/utils/env.hpp@{include/utils/env.hpp}}
+\mbox{\hyperlink{env_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{paths_8hpp}{utils/paths.hpp}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }global\_ctx\_t;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ path\_env\_t\ mk\_env(global\_ctx\_t\&\ globals,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arg0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arg1);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1js__rt__t}{js\_rt\_t}}\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}*\ rt;}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{structvs_1_1js__rt__t}{js\_rt\_t}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structvs_1_1js__rt__t}{\string~js\_rt\_t}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}*\ operator()();}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1vs__test__debug__t}{vs\_test\_debug\_t}}\{}
+\DoxyCodeLine{00030\ \ \ \ \ FILE*\ fd\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structvs_1_1vs__test__debug__t}{vs\_test\_debug\_t}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{structvs_1_1vs__test__debug__t}{\string~vs\_test\_debug\_t}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ operator()(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ field,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ prepare\_db();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1versions__t}{versions\_t}}\{}
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ vs;}
+\DoxyCodeLine{00045\ \ \ \ \ std::string\ tcc;}
+\DoxyCodeLine{00046\ \ \ \ \ std::string\ quickjs;}
+\DoxyCodeLine{00047\ \ \ \ \ std::string\ wamr;}
+\DoxyCodeLine{00048\ \ \ \ \ std::string\ sqlite;}
+\DoxyCodeLine{00049\ \ \ \ \ std::string\ fltk;}
+\DoxyCodeLine{00050\ \ \ \ \ std::string\ curl;}
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ libuv;}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \mbox{\hyperlink{structvs_1_1versions__t}{versions\_t}}\ get\_versions();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

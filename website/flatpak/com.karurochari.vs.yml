@@ -1,0 +1,44 @@
+id: com.karurochari.vs
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - "org.freedesktop.Sdk.Extension.llvm19"
+  - "org.freedesktop.Sdk.Extension.swift6"
+build-options:
+  append-path: "/usr/lib/sdk/llvm19/bin:/usr/lib/sdk/swift6/bin"
+  prepend-ld-library-path: "/usr/lib/sdk/llvm19/lib:/usr/lib/sdk/swift6/lib"
+command: vs
+modules:
+  - shared-modules/glu/glu-9.json
+  - name: vs-fltk
+    buildsystem: meson
+    config-opts:
+      # https://github.com/flatpak/freedesktop-sdk-base/commit/6adb6f49e52575956cf6aa0bbd3a1d8054735a43
+      # should have solved the issue of lib64... but somehow it is not applied?
+      - --libdir=lib
+      - --native-file=/run/build/vs-fltk/toolchains/flatpak.ini
+      - --buildtype=release
+      - -Dtests=false
+    sources:
+      - type: dir
+        path: ..
+finish-args:
+  # X11 + XShm access
+  - --share=ipc
+  - --socket=fallback-x11
+  # Wayland access
+  - --socket=wayland
+  # GPU acceleration if needed
+  - --device=dri
+  # Needs to talk to the network:
+  - --share=network
+  # Add support for shared memory
+  - --device=shm
+  # Audio
+  - --socket=pulseaudio
+  # Home folder
+  - --filesystem=home/.vs-fltk
+  - --filesystem=host:ro
+#cleanup:
+#  - '*'

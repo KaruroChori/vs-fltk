@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns:fl="vs.fltk">
+    <fl:button box="300,300,50,50" label="BTN-1"/>
+    <slot><fl:button box="300,380,50,50" label="BTN-2"/></slot>
+    <slot tag="banana" required="true"></slot>
+    <script>
+        <![CDATA[
+        int hellw(){};
+        re;r
+        r;r;rr;
+        ]]>
+    </script>
+</component>

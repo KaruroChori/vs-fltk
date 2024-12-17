@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Not to be run from vs, it is used by one of the experiments-->
+<app auth.token="AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAA-AAA">
+    <res src="TEST-A"/>
+    <something>
+        <res src="TEST-B" src.cache-policy="no-cache"/>
+        <script src="TEST-G"></script>
+        <res src="TEST-C" src.cache-policy="forever"/>
+        <somethingelse>
+            <script>
+                .....
+            </script>
+            <script src="TEST-D" src.cache-policy="forever"></script>
+        </somethingelse>
+    </something>
+    <res src="TEST-E"/>
+    <res src="TEST-F" src.cache-policy="no-cache" src.no-prefetch=""/>
+    <somethingelse>
+        <script>
+            .....
+        </script>
+        <script src="TEST-G"></script>
+    </somethingelse>
+</app>

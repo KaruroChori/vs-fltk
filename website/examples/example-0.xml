@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Please ignore this example, it is used for
+development-->
+<app type="native" link-with="this://native-app/app" xmlns:fl="vs.fltk">
+    <import src="two-buttons.xml" as="TwoButtons" />
+    <import src="three-buttons.xml" as="ThreeButtons">
+        <label>It does not exist</label>
+    </import>
+    <mixin name="+fl:button" box.h="100" box.w="100" />
+    <debug value="Important string A" />
+
+    <script-global lang="c">
+        <def>
+
+        </def>
+        <decl>
+
+        </decl>
+    </script-global>
+    <script lang="c">
+        <![CDATA[ 
+        int dispatcher(void* base, const char* key, const char* value){
+            $log(0,"HELLO WORLD");
+            return 1;
+        }
+        ]]>
+    </script>
+    <fl:window box.w="640" box.h="480" frame.mode="node">
+        <fl:textbox label="123" box="200,200,70,70"></fl:textbox>
+        <fl:button label="callback-top">
+            <script lang="c">
+            <![CDATA[ 
+            //#include <app.h>
+            void callback(){
+                //add(1,2);
+                $log(0,"Tying call %p",$("..."));
+                $$prop($("..."),"ciao","mondo");
+                return;
+            }
+            
+            void inic(){}
+            $cb(inic);
+
+            void inic2(){}
+            $cb(inic2);
+            ]]>
+            </script>
+        </fl:button>
+    </fl:window>
+    <fl:window box.w="640" box.h="480" name="ss" border="false"
+        icon="./commons/assets/icons/vs.fltk.dark.svg">
+        <use>
+            <on-load.fail>
+                <fl:button box="0,0,50,50" label="Oh no!" />
+            </on-load.fail>
+        </use>
+
+        <use src="./two-buttons.xml">
+            <on-load.fail>
+                <fl:button box="200,250,50,50" label="Oh no!" />
+            </on-load.fail>
+            <inject>
+                <fl:button box="200,200,50,50" label="Oh yes!" />
+            </inject>
+        </use>
+
+        <TwoButtons />
+        <namespace name="%hooo">
+            <mixin name="+fl:button" bg.colour="#00ae92" />
+            <viewport box="300,300,200,200" bg.colour="#99df34">
+                <button label="Ciao!"></button>
+            </viewport>
+            <fl:button name="%tmp-data" box.y="200"></fl:button>
+            <fl:button name="%js-button" box.y="300" label="JS BUTTON">
+                <script lang="js">
+                    function marika(){console.log("Banana magika");}
+                    function callback(){$.log(0,"Banana magika %d %s", 145, "ottenwotten");}
+                    $cb(marika);
+                </script>
+            </fl:button>
+            <fl:button base="parent" box="0,0,80,30" on.callback="on_click_a" name="%quick"
+                label="CBTN1">
+                <mixin box="200,200,100,100" box.y="100" box.w="200" />
+                <script lang="c">
+                <![CDATA[ 
+                //#include <vs.h>
+                
+                int count=0;
+
+                void on_click_a(){
+                    static char strbuff[32];
+                    node_t tmp = $("%tmp-data");
+                    if(tmp!=0){
+                        itoa(count,strbuff,10);
+                        vs_apply_prop(tmp,"label",strbuff);
+                    }
+                    $$debug("event", strbuff);
+                    
+                    $prop("label","QUINQUE");
+                    if(count==0)
+                        $log(LOG_LOG,"DON\'T YOU DARE TO APPROACH MIQUELLA THE KIND!");
+                    else if(count==1)
+                        $log(LOG_LOG,"BAYLE! VILE BAYLE! YOU WILL RUE THIS DAY!");
+                    else if(count==2)
+                        $log(LOG_LOG,"BEHOLD! A TRUE DRAKE WARRIOR. AND I, IGON. YOUR FEARS MADE FLESH");
+                    else if(count==3)
+                        $log(LOG_LOG,"NO MATTER HOW TENDER, HOW EXQUISITE, A LIE WILL REMAIN A LIE.");
+                    else 
+                        $log(LOG_LOG,"But nobody came.");
+                    count++;
+                    
+                }
+                $cb(on_click_a);
+
+                unsigned long int on_compiled(){
+                    //vs_log(LOG_INFO,"Worldo Hellooooooo!");
+                    return 5;
+                }
+                ]]>
+            </script>
+            </fl:button>
+        </namespace>
+
+        <fl:button base="parent" box="0,40,80,30" on.callback="on_click_a" label="BTN2">
+            <script lang="c">
+            <![CDATA[ 
+            int callback(){
+                //app_debug("Hello world 2");
+            }
+            ]]>
+            </script>
+        </fl:button>
+
+        <namespace type="native" name="%roots">
+            <mixin name="+fl:button" bg.colour="#00ae92" />
+            <mixin name="*" label.colour="#34a977" />
+            <mixin name="btn-2" box="150,40,80,30" label="Makika" />
+
+            <script lang="c">
+            <![CDATA[
+
+            void on_click_a1(){
+                $log(LOG_PANIC,"Hello world 1!");
+            }
+            $export(on_click_a1);
+            ]]>
+            <![CDATA[
+
+            void on_click_b1(){
+                $log(LOG_PANIC,"Hello world 2!");
+            }
+            $export(on_click_b1);
+            ]]>
+        </script>
+
+            <fl:group label="Hello world!" box="0,0,300,800" class="">
+                <!-- We can define a global script for this -->
+                <mixin name="btn-1" mixin="btn-2" box="150,40,80,80" />
+
+
+                <fl:button.toggle mixin="btn-1" base="parent" on.callback="on_click_b1"
+                    bg.colour="#ff0000"
+                    label.colour="#00ff00" bg.colour.selected="#00ffff" test="WW">
+                    <script lang="c++">
+                    <![CDATA[ 
+                    void on_click_c(){
+                        //app_debug("Hello world 2");
+                    }
+                    ]]>
+                </script>
+                </fl:button.toggle>
+                <fl:button kuku="dd" base="parent" name="ss" box="140,200,80,30"
+                    on.callback="on_click_a1"
+                    label="BTN3" tooltip="Bananae magicae!" label.align.pos="bottom-right">
+                    <script lang="c">
+                    <![CDATA[ 
+                    void on_click_c(){
+                        //app_debug("Hello world 2");
+                    }
+                    ]]>
+                </script>
+                </fl:button>
+                <fl:button base="parent" mixin="statusB" box="150,80,80,30" on.callback="callback"
+                    label="BTN5">
+                    <mixin name="statusA" label.colour="#123399" bg.colour="#9972a3" />
+                    <mixin name="statusB" label.colour="#229999" bg.colour="#99a372" />
+                    <script lang="c">
+                    <![CDATA[
+                    int i = 0;
+                    void callback(){
+                        if(i%2==0)$mixin("statusA");
+                        else $mixin("statusB");
+                        $log(0,"Hi there!");
+                        i++;
+                    }
+                    ]]>
+                </script>
+                </fl:button>
+            </fl:group>
+        </namespace>
+        <namespace type="wasm">
+
+        </namespace>
+        <namespace type="quickjs">
+
+        </namespace>
+        <namespace type="ext">
+
+        </namespace>
+    </fl:window>
+</app>

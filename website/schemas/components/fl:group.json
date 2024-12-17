@@ -1,0 +1,21 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Basic group element",
+  "exposed": true,
+  "type": "node",
+  "headers": ["FL/Fl_Group.H"],
+  "extends": "fl:base",
+  "codegen": { "extends": "ui<Fl_Group>" },
+  "fields": {
+    "box.clip": {
+      "type": "flag",
+      "description": "Define the clipping behaviour of this group.",
+      "setter": "w.clip_children(computed);"
+    },
+    "resizable": {
+      "type": "raw",
+      "description": "Set to ``, `self` or the name of a direct child",
+      "setter": "/*TODO*/"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Self hosted visual editor -->
+<app>
+    <use src="this://components/not-implemented.xml" />
+</app>

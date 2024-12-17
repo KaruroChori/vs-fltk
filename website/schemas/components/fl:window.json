@@ -1,0 +1,21 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Base element to a window",
+  "exposed": true,
+  "type": "node",
+  "headers": ["FL/Fl_Window.H", "FL/Fl_SVG_Image.H"],
+  "extends": "fl:base",
+  "codegen": { "extends": "ui<Fl_Window>" },
+  "fields": {
+    "border": {
+      "type": "flag",
+      "description": "True if using a border around",
+      "setter": "w.border(computed);"
+    },
+    "icon": {
+      "type": "string",
+      "description": "True if using a border around",
+      "setter": "w.icon(new Fl_SVG_Image(value));"
+    }
+  }
+}

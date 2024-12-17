@@ -1,0 +1,20 @@
+site_name: vs.fltk
+repo_url: https://github.com/karurochori/vs-fltk
+site_dir: dist/website
+docs_dir: docs
+
+theme:
+  name: readthedocs
+  custom_dir: ./
+  logo: commons/assets/logos/vs.light.svg
+markdown_extensions:
+  - admonition
+  - pymdownx.tilde
+  - pymdownx.tasklist
+  - sane_lists
+  - smarty
+  - toc:
+      permalink: "#"
+plugins:
+  - search
+  - gh-admonitions

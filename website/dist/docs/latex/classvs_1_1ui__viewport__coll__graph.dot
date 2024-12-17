@@ -1,0 +1,21 @@
+digraph "vs::ui_viewport"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="vs::ui_viewport",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [id="edge10_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="vs::ui\< Fl_Window \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$classvs_1_1ui.html",tooltip=" "];
+  Node3 -> Node2 [id="edge11_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="vs::ui_base",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$classvs_1_1ui__base.html",tooltip=" "];
+  Node4 -> Node3 [id="edge12_Node000003_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" local_frame",fontcolor="grey" ];
+  Node4 [id="Node000004",label="vs::frame",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$classvs_1_1frame.html",tooltip=" "];
+  Node4 -> Node4 [id="edge13_Node000004_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" parent",fontcolor="grey" ];
+  Node3 -> Node4 [id="edge14_Node000004_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" ui_node",fontcolor="grey" ];
+  Node5 -> Node4 [id="edge15_Node000004_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" custom_dispatcher",fontcolor="grey" ];
+  Node5 [id="Node000005",label="vs::symbol_t",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structvs_1_1symbol__t.html",tooltip=" "];
+  Node5 -> Node5 [id="edge16_Node000005_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" VOID",fontcolor="grey" ];
+  Node3 -> Node3 [id="edge17_Node000003_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" parent",fontcolor="grey" ];
+  Node3 -> Node1 [id="edge18_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" content\ncontent_fail\ncontent_loading",fontcolor="grey" ];
+}

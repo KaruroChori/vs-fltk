@@ -1,0 +1,10 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Grid container",
+  "exposed": true,
+  "type": "node",
+  "headers": ["FL/Fl_Grid.H"],
+  "extends": "fl:group",
+  "codegen": { "extends": "ui<Fl_Grid>" },
+  "fields": {}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app xmlns:fl="vs.fltk">
+    <fl:window box="0,0,320,240" label="Demo Counter (JS)">
+        <mixin name="+fl:button" bg.colour="#aa3300" label.colour="#99ee4f" />
+        <script lang="js">
+        <![CDATA[ 
+        var counter = 0;
+
+        function _update(){
+            $.$('main-text').prop("label",""+counter);
+        }
+
+        function on_add(){
+            counter++;
+            _update();
+        }
+
+        function on_dec(){
+            counter--;
+            _update();
+        }
+
+        $cb(on_add);
+        $cb(on_dec);
+        ]]>
+        </script>
+
+        <fl:label name="main-text" label="0" label.size="90" box="20,20,280,120" />
+        <fl:button label="Add" on.callback="on_add" box="20,160,80,50" />
+        <fl:button label="Remove" on.callback="on_dec" box="120,160,80,50" />
+        <fl:button label="Console" box="220,160,80,50">
+            <script lang="js">
+            <![CDATA[ 
+            function callback(){
+                $.log(0,"Hello world!");
+            }
+            ]]>
+            </script>
+        </fl:button>
+    </fl:window>
+</app>

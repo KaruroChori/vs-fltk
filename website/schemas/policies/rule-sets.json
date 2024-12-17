@@ -1,0 +1,11 @@
+{
+    "https://**/**":{
+        "networking":{
+            "allow-http": false,
+            "allow-https": true,
+            "allow-gemini": true
+        }
+    },
+    "#IDHERE":{},
+    "##IDHERE":{}
+}

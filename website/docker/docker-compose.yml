@@ -1,0 +1,41 @@
+services:
+  dev:
+    image: "${IMAGE:-ghcr.io/karurochori/vs-fltk:build-env}"
+    container_name: "${VS_NAME:-vs-fltk-env}"
+    entrypoint: "${ENTRYPOINT:-/entry-default.sh}"
+
+    # Only variables used within the container should be here
+    environment:
+      HOSTUID: $HOSTUID
+      HOSTGID: $HOSTGID
+      WORKSPACE: $WORKSPACE
+      VS_COMMONS_DIR: $WORKSPACE/build/commons/
+      VS_LOG_LEVEL: debug
+
+    volumes:
+      - ${PWD}:${WORKSPACE}
+      # Mount the entrypoint scripts inside the container
+      - ${PWD}/docker/entry-build.sh:/entry-build.sh
+      - ${PWD}/docker/entry-default.sh:/entry-default.sh
+    working_dir: ${WORKSPACE}
+    stdin_open: true # Allows interactive mode
+    tty: true # Allocate a pseudo-TTY
+
+  x11-dev:
+    extends: dev
+    environment:
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+
+# TODO: Someone using wayland and knowledge of docker is best suited
+# to complete this section
+# Ref issue: https://github.com/KaruroChori/vs-fltk/issues/42
+#
+#  wayland-dev:
+#    extends: dev
+#    environment:
+#      WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
+#    volumes:
+#      - /run/user/${HOSTID}/wayland:/run/user/${HOSTID}/wayland"

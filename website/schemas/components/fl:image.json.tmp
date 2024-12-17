@@ -1,0 +1,13 @@
+{
+    "$schema": "../../commons/schemas/json-component.schema.json",
+    "description": "Basic image element",
+    "usable": true,
+    "type": "leaf",
+    "headers": ["FL/Fl_Image.H"],
+    "extends": "fl:base",
+    "codegen": {"extends": "ui<Fl_Image>"},
+    "props":{
+    },
+    "computed":{
+    }
+}

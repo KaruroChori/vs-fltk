@@ -1,0 +1,15 @@
+<app xmlns:fl="vs.fltk">
+    <!--
+    Imports must be defined before usage at top level in the component or app.
+    -->
+    <import src="this://module-example-btn.xml" as="Test" />
+
+    <fl:window box="0,0,600,200" name="win-1">
+        <use src="this://module-example-btn.xml" />
+        <use src="this://module-example-btn.xml" box.x="100" />
+        <use src="this://module-example-btn.xml" box.x="200" />
+        <Test box.x="300" />
+        <Test box.x="400" />
+        <Test box.x="500" />
+    </fl:window>
+</app>

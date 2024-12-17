@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/KaruroChori/hash-library.git
+revision = HEAD
+depth = 1
+method = meson
+[provide]
+hashlib = hashlib_dep

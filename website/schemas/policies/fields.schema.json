@@ -1,0 +1,89 @@
+{
+    "networking":{
+        "allow-http": {
+            "type": "flag",
+            "safety": 0
+        },
+        "allow-https":{
+            "type": "flag",
+            "safety": 4,
+            "invert": false
+        },
+        "allow-gemini":{
+            "type": "flag",
+            "safety": 4,
+            "invert": false
+        }
+    },
+    "scripting":{
+        "allow-tcc": {
+            "type": "flag",
+            "safety": 0
+        },
+        "allow-quickjs": {
+            "type": "flag",
+            "safety": 2
+        },
+        "allow-lua": {
+            "type": "flag",
+            "safety": 2
+        },
+        "allow-luajit": {
+            "type": "flag",
+            "safety": 1
+        },
+        "allow-wamr": {
+            "type": "flag",
+            "safety": 3
+        },
+
+        "allow-native-components": {
+            "type": "flag",
+            "safety": 0
+        },
+        "allow-networking": {
+            "type": "flag",
+            "safety": 4
+        },
+        "allow-fs": {
+            "type": "flag",
+            "safety": 1
+        },
+        "allow-storage": {
+            "type": "flag",
+            "safety": 4
+        }
+    },
+
+    "themes":{
+        "allow":{
+            "type": "flag",
+            "safety": 4
+        },
+        "allow-draw-fn":{
+            "type": "flag",
+            "safety": 3
+        }
+    },
+
+    "allow-native-components": {
+        "type": "flag",
+        "safety": 0
+    },
+    "allow-notify": {
+        "type": "flag",
+        "safety": 3
+    },
+    "allow-caching": {
+        "type": "flag",
+        "safety": 3
+    },
+
+    "headless": {
+        "type": "flag",
+        "default": "false"
+    },
+    "verbosity":{
+        "type": {}
+    }
+}

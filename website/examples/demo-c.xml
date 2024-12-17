@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+All application entry points should start with `app`
+You can defined aliases for namespaces in here.  
+XML namespaces are not fully supported in general, just these three special cases:
+- `vs.fltk` for the fltk widgets, `fl` by default
+- `vs.templ` for the static templates, `s` by default
+- `vs.core` for core features, no prefix set by default.
+ -->
+<app xmlns:fl="vs.fltk">
+    <fl:window box="0,0,320,240" label="Demo Counter (C)">
+        <!-- 
+        Mixins allow you to reuse props as a baseline for multiple instances. 
+        In this case for all fl:buttons covered in this scope
+        -->
+        <mixin name="+fl:button" bg.colour="#aa3300" label.colour="#99ee4f" />
+
+        <!--
+        Instead of having a script for every single button, it is better to group their callbacks into one,
+        even more so when logically related.
+        -->
+        <script lang="c">
+        <![CDATA[ 
+        unsigned int counter = 0;
+
+        void _update(){
+            static char str_buf[32];
+            itoa(counter,str_buf,10);
+            $$prop($("main-text"),"label",str_buf);
+        }
+
+        void on_add(){
+            counter++;
+            _update();
+        }
+
+        void on_dec(){
+            counter--;
+            _update();
+        }
+
+        /* Register the previous functions as callbacks.
+         * Registration is needed to expose symbols outside a script.
+         * Each language has its own mechanisms to do that.
+         */
+        $cb(on_add);
+        $cb(on_dec);
+        ]]>
+        </script>
+
+        <fl:label name="main-text" label="0" label.size="90" box="20,20,280,120" />
+        <fl:button label="Add" on.callback="on_add" box="20,160,80,50" />
+        <fl:button label="Remove" on.callback="on_dec" box="120,160,80,50" />
+        <fl:button label="Console" box="220,160,80,50">
+            <script lang="c" compact="true">
+                //The compact form of a C script automatically wraps your code
+                //as the default callback. Not every language supports a compact form.
+                $log(LOG_LOG,"Hello world!");
+            </script>
+        </fl:button>
+    </fl:window>
+</app>

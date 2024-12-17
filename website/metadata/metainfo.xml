@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.karurochari.vs</id>
+
+    <name>vs</name>
+    <summary>Runtime for lightweight component based UIs</summary>
+
+    <metadata_license>CC-BY-SA-4.0</metadata_license>
+    <project_license>multiple, check docs</project_license>
+
+    <description>
+        <p>
+            Runtime for lightweight component based UIs
+        </p>
+    </description>
+
+    <launchable type="desktop-id">com.karurochari.vs.desktop</launchable>
+
+    <icon type="stock">com.karurochari.vs</icon>
+
+    <categories>
+        <category>Network</category>
+        <category>WebBrowser</category>
+    </categories>
+
+    <provides>
+        <binary>vs</binary>
+    </provides>
+</component>

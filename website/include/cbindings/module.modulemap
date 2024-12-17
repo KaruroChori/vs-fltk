@@ -1,0 +1,4 @@
+module vs {
+    header "vs.h"
+    export *
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <colors>
+        <color id="0">#66033</color>
+    </colors>
+    <frames>
+        <frame type="name" lang="svg">
+            <svg>
+                <!-- -->
+            </svg>
+        </frame>
+    </frames>
+</theme>

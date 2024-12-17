@@ -1,0 +1,13 @@
+<component xmlns:fl="vs.fltk" thin="true">
+    <fl:button label="Banana" box="0,0,100,100">
+        <!--
+        Module scripts are shared between multiple instances of the same component. 
+        This improves performance a lot, but can create some issues when using local variables. 
+        Learn more about this on the docs.
+        -->
+        <script type="module" compact="true" lang="c">
+            $prop("label","HELLO");
+            $log(LOG_INFO,"hello");
+        </script>
+    </fl:button>
+</component>

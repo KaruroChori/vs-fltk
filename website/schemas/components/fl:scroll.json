@@ -1,0 +1,10 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Scroll container",
+  "exposed": true,
+  "type": "node",
+  "headers": ["FL/Fl_Scroll.H"],
+  "extends": "fl:group",
+  "codegen": { "extends": "ui<Fl_Scroll>" },
+  "fields": {}
+}

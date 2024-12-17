@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app xmlns:fl="vs.fltk">
+    <fl:window box="0,0,320,240" label="Setter/Getters fields">
+        <mixin name="+fl:button" bg.colour="#aa3300" label.colour="#99ee4f" />
+        <script lang="c">
+        <![CDATA[ 
+
+        int setter(const char* value){
+            $log(LOG_LOG,"Setter");
+            return 0;
+        }
+
+        int getter(char** value){
+            $log(LOG_LOG,"Getter");
+            return 0;
+        }
+
+        void on_set(){
+            if($set("foo",0)!=0)$log(LOG_PANIC,"Setter failed");
+        }
+
+        void on_get(){
+            char* ptr = 0;
+            if($get("foo",ptr)!=0)$log(LOG_PANIC,"Getter failed");
+        }
+
+        $field{"foo",setter,getter};
+        $field{"foo2",setter,getter};
+        
+        $cb(on_set)
+        $cb(on_get)
+        ]]>
+        </script>
+
+        <fl:input name="main-text" label.size="90" box="20,20,280,120" />
+        <fl:button label="Set" on.callback="on_set" box="20,160,80,50" />
+        <fl:button label="Get" on.callback="on_get" box="120,160,80,50" />
+        <fl:button label="Console" box="220,160,80,50">
+            <script lang="c" compact="true">
+                $log(LOG_LOG,"Hello world!");
+            </script>
+        </fl:button>
+    </fl:window>
+</app>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    xmlns:fl="fl"
+>
+    <xs:import namespace="fl" schemaLocation="./fltk.xsd" />
+    <xs:include schemaLocation="./vs-components.xsd" />
+
+    <!--Helper
+    for all src-enabled tags-->
+    <xs:attributeGroup name="src-attr">
+        <xs:attribute name="src" type="xs:anyURI" />
+        <xs:attribute name="src.no-prefetch" type="xs:boolean" default="false" />
+        <xs:attribute name="src.cache-policy" default="session">
+            <xs:simpleType>
+                <xs:union>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="no-cache" />
+                            <xs:enumeration value="session" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer" />
+                    </xs:simpleType>
+                </xs:union>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--runtime
+        attributes src.cached and src.success are not considered as they will never be exported-->
+    </xs:attributeGroup>
+
+    <!--Helper
+    for script & script.import-->
+    <xs:complexType name="script-type">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attributeGroup ref="src-attr" />
+                <xs:attribute name="lang" type="xs:string" use="required" />
+                <xs:attribute name="name" type="xs:string" use="prohibited" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:group name="widget-body">
+        <xs:sequence>
+            <xs:element name="mixin" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="mixin" type="xs:string" />
+                    <xs:attribute name="name" type="xs:string" />
+                    <xs:anyAttribute processContents="skip" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="script.module" minOccurs="0" type="script-type" />
+            <xs:element name="script" minOccurs="0" type="script-type" />
+            <xs:element name="data" type="xs:string" minOccurs="0" maxOccurs="unbounded" /> <!--TODO-->
+        </xs:sequence>
+
+    </xs:group>
+
+    <xs:attributeGroup name="widget-attrs">
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="mixin" type="xs:string" />
+    </xs:attributeGroup>
+
+    <xs:group name="component-body">
+        <xs:sequence>
+            <xs:sequence>
+                <xs:element name="metadata" type="xs:string" minOccurs="0" /> <!--TODO-->
+                <xs:element name="policies" type="xs:string" minOccurs="0" /> <!--TODO-->
+                <xs:element name="import" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="mixins" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="script.global" type="xs:string" minOccurs="0" /> <!--TODO-->
+            </xs:sequence>
+            <xs:group ref="widget-body"></xs:group>
+        </xs:sequence>
+
+    </xs:group>
+
+    <xs:attributeGroup name="component-attrs">
+        <xs:attributeGroup ref="widget-attrs"></xs:attributeGroup>
+        <xs:anyAttribute processContents="skip" />
+    </xs:attributeGroup>
+
+    <xs:element name="app">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="theme" type="xs:string" minOccurs="0" /> <!--TODO-->
+                <xs:group ref="component-body"></xs:group>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:any namespace="fl"
+                        processContents="strict" />
+                    <xs:any namespace="##other"
+                        processContents="lax" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="zone" type="xs:hexBinary" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="component">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="component-body"></xs:group>
+                <xs:choice maxOccurs="unbounded"></xs:choice>
+
+            </xs:sequence>
+            <xs:attributeGroup ref="component-attrs"></xs:attributeGroup>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="use">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="on.load-failure" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                <xs:any namespace="fl"
+                                    processContents="strict" />
+                                <xs:any namespace="##other"
+                                    processContents="lax" />
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="inject" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                <xs:any namespace="fl"
+                                    processContents="strict" />
+                                <xs:any namespace="##other"
+                                    processContents="lax" />
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+
+            <xs:attributeGroup ref="src-attr" />
+            <xs:attributeGroup ref="widget-attrs"></xs:attributeGroup>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="slot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:any namespace="fl"
+                        processContents="strict" />
+                    <xs:any namespace="##other"
+                        processContents="lax" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"></xs:attribute>
+            <xs:attribute name="required" type="xs:boolean"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="debug">
+    </xs:element>
+
+</xs:schema> 

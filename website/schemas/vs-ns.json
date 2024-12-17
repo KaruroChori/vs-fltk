@@ -1,0 +1,18 @@
+{
+  "elements": [
+    "app",
+    "component",
+    "static-data",
+    "import",
+    "use",
+    "slot",
+    "viewport",
+    "data.",
+    "script",
+    "mixin",
+    "debug",
+    "namespace"
+  ],
+
+  "attributes": ["src.", "name", "frame.", "template", "mixins"]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app auth.token="DEADBEEF-DEADBEEF-DEADBEEF-DEADBEEF-DEADBEEF-DEADBEEF-DEADBEEF-DEADBEEF" xmlns:vs="schema">
+    <import src="component-1.xml" as="banana"/> 
+    <import src="this://component-2.xml" as="component-2"><vs:text>Cannot import</vs:text></import>
+    <import src="component-3.xml" src.no-cache="true"/>
+
+    <banana/>
+    <component-2></component-2>
+    <use src="component-1.xml"/>
+</app>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app xmlns:s="staticbuilder">
+    <w>
+        <a>sss<![CDATA[ sss!]]>
+            <![CDATA[ sss!]]>
+            <b>ee</b>ww</a>
+        <s:for-range tag="x" from="0" to="2">
+            <s:for-range tag="y" from="0" to="2">
+                <item>hello<s:value src="{x}" /><s:value src="{y}" /></item>
+                <porc>ciao<s:eval>y</s:eval></porc>
+            </s:for-range>
+        </s:for-range>
+    </w>
+    <s:for tag="window" in="/windows/">
+        <s:empty>Empty Hello world!<b>hello</b></s:empty>
+
+        <s:empty>Empty Hello world!<b>hello</b></s:empty>
+        <s:header>
+        Head</s:header>wwww <s:item>
+
+            <window s:value.src.label="{window}/name/">
+                <s:value src="{window}/label/">NO VALUE</s:value>
+                <s:element vania="noaj" s:type="{window}/name/">Hello world</s:element>
+
+                <s:for tag="button" in="$/buttons/" limit="0" offset="0" sort-by="$~text,$~vault">
+                    <s:empty>Empty Hello world!<b>hello</b></s:empty>
+                    <s:item>
+                        <s:value
+                            src="{wew}/s/s/">NO VALUE</s:value>
+                        Q:<s:value src="{button}~text">NO VALUE</s:value>:<s:value src="{button}~vault"/>,
+                        <button s:value.src.label="$~text" />
+                    </s:item>
+                </s:for>
+            </window>
+
+        </s:item>
+        not seen <s:footer>
+            Foot</s:footer>
+        <s:error>Oh no, I failed you</s:error>
+    </s:for>
+    <s:when subject="#hello">
+        <s:is value="#hello">TROVATO!</s:is>
+    </s:when>
+</app>

@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/quickjs-ng/quickjs.git
+revision = HEAD
+depth = 1
+method = cmake
+#patch_directory = quickjs
+[provide]
+quickjs = quickjs_dep

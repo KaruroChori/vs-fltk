@@ -1,0 +1,60 @@
+\doxysection{resources.\+hpp}
+\hypertarget{resources_8hpp_source}{}\label{resources_8hpp_source}\index{include/utils/resources.hpp@{include/utils/resources.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }res\{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//TODO:\ Move\ script\_t/component\_t\ and\ possibly\ more\ somewhere\ else}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum\ struct}\ script\_t\{}
+\DoxyCodeLine{00012\ \ \ \ \ NONE,}
+\DoxyCodeLine{00013\ \ \ \ \ C,}
+\DoxyCodeLine{00014\ \ \ \ \ JS}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum\ struct}\ component\_t\{}
+\DoxyCodeLine{00018\ \ \ \ \ NONE,}
+\DoxyCodeLine{00019\ \ \ \ \ VS,}
+\DoxyCodeLine{00020\ \ \ \ \ XML,}
+\DoxyCodeLine{00021\ \ \ \ \ LIB,}
+\DoxyCodeLine{00022\ \ \ \ \ WASM,}
+\DoxyCodeLine{00023\ \ \ \ \ RISCV,}
+\DoxyCodeLine{00024\ \ \ \ \ CNATIVE,}
+\DoxyCodeLine{00025\ \ \ \ \ MARKDOWN,}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ component\_t\ component\_t\_i(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ t);}
+\DoxyCodeLine{00028\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ component\_t\_s(component\_t\ t)\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}(t==component\_t::NONE)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::VS)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.vs"{}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::XML)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.xml"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::LIB)\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO:Add\ arch\ fragment?}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#\ \ \ if\ defined(\_\_linux\_\_)}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.so"{}};}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#\ \ \ elif\ defined(\_WIN32)\ ||\ defined(\_WIN64)}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.dll"{}};}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#\ \ \ elif\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.dylib"{}};}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::WASM)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.wasm"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::RISCV)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.riscv"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::CNATIVE)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.c"{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(t==component\_t::MARKDOWN)\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}.md"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ std::pair<bool,component\_t>\ next\_component\_attempt(std::pair<bool,component\_t>);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}

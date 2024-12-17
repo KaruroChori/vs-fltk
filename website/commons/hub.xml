@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hub for users with recent activities, configs and search engine -->
+<app>
+    <use src="this://components/not-implemented.xml" />
+</app>

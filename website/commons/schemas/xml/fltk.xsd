@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="fl"
+    elementFormDefault="qualified">
+
+    <xs:element name="window">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:any namespace="##any"
+                    processContents="strict" />
+            </xs:choice>
+            <xs:attribute name="banana" type="xs:string" use="required"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema> 

@@ -1,0 +1,54 @@
+\doxysection{component.\+h}
+\hypertarget{component_8h_source}{}\label{component_8h_source}\index{include/cbindings/component.h@{include/cbindings/component.h}}
+\mbox{\hyperlink{component_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstring__view}{string\_view}}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{char}*\ data;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{size\_t}*\ size;}
+\DoxyCodeLine{00019\ \}\ \mbox{\hyperlink{structstring__view}{string\_view}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structversion__t}{version\_t}}\{}
+\DoxyCodeLine{00022\ \ \ \ \ uint64\_t\ major\ :\ 16;}
+\DoxyCodeLine{00023\ \ \ \ \ uint32\_t\ minor\ :\ 16;}
+\DoxyCodeLine{00024\ \ \ \ \ uint32\_t\ rev\ \ \ :\ 16;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{enum}\ tag\_t\ :\ uint32\_t\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ ALPHA,\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ BETA,\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ RC,\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ STABLE,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ DEPRECATED,\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ UNSUPPORTED}
+\DoxyCodeLine{00032\ \ \ \ \ \}tag\ :\ 16;}
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{structversion__t}{version\_t}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ bool\_t\{}
+\DoxyCodeLine{00036\ \ \ \ \ VS\_OP\_UNSUPPORTED\ =\ -\/1,}
+\DoxyCodeLine{00037\ \ \ \ \ VS\_OP\_TRUE\ =\ 0,}
+\DoxyCodeLine{00038\ \ \ \ \ VS\_OP\_FALSE\ =\ 1}
+\DoxyCodeLine{00039\ \}\ bool\_t;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstring__view}{string\_view}}\ vs\_component\_\_name();}
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structversion__t}{version\_t}}\ vs\_component\_\_version();}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ bool\_t\ vs\_runtime\_\_check(\mbox{\hyperlink{structversion__t}{version\_t}}\ runtime\_version);}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structversion__t}{version\_t}}\ vs\_runtime\_\_version();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//TODO:\ WIP\ of\ specs}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ bool\_t\ vs\_component\_\_iterate\_slots(bool\_t(*fn)(\textcolor{keyword}{const}\ \mbox{\hyperlink{structstring__view}{string\_view}}\ str));}
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ bool\_t\ vs\_component\_\_register\_slot(\textcolor{keyword}{const}\ \mbox{\hyperlink{structstring__view}{string\_view}}\ name,\ \textcolor{keyword}{const}\ vs\_ui\_tree*\ child);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_serialize();}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_deserialize();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_set\_prop();}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_get\_computed();}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_set();}
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ bool\_t\ \ vs\_component\_\_get();}
+
+\end{DoxyCode}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Self hosted visual editor -->
+<component xmlns:fl="vs.fltk">
+    <fl:window label="vs-fltk" box="0,0,640,240">
+        <fl:label name="main-text" label="Feature not Implemented" label.size="45" box="20,20,600,200" />
+    </fl:window>
+</component>

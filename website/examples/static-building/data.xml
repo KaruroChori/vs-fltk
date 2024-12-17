@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<windows>
+    <item>
+        <name>Title_A</name>
+        <label>
+            <button label="Hello_World" />
+        </label>
+        <buttons>
+            <item text="Text 2" >5</item>
+            <item text="Text 1" vault="21" >3</item>
+            <item text="Text 1" vault="10">3</item>
+            <item text="Text 10" >3</item>
+            <item text="Text 3" >2</item>
+            <item text="Text 0" >1</item>
+        </buttons>
+    </item>
+    <item>
+
+    </item>
+    <serto></serto>
+</windows>

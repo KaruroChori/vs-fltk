@@ -1,0 +1,160 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Base element to provide basic props/computed for all those which are derived from `fltk_widget`",
+  "exposed": false,
+  "type": "node",
+  "headers": ["FL/Fl_Group.H"],
+  "codegen": { "extends": "ui<Fl_Group>" },
+  "skip_fields": ["name", "frame.*", "xsml", "xsml:*"],
+  "fields": {
+    "mixin": {
+      "type": "string",
+      "description": "Apply mixins to this object",
+      "setter": "that->refresh_style(value);"
+    },
+    "label": {
+      "type": "string",
+      "alias": ["label.txt"],
+      "setter": "w.copy_label(value);"
+    },
+    "label.align.pos": {
+      "type": "raw",
+      "subtype": "fl_align_pos",
+      "setter": "int t=field_types::fl_align_pos_i(value);if((ok=(t!=-1)))w.align((w.align()&(!FL_ALIGN_POSITION_MASK))|t);"
+    },
+    "label.align.img": {
+      "type": "raw",
+      "subtype": "fl_align_image",
+      "setter": "int t=field_types::fl_align_image_i(value);if((ok=(t!=-1)))w.align((w.align()&(!FL_ALIGN_IMAGE_MASK))|t);"
+    },
+    "label.align.wrap": {
+      "type": "raw",
+      "subtype": "fl_align_wrap",
+      "setter": "int t=field_types::fl_align_wrap_i(value);if((ok=(t!=-1)))w.align((w.align()&(!FL_ALIGN_WRAP))|t);"
+    },
+    "label.align.clip": {
+      "type": "raw",
+      "subtype": "fl_align_clip",
+      "setter": "int t=field_types::fl_align_clip_i(value);if((ok=(t!=-1)))w.align((w.align()&(!FL_ALIGN_CLIP))|t);"
+    },
+    "label.align.inside": {
+      "type": "raw",
+      "subtype": "fl_align_inside",
+      "setter": "int t=field_types::fl_align_inside_i(value);if((ok=(t!=-1)))w.align((w.align()&(!FL_ALIGN_INSIDE))|t);"
+    },
+    "label.size": {
+      "type": "raw",
+      "description": "A simple integer value to determine the font size, or 'default' to set the default one.",
+      "setter": "if(strcmp(value,\"default\")==0){w.labelsize(FL_NORMAL_SIZE);}else{size_t size; if((ok=field_types::h_px(1,&size,value,that))) w.labelsize(size);}"
+    },
+    "label.colour": {
+      "type": "color",
+      "alias": ["label.color"],
+      "setter": "w.labelcolor(computed);"
+    },
+    "label.margin": {
+      "type": "scalar-2",
+      "description": "Horizontal and vertical margins for the label.",
+      "setter": "w.horizontal_label_margin(computed[0]); w.vertical_label_margin(computed[1]);"
+    },
+    "label.margin.x": {
+      "type": "scalar-1",
+      "description": "Horizontal margin for the label.",
+      "setter": "w.horizontal_label_margin(computed[0]);"
+    },
+    "label.margin.y": {
+      "type": "scalar-1",
+      "description": "Vertical margin for the label.",
+      "setter": "w.vertical_label_margin(computed[0]);"
+    },
+    "tooltip": {
+      "type": "string",
+      "alias": ["tooltip.txt"],
+      "setter": "w.copy_tooltip(value);"
+    },
+    "box": {
+      "type": "scalar-4",
+      "description": "Origin offset (0,1) and size (2,3) for the box.",
+      "setter": "w.position(computed[0],computed[1]);w.size(computed[2],computed[3]);",
+      "getter": "/*TODO size()*/"
+    },
+    "box.x": {
+      "type": "scalar-1",
+      "setter": "w.position(computed[0], w.y());"
+    },
+    "box.y": {
+      "type": "scalar-1",
+      "setter": "w.position(w.x(), computed[0]);"
+    },
+    "box.w": {
+      "type": "scalar-1",
+      "alias": ["box.width"],
+      "setter": "w.size(computed[0], w.h());"
+    },
+    "box.h": {
+      "type": "scalar-1",
+      "alias": ["box.height"],
+      "setter": "w.size(w.w(), computed[0]);"
+    },
+    "box.style": {
+      "type": "raw",
+      "subtype": "fl_boxtype",
+      "setter": "w.box(field_types::fl_boxtype_i(value));"
+    },
+    "box.fixed": {
+      "type": "flag",
+      "description": "If this widget is child of a container like flex, set its box size as fixed",
+      "setter": "/*TODO*/"
+    },
+    "bg.colour": {
+      "type": "color",
+      "alias": ["bg.color"],
+      "description": "Colour for both relaxed and selected states",
+      "setter": "w.color(computed);w.selection_color(computed);"
+    },
+    "bg.colour.relaxed": {
+      "type": "color",
+      "alias": ["bg.color.relaxed"],
+      "description": "Colour for the relaxed state",
+      "setter": "w.color(computed);"
+    },
+    "bg.colour.selected": {
+      "type": "color",
+      "alias": ["bg.color.selected"],
+      "description": "Colour for the selected state",
+      "setter": "w.selection_color(computed);"
+    },
+    "active": {
+      "type": "flag",
+      "description": "If true set active (default).",
+      "setter": "if(computed)w.activate();else w.deactivate();",
+      "getter": "/*TODO active()*/"
+    },
+    "active.recursive": {
+      "type": "flag",
+      "description": "Get back the actual box of the widget",
+      "getter": "/*TODO active_t()*/"
+    },
+    "show": {
+      "type": "flag",
+      "description": "If true the widget is shown (default).",
+      "setter": "if(computed)w.show();else w.hide();"
+    },
+    "on.callback": {
+      "type": "raw",
+      "subtype": "$symbol",
+      "description": "Empty string to unset.",
+      "setter": "if(strcmp(value,\"\")==0)w.callback((Fl_Callback*)nullptr);else{auto result = that->resolve_symbol(value, true);if(result.symbol.symbol==nullptr){vs_log(severety_t::CONTINUE,that,\"Unable to find symbol `%s` for callback.\",value);}else{ui_callback_t* payload = new ui_callback_t();payload->caller=that;payload->sym=result;w.callback(ui_callback_handler,payload,true);}}"
+    },
+    "visible": {
+      "type": "flag",
+      "description": "Get back the actual box of the widget",
+      "getter": "/*TODO visible()*/"
+    },
+    "visible.recursive": {
+      "type": "flag",
+      "description": "Get back the actual box of the widget",
+      "getter": "/*TODO visible.r()*/"
+    }
+  }
+}

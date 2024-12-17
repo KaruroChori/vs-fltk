@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Default profile for `vs`. This one is copied by default in your home during the first
+configuration -->
+<vs-profile display-name="" version="1.0">
+    <runtime>
+        <logging verbosity="" file=""></logging>
+        <initial-scene src="app://commons/hub.xml"/>
+        <base-theme src="default"/>
+        <parsing mode="fast" max-threads="8">
+        </parsing>
+    </runtime>
+    <policies>
+        <group name="test-1">
+            <allow.native></allow.native>
+            <allow.quickjs></allow.quickjs>
+            <allow.wasm></allow.wasm>
+            <allow.networking></allow.networking>
+            <allow.fs></allow.fs>
+            <allow.notify></allow.notify>
+            <allow.storage>
+                <limits size=""></limits>
+            </allow.storage>
+
+            <cache.components></cache.components>
+            <cache.resources></cache.resources>
+
+            <theme></theme>
+        </group>
+
+        <domain extends="test-1">
+            <matches>
+                <glob>file://</glob>
+                <glob>https://</glob>
+                <glob>http://</glob>
+            </matches>
+            <excludes></excludes>
+        </domain>
+
+        <app id="" extends="test-1">
+            <allow.native></allow.native>
+            <allow.quickjs></allow.quickjs>
+            <allow.wasm></allow.wasm>
+        </app>
+        <app.default extends="test-1"></app.default>
+    </policies>
+</vs-profile>

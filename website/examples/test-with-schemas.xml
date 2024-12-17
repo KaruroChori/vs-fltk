@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://github.com/KaruroChori/vs-fltk/blob/master/commons/schemas/xml/vs.xsd"?>
+<app xmlns:fl="fl" xmlns:ww="ww">
+    <theme></theme>
+    <mixins></mixins>
+    <script.global></script.global>
+
+    <mixin help="s" name="ss" mixin="s,e,w"></mixin>
+    <script.module lang=""></script.module>
+    <script src="ss" src.cache-policy="no-cache" lang="c">
+        <![CDATA[ Hello ]]>
+        sss
+    <![CDATA[ Hello ]]>
+    </script>
+    <fl:window banana="">
+        <use>
+            <on.load-failure>
+                <fl:window banana=""></fl:window>
+            </on.load-failure>
+        </use>
+        <use></use>
+    </fl:window>
+    <fl:window banana=""></fl:window>
+    <ww:ww></ww:ww>
+
+</app>

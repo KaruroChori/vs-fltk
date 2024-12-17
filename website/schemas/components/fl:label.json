@@ -1,0 +1,10 @@
+{
+  "$schema": "../../commons/schemas/json-component.schema.json",
+  "description": "Label element to a window",
+  "exposed": true,
+  "type": "leaf",
+  "headers": ["FL/Fl_Box.H"],
+  "extends": "fl:base",
+  "codegen": { "extends": "ui<Fl_Box>" },
+  "fields": {}
+}
