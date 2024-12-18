@@ -64,7 +64,7 @@ std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::
     auto script = std::make_shared<tcc>();
 
     //This part is a bit of a mess.
-    //Without libc.so and libtcc1.a (not sure which) dynamic linking is not working as expected. I would really like to remove the libc dependency.
+    // I would really like to remove the libc dependency.
 
     script->set_error_fn(ctx,error_fn);
     script->set_opts("-nostdlib"); //-fno-builtin
@@ -76,31 +76,38 @@ std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::
     //- The location where it s headers are placed.
     //- The path for bindings shall be computed as absolute based on VS_SHARE or whatever it is called.
 
-    //script->add_lib_path("/usr/lib/x86_64-linux-gnu/"); //I dont' want to hardcode this one.
-    //script->add_lib_path("./subprojects/libtcc");
+    //script->add_lib_path("/usr/lib/x86_64-linux-gnu/"); //TODO: set it via a macro passed by meson.
 
-    script->set_out_type(tcc::memory);
 
+    script->add_lib_path((globals.path_env.root.location+"./bindings/native/tcc/lib").c_str());
     script->add_sysinclude_path((globals.path_env.root.location+"./bindings/native/tcc/include").c_str());
+    
     script->add_include_path((globals.path_env.root.location+"./bindings/native/include").c_str());
     
-    //script->add_lib("ld");
+    //script->add_lib("dl");
     //script->add_lib("tcc1");
     //script->add_lib("c");
 
+    script->set_out_type(tcc::memory);
 
-    /*if(link_with!=nullptr){
-        //TODO: Split in the last "/" position. Left is path for include and libraries to link, the remaining tag is the name it has.
-        std::string link_header=(std::string(link_with));
-        link_header.append(".h");
-        std::string link_lib=(std::string(link_with));
-        script->add_lib_path("/home/checkroom/Documents/projects/vs-fltk/examples/native-app/");
-        script->add_include_path("/home/checkroom/Documents/projects/vs-fltk/examples/native-app/");
-        script->add_lib("app");
-    }*/
+    if(link_with.header!=nullptr){
+        {
+            std::string h = link_with.header;
+            auto const pos = h.find_last_of('/');
+            std::string path = h.substr(0,pos );
+            std::string file = h.substr(pos + 1);
+            script->add_include_path(path.c_str());
+        }
+    }
 
+    /*
+    if(link_with.lib!=nullptr){
+        script->add_lib_path("/");
+        script->add_lib(link_with.lib);
+    }
+    */
+    
     // Custom symbol
-    //script->add_sym("vs_self", (void *)obj==0?(void*)-1:obj);  //Needed as obj nullptr would remove the symbol for some stupid reason.
     script->add_sym("vs_debug", (void *)vs_debug);
     script->add_sym("vs_log", (void *)vs_log);
     script->add_sym("vs_resolve_name", (void *)+[](ui_base* w,const char* s){if(w==nullptr)return (const ui_base*)nullptr;return  w->resolve_name(s, true); });

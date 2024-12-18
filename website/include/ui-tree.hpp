@@ -1,6 +1,7 @@
 #pragma once
 
 #include "globals.hpp"
+#include "pipelines/commons.hpp"
 #include "ui-frame.hpp"
 #include <ui.hpp>
 #include <cache/commons.hpp>
@@ -15,21 +16,23 @@ struct ui_tree {
   //Define the embedded mode supported.
   frame_mode_t mode = frame_mode_t::AUTO;
 
-  global_ctx_t& globals;            //Just for book-keeping
+  //Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.
+  global_ctx_t* globals;           
+  //Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.
+  pipelines::link_with_t link_with = {nullptr, nullptr};
 
   ui_tree* parent = nullptr;        //Set if there is an explict owner of this root, for example a viewport/app.
   ui_base* caller_ui_node=nullptr;  //Element from a parent tree calling me
   ui_base* root = nullptr;          //Base element of this tree
 
   policies_t policies;              //Computed policies for this tree
-  scoped_rpath_t local;             //Full path for the location of this component.
-  scoped_rpath_t fullname;          //Full path for the location of this component.
+  scoped_rpath_t local;             //Full path for the location of this component. Redundant but used to make some operations faster.
+  scoped_rpath_t fullname;          //Full path with name for the location of this component.
   size_t local_unique_counter = 0;
 
   // Globals
-  std::string basename;
-  std::map<std::string, std::string, std::less<>> modules;
-  // TODO Add policies
+  std::map<std::string,std::string> imports;
+
   std::map<std::string, std::string, std::less<>> props_from_above;
   std::map<std::string, ui<> *, std::less<>> slots_from_above;
 
@@ -48,7 +51,17 @@ struct ui_tree {
   virtual void cleanup();
   virtual int runtime_testsuite();
 
-  inline ui_tree(global_ctx_t& g, ui_tree* parent, ui_base* caller_ui_node):globals(g){this->parent=parent;this->caller_ui_node=caller_ui_node;}
+  virtual int build() = 0;
+  virtual int load(const char* file, type_t type) = 0;
+
+  inline ui_tree(ui_tree* parent, ui_base* caller_ui_node){
+    this->parent=parent;
+    if(parent!=nullptr){
+      link_with=parent->link_with;
+      globals=parent->globals;
+    }
+    this->caller_ui_node=caller_ui_node;
+  }
 
 };
 

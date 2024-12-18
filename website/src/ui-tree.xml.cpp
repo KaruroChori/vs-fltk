@@ -93,11 +93,11 @@ int ui_tree_xml::load(const char* file, type_t type)
 {
   //TODO: As part of this process, policies should be aligned with what defined in the base config, 
   //and not just one single set of options, so that we can pattern match paths.
-  policies.inherit(globals.env.computed_policies);
+  policies.inherit(globals->env.computed_policies);
   if(parent!=nullptr)policies.inherit(parent->policies);
 
-  resolve_path resolver(policies,globals.path_env,(parent==nullptr)?globals.path_env.cwd:parent->local);
-  auto buffer = fetcher(globals,resolver,resolve_path::from_t::NATIVE_CODE,file);
+  resolve_path resolver(policies,globals->path_env,(parent==nullptr)?globals->path_env.cwd:parent->local);
+  auto buffer = fetcher(*globals,resolver,resolve_path::from_t::NATIVE_CODE,file);
 
   if(std::get<0>(buffer)==resolve_path::reason_t::OK){
     this->local=std::get<2>(buffer).base_dir();
@@ -145,9 +145,9 @@ int ui_tree_xml::load(const char* file, type_t type)
         pugi::xml_document datadoc;
         auto tplt = root_data.attribute("template");  //TODO: Adapt to use the proper syntax. I cannot remember which one was it
 
-        resolve_path resolver(policies,globals.path_env,this->local);
+        resolve_path resolver(policies,globals->path_env,this->local);
 
-        auto buffer = fetcher(globals,resolver,resolve_path::from_t::NATIVE_CODE,tplt.as_string());
+        auto buffer = fetcher(*globals,resolver,resolve_path::from_t::NATIVE_CODE,tplt.as_string());
         if(std::get<0>(buffer)!=resolve_path::reason_t::OK){
           //TODO: error handling
           return 2;
@@ -200,6 +200,30 @@ int ui_tree_xml::build(){
       //cache_ctx.computed_key = key256compose(token, cache_ctx.computed_key);
       tmp_app->local_env.page_tag = xml_root.attribute("page").as_string("");
     }
+
+    link_with = {
+        doc.first_child().attribute("link-with.lib").as_string(nullptr),
+        doc.first_child().attribute("link-with.header").as_string(nullptr)
+    };
+
+    std::string tmp_link_lib, tmp_link_header;
+    if(link_with.lib!=nullptr && link_with.header!=nullptr){
+      resolve_path resolver(policies,globals->path_env,local);
+      auto computed_path_lib = resolver(resolve_path::from_t::NATIVE_CODE,link_with.lib);
+      auto computed_path_header = resolver(resolve_path::from_t::NATIVE_CODE,link_with.header);
+      if(computed_path_lib.first==resolve_path::reason_t::OK  && computed_path_header.first==resolve_path::reason_t::OK){
+        //TODO: For now I am assuming it is on the fs. I should resolve it to tmp if remote for example
+        //The issue is tcc capabilities in handling dynamic linking from a buffer sourced from memory.
+        //This is why for now it will only be assumed to be on the fs.
+        //Hopefully this restriction will never apply to native components for example.
+        tmp_link_lib=computed_path_lib.second.location;
+        tmp_link_header=computed_path_header.second.location;
+        link_with.lib = tmp_link_lib.c_str();
+        link_with.header = tmp_link_header.c_str();
+        log(severety_t::INFO, root, "Requested linking with `%s`", link_with);
+      }
+    }
+
   }
   else if(type==type_t::COMPONENT && (!autoprune || !thin)){
     base = thin?(ui_base*)new ui_root_thin_component(frame_mode_t::AUTO):(ui_base*)new ui_root_component(frame_mode_t::AUTO);
@@ -231,7 +255,7 @@ void ui_tree_xml::_build(const pugi::xml_node& root, ui_base* root_ui){
     }
     else{
       log(severety_t::INFO,root,"Loading component %s", src.as_string()); //TODO: How is it possible that this shows file:// in place of the actual one?
-      ui_tree_xml component_tree(globals,this,root_ui,&root); 
+      ui_tree_xml component_tree(this,root_ui,&root); 
       if(component_tree.load(src.as_string(),type_t::COMPONENT)!=0){
         log(severety_t::INFO,root,"Loading failed, file cannot be opened %s", src);
       }
@@ -343,7 +367,7 @@ void ui_tree_xml::_build(const pugi::xml_node& root, ui_base* root_ui){
   else if(imports.contains(root.name())){
     auto it = imports.find(root.name());
     log(severety_t::INFO,root,"Loading component %s", it->second.c_str()); //TODO: How is it possible that this shows file:// in place of the actual one?
-    ui_tree_xml component_tree(globals,this,root_ui,&root); 
+    ui_tree_xml component_tree(this,root_ui,&root); 
     if(component_tree.load(it->second.c_str(),type_t::COMPONENT)!=0){
       log(severety_t::INFO,root,"Loading failed, file cannot be opened %s", it->second.c_str());
     }
@@ -406,7 +430,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         is_module=true;
         auto filename = this->fullname.as_string();
 
-        auto found = globals.mem_storage.get({filename.c_str(),this->local_unique_counter+1,cache::resource_t::SCRIPT});
+        auto found = globals->mem_storage.get({filename.c_str(),this->local_unique_counter+1,cache::resource_t::SCRIPT});
         if(found!=nullptr){
           current->set_mode(((cache::script_t*)found->ref.get())->mode);
           current->attach_script(((cache::script_t*)found->ref.get())->script,is_module);
@@ -420,29 +444,6 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         //They can be used to write code which is much more compact.
       }
 
-      //Information for linking
-      pipelines::link_with_t link_with = {
-        doc.first_child().attribute("link-with.lib").as_string(nullptr),
-        doc.first_child().attribute("link-with.header").as_string(nullptr)
-      };
-
-      std::string tmp_link_lib, tmp_link_header;
-      if(link_with.lib!=nullptr && link_with.header!=nullptr){
-        resolve_path resolver(policies,globals.path_env,local);
-        auto computed_path_lib = resolver(resolve_path::from_t::NATIVE_CODE,link_with.lib);
-        auto computed_path_header = resolver(resolve_path::from_t::NATIVE_CODE,link_with.header);
-        if(computed_path_lib.first==resolve_path::reason_t::OK  && computed_path_header.first==resolve_path::reason_t::OK){
-          //TODO: For now I am assuming it is on the fs. I should resolve it to tmp if remote for example
-          //The issue is tcc capabilities in handling dynamic linking from a buffer sourced from memory.
-          //This is why for now it will only be assumed to be on the fs.
-          //Hopefully this restriction will never apply to native components for example.
-          tmp_link_lib=computed_path_lib.second.location;
-          tmp_link_header=computed_path_header.second.location;
-          link_with.lib = tmp_link_lib.c_str();
-          link_with.header = tmp_link_header.c_str();
-          log(severety_t::INFO, root, "Requested linking with `%s`", link_with);
-        }
-      }
 
       auto mode =current->get_local_frame()->get_mode();
 
@@ -450,7 +451,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::NATIVE?"c":"");
         if (strcmp(lang, "c") == 0) {
           #ifdef VS_USE_TCC
-          auto compiler = pipelines::tcc_c_pipeline_xml(globals,true, is_module?nullptr:current, root, compact, link_with);
+          auto compiler = pipelines::tcc_c_pipeline_xml(*globals,true, is_module?nullptr:current, root, compact, link_with);
           if(compiler!=nullptr){
             current->set_mode(frame_mode_t::NATIVE);
             current->attach_script(compiler,is_module);
@@ -460,7 +461,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
               auto tmp = std::make_shared<cache::script_t>(cache::script_t{
                 compiler, symbols, frame_mode_t::NATIVE
               });
-              globals.mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::C);
+              globals->mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::C);
               local_unique_counter++;
             }
           }
@@ -472,7 +473,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::QUICKJS?"js":"");
         if (strcmp(lang, "js") == 0) {
           #ifdef VS_USE_QJS
-          auto compiler = pipelines::qjs_js_pipeline_xml(globals,true, is_module?nullptr:current, root, link_with);
+          auto compiler = pipelines::qjs_js_pipeline_xml(*globals,true, is_module?nullptr:current, root, link_with);
             if(compiler!=nullptr){
               current->set_mode(frame_mode_t::QUICKJS);
               current->attach_script(compiler,is_module);
@@ -482,7 +483,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
                 auto tmp = std::make_shared<cache::script_t>(cache::script_t{
                   compiler, symbols, frame_mode_t::QUICKJS
                 });
-                globals.mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::JS);
+                globals->mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::JS);
                 local_unique_counter++;
               }
             }

@@ -34,44 +34,40 @@
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \ \ \ \ pugi::xml\_document\ doc;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Handle\ of\ the\ xml\ parser}}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ std::map<std::string,std::string>\ imports;}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{template}\ <std::derived\_from<ui\_base>\ T>}
+\DoxyCodeLine{00035\ \ \ \ \ T\ *build\_base\_widget(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *\ root\_ui\ =\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_namespace(namespaces\_t\ n,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prefix)\{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(n==namespaces\_t::vs)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.vs=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.vs=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(n==namespaces\_t::fltk)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.fltk=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.fltk=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(n==namespaces\_t::s)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.s=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.s=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
-\DoxyCodeLine{00042\ \ \ \ \ \}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{template}\ <std::derived\_from<ui\_base>\ T>}
-\DoxyCodeLine{00045\ \ \ \ \ T\ *build\_base\_widget(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *\ root\_ui\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \_build\_base\_widget\_extended\_attr(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *\ current);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \_build(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *root\_ui\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_namespace(namespaces\_t\ n,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prefix)\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(n==namespaces\_t::vs)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.vs=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.vs=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(n==namespaces\_t::fltk)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.fltk=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.fltk=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(n==namespaces\_t::s)\{\textcolor{keywordflow}{if}(prefix[0]==0)ns.s=\textcolor{stringliteral}{"{}"{}};\textcolor{keywordflow}{else}\ ns.s=std::string(prefix)+\textcolor{stringliteral}{"{}:"{}};\}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \_build\_base\_widget\_extended\_attr(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *\ current);}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \_build(\textcolor{keyword}{const}\ pugi::xml\_node\ \&root,\ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\ *root\_ui\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ build()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ load(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ type\_t\ type)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ build();}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ load(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ type\_t\ type);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structvs_1_1ui__tree__xml}{ui\_tree\_xml}}(\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\_ctx\_t}}\&\ g,\ \mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}*\ parent,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ caller\_ui\_node,\ \textcolor{keyword}{const}\ pugi::xml\_node*\ caller\_xml\_node):\mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}(g,parent,caller\_ui\_node)\{this-\/>caller\_xml\_node=caller\_xml\_node;\}}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structvs_1_1ui__tree__xml}{\string~ui\_tree\_xml}}();}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cleanup();}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ runtime\_testsuite()\{\textcolor{keywordflow}{if}(this-\/>root!=\textcolor{keyword}{nullptr})\textcolor{keywordflow}{return}\ this-\/>root-\/>all\_tests();\textcolor{keywordflow}{return}\ 0;\}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Logging}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ FILE\ *log\_device\ =\ stdout;}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ log(\textcolor{keywordtype}{int}\ severety,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\_ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,\ ...);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}...\ Args>}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ log(\textcolor{keywordtype}{int}\ \ severety,\ \textcolor{keyword}{const}\ pugi::xml\_node\ \&ctx,}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,\ Args...\ args)\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ log(severety,\ \&ctx,\ str,\ args...);}
-\DoxyCodeLine{00068\ \ \ \ \ \}}
-\DoxyCodeLine{00069\ \};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structvs_1_1ui__tree__xml}{ui\_tree\_xml}}(\mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}*\ parent,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ caller\_ui\_node,\ \textcolor{keyword}{const}\ pugi::xml\_node*\ caller\_xml\_node):\mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}(parent,caller\_ui\_node)\{this-\/>caller\_xml\_node=caller\_xml\_node;\}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structvs_1_1ui__tree__xml}{\string~ui\_tree\_xml}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cleanup()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ runtime\_testsuite()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{if}(this-\/>root!=\textcolor{keyword}{nullptr})\textcolor{keywordflow}{return}\ this-\/>root-\/>all\_tests();\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Logging}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ FILE\ *log\_device\ =\ stdout;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ log(\textcolor{keywordtype}{int}\ severety,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\_ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,\ ...);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ log(\textcolor{keywordtype}{int}\ \ severety,\ \textcolor{keyword}{const}\ pugi::xml\_node\ \&ctx,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,\ Args...\ args)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ log(severety,\ \&ctx,\ str,\ args...);}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \}}
 
 \end{DoxyCode}

@@ -30,9 +30,12 @@ private:
 
     pugi::xml_document doc;         //Handle of the xml parser
 
-    std::map<std::string,std::string> imports;
 
+    template <std::derived_from<ui_base> T>
+    T *build_base_widget(const pugi::xml_node &root, ui_base * root_ui = nullptr);
 
+    void _build_base_widget_extended_attr(const pugi::xml_node &root, ui_base * current);
+    void _build(const pugi::xml_node &root,  ui_base *root_ui = nullptr);
 
 public:
     void set_namespace(namespaces_t n, const char* prefix){
@@ -41,20 +44,13 @@ public:
         else if(n==namespaces_t::s){if(prefix[0]==0)ns.s="";else ns.s=std::string(prefix)+":";}
     }
 
-    template <std::derived_from<ui_base> T>
-    T *build_base_widget(const pugi::xml_node &root, ui_base * root_ui = nullptr);
+    virtual int build() override;
+    virtual int load(const char* file, type_t type) override;
 
-    void _build_base_widget_extended_attr(const pugi::xml_node &root, ui_base * current);
-    void _build(const pugi::xml_node &root,  ui_base *root_ui = nullptr);
-
-    int build();
-
-    int load(const char* file, type_t type);
-
-    inline ui_tree_xml(global_ctx_t& g, ui_tree* parent, ui_base* caller_ui_node, const pugi::xml_node* caller_xml_node):ui_tree(g,parent,caller_ui_node){this->caller_xml_node=caller_xml_node;}
+    inline ui_tree_xml(ui_tree* parent, ui_base* caller_ui_node, const pugi::xml_node* caller_xml_node):ui_tree(parent,caller_ui_node){this->caller_xml_node=caller_xml_node;}
     virtual ~ui_tree_xml();
-    virtual void cleanup();
-    virtual int runtime_testsuite(){if(this->root!=nullptr)return this->root->all_tests();return 0;}
+    virtual void cleanup() override;
+    virtual int runtime_testsuite() override{if(this->root!=nullptr)return this->root->all_tests();return 0;}
 
     // Logging
 

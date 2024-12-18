@@ -5,7 +5,7 @@
   "type": "node",
   "headers": ["FL/Fl_Group.H"],
   "codegen": { "extends": "ui<Fl_Group>" },
-  "skip_fields": ["name", "frame.*", "xsml", "xsml:*"],
+  "skip_fields": ["name", "frame.*", "xmlns", "xmlns:*"],
   "fields": {
     "mixin": {
       "type": "string",

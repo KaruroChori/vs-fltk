@@ -37,7 +37,9 @@ app_loader::app_loader(global_ctx_t& globals, const char *profile, const char *p
     doc.load_string(embedded_profile);
   }
 
-  root = new ui_tree_xml(globals,nullptr,nullptr,nullptr);
+  root = new ui_tree_xml(nullptr,nullptr,nullptr);
+  root->globals=&globals;
+
   if (root->load(path, ui_tree::type_t::APP) != 0) {
     throw "Unable to process file";
   } else {
@@ -52,9 +54,9 @@ int app_loader::test() {
 }
 
 int app_loader::run() {
-  root->globals.mem_storage.cleanup();
+  root->globals->mem_storage.cleanup();
   root->cleanup();
-  if (!root->globals.env.computed_policies.headless) {
+  if (!root->globals->env.computed_policies.headless) {
     auto t = Fl::run();
     delete root;
     root = nullptr;

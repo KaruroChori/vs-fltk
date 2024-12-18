@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Please ignore this example, it is used for
 development-->
-<app type="native" link-with="this://native-app/app" xmlns:fl="vs.fltk">
+<app
+    link-with.lib="this://native-app/libapp.so"
+    link-with.header="this://native-app/app.h"
+    xmlns:fl="vs.fltk"
+>
     <import src="two-buttons.xml" as="TwoButtons" />
     <import src="three-buttons.xml" as="ThreeButtons">
         <label>It does not exist</label>
@@ -30,10 +34,8 @@ development-->
         <fl:button label="callback-top">
             <script lang="c">
             <![CDATA[ 
-            //#include <app.h>
             void callback(){
-                //add(1,2);
-                $log(0,"Tying call %p",$("..."));
+                $log(0,"Tying call %p %d",$("..."),42);
                 $$prop($("..."),"ciao","mondo");
                 return;
             }
@@ -131,7 +133,7 @@ development-->
             </script>
         </fl:button>
 
-        <namespace type="native" name="%roots">
+        <namespace frame.type="native" name="%roots">
             <mixin name="+fl:button" bg.colour="#00ae92" />
             <mixin name="*" label.colour="#34a977" />
             <mixin name="btn-2" box="150,40,80,30" label="Makika" />
@@ -198,13 +200,13 @@ development-->
                 </fl:button>
             </fl:group>
         </namespace>
-        <namespace type="wasm">
+        <namespace frame.type="wasm">
 
         </namespace>
-        <namespace type="quickjs">
+        <namespace frame.type="quickjs">
 
         </namespace>
-        <namespace type="ext">
+        <namespace frame.type="ext">
 
         </namespace>
     </fl:window>

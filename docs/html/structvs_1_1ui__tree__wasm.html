@@ -119,9 +119,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>cleanup</b> (
 <tr class="memitem:a4f006a4d01f71c561a025070895b602f inherit pub_methods_structvs_1_1ui__tree" id="r_a4f006a4d01f71c561a025070895b602f"><td class="memItemLeft" align="right" valign="top">
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>runtime_testsuite</b> ()</td></tr>
 <tr class="separator:a4f006a4d01f71c561a025070895b602f inherit pub_methods_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25af2b5dd9f4bf235c80580c06aa17cb inherit pub_methods_structvs_1_1ui__tree" id="r_a25af2b5dd9f4bf235c80580c06aa17cb"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>ui_tree</b> (<a class="el" href="structvs_1_1global__ctx__t.html">global_ctx_t</a> &amp;g, <a class="el" href="structvs_1_1ui__tree.html">ui_tree</a> *parent, <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *caller_ui_node)</td></tr>
-<tr class="separator:a25af2b5dd9f4bf235c80580c06aa17cb inherit pub_methods_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c1332c4e4c4a3e38e821e000650950 inherit pub_methods_structvs_1_1ui__tree" id="r_a24c1332c4e4c4a3e38e821e000650950"><td class="memItemLeft" align="right" valign="top">
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()=0</td></tr>
+<tr class="separator:a24c1332c4e4c4a3e38e821e000650950 inherit pub_methods_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a4483af64bfea18649488af7c86853 inherit pub_methods_structvs_1_1ui__tree" id="r_aa7a4483af64bfea18649488af7c86853"><td class="memItemLeft" align="right" valign="top">
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const char *file, type_t type)=0</td></tr>
+<tr class="separator:aa7a4483af64bfea18649488af7c86853 inherit pub_methods_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c476eeaed3b0a99e68716bff47eb48a inherit pub_methods_structvs_1_1ui__tree" id="r_a2c476eeaed3b0a99e68716bff47eb48a"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>ui_tree</b> (<a class="el" href="structvs_1_1ui__tree.html">ui_tree</a> *parent, <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *caller_ui_node)</td></tr>
+<tr class="separator:a2c476eeaed3b0a99e68716bff47eb48a inherit pub_methods_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structvs_1_1ui__tree"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structvs_1_1ui__tree')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="structvs_1_1ui__tree.html">vs::ui_tree</a></td></tr>
 <tr class="memitem:a04619f50254936ceb5e552277ce08629 inherit pub_attribs_structvs_1_1ui__tree" id="r_a04619f50254936ceb5e552277ce08629"><td class="memItemLeft" align="right" valign="top">
 enum vs::ui_tree::type_t&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
@@ -129,9 +135,12 @@ enum vs::ui_tree::type_t&#160;</td><td class="memItemRight" valign="bottom"><b>t
 <tr class="memitem:a6ef2e7d810641b191c719cee05cb9e97 inherit pub_attribs_structvs_1_1ui__tree" id="r_a6ef2e7d810641b191c719cee05cb9e97"><td class="memItemLeft" align="right" valign="top">
 frame_mode_t&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b> = frame_mode_t::AUTO</td></tr>
 <tr class="separator:a6ef2e7d810641b191c719cee05cb9e97 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a451947d8174636bd849666aff5e54d04 inherit pub_attribs_structvs_1_1ui__tree" id="r_a451947d8174636bd849666aff5e54d04"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="structvs_1_1global__ctx__t.html">global_ctx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>globals</b></td></tr>
-<tr class="separator:a451947d8174636bd849666aff5e54d04 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a693dbf40f4b56caba6c96e347f88726d inherit pub_attribs_structvs_1_1ui__tree" id="r_a693dbf40f4b56caba6c96e347f88726d"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="structvs_1_1global__ctx__t.html">global_ctx_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>globals</b></td></tr>
+<tr class="separator:a693dbf40f4b56caba6c96e347f88726d inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab209fadff9a814fb94b0d4045491a9f3 inherit pub_attribs_structvs_1_1ui__tree" id="r_ab209fadff9a814fb94b0d4045491a9f3"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="structvs_1_1pipelines_1_1link__with__t.html">pipelines::link_with_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>link_with</b> = {nullptr, nullptr}</td></tr>
+<tr class="separator:ab209fadff9a814fb94b0d4045491a9f3 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee30520ac2de1aaa64f97337bc87386 inherit pub_attribs_structvs_1_1ui__tree" id="r_a1ee30520ac2de1aaa64f97337bc87386"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structvs_1_1ui__tree.html">ui_tree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> = nullptr</td></tr>
 <tr class="separator:a1ee30520ac2de1aaa64f97337bc87386 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,12 +162,9 @@ frame_mode_t&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b> = fr
 <tr class="memitem:a2ed8591b721ee6b02e9f4919e63ffdcd inherit pub_attribs_structvs_1_1ui__tree" id="r_a2ed8591b721ee6b02e9f4919e63ffdcd"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>local_unique_counter</b> = 0</td></tr>
 <tr class="separator:a2ed8591b721ee6b02e9f4919e63ffdcd inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7a4da114e56144e7293ee34714921ad inherit pub_attribs_structvs_1_1ui__tree" id="r_ab7a4da114e56144e7293ee34714921ad"><td class="memItemLeft" align="right" valign="top">
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>basename</b></td></tr>
-<tr class="separator:ab7a4da114e56144e7293ee34714921ad inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2838385c638d8ce1b14be5d844ced35 inherit pub_attribs_structvs_1_1ui__tree" id="r_ae2838385c638d8ce1b14be5d844ced35"><td class="memItemLeft" align="right" valign="top">
-std::map&lt; std::string, std::string, std::less&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>modules</b></td></tr>
-<tr class="separator:ae2838385c638d8ce1b14be5d844ced35 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712dd8429b2123eb77a7c3b926174218 inherit pub_attribs_structvs_1_1ui__tree" id="r_a712dd8429b2123eb77a7c3b926174218"><td class="memItemLeft" align="right" valign="top">
+std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>imports</b></td></tr>
+<tr class="separator:a712dd8429b2123eb77a7c3b926174218 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a101750225afe89678c075c455ab66689 inherit pub_attribs_structvs_1_1ui__tree" id="r_a101750225afe89678c075c455ab66689"><td class="memItemLeft" align="right" valign="top">
 std::map&lt; std::string, std::string, std::less&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>props_from_above</b></td></tr>
 <tr class="separator:a101750225afe89678c075c455ab66689 inherit pub_attribs_structvs_1_1ui__tree"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -14,34 +14,23 @@ Collaboration diagram for vs\+::ui\+\_\+tree\+\_\+xml\+:
 \Hypertarget{structvs_1_1ui__tree__xml_a2fba3014247828f85647711d0d06ae0c}\label{structvs_1_1ui__tree__xml_a2fba3014247828f85647711d0d06ae0c} 
 void {\bfseries set\+\_\+namespace} (namespaces\+\_\+t n, const char \texorpdfstring{$\ast$}{*}prefix)
 \item 
-\Hypertarget{structvs_1_1ui__tree__xml_af9f580ca26352d297e7f5a61b2e1c256}\label{structvs_1_1ui__tree__xml_af9f580ca26352d297e7f5a61b2e1c256} 
-{\footnotesize template$<$std\+::derived\+\_\+from$<$ \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} $>$ T$>$ }\\T \texorpdfstring{$\ast$}{*} {\bfseries build\+\_\+base\+\_\+widget} (const pugi\+::xml\+\_\+node \&root, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}root\+\_\+ui=nullptr)
+virtual int \mbox{\hyperlink{structvs_1_1ui__tree__xml_a5ad44c54414f71d3e17592fba644856d}{build}} () override
 \item 
-\Hypertarget{structvs_1_1ui__tree__xml_a3479cef0422b7cd75e6bb82a0409966f}\label{structvs_1_1ui__tree__xml_a3479cef0422b7cd75e6bb82a0409966f} 
-void {\bfseries \+\_\+build\+\_\+base\+\_\+widget\+\_\+extended\+\_\+attr} (const pugi\+::xml\+\_\+node \&root, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}current)
+virtual int \mbox{\hyperlink{structvs_1_1ui__tree__xml_a2bf7a305412c1aa6639068b25c9aceae}{load}} (const char \texorpdfstring{$\ast$}{*}file, type\+\_\+t type) override
 \item 
-\Hypertarget{structvs_1_1ui__tree__xml_acc7e71fd19d6549a39df58c41e6883f2}\label{structvs_1_1ui__tree__xml_acc7e71fd19d6549a39df58c41e6883f2} 
-void {\bfseries \+\_\+build} (const pugi\+::xml\+\_\+node \&root, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}root\+\_\+ui=nullptr)
+\Hypertarget{structvs_1_1ui__tree__xml_a16bf78e20dd21a5497d33456b4ce58e6}\label{structvs_1_1ui__tree__xml_a16bf78e20dd21a5497d33456b4ce58e6} 
+{\bfseries ui\+\_\+tree\+\_\+xml} (\mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node, const pugi\+::xml\+\_\+node \texorpdfstring{$\ast$}{*}caller\+\_\+xml\+\_\+node)
 \item 
-\Hypertarget{structvs_1_1ui__tree__xml_aee132f5a3acd83f1d536efb76a6483c2}\label{structvs_1_1ui__tree__xml_aee132f5a3acd83f1d536efb76a6483c2} 
-int {\bfseries build} ()
+virtual void \mbox{\hyperlink{structvs_1_1ui__tree__xml_a4c6696badd3309791ca94f5c154772bd}{cleanup}} () override
 \item 
-\Hypertarget{structvs_1_1ui__tree__xml_a38d4c7abbdf6129914ad7dc03a5e4f9d}\label{structvs_1_1ui__tree__xml_a38d4c7abbdf6129914ad7dc03a5e4f9d} 
-int {\bfseries load} (const char \texorpdfstring{$\ast$}{*}file, type\+\_\+t type)
-\item 
-\Hypertarget{structvs_1_1ui__tree__xml_aa652fef259928a5fa45e1b36efc111ed}\label{structvs_1_1ui__tree__xml_aa652fef259928a5fa45e1b36efc111ed} 
-{\bfseries ui\+\_\+tree\+\_\+xml} (\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \&g, \mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node, const pugi\+::xml\+\_\+node \texorpdfstring{$\ast$}{*}caller\+\_\+xml\+\_\+node)
-\item 
-virtual void \mbox{\hyperlink{structvs_1_1ui__tree__xml_a5bc18ddac3dfb989d4f3cddb2988fdf8}{cleanup}} ()
-\item 
-virtual int \mbox{\hyperlink{structvs_1_1ui__tree__xml_ac8b3916486c000cb69eb9b2a096537bd}{runtime\+\_\+testsuite}} ()
+virtual int \mbox{\hyperlink{structvs_1_1ui__tree__xml_a1eb306736578bd326245567cbb7eecf1}{runtime\+\_\+testsuite}} () override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structvs_1_1ui__tree}{vs\+::ui\+\_\+tree}}}
 \begin{DoxyCompactItemize}
 \item 
 bool {\bfseries string2key256} (const char \texorpdfstring{$\ast$}{*}str, uint8\+\_\+t array\mbox{[}256/32\mbox{]})
 \item 
-{\bfseries ui\+\_\+tree} (\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \&g, \mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node)
+{\bfseries ui\+\_\+tree} (\mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -79,7 +68,9 @@ enum vs\+::ui\+\_\+tree\+::type\+\_\+t {\bfseries type}
 \item 
 frame\+\_\+mode\+\_\+t {\bfseries mode} = frame\+\_\+mode\+\_\+t\+::\+AUTO
 \item 
-\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \& {\bfseries globals}
+\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries globals}
+\item 
+\mbox{\hyperlink{structvs_1_1pipelines_1_1link__with__t}{pipelines\+::link\+\_\+with\+\_\+t}} {\bfseries link\+\_\+with} = \{nullptr, nullptr\}
 \item 
 \mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*} {\bfseries parent} = nullptr
 \item 
@@ -95,9 +86,7 @@ frame\+\_\+mode\+\_\+t {\bfseries mode} = frame\+\_\+mode\+\_\+t\+::\+AUTO
 \item 
 size\+\_\+t {\bfseries local\+\_\+unique\+\_\+counter} = 0
 \item 
-std\+::string {\bfseries basename}
-\item 
-std\+::map$<$ std\+::string, std\+::string, std\+::less$<$$>$ $>$ {\bfseries modules}
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries imports}
 \item 
 std\+::map$<$ std\+::string, std\+::string, std\+::less$<$$>$ $>$ {\bfseries props\+\_\+from\+\_\+above}
 \item 
@@ -108,21 +97,41 @@ std\+::vector$<$ \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfs
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structvs_1_1ui__tree__xml_a5bc18ddac3dfb989d4f3cddb2988fdf8}\label{structvs_1_1ui__tree__xml_a5bc18ddac3dfb989d4f3cddb2988fdf8} 
+\Hypertarget{structvs_1_1ui__tree__xml_a5ad44c54414f71d3e17592fba644856d}\label{structvs_1_1ui__tree__xml_a5ad44c54414f71d3e17592fba644856d} 
+\index{vs::ui\_tree\_xml@{vs::ui\_tree\_xml}!build@{build}}
+\index{build@{build}!vs::ui\_tree\_xml@{vs::ui\_tree\_xml}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily int vs\+::ui\+\_\+tree\+\_\+xml\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{structvs_1_1ui__tree}{vs\+::ui\+\_\+tree}}.
+
+\Hypertarget{structvs_1_1ui__tree__xml_a4c6696badd3309791ca94f5c154772bd}\label{structvs_1_1ui__tree__xml_a4c6696badd3309791ca94f5c154772bd} 
 \index{vs::ui\_tree\_xml@{vs::ui\_tree\_xml}!cleanup@{cleanup}}
 \index{cleanup@{cleanup}!vs::ui\_tree\_xml@{vs::ui\_tree\_xml}}
 \doxysubsubsection{\texorpdfstring{cleanup()}{cleanup()}}
-{\footnotesize\ttfamily void vs\+::ui\+\_\+tree\+\_\+xml\+::cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void vs\+::ui\+\_\+tree\+\_\+xml\+::cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Reimplemented from \mbox{\hyperlink{structvs_1_1ui__tree}{vs\+::ui\+\_\+tree}}.
 
-\Hypertarget{structvs_1_1ui__tree__xml_ac8b3916486c000cb69eb9b2a096537bd}\label{structvs_1_1ui__tree__xml_ac8b3916486c000cb69eb9b2a096537bd} 
+\Hypertarget{structvs_1_1ui__tree__xml_a2bf7a305412c1aa6639068b25c9aceae}\label{structvs_1_1ui__tree__xml_a2bf7a305412c1aa6639068b25c9aceae} 
+\index{vs::ui\_tree\_xml@{vs::ui\_tree\_xml}!load@{load}}
+\index{load@{load}!vs::ui\_tree\_xml@{vs::ui\_tree\_xml}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily int vs\+::ui\+\_\+tree\+\_\+xml\+::load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file,  }\item[{type\+\_\+t}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{structvs_1_1ui__tree}{vs\+::ui\+\_\+tree}}.
+
+\Hypertarget{structvs_1_1ui__tree__xml_a1eb306736578bd326245567cbb7eecf1}\label{structvs_1_1ui__tree__xml_a1eb306736578bd326245567cbb7eecf1} 
 \index{vs::ui\_tree\_xml@{vs::ui\_tree\_xml}!runtime\_testsuite@{runtime\_testsuite}}
 \index{runtime\_testsuite@{runtime\_testsuite}!vs::ui\_tree\_xml@{vs::ui\_tree\_xml}}
 \doxysubsubsection{\texorpdfstring{runtime\_testsuite()}{runtime\_testsuite()}}
-{\footnotesize\ttfamily virtual int vs\+::ui\+\_\+tree\+\_\+xml\+::runtime\+\_\+testsuite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int vs\+::ui\+\_\+tree\+\_\+xml\+::runtime\+\_\+testsuite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

@@ -33,8 +33,14 @@ virtual void {\bfseries cleanup} ()
 \Hypertarget{structvs_1_1ui__tree_a4f006a4d01f71c561a025070895b602f}\label{structvs_1_1ui__tree_a4f006a4d01f71c561a025070895b602f} 
 virtual int {\bfseries runtime\+\_\+testsuite} ()
 \item 
-\Hypertarget{structvs_1_1ui__tree_a25af2b5dd9f4bf235c80580c06aa17cb}\label{structvs_1_1ui__tree_a25af2b5dd9f4bf235c80580c06aa17cb} 
-{\bfseries ui\+\_\+tree} (\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \&g, \mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node)
+\Hypertarget{structvs_1_1ui__tree_a24c1332c4e4c4a3e38e821e000650950}\label{structvs_1_1ui__tree_a24c1332c4e4c4a3e38e821e000650950} 
+virtual int {\bfseries build} ()=0
+\item 
+\Hypertarget{structvs_1_1ui__tree_aa7a4483af64bfea18649488af7c86853}\label{structvs_1_1ui__tree_aa7a4483af64bfea18649488af7c86853} 
+virtual int {\bfseries load} (const char \texorpdfstring{$\ast$}{*}file, type\+\_\+t type)=0
+\item 
+\Hypertarget{structvs_1_1ui__tree_a2c476eeaed3b0a99e68716bff47eb48a}\label{structvs_1_1ui__tree_a2c476eeaed3b0a99e68716bff47eb48a} 
+{\bfseries ui\+\_\+tree} (\mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}caller\+\_\+ui\+\_\+node)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -45,8 +51,11 @@ enum vs\+::ui\+\_\+tree\+::type\+\_\+t {\bfseries type}
 \Hypertarget{structvs_1_1ui__tree_a6ef2e7d810641b191c719cee05cb9e97}\label{structvs_1_1ui__tree_a6ef2e7d810641b191c719cee05cb9e97} 
 frame\+\_\+mode\+\_\+t {\bfseries mode} = frame\+\_\+mode\+\_\+t\+::\+AUTO
 \item 
-\Hypertarget{structvs_1_1ui__tree_a451947d8174636bd849666aff5e54d04}\label{structvs_1_1ui__tree_a451947d8174636bd849666aff5e54d04} 
-\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \& {\bfseries globals}
+\Hypertarget{structvs_1_1ui__tree_a693dbf40f4b56caba6c96e347f88726d}\label{structvs_1_1ui__tree_a693dbf40f4b56caba6c96e347f88726d} 
+\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries globals}
+\item 
+\Hypertarget{structvs_1_1ui__tree_ab209fadff9a814fb94b0d4045491a9f3}\label{structvs_1_1ui__tree_ab209fadff9a814fb94b0d4045491a9f3} 
+\mbox{\hyperlink{structvs_1_1pipelines_1_1link__with__t}{pipelines\+::link\+\_\+with\+\_\+t}} {\bfseries link\+\_\+with} = \{nullptr, nullptr\}
 \item 
 \Hypertarget{structvs_1_1ui__tree_a1ee30520ac2de1aaa64f97337bc87386}\label{structvs_1_1ui__tree_a1ee30520ac2de1aaa64f97337bc87386} 
 \mbox{\hyperlink{structvs_1_1ui__tree}{ui\+\_\+tree}} \texorpdfstring{$\ast$}{*} {\bfseries parent} = nullptr
@@ -69,11 +78,8 @@ frame\+\_\+mode\+\_\+t {\bfseries mode} = frame\+\_\+mode\+\_\+t\+::\+AUTO
 \Hypertarget{structvs_1_1ui__tree_a2ed8591b721ee6b02e9f4919e63ffdcd}\label{structvs_1_1ui__tree_a2ed8591b721ee6b02e9f4919e63ffdcd} 
 size\+\_\+t {\bfseries local\+\_\+unique\+\_\+counter} = 0
 \item 
-\Hypertarget{structvs_1_1ui__tree_ab7a4da114e56144e7293ee34714921ad}\label{structvs_1_1ui__tree_ab7a4da114e56144e7293ee34714921ad} 
-std\+::string {\bfseries basename}
-\item 
-\Hypertarget{structvs_1_1ui__tree_ae2838385c638d8ce1b14be5d844ced35}\label{structvs_1_1ui__tree_ae2838385c638d8ce1b14be5d844ced35} 
-std\+::map$<$ std\+::string, std\+::string, std\+::less$<$$>$ $>$ {\bfseries modules}
+\Hypertarget{structvs_1_1ui__tree_a712dd8429b2123eb77a7c3b926174218}\label{structvs_1_1ui__tree_a712dd8429b2123eb77a7c3b926174218} 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries imports}
 \item 
 \Hypertarget{structvs_1_1ui__tree_a101750225afe89678c075c455ab66689}\label{structvs_1_1ui__tree_a101750225afe89678c075c455ab66689} 
 std\+::map$<$ std\+::string, std\+::string, std\+::less$<$$>$ $>$ {\bfseries props\+\_\+from\+\_\+above}

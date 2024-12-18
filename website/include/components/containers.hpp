@@ -22,7 +22,14 @@ class ui_root_thin_component : public ui_base{
   virtual frame_type_t default_frame_type() override {return frame_type_t::CONTAINER;}
   virtual const char* class_name() override{return "component.thin";}
 
-  int apply_prop(const char *prop, const char *value) override{if(local_frame!=nullptr)return local_frame->call_dispatcher(prop,value);return 1;}
+  int apply_prop(const char *prop, const char *value) override{
+    if(strncmp(prop, "xmlns:", sizeof("xmlns:")-1)==0){return 0;}
+    else if(strcmp(prop, "name")==0){return 0;}
+    else if(strncmp(prop, "frame.", sizeof("frame.")-1)==0){return 0;}
+    if(local_frame!=nullptr)return local_frame->call_dispatcher(prop,value);
+    return 1;
+  }
+
   int get_computed(const char *prop, const char **value) override{return 1;}
 };
 
@@ -43,6 +50,14 @@ class ui_root_app :public ui_root_component{
     ui_root_app(frame_mode_t MODE):ui_root_component(MODE){}
 
   virtual const char* class_name() override{return "app";}
+  int apply_prop(const char *prop, const char *value) override{
+    if(strncmp(prop, "xmlns:", sizeof("xmlns:")-1)==0){return 0;}
+    else if(strncmp(prop, "link-with.", sizeof("link-with.")-1)==0){return 0;}
+    else if(strncmp(prop, "frame.", sizeof("frame.")-1)==0){return 0;}
+    if(local_frame!=nullptr)return local_frame->call_dispatcher(prop,value);
+    return 1;
+  }
+
 };
 
 
@@ -59,7 +74,13 @@ class ui_namespace : public ui_base{
   virtual frame_type_t default_frame_type() override {return frame_type_t::NODE;}
   virtual const char* class_name() override{return "namespace";}
 
-  int apply_prop(const char *prop, const char *value) override{if(local_frame!=nullptr)return local_frame->call_dispatcher(prop,value);return 1;}
+  int apply_prop(const char *prop, const char *value) override{
+    if(strcmp(prop, "name")==0){return 0;}
+    else if(strncmp(prop, "frame.", sizeof("frame.")-1)==0){return 0;}
+    if(local_frame!=nullptr)return local_frame->call_dispatcher(prop,value);
+    return 1;
+  }
+
   int get_computed(const char *prop, const char **value) override{return 1;}
 };
 
