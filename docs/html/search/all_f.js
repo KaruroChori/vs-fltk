@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['of_20purpose_0',['Statement of Purpose',['../md_bindings_2LICENCE.html#autotoc_md5',1,'']]],
-  ['operator_28_29_1',['operator()',['../structvs_1_1resolve__path.html#a5fb299c011de963eb3ad32d12b0a658c',1,'vs::resolve_path']]]
+  ['networking_5ft_0',['networking_t',['../structvs_1_1policies__t_1_1networking__t.html',1,'vs::policies_t']]]
 ];

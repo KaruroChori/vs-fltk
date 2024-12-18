@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['path_5fenv_5ft_0',['path_env_t',['../structvs_1_1path__env__t.html',1,'vs']]],
-  ['paths_2ehpp_1',['paths.hpp',['../paths_8hpp.html',1,'']]],
-  ['policies_5ft_2',['policies_t',['../structvs_1_1internal_1_1policies__t.html',1,'vs::internal::policies_t'],['../structvs_1_1policies__t.html',1,'vs::policies_t']]],
-  ['purpose_3',['Statement of Purpose',['../md_bindings_2LICENCE.html#autotoc_md5',1,'']]]
+  ['of_20purpose_0',['Statement of Purpose',['../md_bindings_2LICENCE.html#autotoc_md5',1,'']]],
+  ['operator_28_29_1',['operator()',['../structvs_1_1resolve__path.html#a5fb299c011de963eb3ad32d12b0a658c',1,'vs::resolve_path']]]
 ];

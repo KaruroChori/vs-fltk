@@ -421,14 +421,25 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
       }
 
       //Information for linking
-      auto link_with = doc.first_child().attribute("link-with").as_string(nullptr);
-      std::string tmp_link;
-      if(link_with!=nullptr){
+      pipelines::link_with_t link_with = {
+        doc.first_child().attribute("link-with.lib").as_string(nullptr),
+        doc.first_child().attribute("link-with.header").as_string(nullptr)
+      };
+
+      std::string tmp_link_lib, tmp_link_header;
+      if(link_with.lib!=nullptr && link_with.header!=nullptr){
         resolve_path resolver(policies,globals.path_env,local);
-        auto computed_path = resolver(resolve_path::from_t::NATIVE_CODE,link_with);
-        if(computed_path.first==resolve_path::reason_t::OK){
+        auto computed_path_lib = resolver(resolve_path::from_t::NATIVE_CODE,link_with.lib);
+        auto computed_path_header = resolver(resolve_path::from_t::NATIVE_CODE,link_with.header);
+        if(computed_path_lib.first==resolve_path::reason_t::OK  && computed_path_header.first==resolve_path::reason_t::OK){
           //TODO: For now I am assuming it is on the fs. I should resolve it to tmp if remote for example
-          tmp_link=computed_path.second.location;
+          //The issue is tcc capabilities in handling dynamic linking from a buffer sourced from memory.
+          //This is why for now it will only be assumed to be on the fs.
+          //Hopefully this restriction will never apply to native components for example.
+          tmp_link_lib=computed_path_lib.second.location;
+          tmp_link_header=computed_path_header.second.location;
+          link_with.lib = tmp_link_lib.c_str();
+          link_with.header = tmp_link_header.c_str();
           log(severety_t::INFO, root, "Requested linking with `%s`", link_with);
         }
       }
@@ -439,7 +450,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::NATIVE?"c":"");
         if (strcmp(lang, "c") == 0) {
           #ifdef VS_USE_TCC
-          auto compiler = pipelines::tcc_c_pipeline_xml(globals,true, is_module?nullptr:current, root, compact, (link_with==nullptr)?nullptr:tmp_link.c_str());
+          auto compiler = pipelines::tcc_c_pipeline_xml(globals,true, is_module?nullptr:current, root, compact, link_with);
           if(compiler!=nullptr){
             current->set_mode(frame_mode_t::NATIVE);
             current->attach_script(compiler,is_module);
@@ -461,7 +472,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::QUICKJS?"js":"");
         if (strcmp(lang, "js") == 0) {
           #ifdef VS_USE_QJS
-          auto compiler = pipelines::qjs_js_pipeline_xml(globals,true, is_module?nullptr:current, root, (link_with==nullptr)?nullptr:tmp_link.c_str());
+          auto compiler = pipelines::qjs_js_pipeline_xml(globals,true, is_module?nullptr:current, root, link_with);
             if(compiler!=nullptr){
               current->set_mode(frame_mode_t::QUICKJS);
               current->attach_script(compiler,is_module);

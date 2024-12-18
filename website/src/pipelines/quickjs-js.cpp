@@ -219,7 +219,7 @@ std::shared_ptr<smap<symbol_t>> qjs_js_pipeline_apply(const std::shared_ptr<quic
 }
 
 
-std::shared_ptr<quickjs_t> qjs_js_pipeline(global_ctx_t& globals, bool is_runtime, vs::ui_base* obj, const char* src, void* nctx, void(*error_fn)(void*,const char*), const char *link_with){
+std::shared_ptr<quickjs_t> qjs_js_pipeline(global_ctx_t& globals, bool is_runtime, vs::ui_base* obj, const char* src, void* nctx, void(*error_fn)(void*,const char*), link_with_t link_with){
     //std::shared_ptr<quickjs_t> _ctx = std::make_shared<quickjs_t>((JSRuntime*)(globals::js_rt()));
     std::shared_ptr<quickjs_t> _ctx = std::shared_ptr<quickjs_t>( new quickjs_t((JSRuntime*)(globals.js_rt())), +[](void* o){delete (quickjs_t*)o;});
 

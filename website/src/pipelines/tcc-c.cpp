@@ -57,7 +57,10 @@ static void vs_debug(const char* k, const char* v){singleton::debug(k,v);}
 #define LIB(x)  script->add_sym(#x, (void*) x)
 #define LIBT(x,t)  script->add_sym(#x, (void*) t x)
 
-std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::ui_base* obj, const char* src, void* ctx, void(*error_fn)(void*,const char*), bool compact, const char *link_with){
+
+
+
+std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::ui_base* obj, const char* src, void* ctx, void(*error_fn)(void*,const char*), bool compact, link_with_t link_with){
     auto script = std::make_shared<tcc>();
 
     //This part is a bit of a mess.
