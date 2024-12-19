@@ -7,6 +7,6 @@ export const storage_kv = sqliteTable('storage_kv', {
   app: integer().references(()=> apps.id, {onDelete:'cascade',onUpdate:'cascade'}).notNull(),
   key: text().notNull(),
   value: blob().notNull(),
-  timestamp_creation: integer().notNull(),
-  timestamp_expiring: integer().notNull(), //If null no expiration
+  timestamp_creation: integer({ mode: 'timestamp_ms' }).notNull(),
+  timestamp_expiring: integer({ mode: 'timestamp_ms' }).notNull(), //If null no expiration
 },(table)=>({idx:uniqueIndex('kvUniqueIdx').on(table.app,table.key)}));

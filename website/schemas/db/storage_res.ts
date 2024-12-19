@@ -8,6 +8,6 @@ export const storage_res = sqliteTable('storage_res', {
   src: text().notNull(),      //URL of the resource
   content: blob().notNull(),
   hash: blob().notNull(),     //Hash to verify the fresheness of this resource.
-  timestamp_creation: integer().notNull(),
-  timestamp_expiring: integer(), //If null no expiration
+  timestamp_creation: integer({ mode: 'timestamp_ms' }).notNull(),
+  timestamp_expiring: integer({ mode: 'timestamp_ms' }), //If null no expiration
 },(table)=>({idx:uniqueIndex('resUniqueIdx').on(table.app,table.src)}));

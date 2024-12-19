@@ -9,6 +9,6 @@ export const secrets_shared = sqliteTable('secrets_shared', {
   with_app: integer().references(()=> apps.id, {onDelete:'cascade',onUpdate:'cascade'}).notNull(),
   tag: text(),
   notes: text(),
-  timestamp_creation: integer().notNull(),
-  timestamp_expiring: integer().notNull(),
+  timestamp_creation: integer({ mode: 'timestamp_ms' }).notNull(),
+  timestamp_expiring: integer({ mode: 'timestamp_ms' }).notNull(),
 },(table)=>({idx:uniqueIndex('secretsUnique').on(table.from_app,table.with_app,table.tag)}));
