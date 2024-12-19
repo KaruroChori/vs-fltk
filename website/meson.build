@@ -75,8 +75,8 @@ if get_option('use_system_pugixml')
     endif
 endif
 if need_pugixml or get_option('use_system_pugixml') == false
-    #Used by pugi to enable compact mode. I might want to disable execptions too.
-    add_global_arguments(['-DPUGIXML_COMPACT'], language: ['cpp', 'c'])
+    #Used by pugi to enable compact mode.
+    #I might want to disable execptions too.
     pugixml_proj = subproject('pugixml', default_options: ['compact=true'])
     pugixml_dep = pugixml_proj.get_variable('pugixml_dep')
 endif
@@ -267,8 +267,6 @@ vs_fltk_deps += [
     md4c_dep,
     treesitter_dep,
 ]
-
-#vs_fltk_flags += '-DPUGIXML_COMPACT'
 
 subdir('./src/components')
 
