@@ -12,48 +12,60 @@ cmake = import('cmake')
 cc = meson.get_compiler('c')
 cxx = meson.get_compiler('cpp')
 
+vs_fltk_flags = ['-Wno-c23-extensions', '-Wno-vla-cxx-extension', '-Wno-unused-variable']
+vs_fltk_deps = []
+
 need_pugixml = false
 need_fltk = false
 
 # Full dependency list for vs_fltk
 
-vs_fltk_deps = []
-
 # Process options
 
-add_global_arguments(
-    [
-        '-DVS_COMMONS_DIR="'
-        + join_paths(get_option('prefix'), get_option('datadir'), 'vs-fltk')
-        + '/"',
-    ],
-    language: ['cpp', 'c'],
-)
+vs_fltk_flags += '-DVS_COMMONS_DIR="' + join_paths(get_option('prefix'), get_option('datadir'), 'vs-fltk') + '/"'
 
 if get_option('use_tcc')
-    add_global_arguments(['-DVS_USE_TCC'], language: ['cpp', 'c'])
+    vs_fltk_flags += '-DVS_USE_TCC'
 endif
 
 if get_option('use_quickjs')
-    add_global_arguments(['-DVS_USE_QJS'], language: ['cpp', 'c'])
+    vs_fltk_flags += '-DVS_USE_QJS'
 endif
 
 if get_option('use_wamr')
-    add_global_arguments(['-DVS_USE_WAMR'], language: ['cpp', 'c'])
+    vs_fltk_flags += '-DVS_USE_WAMR'
 endif
 
-if get_option('use_lua') and get_option('use_luajit')
+if get_option('use_vm_riscv')
+    vs_fltk_flags += '-DVS_USE_VS_RISCV'
+endif
+
+if get_option('use_lua_base') and get_option('use_lua_jit')
     error(
         'Only lua or luajit can be used. At least one must be disabled from the options',
     )
 endif
 
-if get_option('use_lua')
-    add_global_arguments(['-DVS_USE_LUA'], language: ['cpp', 'c'])
+if get_option('use_lua_base')
+    vs_fltk_flags += '-DVS_USE_LUA'
 endif
 
-if get_option('use_luajit')
-    add_global_arguments(['-DVS_USE_LUAJIT'], language: ['cpp', 'c'])
+if get_option('use_lua_jit')
+    vs_fltk_flags += '-DVS_USE_LUAJIT'
+endif
+
+if get_option('use_networking_curl') and get_option('use_networking_simple')
+    error(
+        'Only curl or simple can be used for networking. At least one must be disabled from the options',
+    )
+endif
+
+if get_option('use_networking_curl')
+    vs_fltk_flags += '-DVS_USE_NETWORKING_CURL'
+endif
+
+if get_option('use_networking_simple')
+    vs_fltk_flags += '-DVS_USE_NETWORKING_SIMPLE'
 endif
 
 if get_option('use_system_pugixml')
@@ -65,7 +77,7 @@ endif
 if need_pugixml or get_option('use_system_pugixml') == false
     #Used by pugi to enable compact mode. I might want to disable execptions too.
     add_global_arguments(['-DPUGIXML_COMPACT'], language: ['cpp', 'c'])
-    pugixml_proj = subproject('pugixml')
+    pugixml_proj = subproject('pugixml', default_options: ['compact=true'])
     pugixml_dep = pugixml_proj.get_variable('pugixml_dep')
 endif
 
@@ -124,6 +136,21 @@ if get_option('use_wamr')
     wamr_dep = wamr_proj.dependency('wamr')
 
     vs_fltk_deps += wamr_dep
+
+endif
+
+if get_option('use_vm_riscv')
+    opt_riscv = cmake.subproject_options()
+    opt_riscv.add_cmake_defines(
+        {
+            'CMAKE_POSITION_INDEPENDENT_CODE': true,
+            'CMAKE_INSTALL_LIBDIR': get_option('libdir'),
+        },
+    )
+    riscv_proj = cmake.subproject('libriscv', options: opt_riscv)
+    riscv_dep = riscv_proj.dependency('riscv')
+
+    vs_fltk_deps += riscv_dep
 
 endif
 
@@ -208,13 +235,13 @@ if get_option('use_networking_curl') and get_option('use_networking_simple')
 endif
 
 if get_option('use_networking_curl')
-    curl = dependency('libcurl', required: false)
+    curl = dependency('libcurl', required: true)
+    vs_fltk_deps += curl
 endif
 
-#TODO: support networking_simple
 if get_option('use_networking_simple')
     libhttp_proj = subproject('libhttp')
-    libhttp_dep = libhttp_proj.get_variable('libhttp_dep')
+    libhttp_dep = libhttp_proj.get_variable('http_dep')
 
     vs_fltk_deps += libhttp_dep
 endif
@@ -240,14 +267,6 @@ vs_fltk_deps += [
     md4c_dep,
     treesitter_dep,
 ]
-
-vs_fltk_flags = ['-Wno-c23-extensions', '-Wno-vla-cxx-extension', '-Wno-unused-variable']
-
-if curl.found()
-    vs_fltk_deps += [curl]
-    vs_fltk_flags += '-DHAS_CURL'
-else
-endif
 
 #vs_fltk_flags += '-DPUGIXML_COMPACT'
 

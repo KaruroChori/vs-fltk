@@ -79,8 +79,10 @@ class mem_storage_t{
         entry_it fetch_from_buffer(const mem_key_t& path, std::span<uint8_t const> str, entry_t::format_t format);
         entry_it fetch_from_cstring(const mem_key_t& path, std::string_view str, entry_t::format_t  format);
         entry_it fetch_from_fs(const mem_key_t& path, entry_t::format_t  format);
-#       ifdef HAS_CURL
+#       if defined VS_USE_NETWORKING_CURL || defined VS_USE_NETWORKING_SIMPLE
             entry_it fetch_from_http(const mem_key_t& path, entry_t::format_t  format);
+#       endif
+#       ifdef VS_USE_NETWORKING_CURL
             entry_it fetch_from_https(const mem_key_t& path, entry_t::format_t  format);
             entry_it fetch_from_gemini(const mem_key_t& path, entry_t::format_t  format);
 #       endif

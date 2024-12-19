@@ -17,7 +17,7 @@ struct ui_tree {
   frame_mode_t mode = frame_mode_t::AUTO;
 
   //Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.
-  global_ctx_t* globals;           
+  global_ctx_t* globals = nullptr;           
   //Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.
   pipelines::link_with_t link_with = {nullptr, nullptr};
 

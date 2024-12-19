@@ -1,6 +1,6 @@
 #include <iostream>
 
-#ifdef HAS_CURL
+#ifdef VS_USE_NETWORKING_CURL
 #include <curl/curl.h>
 #endif
 
@@ -14,7 +14,7 @@
 namespace vs {
 app_loader::app_loader(global_ctx_t& globals, const char *profile, const char *path) {
   
-#ifdef HAS_CURL
+#ifdef VS_USE_NETWORKING_CURL
   curl_global_init(CURL_GLOBAL_ALL);
 #endif
   pugi::xml_document doc;
@@ -68,7 +68,7 @@ int app_loader::run() {
 }
 
 app_loader::~app_loader() {
-#ifdef HAS_CURL
+#ifdef VS_USE_NETWORKING_CURL
   curl_global_cleanup();
 #endif
   if (root != nullptr)

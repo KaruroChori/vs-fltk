@@ -22,7 +22,7 @@
 #endif 
 
 //#include <uv.h>
-#ifdef HAS_CURL
+#ifdef VS_USE_NETWORKING_CURL
 #include <curl/curl.h>
 #endif
 
@@ -151,7 +151,7 @@ void prepare_db(){
 versions_t get_versions(){
     versions_t tmp;
     tmp.vs=vs_version();
-#   ifdef HAS_CURL
+#   ifdef VS_USE_NETWORKING_CURL
         tmp.curl = curl_version();
 #   else
         tmp.curl = "Not installed";

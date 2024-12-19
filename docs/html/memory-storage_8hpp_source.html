@@ -164,29 +164,31 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        entry_it fetch_from_buffer(<span class="keyword">const</span> mem_key_t&amp; path, std::span&lt;uint8_t const&gt; str, entry_t::format_t format);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        entry_it fetch_from_cstring(<span class="keyword">const</span> mem_key_t&amp; path, std::string_view str, entry_t::format_t  format);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        entry_it fetch_from_fs(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#       ifdef HAS_CURL</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#       if defined VS_USE_NETWORKING_CURL || defined VS_USE_NETWORKING_SIMPLE</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            entry_it fetch_from_http(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            entry_it fetch_from_https(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            entry_it fetch_from_gemini(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#       endif</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        entry_it fetch_from_res_storage(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        entry_it fetch_from_shared(<span class="keyword">const</span> mem_key_t&amp; key, <span class="keyword">const</span> std::shared_ptr&lt;void&gt;&amp; src, entry_t::format_t format);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordtype">void</span> drop(<span class="keyword">const</span> mem_key_t&amp;);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        entry_t* get(<span class="keyword">const</span> mem_key_t&amp;);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">//Remove all entries which are no longer needed (be it because already consumed, or because copies of shared_ptr are all in place)</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">void</span> cleanup();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#       endif</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#       ifdef VS_USE_NETWORKING_CURL</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            entry_it fetch_from_https(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            entry_it fetch_from_gemini(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#       endif</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        entry_it fetch_from_res_storage(<span class="keyword">const</span> mem_key_t&amp; path, entry_t::format_t  format);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        entry_it fetch_from_shared(<span class="keyword">const</span> mem_key_t&amp; key, <span class="keyword">const</span> std::shared_ptr&lt;void&gt;&amp; src, entry_t::format_t format);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordtype">void</span> drop(<span class="keyword">const</span> mem_key_t&amp;);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        entry_t* get(<span class="keyword">const</span> mem_key_t&amp;);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="comment">//Remove all entries which are no longer needed (be it because already consumed, or because copies of shared_ptr are all in place)</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">void</span> cleanup();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
 </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="ttc" id="aclassvs_1_1cache_1_1mem__storage__t_html"><div class="ttname"><a href="classvs_1_1cache_1_1mem__storage__t.html">vs::cache::mem_storage_t</a></div><div class="ttdef"><b>Definition</b> memory-storage.hpp:61</div></div>
 <div class="ttc" id="astructvs_1_1cache_1_1mem__key__t_html"><div class="ttname"><a href="structvs_1_1cache_1_1mem__key__t.html">vs::cache::mem_key_t</a></div><div class="ttdef"><b>Definition</b> memory-storage.hpp:26</div></div>
 <div class="ttc" id="astructvs_1_1cache_1_1mem__storage__t_1_1entry__t_html"><div class="ttname"><a href="structvs_1_1cache_1_1mem__storage__t_1_1entry__t.html">vs::cache::mem_storage_t::entry_t</a></div><div class="ttdef"><b>Definition</b> memory-storage.hpp:63</div></div>

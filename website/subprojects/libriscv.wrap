@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/libriscv/libriscv.git
+revision = HEAD
+depth = 1
+method = cmake
+[provide]
+riscv = riscv_dep

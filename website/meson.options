@@ -5,11 +5,12 @@ option('use_networking_simple', type: 'boolean', value: false)
 
 option('use_tcc', type: 'boolean', value: true)
 option('use_quickjs', type: 'boolean', value: true)
-option('use_wamr', type: 'boolean', value: true)
+option('use_wamr', type: 'boolean', value: false)
+option('use_vm_riscv', type: 'boolean', value: true)
 
 # Only one between lua and luajit should be enabled
-option('use_lua', type: 'boolean', value: true)
-option('use_luajit', type: 'boolean', value: false)
+option('use_lua_base', type: 'boolean', value: true)
+option('use_lua_jit', type: 'boolean', value: false)
 
 # If present, else build it manually
 option('use_system_fltk', type: 'boolean', value: true)

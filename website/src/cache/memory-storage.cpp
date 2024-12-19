@@ -8,7 +8,7 @@
 
 #include <cstdio>
 
-#ifdef HAS_CURL
+#ifdef VS_USE_NETWORKING_CURL
 #include <curl/curl.h>
 #endif
 

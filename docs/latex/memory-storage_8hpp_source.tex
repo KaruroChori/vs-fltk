@@ -78,27 +78,29 @@
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_buffer(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ std::span<uint8\_t\ const>\ str,\ entry\_t::format\_t\ format);}
 \DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_cstring(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ std::string\_view\ str,\ entry\_t::format\_t\ \ format);}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_fs(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ ifdef\ HAS\_CURL}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ if\ defined\ VS\_USE\_NETWORKING\_CURL\ ||\ defined\ VS\_USE\_NETWORKING\_SIMPLE}}
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_http(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_https(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_gemini(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ endif}}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_res\_storage(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_shared(\textcolor{keyword}{const}\ mem\_key\_t\&\ key,\ \textcolor{keyword}{const}\ std::shared\_ptr<void>\&\ src,\ entry\_t::format\_t\ format);}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ drop(\textcolor{keyword}{const}\ mem\_key\_t\&);}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ entry\_t*\ get(\textcolor{keyword}{const}\ mem\_key\_t\&);}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Remove\ all\ entries\ which\ are\ no\ longer\ needed\ (be\ it\ because\ already\ consumed,\ or\ because\ copies\ of\ shared\_ptr\ are\ all\ in\ place)}}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ cleanup();}
-\DoxyCodeLine{00097\ \};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ endif}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ ifdef\ VS\_USE\_NETWORKING\_CURL}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_https(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_gemini(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ endif}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_res\_storage(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_shared(\textcolor{keyword}{const}\ mem\_key\_t\&\ key,\ \textcolor{keyword}{const}\ std::shared\_ptr<void>\&\ src,\ entry\_t::format\_t\ format);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ drop(\textcolor{keyword}{const}\ mem\_key\_t\&);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ entry\_t*\ get(\textcolor{keyword}{const}\ mem\_key\_t\&);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Remove\ all\ entries\ which\ are\ no\ longer\ needed\ (be\ it\ because\ already\ consumed,\ or\ because\ copies\ of\ shared\_ptr\ are\ all\ in\ place)}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ cleanup();}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
 \DoxyCodeLine{00101\ }
 \DoxyCodeLine{00102\ \}}
 \DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
 
 \end{DoxyCode}

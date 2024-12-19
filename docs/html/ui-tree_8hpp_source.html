@@ -101,7 +101,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  frame_mode_t mode = frame_mode_t::AUTO;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="comment">//Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_struct" href="structvs_1_1global__ctx__t.html">global_ctx_t</a>* globals;           </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_struct" href="structvs_1_1global__ctx__t.html">global_ctx_t</a>* globals = <span class="keyword">nullptr</span>;           </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="comment">//Book-keeping. Duplicated info on nested structures, but they are short lived, and it is better compared to unrolling the stack each time.</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_struct" href="structvs_1_1pipelines_1_1link__with__t.html">pipelines::link_with_t</a> link_with = {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>};</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
@@ -153,7 +153,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>} <span class="comment">// namespace vs</span></div>
 <div class="ttc" id="aclassvs_1_1ui__base_html"><div class="ttname"><a href="classvs_1_1ui__base.html">vs::ui_base</a></div><div class="ttdef"><b>Definition</b> ui-base.hpp:7</div></div>
-<div class="ttc" id="astructvs_1_1global__ctx__t_html"><div class="ttname"><a href="structvs_1_1global__ctx__t.html">vs::global_ctx_t</a></div><div class="ttdoc">Global context structure.</div><div class="ttdef"><b>Definition</b> globals.hpp:37</div></div>
+<div class="ttc" id="astructvs_1_1global__ctx__t_html"><div class="ttname"><a href="structvs_1_1global__ctx__t.html">vs::global_ctx_t</a></div><div class="ttdoc">Global context structure.</div><div class="ttdef"><b>Definition</b> globals.hpp:18</div></div>
 <div class="ttc" id="astructvs_1_1pipelines_1_1link__with__t_html"><div class="ttname"><a href="structvs_1_1pipelines_1_1link__with__t.html">vs::pipelines::link_with_t</a></div><div class="ttdef"><b>Definition</b> commons.hpp:6</div></div>
 <div class="ttc" id="astructvs_1_1policies__t_html"><div class="ttname"><a href="structvs_1_1policies__t.html">vs::policies_t</a></div><div class="ttdef"><b>Definition</b> policies.hpp:9</div></div>
 <div class="ttc" id="astructvs_1_1scoped__rpath__t_html"><div class="ttname"><a href="structvs_1_1scoped__rpath__t.html">vs::scoped_rpath_t</a></div><div class="ttdef"><b>Definition</b> paths.hpp:102</div></div>
