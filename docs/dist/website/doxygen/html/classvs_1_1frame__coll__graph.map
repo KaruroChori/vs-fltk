@@ -1,0 +1,11 @@
+<map id="vs::frame" name="vs::frame">
+<area shape="rect" id="Node000001" title=" " alt="" coords="26,93,110,119"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="126,97,137,106,129,114,111,117,110,111,126,109,132,106,123,102"/>
+<area shape="rect" id="Node000002" href="$classvs_1_1ui__base.html" title=" " alt="" coords="21,181,116,207"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="26,128,11,144,9,154,14,163,38,179,35,184,10,167,3,155,6,141,22,124"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="86,170,93,157,92,143,78,121,83,118,98,142,98,158,91,172"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="131,185,142,194,134,202,116,205,116,199,132,197,137,194,128,190"/>
+<area shape="rect" id="Node000003" href="$structvs_1_1symbol__t.html" title=" " alt="" coords="16,5,121,31"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="71,45,71,93,66,93,66,45"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="136,9,148,18,139,26,121,29,121,23,137,21,142,18,133,14"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="vs::ui_viewport" name="vs::ui_viewport">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,187,127,212"/>
+<area shape="rect" id="Node000002" href="$classvs_1_1ui.html" title=" " alt="" coords="136,103,295,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,137,88,189,86,184,181,133"/>
+<area shape="rect" id="Node000003" href="$classvs_1_1ui__base.html" title=" " alt="" coords="191,5,285,31"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="178,24,136,30,93,43,52,64,35,78,20,95,15,106,14,118,22,142,38,166,55,184,51,188,34,169,17,145,9,118,10,105,16,92,31,74,49,59,91,38,135,25,177,19"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,45,221,103,216,102,229,44"/>
+<area shape="poly" id="edge8_Node000003_Node000003" title=" " alt="" coords="300,9,312,18,304,26,286,29,285,23,301,21,307,18,298,14"/>
+<area shape="rect" id="Node000004" href="$classvs_1_1frame.html" title=" " alt="" coords="319,103,403,128"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="245,43,257,67,285,81,331,100,329,105,283,86,253,71,240,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="345,93,332,74,315,57,294,43,272,33,275,28,297,39,318,53,336,70,350,90"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="418,106,426,109,429,116,421,124,404,126,403,121,419,119,424,115,422,113,416,111"/>
+<area shape="rect" id="Node000005" href="$structvs_1_1symbol__t.html" title=" " alt="" coords="405,5,511,31"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="449,45,431,71,408,90,385,105,382,100,405,86,427,68,445,42"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="526,9,537,18,529,26,511,29,510,23,527,21,532,18,523,14"/>
+</map>
