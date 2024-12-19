@@ -1,6 +1,6 @@
 site_name: vs.fltk
 repo_url: https://github.com/karurochori/vs-fltk
-site_dir: dist/docs
+site_dir: dist/website/docs
 docs_dir: docs
 
 theme:
