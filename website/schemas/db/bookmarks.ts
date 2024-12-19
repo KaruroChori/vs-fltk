@@ -1,7 +1,7 @@
 import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core"
 
 /**
- * Application logs. In place/addition of them being shown on the terminal, logs gets recorded.
+ * Bookmarks for vs
  */
 export const bookmarks = sqliteTable('bookmarks', {
     id: integer().primaryKey({ autoIncrement: true }),
