@@ -3,7 +3,7 @@ import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core"
 /**
  * Application logs. In place/addition of them being shown on the terminal, logs gets recorded.
  */
-export const apps = sqliteTable('logs', {
+export const logs = sqliteTable('logs', {
     id: integer().primaryKey({ autoIncrement: true }),          //Unique id for the message
     session: integer().notNull(),                               //Session id, each instance of vs is a new session
     level: integer().notNull(),                                 //Message level
