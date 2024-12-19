@@ -17,7 +17,7 @@
     "benchmark": "meson test --benchmark -C build/ --suite=vs-fltk",
     "meson-install": "DESTDIR=./dist/ meson install -C build/",
     "flatpak-builder": "cd flatpak && ./make.sh",
-    "gen-docs": "mkdir dist && doxygen &&  mkdocs build"
+    "gen-docs": "doxygen &&  mkdocs build"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
