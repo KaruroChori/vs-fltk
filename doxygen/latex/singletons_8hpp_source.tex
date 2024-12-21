@@ -1,0 +1,44 @@
+\doxysection{singletons.\+hpp}
+\hypertarget{singletons_8hpp_source}{}\label{singletons_8hpp_source}\index{include/singletons.hpp@{include/singletons.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <utils/app-\/env.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{env_8hpp}{utils/env.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{paths_8hpp}{utils/paths.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <utils/policies.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cache/memory-\/storage.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cache/res-\/storage.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cache/kv-\/storage.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cache/secrets.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }singleton\{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ VS\_USE\_NETWORKING\_CURL}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }curl\_t\{}
+\DoxyCodeLine{00018\ \ \ \ \ curl\_t();}
+\DoxyCodeLine{00019\ \ \ \ \ \string~curl\_t();}
+\DoxyCodeLine{00020\ \}\ \textcolor{keyword}{extern}\ curl;}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{struct\ }debug\_t\{}
+\DoxyCodeLine{00024\ \ \ \ \ FILE*\ fd\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00025\ \ \ \ \ debug\_t();}
+\DoxyCodeLine{00026\ \ \ \ \ \string~debug\_t();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ operator()(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ field,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00029\ \}\ \textcolor{keyword}{extern}\ debug;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }field\_models\_t\{}
+\DoxyCodeLine{00032\ \ \ \ \ field\_model\_t\ models[];}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ UNKNOWN,\ FLAG,\ ENUM,\ RAW,\ PATH,\ STRING,\ COLOR,\ SCALAR\_1,\ SCALAR\_2,\ SCALAR\_4}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \}\ \textcolor{keyword}{extern}\ field\_models;}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

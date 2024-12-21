@@ -1,0 +1,175 @@
+\doxysection{include/cbindings/vs.h File Reference}
+\hypertarget{include_2cbindings_2vs_8h}{}\label{include_2cbindings_2vs_8h}\index{include/cbindings/vs.h@{include/cbindings/vs.h}}
+
+
+Entrypoint for the C interface of {\ttfamily libvs}  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for vs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{include_2cbindings_2vs_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvs__symbol__t}{vs\+\_\+symbol\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a77f166f2bba10f2ba74f7e9fbd032772}\label{include_2cbindings_2vs_8h_a77f166f2bba10f2ba74f7e9fbd032772} 
+typedef void {\bfseries vs\+\_\+frame}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a94ea77d852b68d82d817ec259fe1fc87}\label{include_2cbindings_2vs_8h_a94ea77d852b68d82d817ec259fe1fc87} 
+typedef void {\bfseries vs\+\_\+node}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a6bb3dadf8aa3c96f6de07f75abbdb33c}\label{include_2cbindings_2vs_8h_a6bb3dadf8aa3c96f6de07f75abbdb33c} 
+typedef void {\bfseries vs\+\_\+opaque\+\_\+script}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_adb95ab4304c76fe4e453134886ad9b14}\label{include_2cbindings_2vs_8h_adb95ab4304c76fe4e453134886ad9b14} 
+typedef enum vs\+\_\+symbol\+\_\+type\+\_\+t {\bfseries vs\+\_\+symbol\+\_\+type\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ae3e5331465129591cb8eb636e48e20fb}\label{include_2cbindings_2vs_8h_ae3e5331465129591cb8eb636e48e20fb} 
+typedef enum vs\+\_\+symbol\+\_\+mode\+\_\+t {\bfseries vs\+\_\+symbol\+\_\+mode\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_aaae46a3c254aa74688775109c5115441}\label{include_2cbindings_2vs_8h_aaae46a3c254aa74688775109c5115441} 
+typedef struct \mbox{\hyperlink{structvs__symbol__t}{vs\+\_\+symbol\+\_\+t}} {\bfseries vs\+\_\+symbol\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a1247de9f767b29f7e9ed63df9424c61b}\label{include_2cbindings_2vs_8h_a1247de9f767b29f7e9ed63df9424c61b} 
+typedef struct \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}} {\bfseries vs\+\_\+symbol\+\_\+ret\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a7b7e4d60581d59523c4345269d5d7e72}\label{include_2cbindings_2vs_8h_a7b7e4d60581d59523c4345269d5d7e72} 
+typedef enum vs\+\_\+frame\+\_\+type\+\_\+t {\bfseries vs\+\_\+frame\+\_\+type\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a9a6a608ebb57abfcf34c584dc8e5cd26}\label{include_2cbindings_2vs_8h_a9a6a608ebb57abfcf34c584dc8e5cd26} 
+typedef enum vs\+\_\+frame\+\_\+access\+\_\+t {\bfseries vs\+\_\+frame\+\_\+access\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a0f48ff5b7d7c19a439830c914c379b0c}\label{include_2cbindings_2vs_8h_a0f48ff5b7d7c19a439830c914c379b0c} 
+typedef enum vs\+\_\+component\+\_\+t {\bfseries vs\+\_\+component\+\_\+t}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ae8e651fa415949eb6773f242e8e33701}\label{include_2cbindings_2vs_8h_ae8e651fa415949eb6773f242e8e33701} 
+typedef vs\+\_\+symbol\+\_\+mode\+\_\+t {\bfseries vs\+\_\+frame\+\_\+mode\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_aeedafa1689b4267aaac837e4c168c70d}\label{include_2cbindings_2vs_8h_aeedafa1689b4267aaac837e4c168c70d} 
+enum {\bfseries vs\+\_\+symbol\+\_\+type\+\_\+t} \{ \newline
+{\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+VOID}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+UNKNOWN}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+CALLBACK}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+DRAW}
+, \newline
+{\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+SETTER}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+GETTER}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+DISPATCHER}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+TYPE\+\_\+\+TEST}
+ \}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_aab0e71d239b8e9f378cf255997e19120}\label{include_2cbindings_2vs_8h_aab0e71d239b8e9f378cf255997e19120} 
+enum {\bfseries vs\+\_\+symbol\+\_\+mode\+\_\+t} \{ \newline
+{\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+AUTO}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+NATIVE}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+QUICKJS}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+WASM}
+, \newline
+{\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+EXTERNAL}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+LUA}
+, {\bfseries VS\+\_\+\+SYMBOL\+\_\+\+MODE\+\_\+\+RISCV}
+ \}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a39045f69fb310961b9fe1ff2a809ae67}\label{include_2cbindings_2vs_8h_a39045f69fb310961b9fe1ff2a809ae67} 
+enum {\bfseries vs\+\_\+frame\+\_\+type\+\_\+t} \{ \newline
+{\bfseries VS\+\_\+\+FRAME\+\_\+\+TYPE\+\_\+\+SLOT\+\_\+\+CONTAINER}
+, {\bfseries VS\+\_\+\+FRAME\+\_\+\+TYPE\+\_\+\+CONTAINER}
+, {\bfseries VS\+\_\+\+FRAME\+\_\+\+TYPE\+\_\+\+SLOT}
+, {\bfseries VS\+\_\+\+FRAME\+\_\+\+TYPE\+\_\+\+LEAF}
+, \newline
+{\bfseries VS\+\_\+\+FRAME\+\_\+\+TYPE\+\_\+\+NODE}
+ \}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_adbd10003224c263558a2ab213f89d1ce}\label{include_2cbindings_2vs_8h_adbd10003224c263558a2ab213f89d1ce} 
+enum {\bfseries vs\+\_\+frame\+\_\+access\+\_\+t} \{ {\bfseries VS\+\_\+\+NODE\+\_\+\+PUBLIC}
+, {\bfseries VS\+\_\+\+NODE\+\_\+\+PRIVATE}
+ \}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a0205512e83afcdf035a860491f559080}\label{include_2cbindings_2vs_8h_a0205512e83afcdf035a860491f559080} 
+enum {\bfseries vs\+\_\+component\+\_\+t} \{ \newline
+{\bfseries VS\+\_\+\+COMPONENT\+\_\+\+NONE}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+VS}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+XML}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+LIB}
+, \newline
+{\bfseries VS\+\_\+\+COMPONENT\+\_\+\+WASM}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+RISCV}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+CNATIVE}
+, {\bfseries VS\+\_\+\+COMPONENT\+\_\+\+MARKDOWN}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_aabe117abb906227858dbabfc87db78f8}\label{include_2cbindings_2vs_8h_aabe117abb906227858dbabfc87db78f8} 
+void {\bfseries vs\+\_\+hello\+\_\+world} ()
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a6fb9cc0b311d3fe9dda67f470d668a68}\label{include_2cbindings_2vs_8h_a6fb9cc0b311d3fe9dda67f470d668a68} 
+void {\bfseries vs\+\_\+debug} (const char \texorpdfstring{$\ast$}{*}k, const char \texorpdfstring{$\ast$}{*}v)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a857e2599246126b171e255eec5eb14ba}\label{include_2cbindings_2vs_8h_a857e2599246126b171e255eec5eb14ba} 
+void {\bfseries vs\+\_\+node\+\_\+name\+\_\+set} (vs\+\_\+node \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a947add4f3cd7a0c69d2d38f7b8d499c2}\label{include_2cbindings_2vs_8h_a947add4f3cd7a0c69d2d38f7b8d499c2} 
+void {\bfseries vs\+\_\+node\+\_\+frame\+\_\+mode\+\_\+set} (vs\+\_\+node \texorpdfstring{$\ast$}{*}, vs\+\_\+frame\+\_\+mode\+\_\+t)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a945d5ff77c3ded045a5c21d9757019ad}\label{include_2cbindings_2vs_8h_a945d5ff77c3ded045a5c21d9757019ad} 
+void {\bfseries vs\+\_\+node\+\_\+frame\+\_\+type\+\_\+set} (vs\+\_\+node \texorpdfstring{$\ast$}{*}, vs\+\_\+frame\+\_\+type\+\_\+t)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ac3ef2d0ead729e5cc7accc6417b87a65}\label{include_2cbindings_2vs_8h_ac3ef2d0ead729e5cc7accc6417b87a65} 
+void {\bfseries vs\+\_\+node\+\_\+frame\+\_\+access\+\_\+set} (vs\+\_\+node \texorpdfstring{$\ast$}{*}, vs\+\_\+frame\+\_\+access\+\_\+t)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_abdcb59cb6839f19ad62bddf8ffaa79ba}\label{include_2cbindings_2vs_8h_abdcb59cb6839f19ad62bddf8ffaa79ba} 
+void {\bfseries vs\+\_\+node\+\_\+frame\+\_\+new} (vs\+\_\+node \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*}name, vs\+\_\+frame\+\_\+mode\+\_\+t mode)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ac060b988e49b9f6e197b79b6781c7624}\label{include_2cbindings_2vs_8h_ac060b988e49b9f6e197b79b6781c7624} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries vs\+\_\+node\+\_\+class\+\_\+get} (const vs\+\_\+node \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_aaae0355e7d25229b569a472ce673514e}\label{include_2cbindings_2vs_8h_aaae0355e7d25229b569a472ce673514e} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries vs\+\_\+node\+\_\+name\+\_\+get} (const vs\+\_\+node \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ac98b4c7ce51fae95852ec374bb2036a2}\label{include_2cbindings_2vs_8h_ac98b4c7ce51fae95852ec374bb2036a2} 
+void {\bfseries vs\+\_\+node\+\_\+getter\+\_\+use} (const \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}} \texorpdfstring{$\ast$}{*}sym, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a94a0b896837451c01ff5ce179f107df4}\label{include_2cbindings_2vs_8h_a94a0b896837451c01ff5ce179f107df4} 
+void {\bfseries vs\+\_\+node\+\_\+setter\+\_\+use} (const \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}} \texorpdfstring{$\ast$}{*}sym, void \texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a01ad82e566b38809a04e3a1671491127}\label{include_2cbindings_2vs_8h_a01ad82e566b38809a04e3a1671491127} 
+void {\bfseries vs\+\_\+node\+\_\+callback\+\_\+use} (const \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}} \texorpdfstring{$\ast$}{*}sym, vs\+\_\+node \texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_a9ef2595bbd6d45ff4e60525a38f2da91}\label{include_2cbindings_2vs_8h_a9ef2595bbd6d45ff4e60525a38f2da91} 
+void {\bfseries vs\+\_\+node\+\_\+test\+\_\+use} (const \mbox{\hyperlink{structvs__symbol__ret__t}{vs\+\_\+symbol\+\_\+ret\+\_\+t}} \texorpdfstring{$\ast$}{*}sym)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{include_2cbindings_2vs_8h_ab38817b7ac1e6932d9c0a26e1c714c6f}\label{include_2cbindings_2vs_8h_ab38817b7ac1e6932d9c0a26e1c714c6f} 
+\mbox{\hyperlink{structvs__symbol__t}{vs\+\_\+symbol\+\_\+t}} {\bfseries vs\+\_\+symbol\+\_\+null}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entrypoint for the C interface of {\ttfamily libvs} 
+
+\begin{DoxyAuthor}{Author}
+karurochari
+\end{DoxyAuthor}
+{\ttfamily libvs} is meant to be used via its C++ interface, and only a subset of its functionality is exposed via these bindings. ~\newline
+ Basically, what is needed to handle {\ttfamily ui\+\_\+tree}s, access to the constrained interface ui widgets have, resolving paths, symbols and little more. \begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}

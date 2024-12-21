@@ -1,0 +1,72 @@
+\doxysection{vs\+::cache\+::mem\+\_\+storage\+\_\+t Class Reference}
+\hypertarget{classvs_1_1cache_1_1mem__storage__t}{}\label{classvs_1_1cache_1_1mem__storage__t}\index{vs::cache::mem\_storage\_t@{vs::cache::mem\_storage\_t}}
+
+
+{\ttfamily \#include $<$memory-\/storage.\+hpp$>$}
+
+
+
+Collaboration diagram for vs\+::cache\+::mem\+\_\+storage\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classvs_1_1cache_1_1mem__storage__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvs_1_1cache_1_1mem__storage__t_1_1entry__t}{entry\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a725257c0533dae49597c1e0ddc5d5b59}\label{classvs_1_1cache_1_1mem__storage__t_a725257c0533dae49597c1e0ddc5d5b59} 
+typedef std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}}, \mbox{\hyperlink{structvs_1_1cache_1_1mem__storage__t_1_1entry__t}{entry\+\_\+t}} $>$\+::const\+\_\+iterator {\bfseries entry\+\_\+it}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a4e028a2c4072496d13a75133432869ad}\label{classvs_1_1cache_1_1mem__storage__t_a4e028a2c4072496d13a75133432869ad} 
+entry\+\_\+it {\bfseries end} ()
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_ad164a08d25841395196536dd957772f6}\label{classvs_1_1cache_1_1mem__storage__t_ad164a08d25841395196536dd957772f6} 
+entry\+\_\+it {\bfseries fetch\+\_\+from\+\_\+buffer} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&path, std\+::span$<$ uint8\+\_\+t const $>$ str, entry\+\_\+t\+::format\+\_\+t format)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a5eae9b15014381c4585b3c9256b2739a}\label{classvs_1_1cache_1_1mem__storage__t_a5eae9b15014381c4585b3c9256b2739a} 
+entry\+\_\+it {\bfseries fetch\+\_\+from\+\_\+cstring} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&path, std\+::string\+\_\+view str, entry\+\_\+t\+::format\+\_\+t format)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_ac6cef0fcbcac42e2e403efb8326b78f1}\label{classvs_1_1cache_1_1mem__storage__t_ac6cef0fcbcac42e2e403efb8326b78f1} 
+entry\+\_\+it {\bfseries fetch\+\_\+from\+\_\+fs} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&path, entry\+\_\+t\+::format\+\_\+t format)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a675c49f2773a01eabffeb1f8555a693d}\label{classvs_1_1cache_1_1mem__storage__t_a675c49f2773a01eabffeb1f8555a693d} 
+entry\+\_\+it {\bfseries fetch\+\_\+from\+\_\+res\+\_\+storage} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&path, entry\+\_\+t\+::format\+\_\+t format)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a5d73eecf43d46206dc5a8bad4df9945d}\label{classvs_1_1cache_1_1mem__storage__t_a5d73eecf43d46206dc5a8bad4df9945d} 
+entry\+\_\+it {\bfseries fetch\+\_\+from\+\_\+shared} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&key, const std\+::shared\+\_\+ptr$<$ void $>$ \&src, entry\+\_\+t\+::format\+\_\+t format)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a496a57cf8c7df0530c658ab9aa533c13}\label{classvs_1_1cache_1_1mem__storage__t_a496a57cf8c7df0530c658ab9aa533c13} 
+void {\bfseries drop} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_adf183f91689914b9c460adff711ea696}\label{classvs_1_1cache_1_1mem__storage__t_adf183f91689914b9c460adff711ea696} 
+\mbox{\hyperlink{structvs_1_1cache_1_1mem__storage__t_1_1entry__t}{entry\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries get} (const \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} \&)
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a22792a26ffdfd3ef5655136d9cc75d5f}\label{classvs_1_1cache_1_1mem__storage__t_a22792a26ffdfd3ef5655136d9cc75d5f} 
+void {\bfseries cleanup} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvs_1_1cache_1_1mem__storage__t_a17232ee71e7f17a284835ee0375c08e6}\label{classvs_1_1cache_1_1mem__storage__t_a17232ee71e7f17a284835ee0375c08e6} 
+static \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\+\_\+key\+\_\+t}} {\bfseries empty\+\_\+key} = \{"{}"{},0,resource\+\_\+t\+::\+NONE\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Special cache class to store arbitrary data as part of the current session. Usually without a limited lifetime. It is not designed to quickly search from the original name. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/cache/memory-\/storage.\+hpp\item 
+src/cache/memory-\/storage.\+cpp\end{DoxyCompactItemize}

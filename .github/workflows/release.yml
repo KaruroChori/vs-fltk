@@ -1,0 +1,60 @@
+name: Release
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}-release
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v**"
+    branches: [master]
+jobs:
+  build-checks:
+    uses: ./.github/workflows/build.yml
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+  release:
+    needs: [build-checks]
+    name: release
+    runs-on: ubuntu-24.04
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          curl -fsSL https://bun.sh/install | bash
+          echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
+          sudo apt update
+          sudo apt remove -y firefox
+          sudo apt upgrade -y
+          sudo apt install -y \
+            freeglut3-dev \
+            libcurl4-openssl-dev \
+            libpng-dev \
+            libsqlite3-0 \
+            python3-pip \
+            python3-setuptools
+          python3 -m pip install meson ninja
+          python3 -m pip uninstall cmake
+          python3 -m pip install cmake==3.30.5 # workaround https://github.com/mesonbuild/meson/issues/13888
+          # for clang
+          sudo apt install -y wget gpg gnupg software-properties-common
+          curl -LO https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 19 # install clang-19
+
+      - name: Configure and build
+        run: |
+          cmake --version
+          bun install
+          bun run codegen
+          bun run meson-setup.clang-release
+          meson dist -C build/ --allow-dirty --no-tests --include-subprojects
+      - name: Add artifact
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ./build/meson-dist/**/*

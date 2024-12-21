@@ -1,0 +1,22 @@
+<map id="vs::global_ctx_t" name="vs::global_ctx_t">
+<area shape="rect" id="Node000001" title="Global context structure." alt="" coords="453,372,577,397"/>
+<area shape="rect" id="Node000002" href="$structvs_1_1app__env__t.html" title=" " alt="" coords="243,284,355,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="340,312,422,346,485,369,483,374,420,350,338,317"/>
+<area shape="rect" id="Node000003" href="$structvs_1_1policies__t.html" title=" " alt="" coords="160,108,267,133"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,147,204,172,202,202,205,231,217,259,230,272,247,282,245,286,227,276,212,261,200,233,196,202,199,172,203,146"/>
+<area shape="rect" id="Node000004" href="$structvs_1_1policies__t_1_1networking__t.html" title=" " alt="" coords="5,13,205,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="131,45,202,106,198,110,127,49"/>
+<area shape="rect" id="Node000005" href="$structvs_1_1policies__t_1_1embedded__scripts__t.html" title=" " alt="" coords="229,5,413,45"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="291,56,229,110,225,106,287,52"/>
+<area shape="rect" id="Node000006" href="$structvs_1_1scoped__rpath__t.html" title=" " alt="" coords="332,108,476,133"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="383,145,373,159,362,186,360,210,356,234,344,262,319,286,315,282,339,258,351,232,354,209,357,185,368,156,379,142"/>
+<area shape="rect" id="Node000007" href="$structvs_1_1path__env__t.html" title=" " alt="" coords="379,284,496,309"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="411,146,438,283,432,284,406,147"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="450,321,467,346,497,370,493,374,463,350,446,324"/>
+<area shape="rect" id="Node000008" href="$structvs_1_1js__rt__t.html" title=" " alt="" coords="520,284,605,309"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="552,323,524,373,519,370,547,320"/>
+<area shape="rect" id="Node000009" href="$classvs_1_1cache_1_1mem__storage__t.html" title=" " alt="" coords="630,284,823,309"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="686,317,544,374,542,369,684,312"/>
+<area shape="rect" id="Node000010" href="$structvs_1_1cache_1_1mem__key__t.html" title=" " alt="" coords="643,108,810,133"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="729,147,729,284,724,284,724,147"/>
+</map>

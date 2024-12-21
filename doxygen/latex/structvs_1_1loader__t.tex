@@ -1,0 +1,68 @@
+\doxysection{vs\+::loader\+\_\+t Struct Reference}
+\hypertarget{structvs_1_1loader__t}{}\label{structvs_1_1loader__t}\index{vs::loader\_t@{vs::loader\_t}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvs_1_1loader__t_ab8b2511ec0f93ab44855a24fb80c5a7f}{loader\+\_\+t}} (\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \&globals, const char \texorpdfstring{$\ast$}{*}profile, const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Load a new application. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structvs_1_1loader__t_a0bef58ba0662f38217ea0c4235a8e8f2}{run}} ()
+\begin{DoxyCompactList}\small\item\em After building in the constructor, run the application once ready. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structvs_1_1loader__t_aed21081accea9a964289029e58ce10fb}{test}} ()
+\begin{DoxyCompactList}\small\item\em RUn the application in test mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structvs_1_1loader__t_ab8b2511ec0f93ab44855a24fb80c5a7f}\label{structvs_1_1loader__t_ab8b2511ec0f93ab44855a24fb80c5a7f} 
+\index{vs::loader\_t@{vs::loader\_t}!loader\_t@{loader\_t}}
+\index{loader\_t@{loader\_t}!vs::loader\_t@{vs::loader\_t}}
+\doxysubsubsection{\texorpdfstring{loader\_t()}{loader\_t()}}
+{\footnotesize\ttfamily vs\+::loader\+\_\+t\+::loader\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvs_1_1global__ctx__t}{global\+\_\+ctx\+\_\+t}} \&}]{globals,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{profile,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+
+
+Load a new application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em globals} & The current global context object. \\
+\hline
+{\em profile} & Filename of the profile to use for loading. If {\ttfamily nullptr} default will be used. \\
+\hline
+{\em path} & The virtual path to the app root file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structvs_1_1loader__t_a0bef58ba0662f38217ea0c4235a8e8f2}\label{structvs_1_1loader__t_a0bef58ba0662f38217ea0c4235a8e8f2} 
+\index{vs::loader\_t@{vs::loader\_t}!run@{run}}
+\index{run@{run}!vs::loader\_t@{vs::loader\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int vs\+::loader\+\_\+t\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+After building in the constructor, run the application once ready. 
+
+\begin{DoxyReturn}{Returns}
+int 0 if everything went ok, else error codes. 
+\end{DoxyReturn}
+\Hypertarget{structvs_1_1loader__t_aed21081accea9a964289029e58ce10fb}\label{structvs_1_1loader__t_aed21081accea9a964289029e58ce10fb} 
+\index{vs::loader\_t@{vs::loader\_t}!test@{test}}
+\index{test@{test}!vs::loader\_t@{vs::loader\_t}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily int vs\+::loader\+\_\+t\+::test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+RUn the application in test mode. 
+
+\begin{DoxyReturn}{Returns}
+int if everything went ok, else error codes. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{loader_8hpp}{loader.\+hpp}}\item 
+src/loader.\+cpp\end{DoxyCompactItemize}

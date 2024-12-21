@@ -1,0 +1,66 @@
+\doxysection{strings.\+hpp}
+\hypertarget{strings_8hpp_source}{}\label{strings_8hpp_source}\index{include/utils/strings.hpp@{include/utils/strings.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//TODO\ convert\ to\ vector\ of\ stringviews?}}
+\DoxyCodeLine{00010\ std::vector<std::string>\ split\ (\textcolor{keyword}{const}\ std::string\ \&s,\ \textcolor{keywordtype}{char}\ delim)\ ;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstring__key__t}{string\_key\_t}}\ :\ std::string\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::hash<std::string>\ hasher;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ uint64\_t\ hash;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{structstring__key__t}{string\_key\_t}}(Args\ ...args):std::string(args...)\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ hash=hasher(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//TODO:\ Not\ sure\ this\ impl\ is\ correct\ correct}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{auto}\ operator=(Args\ ...args)\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tmp\ =\ std::string::operator=(args...);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ hash=hasher(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstring__key__t_1_1compare}{compare}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{structstring__key__t}{string\_key\_t}}\&\ a,\ \textcolor{keyword}{const}\ \ \mbox{\hyperlink{structstring__key__t}{string\_key\_t}}\&\ b)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ a.hash\ <\ b.hash)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ a\ <\ b;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00039\ \textcolor{keyword}{using\ }hmap\ =\ std::map<string\_key\_t,\ T,\ string\_key\_t::compare>;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//Maps\ capable\ of\ comparing\ with\ the\ dot\ notation}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{bool}\ cmp\_cstr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ b);}
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsmap__compare}{smap\_compare}}\ :\ std::less<>\{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ std::string\&\ a,\ \textcolor{keyword}{const}\ std::string\&\ b)\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cmp\_cstr(a.data(),\ b.data());}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00052\ \textcolor{keyword}{using\ }smap\ =\ std::map<std::string,\ T,\ smap\_compare>;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{constexpr}\ std::size\_t\ cx\_strlen(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s)\{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ std::char\_traits<char>::length(s);}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ cx\_strneqv(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ c)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ strncmp(s,\ c,\ cx\_strlen(c))==0;}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

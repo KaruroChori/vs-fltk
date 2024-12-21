@@ -1,0 +1,98 @@
+\doxysection{ui-\/frame.hpp}
+\hypertarget{ui-frame_8hpp_source}{}\label{ui-frame_8hpp_source}\index{include/ui-\/frame.hpp@{include/ui-\/frame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }frame;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }ui\_base;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1field__prefix__t}{field\_prefix\_t}}\{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{size\_t}\ tag;}
+\DoxyCodeLine{00015\ \ \ void\ (*free)(\textcolor{keywordtype}{void}*\ ptr);}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{void}\ *base[0];\ \ \ \textcolor{comment}{//Just\ to\ offer\ a\ base\ with\ the\ right\ offset}}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//TODO:\ Add\ static\ table\ of\ serializers/deserializers}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//Used\ by\ getters,\ setters\ and\ computed}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1field__t}{field\_t}}\{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{enum\ struct}\ types\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \}\ type;}
+\DoxyCodeLine{00025\ \ \ ptrdiff\_t\ storage;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1field__model__t}{field\_model\_t}}\{}
+\DoxyCodeLine{00029\ \ \ int(*deserialize)(\textcolor{keywordtype}{void}*\ obj\_dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src);\ \ \textcolor{comment}{//Setup\ obj\ based\ on\ data\ from\ src}}
+\DoxyCodeLine{00030\ \ \ int(*serialize)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ obj\_src,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ dst);\ \ \ \textcolor{comment}{//Create\ a\ new\ string\ with\ the\ serialized\ information\ of\ obj\ inside}}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{enum\ class}\ symbol\_type\_t\{}
+\DoxyCodeLine{00035\ \ \ VOID,\ \textcolor{comment}{//Function\ not\ to\ be\ defined}}
+\DoxyCodeLine{00036\ \ \ UNKNOWN,\ \textcolor{comment}{//Function\ whose\ prototype\ is\ unknown/non-\/standard}}
+\DoxyCodeLine{00037\ \ \ CALLBACK,\ \textcolor{comment}{//Event\ callback}}
+\DoxyCodeLine{00038\ \ \ DRAW,\ \textcolor{comment}{//Drawing\ function}}
+\DoxyCodeLine{00039\ \ \ SETTER,\ }
+\DoxyCodeLine{00040\ \ \ GETTER,}
+\DoxyCodeLine{00041\ \ \ DISPATCHER,\ \textcolor{comment}{//Custom\ dispatcher}}
+\DoxyCodeLine{00042\ \ \ TEST\ \ \textcolor{comment}{//Test\ function\ used\ by\ robots,\ run\ during\ testing}}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{enum\ class}\ symbol\_mode\_t\{}
+\DoxyCodeLine{00046\ \ \ AUTO,}
+\DoxyCodeLine{00047\ \ \ NATIVE,}
+\DoxyCodeLine{00048\ \ \ QUICKJS,}
+\DoxyCodeLine{00049\ \ \ WASM,}
+\DoxyCodeLine{00050\ \ \ EXTERNAL,}
+\DoxyCodeLine{00051\ \ \ LUA,}
+\DoxyCodeLine{00052\ \ \ RISCV,}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\{}
+\DoxyCodeLine{00056\ \ \ symbol\_mode\_t\ mode:3;}
+\DoxyCodeLine{00057\ \ \ symbol\_type\_t\ type:5;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ symbol;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ VOID;}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//TODO:\ Very\ bad\ packing.\ Fix\ it\ at\ some\ point}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\_ret\_t}}\{}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ symbol;}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ ctx\_apply;}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvs_1_1frame}{frame}}*\ found\_at;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*(*ctx\_apply\_fn)(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*);\ \ \ \ \ \ \ \ \textcolor{comment}{//Special\ type\ for\ the\ function\ setting\ context}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{typedef}\ void(*cb\_fn)(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Type\ for\ callbacks}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{typedef}\ void(*draw\_fn)();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Type\ for\ draw\ functions,\ used\ to\ define\ style\ of\ UI\ elements\ (TODO\ interface)}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{typedef}\ int(*set\_fn)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ src);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Field\ setter}}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{typedef}\ int(*get\_fn)(\textcolor{keywordtype}{void}**\ src);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Field\ getter}}
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{typedef}\ int(*test\_fn)();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Test\ function\ for\ automatic\ testing}}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{enum\ class}\ frame\_type\_t\{}
+\DoxyCodeLine{00078\ \ \ SLOT\_CONTAINER,\ \ \ \textcolor{comment}{//Stop\ any\ request\ from\ moving\ in\ between.}}
+\DoxyCodeLine{00079\ \ \ CONTAINER,\ \ \ \ \ \ \ \ \textcolor{comment}{//Any\ bottom\ up\ request\ will\ stop\ here.}}
+\DoxyCodeLine{00080\ \ \ SLOT,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Any\ top\ down\ request\ will\ stop\ here.}}
+\DoxyCodeLine{00081\ \ \ LEAF,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//No\ children\ stored\ in\ here\ (but\ symbols\ are\ fine).\ Go\ to\ parent.}}
+\DoxyCodeLine{00082\ \ \ NODE,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//A\ namespace\ without\ constraints\ on\ moving\ in\ and\ out}}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ \textcolor{keyword}{enum\ class}\ frame\_access\_t\{}
+\DoxyCodeLine{00085\ \ \ PUBLIC,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Symbols\ can\ be\ searched\ inside,\ bottom\ up\ \&\ top\ down.}}
+\DoxyCodeLine{00086\ \ \ PRIVATE,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//There\ can\ be\ symbols,\ but\ they\ are\ only\ visible\ by\ self.\ Requests\ are\ passed}}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \ symbol\_mode\_t\ frame\_mode\_t;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}

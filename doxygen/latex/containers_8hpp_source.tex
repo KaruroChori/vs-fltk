@@ -1,0 +1,113 @@
+\doxysection{containers.\+hpp}
+\hypertarget{containers_8hpp_source}{}\label{containers_8hpp_source}\index{include/components/containers.hpp@{include/components/containers.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ui-\/frame.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <utils/app-\/env.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <FL/Fl\_Group.H>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <FL/Fl\_Widget.H>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <FL/Fl\_Window.H>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cache/commons.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ui.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1ui__root__thin__component}{ui\_root\_thin\_component}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__root__thin__component}{ui\_root\_thin\_component}}(frame\_mode\_t\ MODE):\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}(\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{comment}{//Cannot\ use\ mk\_frame\ as\ it\ requires\ recursion\ and\ the\ widget\ property\ to\ operate.}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ local\_frame=\textcolor{keyword}{new}\ \mbox{\hyperlink{classvs_1_1frame}{frame}}(\textcolor{keyword}{nullptr},\ MODE,\ \textcolor{keyword}{this},\ \textcolor{keyword}{nullptr},\ default\_frame\_type(),\ frame\_access\_t::PUBLIC);}
+\DoxyCodeLine{00020\ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{virtual}\ frame\_type\_t\ default\_frame\_type()\textcolor{keyword}{\ override\ }\{\textcolor{keywordflow}{return}\ frame\_type\_t::CONTAINER;\}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ class\_name()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}component.thin"{}};\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{int}\ apply\_prop(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}xmlns:"{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}xmlns:"{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(prop,\ \textcolor{stringliteral}{"{}name"{}})==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}frame."{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}frame."{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}(local\_frame!=\textcolor{keyword}{nullptr})\textcolor{keywordflow}{return}\ local\_frame-\/>call\_dispatcher(prop,value);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{int}\ get\_computed(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **value)\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ 1;\}}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1ui__root__component}{ui\_root\_component}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvs_1_1ui__root__thin__component}{ui\_root\_thin\_component}}\{}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//TODO:\ Make\ it\ private\ at\ some\ point,\ but\ I\ need\ to\ clean\ up\ the\ rest\ of\ the\ code\ and\ set\ up\ proper\ friend\ classes\ first.}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structvs_1_1app__env__t}{app\_env\_t}}\ local\_env;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__root__component}{ui\_root\_component}}(frame\_mode\_t\ MODE):\mbox{\hyperlink{classvs_1_1ui__root__thin__component}{ui\_root\_thin\_component}}(MODE)\{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ class\_name()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}component"{}};\}}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1ui__root__app}{ui\_root\_app}}\ :\textcolor{keyword}{public}\ \mbox{\hyperlink{classvs_1_1ui__root__component}{ui\_root\_component}}\{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__root__app}{ui\_root\_app}}(frame\_mode\_t\ MODE):\mbox{\hyperlink{classvs_1_1ui__root__component}{ui\_root\_component}}(MODE)\{\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ class\_name()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}app"{}};\}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{int}\ apply\_prop(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}xmlns:"{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}xmlns:"{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}link-\/with."{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}link-\/with."{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}frame."{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}frame."{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}(local\_frame!=\textcolor{keyword}{nullptr})\textcolor{keywordflow}{return}\ local\_frame-\/>call\_dispatcher(prop,value);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//TODO:\ Add\ a\ new\ ui\_region\ similar\ to\ namespace\ but\ with\ extra\ cache::ctx\_t\ like\ app,\ to\ nest\ a\ new\ "{}safe"{}\ region\ inside.}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1ui__namespace}{ui\_namespace}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}\{}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__namespace}{ui\_namespace}}(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ p):\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}(p)\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{comment}{//this-\/>widget().size(widget().parent()-\/>w(),\ widget().parent()-\/>h());}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ this-\/>mk\_frame();}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ this-\/>set\_access(frame\_access\_t::PUBLIC);}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{virtual}\ frame\_type\_t\ default\_frame\_type()\textcolor{keyword}{\ override\ }\{\textcolor{keywordflow}{return}\ frame\_type\_t::NODE;\}}
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ class\_name()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}namespace"{}};\}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{int}\ apply\_prop(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}(strcmp(prop,\ \textcolor{stringliteral}{"{}name"{}})==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strncmp(prop,\ \textcolor{stringliteral}{"{}frame."{}},\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}frame."{}})-\/1)==0)\{\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}(local\_frame!=\textcolor{keyword}{nullptr})\textcolor{keywordflow}{return}\ local\_frame-\/>call\_dispatcher(prop,value);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00082\ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{int}\ get\_computed(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **value)\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ 1;\}}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1ui__viewport}{ui\_viewport}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvs_1_1ui}{ui}}<Fl\_Window>\{}
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00089\ \ \ \ \ std::string\ src;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{enum}\ status\_t\{LOADING,\ READY,\ FAILED\}\ status;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ content\_loading;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ content;}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ content\_fail;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classvs_1_1ui__viewport}{ui\_viewport}}(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ p,Args\ ...w):\mbox{\hyperlink{classvs_1_1ui}{ui<Fl\_Window>}}(p,w...)\{mk\_frame();\}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ frame\_type\_t\ default\_frame\_type()\textcolor{keyword}{\ override\ }\{\textcolor{keywordflow}{return}\ frame\_type\_t::SLOT\_CONTAINER;\}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ class\_name()\textcolor{keyword}{\ override}\{\textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}viewport"{}};\}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ refresh\_content();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_apply\_prop(\mbox{\hyperlink{classvs_1_1ui__viewport}{ui\_viewport}}*\ that,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_get\_computed(\mbox{\hyperlink{classvs_1_1ui__viewport}{ui\_viewport}}*\ that,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prop,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ value);}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
