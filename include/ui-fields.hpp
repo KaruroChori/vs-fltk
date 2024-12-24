@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <cstdlib>
 #include <ui.hpp>
 
 namespace vs{
@@ -20,9 +21,9 @@ struct field_model_t{
 struct field_models_t{
     field_model_t models[];
 
-    inline field_model_t operator[](int i ){if(i<__LAST && i>__FIRST)return models[i];};
+    inline field_model_t operator[](int i ){if(i<__LAST && i>__FIRST)return models[i];/*Unrecognized field model*/exit(1);};
 
-    enum types : uint{
+    enum types{
         __FIRST, FLAG, ENUM, RAW, PATH, CSTRING, STRING_VIEW, COLOR,
         ISCALAR_1, ISCALAR_2, ISCALAR_3, ISCALAR_4,
         FSCALAR_1, FSCALAR_2, FSCALAR_3, FSCALAR_4,
