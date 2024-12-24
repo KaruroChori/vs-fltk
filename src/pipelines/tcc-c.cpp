@@ -113,12 +113,29 @@ std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::
     script->add_sym("vs_resolve_name", (void *)+[](ui_base* w,const char* s){if(w==nullptr)return (const ui_base*)nullptr;return  w->resolve_name(s, true); });
     script->add_sym("vs_resolve_name_path", (void *)+[](ui_base* w,const char* s){if(w==nullptr)return (const ui_base*)nullptr;return  w->resolve_name_path(s, true); });
     script->add_sym("vs_resolve_symbol", (void *)+[](ui_base* w,const char* s){if(w==nullptr)return symbol_ret_t {symbol_t::VOID, symbol_t::VOID, nullptr};return w->resolve_symbol(s, true); });
-    script->add_sym("vs_apply_prop", (void *)+[](ui_base* w,const char* k, const char* v){if(w==nullptr)return -1;return w->apply_prop(k,v); });
-    script->add_sym("vs_get_computed", (void *)+[](ui_base* w,const char* k, const char** v){if(w==nullptr)return -1;return w->get_computed(k,v); });
-    //TODO: remove tmp strings
-    script->add_sym("vs_set", (void *)+[](ui_base* w,const char* k, const void* v){if(w==nullptr)return -1;std::string tmp = std::string("#s_")+k;return w->use_setter(w->resolve_symbol_local(tmp.c_str(), false), v);});
-    script->add_sym("vs_get", (void *)+[](ui_base* w,const char* k, void** v){if(w==nullptr)return -1;std::string tmp = std::string("#g_")+k;return w->use_getter(w->resolve_symbol_local(tmp.c_str(), false), v);});
     
+    //TODO: Remove
+    script->add_sym("vs_apply_prop", (void *)+[](ui_base* w,const char* k, const char* v){if(w==nullptr)return -1;return w->apply_prop(k,v); });    
+    //TODO: Remove
+    script->add_sym("vs_get_computed", (void *)+[](ui_base* w,const char* k, const char** v){if(w==nullptr)return -1;return w->get_computed(k,v); });
+
+    /* Replacing operations on current prop/computed
+    script->add_sym("vs_set_prop", (void *)+[](ui_base* w,const char* k, const char* v){if(w==nullptr)return -1;return w->apply_prop(k,v); });
+    script->add_sym("vs_get_prop", (void *)+[](ui_base* w,const char* k, const char** v){if(w==nullptr)return -1;return w->get_computed(k,v); });
+    script->add_sym("vs_set_prop_str", (void *)+[](ui_base* w,const char* k, const char* v){if(w==nullptr)return -1;return w->apply_prop(k,v); });
+    script->add_sym("vs_get_prop_str", (void *)+[](ui_base* w,const char* k, const char** v){if(w==nullptr)return -1;return w->get_computed(k,v); });
+    */
+
+    //TODO: Rewrite to use serialization or not based on their type.
+    script->add_sym("vs_set", (void *)+[](ui_base* w,const char* name, const void* v){if(w==nullptr)return -1;std::string tmp = std::string("#s_")+name;return w->use_setter(w->resolve_symbol_local(tmp.c_str(), false), v);});
+    script->add_sym("vs_get", (void *)+[](ui_base* w,const char* name, void** v){if(w==nullptr)return -1;std::string tmp = std::string("#g_")+name;return w->use_getter(w->resolve_symbol_local(tmp.c_str(), false), v);});
+    script->add_sym("vs_set_str", (void *)+[](ui_base* w,const char* name, const char* v){if(w==nullptr)return -1;return 1;});
+    script->add_sym("vs_get_str", (void *)+[](ui_base* w,const char* name, const char** v){if(w==nullptr)return -1;return 1;});
+    
+    script->add_sym("vs_from_str", (void *)+[](ui_base* w,const void* obj, const char* v){return 1;});
+    script->add_sym("vs_to_str", (void *)+[](ui_base* w,void* obj, const char** v){return 1;});
+
+
     //Runtime functions
     script->add_sym("itoa", (void *)itoa);
 

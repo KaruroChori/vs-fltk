@@ -35,7 +35,7 @@ function gen_cpp(data: Static<typeof widget_schema>) {
 #pragma once
 
 #include <ui.hpp>
-#include <ui-field.types.hpp>
+#include <ui-fields.hpp>
 ${cextends ? `#include <components/autogen/${cextends[0]}/${cextends[1]}.hpp>\n` : ``}
 ${data.headers ? data.headers.map(x => `#include <${x}>\n`).join('\n') : ``}
 

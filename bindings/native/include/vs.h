@@ -9,12 +9,29 @@
  */
 
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+// Type alias
+typedef __INT64_TYPE__ i64;
+typedef unsigned __INT64_TYPE__ u64;
+typedef __INT32_TYPE__ i32;
+typedef unsigned __INT32_TYPE__ u32;
+typedef short int i16;
+typedef unsigned short int u16;
+typedef signed char i8;
+typedef unsigned char u8;
+typedef float fp;
+typedef double lfp;
 
 typedef  void* node_t;
 
+// VS stuff
+
 extern node_t vs_self;
 
-enum log_severety_t{
+typedef enum log_severety_t{
   LOG_INFO,
   LOG_OK,
   LOG_WARNING,
@@ -25,10 +42,9 @@ enum log_severety_t{
   LOG_LVL_SILENT = 0x10,
   LOG_LVL_VERBOSE = 0x20,
   LOG_LVL_DEBUG = 0x40,
-};
-typedef enum log_severety_t log_severety_t;
+}log_severety_t;
 
-struct __symbol_t{
+typedef struct __symbol_t{
   enum{
     UNKNOWN=1, CALLBACK, DRAW, SETTER, GETTER,
   } mode:3;
@@ -36,29 +52,74 @@ struct __symbol_t{
     NATIVE=1, QUICKJS, WASM, EXTERNAL, LUA
   } type:5;
   const void* symbol;
-};
-
-typedef struct __symbol_t __symbol_t;
+}__symbol_t;
 
 
-struct symbol_ret_t{
+typedef struct symbol_ret_t{
   __symbol_t symbol;
   __symbol_t ctx_apply;
   const void* found_at;
-};
+}symbol_ret_t;
 
-typedef struct symbol_ret_t symbol_ret_t;
 
-struct vs_field_t{
+typedef enum vs_types_t{
+  TYPE_FLAG=1,
+  TYPE_ENUM,
+  TYPE_RAW,
+  TYPE_PATH,
+  TYPE_CSTRING,
+  TYPE_STRING_VIEW,
+  TYPE_COLOR,
+  TYPE_ISCALAR_1,
+  TYPE_ISCALAR_2,
+  TYPE_ISCALAR_3,
+  TYPE_ISCALAR_4,
+  TYPE_FSCALAR_1,
+  TYPE_FSCALAR_2,
+  TYPE_FSCALAR_3,
+  TYPE_FSCALAR_4
+} vs_types_t;
+
+
+typedef struct vs_field_model_t{
   const char* name;
   int(*setter)(const char*);
-  int(*getter)(char**);
-};
+  int(*getter)(const char**);
+} vs_field_model_t;
 
-typedef struct vs_field_t vs_field_t;
+typedef struct vs_field_t{
+  u32 type : 23;
+  u32 need_cleanup: 1;
+  u32 subtype: 8;
+
+  union{
+    int               FLAG;
+    size_t            ENUM;
+    void*             RAW;
+    const char *      CSTRING;
+    //std::string_view  STRING_VIEW;  //TODO: replace with isomorphic structure which can have ownership.
+    u8                COLOR[4];
+    u32               ISCALAR_1[1];
+    u32               ISCALAR_2[2];
+    u32               ISCALAR_3[3];
+    u32               ISCALAR_4[4];
+    fp                FSCALAR_1[1];
+    fp                FSCALAR_2[2];
+    fp                FSCALAR_3[3];
+    fp                FSCALAR_4[4];
+  }storage;
+
+} vs_field_t;
 
 
-//extern int printf(const char*restrict, ...);
+
+extern vs_field_t* vs_field_make();
+extern void vs_field_destroy(vs_field_t* obj);
+
+inline int as_flag(vs_field_t* field){
+  //TODO: throw() if runtime type not equal to flag
+  //return payload reference
+}
 
 extern int vs_log(int severety, node_t self, const char* string, ...);
 #define $$log(self,sev,string, ...) vs_log(sev,self,string, ##__VA_ARGS__)
@@ -108,17 +169,3 @@ extern void vs_debug(const char* key, const char* value);
 
 //Extra functions
 char* itoa(int value, char* result, int base);
-
-enum vs_types_t{
-  TYPE_UNKNOWN,
-  TYPE_FLAG,
-  TYPE_ENUM,
-  TYPE_RAW,
-  TYPE_PATH,
-  TYPE_STRING,
-  TYPE_COLOR,
-  TYPE_SCALAR_1,
-  TYPE_SCALAR_2,
-  TYPE_SCALAR_4
-};
-typedef vs_types_t vs_types_t;

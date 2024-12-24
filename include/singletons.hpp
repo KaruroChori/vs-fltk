@@ -9,6 +9,8 @@
 #include <cache/kv-storage.hpp>
 #include <cache/secrets.hpp>
 
+#include <ui-fields.hpp>
+
 namespace vs{
 
 namespace singleton{
@@ -28,12 +30,6 @@ struct debug_t{
     void operator()(const char* field, const char* value);
 } extern debug;
 
-struct field_models_t{
-    field_model_t models[];
-
-    enum{
-        UNKNOWN, FLAG, ENUM, RAW, PATH, STRING, COLOR, SCALAR_1, SCALAR_2, SCALAR_4
-    };
-} extern field_models;
+field_models_t extern field_models;
 }
 }

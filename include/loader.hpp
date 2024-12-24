@@ -13,7 +13,7 @@
 
 namespace vs{
 
-class ui_tree;
+struct ui_tree;
 
 struct loader_t{
     private:
