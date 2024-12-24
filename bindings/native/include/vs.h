@@ -9,8 +9,25 @@
  */
 
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+// Type alias
+typedef __INT64_TYPE__ i64;
+typedef unsigned __INT64_TYPE__ u64;
+typedef __INT32_TYPE__ i32;
+typedef unsigned __INT32_TYPE__ u32;
+typedef short int i16;
+typedef unsigned short int u16;
+typedef signed char i8;
+typedef unsigned char u8;
+typedef float fp;
+typedef double lfp;
 
 typedef  void* node_t;
+
+// VS stuff
 
 extern node_t vs_self;
 
@@ -70,10 +87,34 @@ typedef struct vs_field_model_t{
   int(*getter)(const char**);
 } vs_field_model_t;
 
-
 typedef struct vs_field_t{
-  
+  u32 type : 23;
+  u32 need_cleanup: 1;
+  u32 subtype: 8;
+
+  union{
+    int               FLAG;
+    size_t            ENUM;
+    void*             RAW;
+    const char *      CSTRING;
+    //std::string_view  STRING_VIEW;  //TODO: replace with isomorphic structure which can have ownership.
+    u8                COLOR[4];
+    u32               ISCALAR_1[1];
+    u32               ISCALAR_2[2];
+    u32               ISCALAR_3[3];
+    u32               ISCALAR_4[4];
+    fp                FSCALAR_1[1];
+    fp                FSCALAR_2[2];
+    fp                FSCALAR_3[3];
+    fp                FSCALAR_4[4];
+  }storage;
+
 } vs_field_t;
+
+
+
+extern vs_field_t* vs_field_make();
+extern void vs_field_destroy(vs_field_t* obj);
 
 inline int as_flag(vs_field_t* field){
   //TODO: throw() if runtime type not equal to flag
