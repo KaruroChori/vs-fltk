@@ -40,7 +40,7 @@ struct field_t{
     size_t            ENUM;
     void*             RAW;
     const char *      CSTRING;
-    std::string_view  STRING_VIEW;
+    std::string_view  STRING_VIEW;  //TODO: replace with isomorphic structure which can have ownership.
     uint8_t           COLOR[4];
     uint32_t          ISCALAR_1[1];
     uint32_t          ISCALAR_2[2];
@@ -51,6 +51,22 @@ struct field_t{
     float             FSCALAR_3[3];
     float             FSCALAR_4[4];
   }storage;
+
+  /**
+   * @brief Construct a new field object
+   * 
+   * @param type 
+   * @param need_cleanup 
+   * @param subtype 
+   */
+  field_t(field_models_t::types type, bool need_cleanup = false, uint32_t subtype=0);
+
+  /**
+   * @brief Destroy the field object
+   * If set for cleanup and of compatible type, raw, cstring or stringview content will be freed.
+   */
+  ~field_t();
+
 };
 
 

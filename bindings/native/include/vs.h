@@ -14,7 +14,7 @@ typedef  void* node_t;
 
 extern node_t vs_self;
 
-enum log_severety_t{
+typedef enum log_severety_t{
   LOG_INFO,
   LOG_OK,
   LOG_WARNING,
@@ -25,10 +25,9 @@ enum log_severety_t{
   LOG_LVL_SILENT = 0x10,
   LOG_LVL_VERBOSE = 0x20,
   LOG_LVL_DEBUG = 0x40,
-};
-typedef enum log_severety_t log_severety_t;
+}log_severety_t;
 
-struct __symbol_t{
+typedef struct __symbol_t{
   enum{
     UNKNOWN=1, CALLBACK, DRAW, SETTER, GETTER,
   } mode:3;
@@ -36,21 +35,17 @@ struct __symbol_t{
     NATIVE=1, QUICKJS, WASM, EXTERNAL, LUA
   } type:5;
   const void* symbol;
-};
-
-typedef struct __symbol_t __symbol_t;
+}__symbol_t;
 
 
-struct symbol_ret_t{
+typedef struct symbol_ret_t{
   __symbol_t symbol;
   __symbol_t ctx_apply;
   const void* found_at;
-};
-
-typedef struct symbol_ret_t symbol_ret_t;
+}symbol_ret_t;
 
 
-enum vs_types_t{
+typedef enum vs_types_t{
   TYPE_FLAG=1,
   TYPE_ENUM,
   TYPE_RAW,
@@ -66,21 +61,24 @@ enum vs_types_t{
   TYPE_FSCALAR_2,
   TYPE_FSCALAR_3,
   TYPE_FSCALAR_4
-};
-typedef vs_types_t vs_types_t;
+} vs_types_t;
 
 
-struct vs_field_t{
+typedef struct vs_field_model_t{
   const char* name;
   int(*setter)(const char*);
   int(*getter)(const char**);
-};
-
-typedef struct vs_field_t vs_field_t;
+} vs_field_model_t;
 
 
+typedef struct vs_field_t{
+  
+} vs_field_t;
 
-//extern int printf(const char*restrict, ...);
+inline int as_flag(vs_field_t* field){
+  //TODO: throw() if runtime type not equal to flag
+  //return payload reference
+}
 
 extern int vs_log(int severety, node_t self, const char* string, ...);
 #define $$log(self,sev,string, ...) vs_log(sev,self,string, ##__VA_ARGS__)
