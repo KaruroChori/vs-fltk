@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
 #include <vector>
 
 namespace vs{
@@ -8,28 +9,6 @@ namespace vs{
 
 class frame;
 class ui_base;
-
-
-struct field_prefix_t{
-  size_t tag;
-  void (*free)(void* ptr);
-  void *base[0];   //Just to offer a base with the right offset
-};
-
-//TODO: Add static table of serializers/deserializers
-//Used by getters, setters and computed
-struct field_t{
-  enum struct types {
-
-  } type;
-  ptrdiff_t storage;
-};
-
-struct field_model_t{
-  int(*deserialize)(void* obj_dst, const char* src);  //Setup obj based on data from src
-  int(*serialize)(const void* obj_src, const char** dst);   //Create a new string with the serialized information of obj inside
-};
-
 
 enum class symbol_type_t{
   VOID, //Function not to be defined

@@ -49,13 +49,35 @@ struct symbol_ret_t{
 
 typedef struct symbol_ret_t symbol_ret_t;
 
+
+enum vs_types_t{
+  TYPE_FLAG=1,
+  TYPE_ENUM,
+  TYPE_RAW,
+  TYPE_PATH,
+  TYPE_CSTRING,
+  TYPE_STRING_VIEW,
+  TYPE_COLOR,
+  TYPE_ISCALAR_1,
+  TYPE_ISCALAR_2,
+  TYPE_ISCALAR_3,
+  TYPE_ISCALAR_4,
+  TYPE_FSCALAR_1,
+  TYPE_FSCALAR_2,
+  TYPE_FSCALAR_3,
+  TYPE_FSCALAR_4
+};
+typedef vs_types_t vs_types_t;
+
+
 struct vs_field_t{
   const char* name;
   int(*setter)(const char*);
-  int(*getter)(char**);
+  int(*getter)(const char**);
 };
 
 typedef struct vs_field_t vs_field_t;
+
 
 
 //extern int printf(const char*restrict, ...);
@@ -108,17 +130,3 @@ extern void vs_debug(const char* key, const char* value);
 
 //Extra functions
 char* itoa(int value, char* result, int base);
-
-enum vs_types_t{
-  TYPE_UNKNOWN,
-  TYPE_FLAG,
-  TYPE_ENUM,
-  TYPE_RAW,
-  TYPE_PATH,
-  TYPE_STRING,
-  TYPE_COLOR,
-  TYPE_SCALAR_1,
-  TYPE_SCALAR_2,
-  TYPE_SCALAR_4
-};
-typedef vs_types_t vs_types_t;
