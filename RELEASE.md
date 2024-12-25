@@ -19,6 +19,7 @@ This is what has been implemented so far (and some missing feature for context):
   - [ ] fix linking to follow https://github.com/KaruroChori/vs-fltk/issues/63
   - [ ] debian and arch packages are now supported
   - [ ] install script can be now be safely used
+  - [x] specific features of `vs` can be excluded from building.
 - [ ] New widgets & improvements
   - [ ] flex
   - [ ] grid

@@ -1,15 +1,17 @@
 ## Structure of the repo
 
 - **src** where most of the source for **vs.app** and the **vs.fltk** library are located.
-- **include** like before for the header files. Directories are mostly mirrored.
+- **include** like before for the header files. Directories mostly mirrors what is in `src`.
 - **schemas** high level specs, main source of information for documentation and automatic code-gen.
-- **commons** extra public files (some auto-generated) which are part of every **vs** distribution.
+- **commons** extra public files part of every **vs** distribution (some of them are auto-generated).
 - **docs** & **examples**: this documentation & and all examples. As part of the build process, they are shipped as part of the commons.
 - **bindings** bindings for all languages supported in embedded `script`.
 - **test** & **benchmark**: test suite & benchmarks for **vs** & the **vs.fltk** library.
 - **scripts** utility scripts (mostly in TS/JS) to handle code generation, the build process and some workflows.
 - **experiments** playground where new ideas or semi-standalone prototypes are tested.
 - **metadata** information for distribution (icons, manifest files etc.).
+- **dist** most of these files are automatically generated and not tracked, the rest of them are needed to distribute the final website with docs.
+- **docker** anything related to the docker images used to build `vs`.
 
 ## Language & format guidelines
 
@@ -103,4 +105,4 @@ As such:
 - They must be written in [CommonMark](https://commonmark.org/) (with some possible extensions like the block headers for notices or warnings).
 - They shall not include HTML within them. XML will be parsed as normal `vs` code.
 
-Files which are written in markdown, but are outside the `docs` can follow a more relaxed format and target github/gitlab extensions for visualization.
+Files which are written in markdown, but are outside the `docs`, can follow a more relaxed format and target github/gitlab extensions for visualization.
