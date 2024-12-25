@@ -1,7 +1,7 @@
 > [!IMPORTANT]  
 > It was decided that distribution & building will be split.  
 > Distribution is to be handled [here](https://github.com/lazy-eggplant/vs.autobuilds), while everything build-related stays.  
-> This also includes docker images, since they are not meant for final users but developers of `vs` and its related subprojects.
+> Docker images are excluded, as they are meant for developers of `vs`, not distribution of the final runtime.
 
 ## Supported platforms
 
@@ -24,16 +24,28 @@ In addition to this, the building environment is also distributed via docker ima
 
 ### Distribution
 
-There are plans to distribute both **stable** and **nightly** releases of vs. Please, be mindful that nightly releases can be extremely broken, and for safety reasons they will only be offered as flatpaks.
+There are plans to distribute both **stable** and **nightly** releases of vs.  
+Please, be mindful that nightly releases can be extremely broken, and for safety reasons they will only be offered as flatpaks.
 
-Distribution formats which are expected to be supported at some point:
+Distribution formats which are supported:
 
 - `flatpak` targetting the latest stable freedesktop environment
+
+Distribution formats which are expected to be supported (at some point):
+
 - `deb` for the latest stable and experimental of debian (multiarch)
 - `aur` for arch linux and derivatives
 - `brew` for macos
 
-Installing directly via meson is very much not suggested if you don't want to break your system.
+Installing directly via `meson` is very much not suggested if you don't want to break your system.
+
+## Configuration flags
+
+Configuration flags, like for any meson project, are in `meson.options`.  
+In brief, you can disable most features of the runtime if you so wish.  
+This can be good to meet specific safety targets by removing some available options, or to optimize it on embedded applications where the overhead of some parts might be excessive.
+
+Builds distributed from this repository are based on the default options unless explicitly specified.
 
 ## Building requirements
 
@@ -41,14 +53,16 @@ You will need a proper Linux environment, with a modern C++ toolchain installed.
 Specifically, I suggest `clang-19` or higher, as this repo is using modern C23 features like `#embed` to make everyone's (my) life a bit easier.
 In addition to that, this repo makes use of:
 
-- [meson](https://mesonbuild.com/) as its main build system. Any recent-ish version will do (unless you need `zig` to simplify cross-compiling; for that >= 1.60 is needed)
+- [meson](https://mesonbuild.com/) as its main build system. Any recent-ish version will do (unless you want `zig` to simplify cross-compiling; for that, >= 1.60 is needed)
 - [bun](https://bun.sh/) as the ts/js runtime to support all the code generation tasks and some of the more complex pipelines.  
-   I hate bash, and this is what replaces it.
+   I hate bash, and this is what replaces it for any complex task.
 - [swiftc](https://www.swift.org/documentation/swift-compiler/) barely used for now, but many of the native components shipped within `vs` will be written in swift (or so I am planning). Version 6 or higher is needed.
 
 ### FLTK
 
-If your system provides a modern version of `fltk>=1.4`, that will be used by default. If not present, you are likely needing few more [dependencies](https://github.com/fltk/fltk/blob/master/README.Unix.txt) depending on your distribution. On debian-like systems the followings are needed:
+If your system provides a modern version of `fltk>=1.4`, that will be used by default.  
+If not present, you are likely needing few more [dependencies](https://github.com/fltk/fltk/blob/master/README.Unix.txt) depending on your distribution.  
+On debian-like systems the followings are needed:
 
 - **libpng-dev**
 - **libglu1-mesa-dev**

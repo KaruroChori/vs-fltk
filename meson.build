@@ -37,7 +37,7 @@ if get_option('use_wamr')
 endif
 
 if get_option('use_vm_riscv')
-    vs_fltk_flags += '-DVS_USE_VS_RISCV'
+    vs_fltk_flags += '-DVS_USE_VM_RISCV'
 endif
 
 if get_option('use_lua_base') and get_option('use_lua_jit')

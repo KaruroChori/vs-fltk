@@ -37,6 +37,7 @@ struct versions_t{
     std::string tcc;
     std::string quickjs;
     std::string wamr;
+    std::string libriscv;
     std::string sqlite;
     std::string fltk;
     std::string curl;

@@ -21,6 +21,10 @@
 #include "subprojects/wamr/core/version.h"
 #endif 
 
+#ifdef VS_USE_VM_RISCV
+//#include ...
+#endif 
+
 //#include <uv.h>
 #ifdef VS_USE_NETWORKING_CURL
 #include <curl/curl.h>
@@ -160,6 +164,11 @@ versions_t get_versions(){
       tmp.wamr= WAMR_VERSION;
 #   else
       tmp.wamr = "Not installed";
+#   endif
+#   if VS_USE_VM_RISCV
+      tmp.libriscv= "Installed";  //TODO: Add real version one available
+#   else
+      tmp.libriscv = "Not installed";
 #   endif
     return tmp;
 }

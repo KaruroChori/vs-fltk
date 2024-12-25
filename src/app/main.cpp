@@ -110,6 +110,7 @@ int main(int argc, char **argv) {
                   <<"tcc:      "<<versions.tcc<<"\n"
                   <<"quickjs:  "<<versions.quickjs<<"\n"
                   <<"wamr:     "<<versions.wamr<<"\n"
+                  <<"libuv:    "<<versions.libriscv<<"\n"
                   <<"sqlite:   "<<versions.sqlite<<"\n"
                   <<"fltk:     "<<versions.fltk<<"\n"
                   <<"curl:     "<<versions.curl<<"\n"
@@ -124,7 +125,7 @@ int main(int argc, char **argv) {
     }
     else if(strcmp(argv[1],"help")==0){
       const char docs[] = {
-        #embed "../../commons/HELP.md" suffix(, 0)      
+#       embed "../../commons/HELP.md" suffix(, 0)      
       };
       //TODO: Show in window as a markdown once the processor is ready.
       std::cout<<docs<<"\n";
