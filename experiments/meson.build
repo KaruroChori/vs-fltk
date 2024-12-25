@@ -21,3 +21,11 @@ executable(
     override_options: ['c_std=c11', 'cpp_std=c++20'],
     install: false,
 )
+
+executable(
+    'test-riscv',
+    ['./test-riscv.cpp'],
+    dependencies: [pugixml_dep, riscv_dep, libtcc_dep],
+    override_options: ['c_std=c23', 'cpp_std=c++20'],
+    install: false,
+)

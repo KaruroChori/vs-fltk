@@ -22,7 +22,14 @@
 #endif 
 
 #ifdef VS_USE_VM_RISCV
-//#include ...
+#include <libriscv_settings.h>
+
+#define STRINGIFY_(x) #x
+#define STRINGIFY(x)  STRINGIFY_(x)
+
+constexpr const char* riscv_version(){return STRINGIFY(RISCV_VERSION_MAJOR) "." STRINGIFY(RISCV_VERSION_MINOR); }
+#undef STRINGIFY 
+#undef STRINGIFY_
 #endif 
 
 //#include <uv.h>
@@ -166,7 +173,7 @@ versions_t get_versions(){
       tmp.wamr = "Not installed";
 #   endif
 #   if VS_USE_VM_RISCV
-      tmp.libriscv= "Installed";  //TODO: Add real version one available
+      tmp.libriscv= riscv_version();
 #   else
       tmp.libriscv = "Not installed";
 #   endif

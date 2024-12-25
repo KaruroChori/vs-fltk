@@ -110,7 +110,7 @@ int main(int argc, char **argv) {
                   <<"tcc:      "<<versions.tcc<<"\n"
                   <<"quickjs:  "<<versions.quickjs<<"\n"
                   <<"wamr:     "<<versions.wamr<<"\n"
-                  <<"libuv:    "<<versions.libriscv<<"\n"
+                  <<"libriscv: "<<versions.libriscv<<"\n"
                   <<"sqlite:   "<<versions.sqlite<<"\n"
                   <<"fltk:     "<<versions.fltk<<"\n"
                   <<"curl:     "<<versions.curl<<"\n"
