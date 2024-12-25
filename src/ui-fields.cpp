@@ -1,6 +1,36 @@
+#include <cassert>
 #include <ui-fields.hpp>
 
 namespace vs{
+
+  field_t::field_t(field_models_t::types type, bool weak, uint32_t subtype){
+    if(weak==true && (type==field_models_t::CSTRING || type==field_models_t::RAW ||type==field_models_t::STRING_VIEW) )need_cleanup=true;
+    this->subtype=subtype;
+    this->type=type;
+    memset(&storage,0,sizeof(storage)); //Maybe I should do something different for floats?
+  }
+
+  field_t::~field_t(){
+    if(need_cleanup){
+      assert( type==field_models_t::CSTRING || type==field_models_t::RAW ||type==field_models_t::STRING_VIEW);
+      if(this->storage.RAW!=nullptr)lfree(this->storage.RAW);
+      need_cleanup=false;
+      this->storage.RAW = nullptr;
+    }
+    valid=false;
+  }
+
+  int field_t::store_from_field(const field_t *src, bool weak){
+    //TODO:
+    return 1;
+  }
+
+  int field_t::store_from_data(storage_t data, bool weak){
+    //TODO:
+    return 1;
+  }
+
+
 namespace field_types{
 
   constexpr const char * fl_align_pos_s(Fl_Align v){

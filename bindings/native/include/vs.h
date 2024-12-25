@@ -76,7 +76,8 @@ typedef struct vs_field_model_t{
 } vs_field_model_t;
 
 typedef struct vs_field_t{
-  u32 type : 23;
+  u32 type: 22;
+  u32 valod: 1;
   u32 need_cleanup: 1;
   u32 subtype: 8;
 
@@ -85,7 +86,10 @@ typedef struct vs_field_t{
     size_t            ENUM;
     void*             RAW;
     const char *      CSTRING;
-    //std::string_view  STRING_VIEW;  //TODO: replace with isomorphic structure which can have ownership.
+    struct{
+      void* ptr;
+      size_t size;
+    }                 STRING_VIEW;
     u8                COLOR[4];
     u32               ISCALAR_1[1];
     u32               ISCALAR_2[2];

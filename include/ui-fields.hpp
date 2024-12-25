@@ -32,16 +32,24 @@ struct field_models_t{
 };
 
 struct field_t{
-  field_models_t::types type : sizeof(field_models_t::types)*8-9;
+  //Allocators for field_t so that they can be overridden if so desired.
+  static inline constexpr void(*lfree)(void*)=free;
+  static inline constexpr void*(*lalloc)(size_t)=malloc;
+
+  field_models_t::types type : sizeof(field_models_t::types)*8-10;
+  uint32_t valid: 1;
   uint32_t need_cleanup: 1;
   uint32_t subtype: 8;
 
-  union{
+  union storage_t{
     bool              FLAG;
     size_t            ENUM;
     void*             RAW;
     const char *      CSTRING;
-    std::string_view  STRING_VIEW;  //TODO: replace with isomorphic structure which can have ownership.
+    struct{
+      const char* ptr;
+      size_t size;
+    }                 STRING_VIEW;
     uint8_t           COLOR[4];
     uint32_t          ISCALAR_1[1];
     uint32_t          ISCALAR_2[2];
@@ -60,7 +68,25 @@ struct field_t{
    * @param need_cleanup 
    * @param subtype 
    */
-  field_t(field_models_t::types type, bool need_cleanup = false, uint32_t subtype=0);
+  field_t(field_models_t::types type, bool weak = false, uint32_t subtype=0);
+
+  /**
+   * @brief 
+   * 
+   * @param src the source field to use to copy data from
+   * @param weak if data should be copied weakly.
+   * @return int 0 if all fine, else error codes
+   */
+  int store_from_field(const field_t *src, bool weak = false);
+
+  /**
+   * @brief 
+   * 
+   * @param src the source field to use to copy data from
+   * @param weak if data should be copied weakly.
+   * @return int 0 if all fine, else error codes
+   */
+  int store_from_data(storage_t data, bool weak = false);
 
   /**
    * @brief Destroy the field object

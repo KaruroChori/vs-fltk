@@ -135,7 +135,6 @@ std::shared_ptr<tcc> tcc_c_pipeline(global_ctx_t& globals, bool is_runtime, vs::
     script->add_sym("vs_from_str", (void *)+[](ui_base* w,const void* obj, const char* v){return 1;});
     script->add_sym("vs_to_str", (void *)+[](ui_base* w,void* obj, const char** v){return 1;});
 
-
     //Runtime functions
     script->add_sym("itoa", (void *)itoa);
 
