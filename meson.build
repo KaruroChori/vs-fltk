@@ -177,6 +177,14 @@ if get_option('use_tcc')
     vs_fltk_deps += libtcc_dep
 endif
 
+libtcc_rv64_proj = subproject(
+    'libtcc-riscv64',
+    default_options: ['cross_arch=riscv64', 'cross_os=linux', 'override_dependency=false'],
+)
+libtcc_rv64_dep = libtcc_rv64_proj.get_variable('libtcc_dep')
+
+vs_fltk_deps += libtcc_rv64_dep
+
 #TODO: 'CMAKE_INSTALL_LIBDIR': get_option('libdir')
 md4c_proj = cmake.subproject('md4c')
 md4c_dep = md4c_proj.dependency('md4c')
