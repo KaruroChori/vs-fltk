@@ -3,6 +3,7 @@
 #include <libtcc.h>
 #include <pugixml.hpp>
 #include <vector>
+#include <span>
 
 /*
 - How to get a buffer with the elf and don't write it to a file
@@ -14,28 +15,35 @@ std::vector<uint8_t> cc(const char *code) {
   TCCState *ctx = tcc_new();
   tcc_set_output_type(ctx, TCC_OUTPUT_MEMORY);
   tcc_set_options(ctx,"-nostdlib -oformat=binary");
+  //Hardcoded since this is just meant to be an example to prototype a minimum viable functionality
   tcc_add_sysinclude_path(ctx, "/archive/shared/projects/vs-fltk/build/commons/bindings/native/tcc/include/");
-  tcc_compile_string(ctx, R"(
+  tcc_add_include_path(ctx, "/archive/shared/projects/vs-fltk/experiments/riscv/");
+  tcc_add_file(ctx,"/archive/shared/projects/vs-fltk/experiments/riscv/start.c");
+  tcc_add_file(ctx,"/archive/shared/projects/vs-fltk/experiments/riscv/main.c");
+  /*tcc_compile_string(ctx, R"(
         int main(){
             //printf("BANANANAAAA\n");
+			int a  = 0;
+			int b = 4;
+			if(a>b)return 1;
             return 0;
         }
-    )");
+    )");*/
   // tcc_relocate(ctx);
   union {
     char str[];
     struct {
-      char prefix = '^';
-      uint8_t buffer;
-      size_t size;
-    };
+      char prefix = '\e';
+      uint8_t* buffer = nullptr;
+      size_t size = 0x0;
+    }__attribute__((packed));
   } fakename;
   tcc_add_symbol(ctx, "ss", (void*)+[](){});
   tcc_output_file(ctx, fakename.str);
   tcc_delete(ctx);
   std::cout << "Size: " << fakename.size << "\n";
 
-  return {};
+  return std::vector<uint8_t>(fakename.buffer,fakename.buffer+fakename.size);
 }
 
 int main(int argc, const char **argv) {
