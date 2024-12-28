@@ -16,7 +16,6 @@ std::vector<uint8_t> cc(const char *code) {
   tcc_set_options(ctx,"-nostdlib -oformat=binary");
   tcc_add_sysinclude_path(ctx, "/archive/shared/projects/vs-fltk/build/commons/bindings/native/tcc/include/");
   tcc_compile_string(ctx, R"(
-        #include <stdio.h>
         int main(){
             //printf("BANANANAAAA\n");
             return 0;
