@@ -1,7 +1,76 @@
 #include <cassert>
+#include <cstdint>
 #include <ui-fields.hpp>
 
 namespace vs{
+
+/**
+ * @brief Global structure for the enumeration types supported and exposed by vs
+ * 
+ */
+field_enums_t field_enums = {
+
+};
+
+/**
+ * @brief Global structure covering any type for serialization/deserialization
+ * 
+ */
+field_models_t field_models ={{
+    [field_models_t::FLAG] = {
+      +[](field_t* _dst, const char* src, const ui_base* env)->int{
+          if(src==nullptr)return -1;
+          if(_dst->type!=field_models_t::FLAG)return -2;
+
+          bool* dst = &_dst->storage.FLAG;
+          if(strcmp(src, "false")==0){*dst=false;return 0;}
+          else if(strcmp(src,"true")==0){*dst=true;return 0;}
+          return 1;
+      },
+      +[](const field_t* _src, const char**  dst, const ui_base* env)->int{
+          if(dst==nullptr)return -1;
+          if(_src->type!=field_models_t::FLAG)return -2;
+
+          const bool* src = &_src->storage.FLAG;
+          if(*src==true){auto tmp = malloc(sizeof("true"));memcpy(tmp,"true",sizeof("true"));*dst=(const char*)tmp;return 0;}
+          else if(*src==false){auto tmp = malloc(sizeof("false"));memcpy(tmp,"false",sizeof("false"));*dst=(const char*)tmp;return 0;}
+          else dst=nullptr;
+          return 1;
+      }
+    },
+    [field_models_t::COLOR] = {
+      +[](field_t* _dst, const char* src, const ui_base* env)->int{
+          if(src==nullptr)return -1;
+          if(_dst->type!=field_models_t::COLOR)return -2;
+
+          uint8_t* dst = _dst->storage.COLOR;
+          if(src[0]=='#'){
+            uint32_t tmp = std::stoi(src+1,nullptr,16);
+            //TODO: Check if this serialization order is correct.
+            dst[0] = tmp&0xff0000>>16;
+            dst[1] = tmp&0x00ff00>>8;
+            dst[2] = tmp&0x0000ff>>0;
+            dst[3] = 0;
+
+          }
+          else{
+            //TODO: named colours not supported yet. But indexed colors via index are.
+            uint32_t tmp = std::stoi(src) & 0xff;
+            dst[4] = tmp;
+          }
+          return 0;
+      },
+      +[](const field_t* _src, const char**  dst, const ui_base* env)->int{
+          if(dst==nullptr)return -1;
+          if(_src->type!=field_models_t::COLOR)return -2;
+
+          const uint8_t* src = _src->storage.COLOR;
+          //TODO
+          return 1;
+      }
+    }
+}};
+
 
   field_t::field_t(field_models_t::types type, bool weak, uint32_t subtype){
     if(weak==true && (type==field_models_t::CSTRING || type==field_models_t::RAW ||type==field_models_t::STRING_VIEW) )need_cleanup=true;

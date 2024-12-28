@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <cstdlib>
+#include <optional>
 #include <ui.hpp>
 
 namespace vs{
@@ -12,16 +13,47 @@ struct field_prefix_t{
   void *base[0];   //Just to offer a base with the right offset
 };
 
+struct field_t;
+
+struct field_enum_t{
+  std::optional<int>(*deserialize)(const char* src) = nullptr;
+  const char* (*serialize)(size_t src)= nullptr;
+};
+
+struct field_enums_t{
+    field_enum_t enums[];
+
+    inline field_enum_t operator[](int i ){
+      if(i<__LAST && i>__FIRST)return enums[i];
+      /*Unrecognized field model*/
+      exit(1);
+    };
+
+    enum types{
+        __FIRST,
+        ALIGN_POSITION, ALIGN_IMAGE, ALIGN_WRAP, ALIGN_CLIP, ALIGN_INSIDE, 
+        FONT, 
+        BOXTYPE, 
+        FLEX_LAYOUT,
+        __LAST
+    };
+};
 
 struct field_model_t{
-  int(*deserialize)(void* obj_dst, const char* src);  //Setup obj based on data from src
-  int(*serialize)(const void* obj_src, const char** dst);   //Create a new string with the serialized information of obj inside
+  ///Setup field object based on data from string src
+  int(*deserialize)(field_t* obj_dst, const char* src, const ui_base* env) = nullptr;  
+  //Create a new string with all serialized information from field obj_src
+  int(*serialize)(const field_t* obj_src, const char** dst, const ui_base* env) = nullptr;   
 };
 
 struct field_models_t{
     field_model_t models[];
 
-    inline field_model_t operator[](int i ){if(i<__LAST && i>__FIRST)return models[i];/*Unrecognized field model*/exit(1);};
+    inline field_model_t operator[](int i ){
+      if(i<__LAST && i>__FIRST)return models[i];
+      /*Unrecognized field model*/
+      exit(1);
+    };
 
     enum types{
         __FIRST, FLAG, ENUM, RAW, PATH, CSTRING, STRING_VIEW, COLOR,
@@ -132,4 +164,8 @@ namespace field_types{
   bool h_flag(bool *dst, const char *expr,
                        const ui_base *env);
 }
+
+field_models_t extern field_models;
+field_enums_t extern field_enums;
+
 }

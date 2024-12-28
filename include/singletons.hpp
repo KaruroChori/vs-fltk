@@ -30,6 +30,5 @@ struct debug_t{
     void operator()(const char* field, const char* value);
 } extern debug;
 
-field_models_t extern field_models;
 }
 }
