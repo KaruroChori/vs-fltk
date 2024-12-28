@@ -82,7 +82,7 @@ class mem_storage_t{
 #       if defined VS_USE_NETWORKING_CURL || defined VS_USE_NETWORKING_SIMPLE
             entry_it fetch_from_http(const mem_key_t& path, entry_t::format_t  format);
 #       endif
-#       ifdef VS_USE_NETWORKING_CURL
+#       if defined VS_USE_NETWORKING_CURL
             entry_it fetch_from_https(const mem_key_t& path, entry_t::format_t  format);
             entry_it fetch_from_gemini(const mem_key_t& path, entry_t::format_t  format);
 #       endif

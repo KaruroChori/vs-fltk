@@ -1,1 +1,3 @@
 - [ ] Allow http only without libcurl via https://github.com/lazy-eggplant/libhttp
+- [ ] Port all enums and serialization functions to the new interface
+- [ ] Replace the usage of the old serialization interface in codegen to match the new one.

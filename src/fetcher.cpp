@@ -38,7 +38,7 @@ std::tuple<resolve_path::reason_t::t,cache::buffer_t, scoped_rpath_t> fetcher(gl
                     return {resolve_path::reason_t::OK,bf,ret.second};
                 }
             }
-#           ifdef HAS_CURL
+#           ifdef VS_USE_NETWORKING_CURL
             else if(ret.second.type==rpath_type_t::HTTP){
                 auto res = globals.mem_storage.fetch_from_http({
                     ret.second.as_string()+(current_trial.first?vs::res::component_t_s(current_trial.second):std::string("/main")+vs::res::component_t_s(current_trial.second)),

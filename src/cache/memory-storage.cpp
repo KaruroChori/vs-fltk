@@ -64,7 +64,7 @@ mem_storage_t::entry_it  mem_storage_t::fetch_from_fs(const mem_key_t& path, ent
     else return entries.end();
 }
 
-#ifdef HAS_CURL
+#if defined VS_USE_NETWORKING_CURL
 
 mem_storage_t::entry_it mem_storage_t::fetch_from_http(const mem_key_t& path, entry_t::format_t  format){
     CURL *curl;
@@ -107,7 +107,7 @@ mem_storage_t::entry_it mem_storage_t::fetch_from_http(const mem_key_t& path, en
     return entries.end();
 }
 
- mem_storage_t::entry_it mem_storage_t::fetch_from_https(const mem_key_t& path, entry_t::format_t  format){
+mem_storage_t::entry_it mem_storage_t::fetch_from_https(const mem_key_t& path, entry_t::format_t  format){
     CURL *curl;
     CURLcode res;
 
@@ -153,9 +153,14 @@ mem_storage_t::entry_it mem_storage_t::fetch_from_http(const mem_key_t& path, en
     return entries.end();
 }
 
- mem_storage_t::entry_it mem_storage_t::fetch_from_gemini(const mem_key_t& path, entry_t::format_t  format){
+mem_storage_t::entry_it mem_storage_t::fetch_from_gemini(const mem_key_t& path, entry_t::format_t  format){
     //Gemini cannot be based on cURL. It requires a custom implementation based on some SSL library and sockets.
     return entries.end();
+}
+
+#elif defined VS_USE_NETWORKING_SIMPLE
+mem_storage_t::entry_it mem_storage_t::fetch_from_http(const mem_key_t& path, entry_t::format_t  format){
+    //TODO: Implement
 }
 #endif
 

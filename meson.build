@@ -190,10 +190,27 @@ libtcc_rv64_dep = libtcc_rv64_proj.get_variable('libtcc_dep')
 
 vs_fltk_deps += libtcc_rv64_dep
 
-#TODO: 'CMAKE_INSTALL_LIBDIR': get_option('libdir')
-md4c_proj = cmake.subproject('md4c')
+#MD4C
+opt_md4c = cmake.subproject_options()
+opt_md4c.add_cmake_defines(
+    {
+        'CMAKE_INSTALL_LIBDIR': get_option('libdir'),
+    },
+)
+md4c_proj = cmake.subproject('md4c', options: opt_md4c)
 md4c_dep = md4c_proj.dependency('md4c')
 
+#MIO
+opt_mio = cmake.subproject_options()
+opt_mio.add_cmake_defines(
+    {
+        'CMAKE_INSTALL_LIBDIR': get_option('libdir'),
+    },
+)
+mio_proj = cmake.subproject('mio', options: opt_mio)
+mio_dep = mio_proj.dependency('mio')
+
+#FMT
 opt_fmt = cmake.subproject_options()
 opt_fmt.add_cmake_defines(
     {
@@ -205,24 +222,24 @@ opt_fmt.add_cmake_defines(
 fmt_proj = cmake.subproject('fmt', options: opt_fmt)
 fmt_dep = fmt_proj.dependency('fmt')
 
+#HASHLIB
 hashlib_proj = subproject('hashlib')
 hashlib_dep = hashlib_proj.get_variable('hashlib_dep')
 
+#NLOHMANN-JSON
 json_proj = subproject('nlohmann_json')
 json_dep = json_proj.get_variable('nlohmann_json_dep')
 
-#TODO: Make it a system dependency
-vs_templ_proj = subproject('vs-templ')
+#VS.TEMPL
+vs_templ_proj = subproject('vs-templ') #TODO: Make it a system dependency
 vs_templ_dep = vs_templ_proj.get_variable('vs_templ_dep')
 
+#TREESITTER
 treesitter_proj = subproject('tree-sitter')
 treesitter_dep = treesitter_proj.get_variable('tree_sitter_dep')
 
 #uv_proj = subproject('libuv')
 #uv_dep = uv_proj.get_variable('libuv_dep')
-
-mio_proj = cmake.subproject('mio')
-mio_dep = mio_proj.dependency('mio')
 
 sqlitecpp_dep = dependency('sqlitecpp', required: false)
 if not sqlitecpp_dep.found()

@@ -162,7 +162,7 @@ std::pair<resolve_path::reason_t::t,scoped_rpath_t> resolve_path::operator()(fro
         }
         else return {reason_t::ROOT_REACHED, {rpath_type_t::NONE, ""}};
     }
-    #ifdef HAS_CURL
+    #ifdef VS_USE_NETWORKING_CURL
     else if(tmp.type==vpath_type_t::HTTP){
         if(((from==from_t::NATIVE_CODE ) || (from==from_t::EMBEDDED_SCRIPT && policies.scripts.allow_networking)) && policies.networking.allow_http)
             return {reason_t::OK, {rpath_type_t::HTTP, tmp.location}};
