@@ -18,3 +18,5 @@ markdown_extensions:
 plugins:
   - search
   - gh-admonitions
+exclude_docs: |
+  *.installed-only.md

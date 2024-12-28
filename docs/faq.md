@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 ## General questions
 
 ![Good luck with vs!](./assets/hero-img.webp)
