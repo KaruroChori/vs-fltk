@@ -177,18 +177,18 @@ if get_option('use_tcc')
     vs_fltk_deps += libtcc_dep
 endif
 
-libtcc_rv64_proj = subproject(
-    'libtcc-riscv64',
-    default_options: [
-        'cross_arch=riscv64',
-        'cross_os=linux',
-        'override_dependency=false',
-        'cross_prefix=riscv',
-    ],
-)
-libtcc_rv64_dep = libtcc_rv64_proj.get_variable('libtcc_dep')
+#libtcc_rv64_proj = subproject(
+#    'libtcc-riscv64',
+#    default_options: [
+#        'cross_arch=riscv64',
+#        'cross_os=linux',
+#        'override_dependency=false',
+#        'cross_prefix=riscv',
+#    ],
+#)
+#libtcc_rv64_dep = libtcc_rv64_proj.get_variable('libtcc_dep')
 
-vs_fltk_deps += libtcc_rv64_dep
+#vs_fltk_deps += libtcc_rv64_dep
 
 #MD4C
 opt_md4c = cmake.subproject_options()

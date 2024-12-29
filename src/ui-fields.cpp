@@ -18,30 +18,30 @@ field_enums_t field_enums = {
  */
 field_models_t field_models ={{
     [field_models_t::FLAG] = {
-      +[](field_t* _dst, const char* src, const ui_base* env)->int{
-          if(src==nullptr)return -1;
-          if(_dst->type!=field_models_t::FLAG)return -2;
+      +[](field_t* _dst, const char* src, const ui_base* env)->field_ret_t{
+          if(src==nullptr)return field_ret_t::NULL_SRC;
+          if(_dst->type!=field_models_t::FLAG)return field_ret_t::WRONG_TYPE;
 
           bool* dst = &_dst->storage.FLAG;
-          if(strcmp(src, "false")==0){*dst=false;return 0;}
-          else if(strcmp(src,"true")==0){*dst=true;return 0;}
-          return 1;
+          if(strcmp(src, "false")==0){*dst=false;return field_ret_t::OK;}
+          else if(strcmp(src,"true")==0){*dst=true;return field_ret_t::OK;}
+          return field_ret_t::BAD;
       },
-      +[](const field_t* _src, const char**  dst, const ui_base* env)->int{
-          if(dst==nullptr)return -1;
-          if(_src->type!=field_models_t::FLAG)return -2;
+      +[](const field_t* _src, const char**  dst, const ui_base* env)->field_ret_t{
+          if(dst==nullptr)return field_ret_t::NULL_SRC;
+          if(_src->type!=field_models_t::FLAG)return field_ret_t::WRONG_TYPE;
 
           const bool* src = &_src->storage.FLAG;
           if(*src==true){auto tmp = malloc(sizeof("true"));memcpy(tmp,"true",sizeof("true"));*dst=(const char*)tmp;return 0;}
           else if(*src==false){auto tmp = malloc(sizeof("false"));memcpy(tmp,"false",sizeof("false"));*dst=(const char*)tmp;return 0;}
           else dst=nullptr;
-          return 1;
+          return field_ret_t::BAD;
       }
     },
     [field_models_t::COLOR] = {
-      +[](field_t* _dst, const char* src, const ui_base* env)->int{
-          if(src==nullptr)return -1;
-          if(_dst->type!=field_models_t::COLOR)return -2;
+      +[](field_t* _dst, const char* src, const ui_base* env)->field_ret_t{
+          if(src==nullptr)return field_ret_t::NULL_SRC;
+          if(_dst->type!=field_models_t::COLOR)return field_ret_t::WRONG_TYPE;
 
           uint8_t* dst = _dst->storage.COLOR;
           if(src[0]=='#'){
@@ -58,15 +58,15 @@ field_models_t field_models ={{
             uint32_t tmp = std::stoi(src) & 0xff;
             dst[4] = tmp;
           }
-          return 0;
+          return field_ret_t::OK;
       },
-      +[](const field_t* _src, const char**  dst, const ui_base* env)->int{
-          if(dst==nullptr)return -1;
-          if(_src->type!=field_models_t::COLOR)return -2;
+      +[](const field_t* _src, const char**  dst, const ui_base* env)->field_ret_t{
+          if(dst==nullptr)return field_ret_t::NULL_SRC;
+          if(_src->type!=field_models_t::COLOR)return field_ret_t::WRONG_TYPE;
 
           const uint8_t* src = _src->storage.COLOR;
           //TODO
-          return 1;
+          return field_ret_t::BAD;
       }
     }
 }};

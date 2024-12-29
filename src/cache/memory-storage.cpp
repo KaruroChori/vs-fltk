@@ -12,6 +12,11 @@
 #include <curl/curl.h>
 #endif
 
+#ifdef VS_USE_NETWORKING_SIMPLE
+#include <http.h>
+#endif
+
+
 namespace vs{
 
 namespace cache{
@@ -160,7 +165,7 @@ mem_storage_t::entry_it mem_storage_t::fetch_from_gemini(const mem_key_t& path, 
 
 #elif defined VS_USE_NETWORKING_SIMPLE
 mem_storage_t::entry_it mem_storage_t::fetch_from_http(const mem_key_t& path, entry_t::format_t  format){
-    //TODO: Implement
+    //TODO: Implement from example @ https://github.com/lazy-eggplant/libhttp
 }
 #endif
 

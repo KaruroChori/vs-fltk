@@ -20,6 +20,13 @@ struct field_enum_t{
   const char* (*serialize)(size_t src)= nullptr;
 };
 
+enum struct field_ret_t{
+  WRONG_TYPE=-2,
+  NULL_SRC=-1,
+  OK=0,
+  BAD=0
+};
+
 struct field_enums_t{
     field_enum_t enums[];
 
@@ -41,9 +48,9 @@ struct field_enums_t{
 
 struct field_model_t{
   ///Setup field object based on data from string src
-  int(*deserialize)(field_t* obj_dst, const char* src, const ui_base* env) = nullptr;  
+  field_ret_t(*deserialize)(field_t* obj_dst, const char* src, const ui_base* env) = nullptr;  
   //Create a new string with all serialized information from field obj_src
-  int(*serialize)(const field_t* obj_src, const char** dst, const ui_base* env) = nullptr;   
+  field_ret_t(*serialize)(const field_t* obj_src, const char** dst, const ui_base* env) = nullptr;   
 };
 
 struct field_models_t{
