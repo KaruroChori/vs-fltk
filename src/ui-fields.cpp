@@ -32,8 +32,8 @@ field_models_t field_models ={{
           if(_src->type!=field_models_t::FLAG)return field_ret_t::WRONG_TYPE;
 
           const bool* src = &_src->storage.FLAG;
-          if(*src==true){auto tmp = malloc(sizeof("true"));memcpy(tmp,"true",sizeof("true"));*dst=(const char*)tmp;return 0;}
-          else if(*src==false){auto tmp = malloc(sizeof("false"));memcpy(tmp,"false",sizeof("false"));*dst=(const char*)tmp;return 0;}
+          if(*src==true){auto tmp = malloc(sizeof("true"));memcpy(tmp,"true",sizeof("true"));*dst=(const char*)tmp;return field_ret_t::OK;}
+          else if(*src==false){auto tmp = malloc(sizeof("false"));memcpy(tmp,"false",sizeof("false"));*dst=(const char*)tmp;return field_ret_t::OK;}
           else dst=nullptr;
           return field_ret_t::BAD;
       }
