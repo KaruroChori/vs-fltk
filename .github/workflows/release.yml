@@ -30,7 +30,7 @@ jobs:
           sudo apt update
           sudo apt remove -y firefox
           sudo apt upgrade -y
-          sudo apt install -y \
+          sudo apt install -y --no-install-recommends \
             freeglut3-dev \
             libcurl4-openssl-dev \
             libpng-dev \
@@ -38,10 +38,9 @@ jobs:
             python3-pip \
             python3-setuptools
           python3 -m pip install meson ninja
-          python3 -m pip uninstall cmake
-          python3 -m pip install cmake==3.30.5 # workaround https://github.com/mesonbuild/meson/issues/13888
           # for clang
-          sudo apt install -y wget gpg gnupg software-properties-common
+          sudo apt install -y --no-install-recommends \
+            wget gpg gnupg software-properties-common
           curl -LO https://apt.llvm.org/llvm.sh
           chmod +x llvm.sh
           sudo ./llvm.sh 19 # install clang-19

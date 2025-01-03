@@ -5,9 +5,9 @@ ENV DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 
 RUN \
     apt update && apt upgrade -y && \
-    apt install -y curl && \
+    apt install -y --no-install-recommends curl && \
     curl -s https://archive.swiftlang.xyz/install.sh | bash && \
-    apt install -y \
+    apt install --no-install-recommends -y \
         ca-certificates \
         clang-19 \
         cmake \
