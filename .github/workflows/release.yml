@@ -55,6 +55,7 @@ jobs:
           meson dist -C build/ --allow-dirty --no-tests --include-subprojects
       - name: Add artifact
         uses: softprops/action-gh-release@v2
+        if: failure()
         with:
           files: |
             ./build/meson-dist/**/*
