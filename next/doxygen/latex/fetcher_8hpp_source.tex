@@ -1,0 +1,45 @@
+\doxysection{fetcher.\+hpp}
+\hypertarget{fetcher_8hpp_source}{}\label{fetcher_8hpp_source}\index{include/fetcher.hpp@{include/fetcher.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}utils/app-\/env.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <pugixml.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{paths_8hpp}{utils/paths.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <globals.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ The\ fetcher\ fetches,\ but\ more\ importatly\ it\ ensure\ policies\ are\ respected\ while\ doing\ so.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ These\ checks\ were\ not\ implemented\ so\ far,\ but\ it\ has\ to\ be\ all\ rewritten\ from\ the\ ground\ up}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//Fetch\ any\ resource\ from\ any\ path\ to\ memory.}}
+\DoxyCodeLine{00019\ std::tuple<resolve\_path::reason\_t::t,\ cache::mem\_storage\_t::entry\_it*,\ res::component\_t>\ fetch\_any(\textcolor{keyword}{const}\ app\_env\_t\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ resolve\_path::from\_t\ scope,\ \textcolor{keywordtype}{bool}\ promote=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ preserve=\textcolor{keyword}{false});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*Fully\ fetches\ a\ component\ by:}}
+\DoxyCodeLine{00022\ \textcolor{comment}{-\/\ Looking\ for\ the\ best\ match\ which\ exists}}
+\DoxyCodeLine{00023\ \textcolor{comment}{-\/\ Save\ the\ path\ resolution\ to\ cache}}
+\DoxyCodeLine{00024\ \textcolor{comment}{-\/\ Load\ it\ based\ on\ its\ type:}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ -\/\ VS/XML\ load\ and\ store\ as\ xml\ document\ (compile\ it\ if\ needed,\ and\ store\ the\ template\ as\ its\ own\ xml\ document?)}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ -\/\ MD\ load\ and\ store\ as\ compiled\ xml\ document}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ -\/\ WASM\ load\ in\ memory\ as\ binary\ (buffer)\ or\ a\ script\ once\ WASM\ scripts\ are\ supported?.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ -\/\ LIB\ skip,\ the\ library\ will\ be\ loaded\ on\ demand}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ -\/\ CNATIVE\ compile\ and\ save\ it\ as\ script.\ Technically\ it\ is\ not,\ but\ I\ am\ not\ going\ to\ compile\ it\ over\ and\ over\ and\ script\ works\ as\ a\ container}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00031\ std::tuple<resolve\_path::reason\_t::t,\ cache::mem\_storage\_t::entry\_it*,\ res::component\_t>\ fetch\_component(\textcolor{keyword}{const}\ app\_env\_t\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ resolve\_path::from\_t\ scope,\ \textcolor{keywordtype}{bool}\ promote=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ preserve=\textcolor{keyword}{false});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00045\ std::tuple<resolve\_path::reason\_t::t,cache::buffer\_t,\ scoped\_rpath\_t>\ fetcher(global\_ctx\_t\&\ globals,\ resolve\_path\&\ base,\ resolve\_path::from\_t\ scope,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src,\ \textcolor{keywordtype}{bool}\ promote=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ preserve=\textcolor{keyword}{false});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00058\ std::tuple<resolve\_path::reason\_t::t,const\ pugi::xml\_document*\ ,\ scoped\_rpath\_t>\ fetcher\_xml(global\_ctx\_t\&\ globals,\ resolve\_path\&\ base,\ resolve\_path::from\_t\ scope,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src,\ \textcolor{keywordtype}{bool}\ promote=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ preserve=\textcolor{keyword}{false});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

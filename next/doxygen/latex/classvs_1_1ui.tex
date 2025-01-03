@@ -1,0 +1,188 @@
+\doxysection{vs\+::ui\texorpdfstring{$<$}{<} T, Sub\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classvs_1_1ui}{}\label{classvs_1_1ui}\index{vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}}
+
+
+Inheritance diagram for vs\+::ui\texorpdfstring{$<$}{<} T, Sub\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classvs_1_1ui__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for vs\+::ui\texorpdfstring{$<$}{<} T, Sub\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classvs_1_1ui__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvs_1_1ui_a980fffbc4289faaf8b354306e937b162}\label{classvs_1_1ui_a980fffbc4289faaf8b354306e937b162} 
+{\bfseries ui} (\mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classvs_1_1ui_ae89fedb9b54a5747b167a4b7fec14471}\label{classvs_1_1ui_ae89fedb9b54a5747b167a4b7fec14471} 
+{\footnotesize template$<$typename... Args$>$ }\\{\bfseries ui} (\mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}p, Args ...w)
+\item 
+\Hypertarget{classvs_1_1ui_aec21f5ea0d4f371cb514b7de11a5309c}\label{classvs_1_1ui_aec21f5ea0d4f371cb514b7de11a5309c} 
+T \& {\bfseries widget} ()
+\item 
+\Hypertarget{classvs_1_1ui_a3602675ae9f01f18b496497b1d69a8af}\label{classvs_1_1ui_a3602675ae9f01f18b496497b1d69a8af} 
+const T \& {\bfseries widget} () const
+\item 
+\Hypertarget{classvs_1_1ui_a13880fbb0f7e4be4ae2654aeae8d6f07}\label{classvs_1_1ui_a13880fbb0f7e4be4ae2654aeae8d6f07} 
+{\bfseries operator T\&} ()
+\item 
+virtual int \mbox{\hyperlink{classvs_1_1ui_aecdc19cf0202535cd7c6f54bb264a4f6}{apply\+\_\+prop}} (const char \texorpdfstring{$\ast$}{*}prop, const char \texorpdfstring{$\ast$}{*}value) override
+\item 
+virtual int \mbox{\hyperlink{classvs_1_1ui_a5b5f95b78b153544fe6119c2bc73017b}{get\+\_\+computed}} (const char \texorpdfstring{$\ast$}{*}prop, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value) override
+\item 
+virtual frame\+\_\+type\+\_\+t \mbox{\hyperlink{classvs_1_1ui_a58f1800727276f6e4e375b7b1947f71f}{default\+\_\+frame\+\_\+type}} () override
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvs_1_1ui_a02ecad44d05349c3065bbef558bf79f8}{class\+\_\+name}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classvs_1_1frame}{frame}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+local\+\_\+frame} ()
+\item 
+void {\bfseries mk\+\_\+frame} (const char \texorpdfstring{$\ast$}{*}name=nullptr, frame\+\_\+mode\+\_\+t mode=frame\+\_\+mode\+\_\+t\+::\+AUTO)
+\item 
+void {\bfseries set\+\_\+name} (const char \texorpdfstring{$\ast$}{*})
+\item 
+void {\bfseries set\+\_\+mode} (frame\+\_\+mode\+\_\+t)
+\item 
+void {\bfseries set\+\_\+type} (frame\+\_\+type\+\_\+t)
+\item 
+void {\bfseries set\+\_\+access} (frame\+\_\+access\+\_\+t)
+\item 
+const std\+::string \& {\bfseries get\+\_\+name} () const
+\item 
+void {\bfseries set\+\_\+symbols} (const std\+::shared\+\_\+ptr$<$ smap$<$ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\+\_\+t}} $>$ $>$ \&ref)
+\item 
+void {\bfseries register\+\_\+symbol} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\+\_\+t}} value)
+\item 
+\mbox{\hyperlink{structvs_1_1symbol__t}{symbol\+\_\+t}} {\bfseries get\+\_\+symbol} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries unregister\+\_\+symbol} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries reset\+\_\+symbols} ()
+\item 
+void {\bfseries set\+\_\+dispatcher} (\mbox{\hyperlink{structvs_1_1symbol__t}{symbol\+\_\+t}} value)
+\item 
+int {\bfseries all\+\_\+tests} () const
+\item 
+void {\bfseries attach\+\_\+script} (const std\+::shared\+\_\+ptr$<$ void $>$ \&ref, bool is\+\_\+script\+\_\+module)
+\item 
+void {\bfseries add\+\_\+mixin} (const char \texorpdfstring{$\ast$}{*}name, const smap$<$ std\+::string $>$ \&ref)
+\item 
+std\+::pair$<$ const smap$<$ std\+::string $>$ \texorpdfstring{$\ast$}{*}, const \mbox{\hyperlink{classvs_1_1frame}{frame}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries resolve\+\_\+mixin} (const char \texorpdfstring{$\ast$}{*}name) const
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries eval\+\_\+prop} (const char \texorpdfstring{$\ast$}{*}prop, const char \texorpdfstring{$\ast$}{*}mixins\mbox{[}$\,$\mbox{]}) const
+\item 
+smap$<$ std\+::string $>$ {\bfseries compile\+\_\+mixins} (const char \texorpdfstring{$\ast$}{*}mixins\+\_\+list) const
+\item 
+Fl\+\_\+\+Widget \& {\bfseries widget} ()
+\item 
+const Fl\+\_\+\+Widget \& {\bfseries widget} () const
+\item 
+void {\bfseries reparent\+\_\+frame} (\mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}newparent)
+\item 
+{\bfseries ui\+\_\+base} (\mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}p)
+\item 
+virtual void {\bfseries for\+\_\+deletion} ()
+\item 
+void {\bfseries path} (std\+::stringstream \&dst, bool scoped=true) const
+\item 
+\mbox{\hyperlink{classvs_1_1frame}{frame}} \texorpdfstring{$\ast$}{*} {\bfseries resolve\+\_\+frame} () const
+\item 
+\mbox{\hyperlink{classvs_1_1frame}{frame}} \texorpdfstring{$\ast$}{*} {\bfseries resolve\+\_\+namespace} () const
+\item 
+\mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\+\_\+ret\+\_\+t}} {\bfseries resolve\+\_\+symbol} (const char \texorpdfstring{$\ast$}{*}str, bool safe) const
+\item 
+\mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\+\_\+ret\+\_\+t}} {\bfseries resolve\+\_\+symbol\+\_\+local} (const char \texorpdfstring{$\ast$}{*}str, bool safe) const
+\item 
+const \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*} {\bfseries resolve\+\_\+name} (const char \texorpdfstring{$\ast$}{*}str, bool safe) const
+\item 
+const \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*} {\bfseries resolve\+\_\+name\+\_\+path} (const char \texorpdfstring{$\ast$}{*}str, bool safe) const
+\item 
+smap$<$ std\+::string $>$ {\bfseries compute\+\_\+refresh\+\_\+style} (const char \texorpdfstring{$\ast$}{*}local\+\_\+mixins="{}"{})
+\item 
+void {\bfseries refresh\+\_\+style} (const char \texorpdfstring{$\ast$}{*}local\+\_\+mixins="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries use\+\_\+getter} (const \mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\+\_\+ret\+\_\+t}} \&sym, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value)
+\item 
+static int {\bfseries use\+\_\+setter} (const \mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\+\_\+ret\+\_\+t}} \&sym, const void \texorpdfstring{$\ast$}{*}value)
+\item 
+static int {\bfseries use\+\_\+callback} (const \mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\+\_\+ret\+\_\+t}} \&sym, \mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*}node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvs_1_1frame}{frame}} \texorpdfstring{$\ast$}{*} {\bfseries local\+\_\+frame} = nullptr
+\item 
+\mbox{\hyperlink{classvs_1_1ui__base}{ui\+\_\+base}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\item 
+Fl\+\_\+\+Widget \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+widget}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvs_1_1ui_aecdc19cf0202535cd7c6f54bb264a4f6}\label{classvs_1_1ui_aecdc19cf0202535cd7c6f54bb264a4f6} 
+\index{vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}!apply\_prop@{apply\_prop}}
+\index{apply\_prop@{apply\_prop}!vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}}
+\doxysubsubsection{\texorpdfstring{apply\_prop()}{apply\_prop()}}
+{\footnotesize\ttfamily template$<$std\+::derived\+\_\+from$<$ Fl\+\_\+\+Widget $>$ T = Fl\+\_\+\+Widget, int Sub\+Type = 0$>$ \\
+virtual int \mbox{\hyperlink{classvs_1_1ui}{vs\+::ui}}$<$ T, Sub\+Type $>$\+::apply\+\_\+prop (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prop,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}.
+
+\Hypertarget{classvs_1_1ui_a02ecad44d05349c3065bbef558bf79f8}\label{classvs_1_1ui_a02ecad44d05349c3065bbef558bf79f8} 
+\index{vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}!class\_name@{class\_name}}
+\index{class\_name@{class\_name}!vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}}
+\doxysubsubsection{\texorpdfstring{class\_name()}{class\_name()}}
+{\footnotesize\ttfamily template$<$std\+::derived\+\_\+from$<$ Fl\+\_\+\+Widget $>$ T = Fl\+\_\+\+Widget, int Sub\+Type = 0$>$ \\
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvs_1_1ui}{vs\+::ui}}$<$ T, Sub\+Type $>$\+::class\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}.
+
+\Hypertarget{classvs_1_1ui_a58f1800727276f6e4e375b7b1947f71f}\label{classvs_1_1ui_a58f1800727276f6e4e375b7b1947f71f} 
+\index{vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}!default\_frame\_type@{default\_frame\_type}}
+\index{default\_frame\_type@{default\_frame\_type}!vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}}
+\doxysubsubsection{\texorpdfstring{default\_frame\_type()}{default\_frame\_type()}}
+{\footnotesize\ttfamily template$<$std\+::derived\+\_\+from$<$ Fl\+\_\+\+Widget $>$ T = Fl\+\_\+\+Widget, int Sub\+Type = 0$>$ \\
+virtual frame\+\_\+type\+\_\+t \mbox{\hyperlink{classvs_1_1ui}{vs\+::ui}}$<$ T, Sub\+Type $>$\+::default\+\_\+frame\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}.
+
+\Hypertarget{classvs_1_1ui_a5b5f95b78b153544fe6119c2bc73017b}\label{classvs_1_1ui_a5b5f95b78b153544fe6119c2bc73017b} 
+\index{vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}!get\_computed@{get\_computed}}
+\index{get\_computed@{get\_computed}!vs::ui$<$ T, SubType $>$@{vs::ui$<$ T, SubType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_computed()}{get\_computed()}}
+{\footnotesize\ttfamily template$<$std\+::derived\+\_\+from$<$ Fl\+\_\+\+Widget $>$ T = Fl\+\_\+\+Widget, int Sub\+Type = 0$>$ \\
+virtual int \mbox{\hyperlink{classvs_1_1ui}{vs\+::ui}}$<$ T, Sub\+Type $>$\+::get\+\_\+computed (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prop,  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvs_1_1ui__base}{vs\+::ui\+\_\+base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ui.\+hpp\end{DoxyCompactItemize}

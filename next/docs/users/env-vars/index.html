@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Env vars - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Env vars";
+        var mkdocs_page_input_path = "users/env-vars.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Env vars</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Users</li>
+      <li class="breadcrumb-item active">Env vars</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/users/env-vars.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>WIP</p>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VS_ACTIONS_FILE</td>
+<td>fs-path</td>
+<td>If specified, an xml file including a list of actions to operate on the UI (for automatic testing)</td>
+</tr>
+<tr>
+<td>VS_DEBUG_FILE</td>
+<td>fs-path</td>
+<td>If specified, file where debug records are appended. Else, there is no side effect for those operations</td>
+</tr>
+<tr>
+<td>VS_LOG_FILE</td>
+<td>fs-path</td>
+<td>If specified, file where log records are appended. Else, std out</td>
+</tr>
+<tr>
+<td>VS_LOG_LEVEL</td>
+<td><code>silent,basic,verbose,debug</code></td>
+<td>Globally set the baseline log level, so that some messages can be skipped if not relevant.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="safety-policies">Safety policies<a class="headerlink" href="#safety-policies" title="Permanent link">#</a></h2>
+<p>Policy level:</p>
+<ul>
+<li><strong>all</strong></li>
+<li><strong>none</strong></li>
+<li><strong>trusted</strong></li>
+<li><strong>normal</strong></li>
+<li><strong>safe</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VS_GLOBAL_POLICY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VS_NETWORKING_POLICY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VS_SCRIPTS_POLICY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VS_NATIVE_COMPONENTS_POLICY</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="runtime">Runtime<a class="headerlink" href="#runtime" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VS_DB</td>
+<td>fs-path</td>
+<td>A path to a custom database for session/persistent caching &amp; storage. If not specified the default one will be used</td>
+</tr>
+<tr>
+<td>VS_HEADLESS</td>
+<td>boolean</td>
+<td>If true no UI is rendered, useful for testing purposes.</td>
+</tr>
+<tr>
+<td>VS_PARSER_MODE</td>
+<td><code>balanced,low-mem</code></td>
+<td>It changes the type of parse used, mostly for compatibility with lower spec hardware. <code>balanced</code> by default</td>
+</tr>
+<tr>
+<td>VS_NO_CACHE</td>
+<td>boolean</td>
+<td>Disable any kind of caching &amp; persistence. Some sort of &ldquo;guest&rdquo; mode or for diagnostics.</td>
+</tr>
+<tr>
+<td>VS_NO_THEME</td>
+<td>boolean</td>
+<td>Disable any kind of custom theming</td>
+</tr>
+<tr>
+<td>VS_PREFIX_DIR</td>
+<td>fs-path</td>
+<td>Define a base root not in <code>/</code>. Used to run vs when installed as portable on a system. Also good for testing.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../releases/v0.1.1-alpha/" class="btn btn-neutral float-left" title="V0.1.1 alpha"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../file-types/" class="btn btn-neutral float-right" title="File types">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../releases/v0.1.1-alpha/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../file-types/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

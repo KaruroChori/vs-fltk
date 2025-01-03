@@ -1,0 +1,18 @@
+<map id="include/utils/paths.hpp" name="include/utils/paths.hpp">
+<area shape="rect" id="Node000001" title="Utilities to handle virtual and real paths in a safe and portable way." alt="" coords="94,5,263,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,72,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,33,53,51,34,64,20,80,14,94,14,109,26,139,21,141,9,110,9,93,15,77,31,60,50,46,93,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="29,79,88,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,33,92,74,89,69,158,28"/>
+<area shape="rect" id="Node000004" href="$resources_8hpp_source.html" title=" " alt="" coords="269,79,414,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,28,303,71,301,75,204,33"/>
+<area shape="rect" id="Node000006" href="$policies_8hpp_source.html" title=" " alt="" coords="113,79,245,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="181,31,181,65,176,65,176,31"/>
+<area shape="rect" id="Node000008" href="$arch_8hpp_source.html" title=" " alt="" coords="438,79,549,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="230,28,430,73,429,78,229,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="311,152,371,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="344,104,344,138,339,138,339,104"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="157,106,75,148,72,143,155,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="143,152,214,177"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="181,104,181,138,176,138,176,104"/>
+</map>

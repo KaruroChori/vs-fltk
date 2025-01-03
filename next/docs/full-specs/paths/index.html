@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Paths - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Paths";
+        var mkdocs_page_input_path = "full-specs/paths.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Paths</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#automatic-path-findings">Automatic path findings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#implicit-loading-pipelines">Implicit loading pipelines</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Full specs</li>
+      <li class="breadcrumb-item active">Paths</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/full-specs/paths.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="paths">Paths<a class="headerlink" href="#paths" title="Permanent link">#</a></h1>
+<h2 id="automatic-path-findings">Automatic path findings<a class="headerlink" href="#automatic-path-findings" title="Permanent link">#</a></h2>
+<p>Order of search for component when the direct <code>fullname</code> is not found. <code>name</code> is <code>fullname</code> reduced of its last extension.</p>
+<p>First attempt is to look for the exact name:</p>
+<ul>
+<li><code>fullname</code></li>
+</ul>
+<p>If it fails, check for any the following in such order:</p>
+<ul>
+<li><code>name.vs</code></li>
+<li><code>name.xml</code></li>
+<li><code>name.wasm</code></li>
+<li><code>name.riscv</code></li>
+<li><code>name.[arch].so</code> | <code>name.[arch].dll</code> | <code>name.[arch].dylib</code></li>
+<li><code>name.c</code></li>
+<li><code>name.md</code></li>
+</ul>
+<p>If it fails and the folder <code>name</code> exists, check for these:</p>
+<ul>
+<li><code>name/main.vs</code></li>
+<li><code>name/main.xml</code></li>
+<li><code>name/main.wasm</code></li>
+<li><code>name.riscv</code></li>
+<li><code>name/main.[arch].so</code> | <code>name/main.[arch].dll</code> | <code>name/main.[arch].dylib</code></li>
+<li><code>name/main.c</code></li>
+<li><code>name/main.md</code></li>
+</ul>
+<h3 id="implicit-loading-pipelines">Implicit loading pipelines<a class="headerlink" href="#implicit-loading-pipelines" title="Permanent link">#</a></h3>
+<ul>
+<li><code>.vs</code> &amp; <code>.xml</code> files are either loaded directly, or after being compiled from <code>vs.templ</code>.</li>
+<li><code>.wasm</code> files are handled as wasm components by wamr</li>
+<li><code>.riscv</code> are handled via the riscv vm</li>
+<li><code>[arch].so</code> &amp; al. are loaded as native components</li>
+<li><code>.c</code> are compiled by tcc into native components and loaded as such</li>
+<li><code>.md</code> is loaded directly as a component</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data/" class="btn btn-neutral float-left" title="Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../scripting/" class="btn btn-neutral float-right" title="Scripting">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../data/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../scripting/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

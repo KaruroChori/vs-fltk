@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Building - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Building";
+        var mkdocs_page_input_path = "developers/building.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Index</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Building</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#distribution">Distribution</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developers</li>
+      <li class="breadcrumb-item active">Building</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/developers/building.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>It was decided that distribution &amp; building will be split.<br />
+ Distribution is to be handled <a href="https://github.com/lazy-eggplant/vs.autobuilds">here</a>, while everything build-related stays.<br />
+ Docker images are excluded, as they are meant for developers of <code>vs</code>, not distribution of the final runtime.</p>
+</div>
+<h2 id="supported-platforms">Supported platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">#</a></h2>
+<p>At the moment, only Linux is supported for building and running <code>vs</code> as its primary target.<br />
+It is likely that all major CPU architectures are supported, and several POSIX systems can also be targetted.</p>
+<p>This is just temporary limitation, as all dependencies being used by this project are highly portable, but my own code and the build system are probably not.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Platform</strong></th>
+<th style="text-align: center;"><strong>Arch</strong></th>
+<th style="text-align: center;"><strong>Building</strong></th>
+<th style="text-align: center;"><strong>Running</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>debian-trixie</td>
+<td style="text-align: center;">amd64</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>debian-trixie</td>
+<td style="text-align: center;">arm64</td>
+<td style="text-align: center;">❓</td>
+<td style="text-align: center;">❓</td>
+</tr>
+<tr>
+<td>debian-trixie</td>
+<td style="text-align: center;">risc64</td>
+<td style="text-align: center;">❓</td>
+<td style="text-align: center;">❓</td>
+</tr>
+<tr>
+<td>freedektop-24.08</td>
+<td style="text-align: center;">amd64</td>
+<td style="text-align: center;">✅*</td>
+<td style="text-align: center;">✅*</td>
+</tr>
+<tr>
+<td>macos-13</td>
+<td style="text-align: center;">amd64</td>
+<td style="text-align: center;">❓</td>
+<td style="text-align: center;">❓</td>
+</tr>
+<tr>
+<td>macos-14</td>
+<td style="text-align: center;">arm64</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❓</td>
+</tr>
+<tr>
+<td>win64</td>
+<td style="text-align: center;">amd64</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❓</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to this, the building environment is also distributed via docker images.</p>
+<h3 id="distribution">Distribution<a class="headerlink" href="#distribution" title="Permanent link">#</a></h3>
+<p>There are plans to distribute both <strong>stable</strong> and <strong>nightly</strong> releases of vs.<br />
+Please, be mindful that nightly releases can be extremely broken, and for safety reasons they will only be offered as flatpaks.</p>
+<p>Distribution formats which are supported:</p>
+<ul>
+<li><code>flatpak</code> targetting the latest stable freedesktop environment</li>
+</ul>
+<p>Distribution formats which are expected to be supported (at some point):</p>
+<ul>
+<li><code>deb</code> for the latest stable and experimental of debian (multiarch)</li>
+<li><code>aur</code> for arch linux and derivatives</li>
+<li><code>brew</code> for macos</li>
+</ul>
+<p>Installing directly via <code>meson</code> is very much not suggested if you don&rsquo;t want to break your system.</p>
+<h2 id="configuration-flags">Configuration flags<a class="headerlink" href="#configuration-flags" title="Permanent link">#</a></h2>
+<p>Configuration flags, like for any meson project, are in <code>meson.options</code>.<br />
+In brief, you can disable most features of the runtime if you so wish.<br />
+This can be good to meet specific safety targets by removing some available options, or to optimize it on embedded applications where the overhead of some parts might be excessive.</p>
+<p>Builds distributed from this repository are based on the default options unless explicitly specified.</p>
+<h2 id="building-requirements">Building requirements<a class="headerlink" href="#building-requirements" title="Permanent link">#</a></h2>
+<p>You will need a proper Linux environment, with a modern C++ toolchain installed.<br />
+Specifically, I suggest <code>clang-19</code> or higher, as this repo is using modern C23 features like <code>#embed</code> to make everyone&rsquo;s (my) life a bit easier.
+In addition to that, this repo makes use of:</p>
+<ul>
+<li><a href="https://mesonbuild.com/">meson</a> as its main build system. Any recent-ish version will do (unless you want <code>zig</code> to simplify cross-compiling; for that, &gt;= 1.60 is needed)</li>
+<li><a href="https://bun.sh/">bun</a> as the ts/js runtime to support all the code generation tasks and some of the more complex pipelines.<br />
+   I hate bash, and this is what replaces it for any complex task.</li>
+<li><a href="https://www.swift.org/documentation/swift-compiler/">swiftc</a> barely used for now, but many of the native components shipped within <code>vs</code> will be written in swift (or so I am planning). Version 6 or higher is needed.</li>
+</ul>
+<h3 id="fltk">FLTK<a class="headerlink" href="#fltk" title="Permanent link">#</a></h3>
+<p>If your system provides a modern version of <code>fltk&gt;=1.4</code>, that will be used by default.<br />
+If not present, you are likely needing few more <a href="https://github.com/fltk/fltk/blob/master/README.Unix.txt">dependencies</a> depending on your distribution.<br />
+On debian-like systems the followings are needed:</p>
+<ul>
+<li><strong>libpng-dev</strong></li>
+<li><strong>libglu1-mesa-dev</strong></li>
+<li><strong>libpango1.0-dev</strong></li>
+</ul>
+<p>There are also some more or less optional dependencies:</p>
+<ul>
+<li><strong>libcurl-dev</strong>, unless you are trying to compile a custom version without network support, or http only which are supported.</li>
+<li><a href="http://www.gnuplot.info/">gnuplot</a> if you want to generate plots from testing &amp; benchmarking reports.</li>
+<li><a href="https://docs.flatpak.org/en/latest/flatpak-builder.html">flatpak-builder</a> if you plan on packing and distributing a flatpak of <code>vs</code> (usually not needed, read more about it later in this document)</li>
+</ul>
+<h3 id="additional-documentation">Additional documentation<a class="headerlink" href="#additional-documentation" title="Permanent link">#</a></h3>
+<p>To generate the additional documentation for distribution and consumption:</p>
+<ul>
+<li><a href="https://www.mkdocs.org/">mkdocs</a> and several packages for themes and extensions.</li>
+<li><code>mkdocs</code></li>
+<li><code>mkdocs-github-admonitions-plugin</code></li>
+<li>more to be documented</li>
+<li><a href="https://www.doxygen.nl/">doxygen</a> for documentation generated from the code itself.</li>
+</ul>
+<h3 id="ide-integrations">IDE integrations<a class="headerlink" href="#ide-integrations" title="Permanent link">#</a></h3>
+<p>There is an ongoing effort to better support <code>vs</code> with a proper <a href="https://github.com/lazy-eggplant/vs.lsp">lsp</a>.<br />
+In the same repo there is also a vscode client extension.</p>
+<p><code>vs</code> is expected to leverage this LSP directly in its embedded editor once integrated.</p>
+<h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">#</a></h2>
+<p>A docker image is available that automatically covers all the build dependencies. See
+<a href="../docker/README.md">docker/README.md</a> for further documentation.</p>
+<h2 id="building-process">Building process<a class="headerlink" href="#building-process" title="Permanent link">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project uses meson, so there are no git submodules for the most part.
+ One exception is made for <code>flatpak-builder</code> to be usable, but it is being deprecated.<br />
+ If you plan on using it to generate new flatpak images, please ensure submodules are also cloned with the rest of the repository.</p>
+</div>
+<p>Start by installing all the <code>bun</code> dependencies needed:</p>
+<pre><code class="language-bash">bun install
+</code></pre>
+<p>Then run the following NPM scripts:</p>
+<pre><code class="language-bash">bun run codegen                     #Initial codegen from schemas
+bun run meson-setup.release         #Set up the meson build directory.
+bun run meson-build                 #Build everything!
+</code></pre>
+<p>You might want to use <code>meson-setup.clang-release</code> to use clang-19 if found on your system, and your default compiler or choice might not support some modern functions used in this project.</p>
+<p>To perform tests and benchmarks:</p>
+<pre><code class="language-bash">bun run test
+bun run benchmark
+</code></pre>
+<p>To run the dev demo where features under development are usually being tested:</p>
+<pre><code class="language-bash">bun run vs.example
+</code></pre>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don&rsquo;t install it via <code>meson install ...</code> without a custom <code>DESTDIR</code> set, as shown by its wrapper in <code>package.json</code> script.<br />
+ Some library names will most surely clash with those already installed on your system, and will be overridden.<br />
+ Or future system updates might break <code>vs</code>.<br />
+ Also consider https://github.com/KaruroChori/vs-fltk/issues/3 and its impact.<br />
+<code>vs.fltk</code> is using very recent versions which have not been rolled out yet in most distribution. Or even worse, custom forks.</p>
+</div>
+<p><code>bun run meson-install</code> is now implemented &amp; tested. By default, it installs everything in <code>./build/dist</code>.</p>
+<h3 id="flatpak">Flatpak<a class="headerlink" href="#flatpak" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Flatpak in this repos is being deprecated. It will be fully relocated and removed from here before v0.2.1.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need a modern version of <code>flatpak-builder</code> to be installed.<br />
+ Some EOL or LTS will not ship with one. Anything &gt; 1.4 should be ok.<br />
+ Also, make sure your runtime is not using a cmake version in $[3.31.0,3.31.2)$.<br />
+ A regression later fixed prevents building cmake via meson. Tracked <a href="https://github.com/KaruroChori/vs-fltk/issues/46">here</a>.</p>
+</div>
+<p>Flatpak is not really the ideal approach to deliver <code>vs</code> due to the intrinsic cost of having a separate runtime already installed on each system.<br />
+Also, its sandboxing &amp; permission system might raise some issues (but also help to mitigate the current lack of safety features).<br />
+Still, it is good to support it at these early stages, since many libraries &amp; build dependencies are bleeding-edge, and other forms of distribution are not as convenient.</p>
+<pre><code class="language-sh">flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre>
+<p>if you never configured <code>--user</code> on your system.<br />
+Then</p>
+<pre><code class="language-sh">bun run codegen           #If not run already
+bun run flatpak-builder
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Index"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

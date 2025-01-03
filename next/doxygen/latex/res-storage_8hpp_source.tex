@@ -1,0 +1,32 @@
+\doxysection{res-\/storage.hpp}
+\hypertarget{res-storage_8hpp_source}{}\label{res-storage_8hpp_source}\index{include/cache/res-\/storage.hpp@{include/cache/res-\/storage.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//Very\ similar\ to\ the\ key/value\ storage,\ it\ is\ designed\ to\ keep\ blobs\ of\ remote\ resources\ to\ avoid\ wasting\ time.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}commons.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//Resource\ key/value\ storage.\ Each\ app\ class\ has\ its\ own.}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{Cache\ ctx:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{-\/\ original\ app-\/class\ token}}
+\DoxyCodeLine{00010\ \textcolor{comment}{-\/\ computed\ app-\/class\ token}}
+\DoxyCodeLine{00011\ \textcolor{comment}{-\/\ page\ tag}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{All\ these\ are\ directly\ taken\ from\ the\ ui-\/tree}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }cache\{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1res__storage__t}{res\_storage\_t}}\{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{structvs_1_1cache_1_1buffer__t}{buffer\_t}}\ get(\textcolor{keyword}{const}\ \mbox{\hyperlink{structvs_1_1cache_1_1ctx__t}{cache::ctx\_t}}\&\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ set(\textcolor{keyword}{const}\ \mbox{\hyperlink{structvs_1_1cache_1_1ctx__t}{cache::ctx\_t}}\&\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src,\ \mbox{\hyperlink{structvs_1_1cache_1_1buffer__t}{buffer\_t}}\ value,\ \textcolor{keywordtype}{int}\ lifetime=-\/1);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ reset(\textcolor{keyword}{const}\ \mbox{\hyperlink{structvs_1_1cache_1_1ctx__t}{cache::ctx\_t}}\&\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FAQ - vs.fltk</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FAQ";
+        var mkdocs_page_input_path = "faq.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">FAQ</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-an-sfc-single-file-component">What is an SFC (Single File Component)?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#can-we-have-something-like-canvas">Can we have something like &lt;canvas&gt;?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#can-we-have-a-webgpu-opengl-vulkan-context">Can we have a webgpu, opengl, vulkan context?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-c-in-embedded-scrips-it-is-unsafe">Why C in embedded scrips? It is unsafe!</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#can-it-be-used-for-fully-standalone-applications">Can it be used for fully standalone applications?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-map-sfc-concepts-to-vs">How to map SFC concepts to vs?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#but-i-want-a-css-like-experience">But I want a CSS-like experience!</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#theming-and-colors-schemes-what-can-i-do">Theming and colors schemes. What can I do?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dont-we-have-fluid-already-for-fltk">Don&rsquo;t we have fluid already for FLTK?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is-there-any-plan-to-support-alternative-backends-to-fltk">Is there any plan to support alternative backends to fltk?</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">FAQ</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/faq.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="general-questions">General questions<a class="headerlink" href="#general-questions" title="Permanent link">#</a></h2>
+<p><img alt="Good luck with vs!" src="../assets/hero-img.webp" /></p>
+<p>While <code>vs</code> shares many of its technologies and ideas with modern SFC frameworks, its design is significantly more opinionated and less free.<br />
+This document addresses several of the perceived or actual shortcomings, and provides some of the implied rationale.</p>
+<h3 id="what-is-an-sfc-single-file-component">What is an SFC (Single File Component)?<a class="headerlink" href="#what-is-an-sfc-single-file-component" title="Permanent link">#</a></h3>
+<p>SFCs are special files encapsulating templates, style and logic of a self-contained UI unit.<br />
+They first appeared as part of long defunct proposal for native <code>html</code> components &amp; XHTML XSLT components.<br />
+They are now implemented in modern frameworks like <a href="https://svelte.dev/">svelte</a> or <a href="https://vuejs.org/">vue</a>.</p>
+<h3 id="can-we-have-something-like-canvas">Can we have something like <code>&lt;canvas&gt;</code>?<a class="headerlink" href="#can-we-have-something-like-canvas" title="Permanent link">#</a></h3>
+<p>No. You are free to add or use a <em>custom native component</em> if you really want. If you don&rsquo;t really need a full canvas, there is support still for arbitrary SVG files as part of <code>fltk</code>. But canvas-like components are not and <strong>will never</strong> be part of the core components shipped with <code>vs</code>. Because of that, such capabilities are not meant to be universally accessible by <code>vs</code> users.<br />
+The reason is that canvas-like components can be abused to replace UI primitives, breaking the semantics on which accessibility tools and robots are relying upon. Furthermore, to be useful we should also allow arbitrary execution of code in embedded scripts that is generally discouraged even when enabled.</p>
+<h3 id="can-we-have-a-webgpu-opengl-vulkan-context">Can we have a webgpu, opengl, vulkan context?<a class="headerlink" href="#can-we-have-a-webgpu-opengl-vulkan-context" title="Permanent link">#</a></h3>
+<p>No, same as for <code>&lt;canvas&gt;</code>. But feel free to wrap a <code>vs</code> UI around a custom vulkan viewport if that fits you application.<br />
+Be mindful you would need some way to distribute your custom software as it will not be working out of the box for most users.</p>
+<h3 id="why-c-in-embedded-scrips-it-is-unsafe">Why C in embedded scrips? It is unsafe!<a class="headerlink" href="#why-c-in-embedded-scrips-it-is-unsafe" title="Permanent link">#</a></h3>
+<p>Yes, you are basically giving all keys to the XML provider to run arbitrary code on your machine.<br />
+Even if <code>vs</code> is not exposing direct access to the fs or network to embedded scripts, arbitrary C code, once compiled, will be able to do arbitrary things.<br />
+It is understandable that from the point of view of &ldquo;web development&rdquo; this idea is absurd. But <code>vs</code> is not about web development, its main objective is to provide lightweight native UIs. You can load XML components and resources from the internet &amp; gemini, but you should only accept native components and native scripts from trusted sources, quite possibly some you have control over.<br />
+Still, that would be not less safe than just compiling and running some random code from github, but for some reason one is more socially accepted.</p>
+<p>By comparison, QuickJS, Lua and especially WAMR do offer a much more sandboxed experience.<br />
+In the future it will be possible to set up robust policies based on domains to determine which type of scripts should be allowed if any.<br />
+For now, there are some coarse <a href="./env-vars.md">environment variables</a> that can be set to fully disable certain features.</p>
+<h3 id="can-it-be-used-for-fully-standalone-applications">Can it be used for fully standalone applications?<a class="headerlink" href="#can-it-be-used-for-fully-standalone-applications" title="Permanent link">#</a></h3>
+<p>Ideally yes. Broadly speaking there are three &ldquo;modes&rdquo; in which <code>vs</code> can operate:</p>
+<ul>
+<li>As a fully standalone application. The main issue being the limited selection of functions which are made available in embedded scripts, and their sandboxed nature which only allows specific types of symbols to be exposed and shared.<br />
+  Keep in mind that even while working in C, as unsafe as it is, you are not given direct full access to the standard library; this is deliberate design decision to limit the scope of custom code in scripts.</li>
+<li>As the front-end of a dynamically linked library which embeds all complex functionalities and provides hooks to the UI in <code>vs</code>. Events triggered from UI will trigger calls to features exposed in your library. Useful for event driven applications, like providing a simple visual front-end to your CLI.</li>
+<li>As the front-end of a separate process, sharing information via UNIX Domain Sockets. Useful for multi-client applications, or those in which the bulk of the operations are not event driven. It also avoids the need to compile your codebase into a dynamic library, allowing it to interoperate with virtually any runtime.</li>
+</ul>
+<p>For now, most efforts are focused in making the first two options viable. The third one is planned for later.</p>
+<h3 id="how-to-map-sfc-concepts-to-vs">How to map SFC concepts to <code>vs</code>?<a class="headerlink" href="#how-to-map-sfc-concepts-to-vs" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Web</th>
+<th>VS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Components</td>
+<td>XML or HTML template</td>
+<td>XML</td>
+</tr>
+<tr>
+<td>Static templating</td>
+<td>XSLT or JSX</td>
+<td>vs-templ (XSLT-like)</td>
+</tr>
+<tr>
+<td>Dynamic templating</td>
+<td>alpine, htmx, jquery, &hellip;</td>
+<td>Restricted, via standard components</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>XSLT and/or CSS and transpilation</td>
+<td>Mixins</td>
+</tr>
+<tr>
+<td>Scripting</td>
+<td>JS, WASM and transpilation</td>
+<td>C/JS/Lua/WASM</td>
+</tr>
+<tr>
+<td>Data handling</td>
+<td>Limited via forms, JSON/XML via JS</td>
+<td>Native <code>data</code> component</td>
+</tr>
+</tbody>
+</table>
+<p>All flow control features and templating like <code>if</code> or <code>for-each</code> blocks which are typical in frameworks like <a href="https://vuejs.org/">vue</a> are performed either:</p>
+<ul>
+<li>As a build step for components if they can be evaluated statically.</li>
+<li>Via custom elements and are not part of core <code>vs</code> and provide a controlled dynamic behaviour.</li>
+</ul>
+<p>This comparison is just meant to provide some basic intuition of how things match.<br />
+Still, the design patterns between <code>vs</code> and more traditional SFC frameworks are quite different.</p>
+<h3 id="but-i-want-a-css-like-experience">But I want a CSS-like experience!<a class="headerlink" href="#but-i-want-a-css-like-experience" title="Permanent link">#</a></h3>
+<p>In theory there is nothing preventing <code>vs</code> to integrate some <code>style</code> equivalent with mixins restructured as CSS-like classes.<br />
+If you want to do that feel free to send in a PR, I am more than willing to see it integrated.</p>
+<h3 id="theming-and-colors-schemes-what-can-i-do">Theming and colors schemes. What can I do?<a class="headerlink" href="#theming-and-colors-schemes-what-can-i-do" title="Permanent link">#</a></h3>
+<p>FLTK, the toolkit on which <code>vs</code> is based, has limited capabilities in this respect.<br />
+Out of the box, it makes opinionated choices on what and how to render boxes based on their class. Of those only few kinds are embedded in the engine.<br />
+Hence, both indexed colors and box types have their semantics enforced by FLTK and are globally shared within each process.<br />
+Given these constraints, one can specify any color or any rendering function for the different frame types (even SVG images). Yet it is not possible to introduce new classes out of thin air.</p>
+<p>It is possible to define custom draw functions and adopt mixins to override the default style, but doing it more than occasionally would result in some quite messy code. If you need fine and frequent control over your UI, <code>vs</code> is likely not the right framework for you.</p>
+<h3 id="dont-we-have-fluid-already-for-fltk">Don&rsquo;t we have fluid already for FLTK?<a class="headerlink" href="#dont-we-have-fluid-already-for-fltk" title="Permanent link">#</a></h3>
+<p><a href="https://www.fltk.org/doc-1.4/fluid.html">fluid</a> is an excellent tool, but in my opinion it has few problems:</p>
+<ul>
+<li>The visual editor is nice, but it does not really allow defining custom widgets as standalone and reusable components. At least, not easily enough.</li>
+<li>It integrates C/C++ code only to &ldquo;fill in&rdquo; the missing parts of the application, in a way which I don&rsquo;t find particularly ergonomic.</li>
+<li>It does nothing to provide runtime capabilities for the UI beyond what FLTK offers, which is a bit too basic.</li>
+<li>It is restricted to C/C++, unless you linked your own dynamic library written with a language of choice.</li>
+</ul>
+<h3 id="is-there-any-plan-to-support-alternative-backends-to-fltk">Is there any plan to support alternative backends to fltk?<a class="headerlink" href="#is-there-any-plan-to-support-alternative-backends-to-fltk" title="Permanent link">#</a></h3>
+<p>Short answer, no. However, most of the infrastructure and code of this repo has only minimal reliance on fltk.<br />
+It is possible for most code in this repo to be preserved if a new backend were to be selected.<br />
+One scenario which might be interesting to consider is <a href="https://lvgl.io/">lgvl</a> for example.</p>
+<h2 id="likely-pitfalls">Likely pitfalls<a class="headerlink" href="#likely-pitfalls" title="Permanent link">#</a></h2>
+<p>Unlike other runtimes adopting DOM-like structures, <code>vs</code> is not using XML nor its parsed version in memory as the actual UI representation.<br />
+The XML source is statically compiled into a UI tree, a wrapper/superset of the tree structure that FLTK internally implements, enabling all the higher level features of <code>vs</code>.<br />
+This means that at runtime the source XML will we de-allocated from memory right after the UI tree is built, and it cannot be trivially referenced again.<br />
+We also plan in a not-so-far-distant future to use some source XML to generate the equivalent C++ code, and use that to reach a fully native level of performance and a minimal memory consumption.</p>
+<h3 id="i-want-my-todo-list">I want my todo list!<a class="headerlink" href="#i-want-my-todo-list" title="Permanent link">#</a></h3>
+<blockquote>
+<p>How do I create a list which can spawn multiple copies of some component based on runtime data in XML then?</p>
+</blockquote>
+<p>You don&rsquo;t. Components based on XML have several limitations on which mutations are allowed during runtime. A basic principle of this framework is to keep arbitrary code and logic as far away as possible from the final user, and what one sees in code should perfectly match what one visually gets. Making the tree mostly immutable and restricting which operations are allowed in the embedded scripts vibes with this vision of simplicity.<br />
+In addition to XML components, native ones are also allowed in <code>vs</code>. Native components are written in C++ (or any language which can work with our C bindings) &amp; built dynamically against the full library.<br />
+Native components cover the same features provided by the XML builder and much more. There is (will be) a library of base native components designed to cover all common scenarios where dynamic data is expected to drive UI changes, but if yours does not fit you will have to write a custom one and ensure its semantics is explicitly encoded as meta-information.</p>
+<p>Realistically, once <code>vs</code> gets stable enough, the standard library should be plenty for virtually any developer.
+This way, any dynamic behaviour requiring arbitrary code execution is kept outside the XML tree, in a native codebase which is not controlled by any single developer (unless the final user decides to enable certain native components distributed by third parties). This fits with the design philosophy that there should only one good way to implement a certain feature on the UI front-end.</p>
+<h3 id="what-about-templates">What about templates?<a class="headerlink" href="#what-about-templates" title="Permanent link">#</a></h3>
+<blockquote>
+<p>Ok, but being forced to manually write the code for 5x5 buttons on a widget is not really clever.</p>
+</blockquote>
+<p>This is what build steps are for! You can generate your XML in <a href="https://react.dev/">react</a> or <a href="https://www.w3schools.com/xml/xsl_intro.asp">xslt</a> for example.<br />
+We are also implementing our <a href="https://github.com/KaruroChori/vs-templ">own xml preprocessor</a> to statically generate components within the <code>vs</code> viewer itself. Right now <code>vs.templ</code> is working in <code>vs</code>, but not every planned feature according to specs has been implemented yet.</p>
+<h3 id="how-to-handle-state-state-changes">How to handle state &amp; state changes?<a class="headerlink" href="#how-to-handle-state-state-changes" title="Permanent link">#</a></h3>
+<blockquote>
+<p>If the XML is lost, how to I know &amp; query the state of widgets?</p>
+</blockquote>
+<p>Not via a DOM structure. In theory FLTK provides an interface to get the current value of its properties from its own widgets, however we decided not to expose it fully.<br />
+Still, <code>vs</code> widgets can provide some selected <em>computed properties</em>. It should be considered that props in the XML and keys used by FLTK are not a 1-to-1 match, even though we try to keep them as close as possible when reasonable; some complex processing on the input expressions can take place both at compile time and at runtime. None of that is directly reflected in the state of a FLTK widget.</p>
+<p>Aside from these considerations, we can still keep state, just not explicitly within <code>vs</code> widgets.<br />
+There are four main approaches, each suited best for a different class of cases.</p>
+<h4 id="self-mixins">Self mixins<a class="headerlink" href="#self-mixins" title="Permanent link">#</a></h4>
+<p>Each <code>vs</code> widget with a frame can specify a self mixin, which internally is just a persisted map of props.<br />
+Unlike props directly defined on the element itself, at runtime self mixins are persisted throughout the session.</p>
+<p>Please, be mindful that self mixins will force widgets to have their own frame even if left nameless, significantly raising their memory footprint.<br />
+Furthermore, mixins operate on objects serialized to strings, making the process of using them more computationally expensive.<br />
+Still, this also makes them more flexible, as mixins represent expressions to compute and not immediate values.</p>
+<p>I would like to close with an example showing a typical pitfall in handling state via mixins:</p>
+<pre><code class="language-xml">&lt;component-a prop-1=&quot;value-1&quot;&gt;
+    &lt;mixin prop-2=&quot;value-2&quot;&gt;
+&lt;/compoent-a&gt;
+</code></pre>
+<p><code>component-a</code> will be built with its own <code>prop-1</code> and <code>prop-2</code> inherited from the self mixin. However, the content of <code>prop-1</code> is applied &amp; lost after compilation, while <code>prop-2</code> can be queried at runtime. Mixins can be mutated at runtime as well. <del>but an explicit update request must be triggered onto a component for it to be updated &amp; reflect such changes.</del> nope, we set it dirty and recompute all dirty things after some time no more have been adeded</p>
+<h4 id="data-sources">Data sources<a class="headerlink" href="#data-sources" title="Permanent link">#</a></h4>
+<p>Data sources can provide and store values for props.<br />
+<em>Persistent storage</em> and <em>Secrets</em> are contextual data sources which are always implicitly made available and can be used with the same interface.</p>
+<h4 id="within-scripts">Within scripts<a class="headerlink" href="#within-scripts" title="Permanent link">#</a></h4>
+<p>One should not be surprised that this approach is the least desirable. If you can do differently, please do.<br />
+One can either have static variables in single users scripts, maps in modules, or have them linked from the back-end.</p>
+<p>In any case, the mechanism to access these variables is via custom <code>setters</code> and <code>getters</code>.<br />
+They will effectively appear as props and computed values of the widget they have been defined for and similarly accessed.</p>
+<h3 id="what-is-mutable-in-a-runtime-instance">What is mutable in a runtime instance?<a class="headerlink" href="#what-is-mutable-in-a-runtime-instance" title="Permanent link">#</a></h3>
+<ul>
+<li>Viewports can be fully redrawn and re-sourced.</li>
+<li>Props of ui widgets can be freely changed. Exclusions apply to <code>name</code>, <code>frame.*</code> and few more which are reserved for internal use during the <code>ui-tree</code> construction.</li>
+<li><del>Mixins can be added, removed or changed. Subtrees can be asked to recompute their style info after these changes.</del> (am I sure I want this?)</li>
+</ul>
+<p>What is left out:</p>
+<ul>
+<li>You cannot re-render components imported and used or direct <code>use</code> as their slot designation is lost at runtime.</li>
+<li>Like all the other mutable pros, the <code>mixin</code> property of a widget can be changes and its previous state is not stored. So you cannot just append or remove parts from it, it must be fully overwritten each time.</li>
+<li>When you want a widget to be refreshed, its inline props cannot be evaluated again, as that is only available while parsing XML. If you want to avoid this pitfall, keep all of its style in external mixins, and just mutate its <code>mixin</code> list to set the desired visual state.</li>
+</ul>
+<h2 id="technical-details">Technical details<a class="headerlink" href="#technical-details" title="Permanent link">#</a></h2>
+<h3 id="how-does-the-rendering-work">How does the rendering work?<a class="headerlink" href="#how-does-the-rendering-work" title="Permanent link">#</a></h3>
+<p>It is a process in two stages for each component:</p>
+<ul>
+<li>The first pass checks for all resources needed and scripts to compile. These sub-tasks are added to a pool and run in parallel. If cached, these results are retrieved. If cache-able, they are stored after computation.</li>
+<li>Once all resources for a component are resolved, the UI tree is constructed visiting the XML again with a depth-first pass.</li>
+</ul>
+<p>At the end of this process the XML is freed.<br />
+XML files are assumed to be fully loaded in memory during processing. However, it is possible to write a streaming parser with much lower memory footprint, as long as the XML is following the strict schema shipped with this repo (it has a rigid order for some tags).<br />
+This strategy was not employed as it makes the loading process much slower for multithreaded systems with reasonable amounts of memory, and would only be better for low-end embedded systems where fltk is unlikely to be suitable.</p>
+<h2 id="licensing">Licensing<a class="headerlink" href="#licensing" title="Permanent link">#</a></h2>
+<h3 id="can-i-contribute-to-this-project">Can I contribute to this project?<a class="headerlink" href="#can-i-contribute-to-this-project" title="Permanent link">#</a></h3>
+<p>Sure! Please be mindful of few things:</p>
+<ul>
+<li>Make sure you understand that this project uses different licenses for different parts.</li>
+<li>You should be ok with us including your contributions under those same terms.</li>
+<li>This project is very early, and your contribution might end up in the crossfire of roadmaps changing and goals shifting.</li>
+<li>If you want to contribute major features, I would <em>strongly</em> recommend to reach out or to publish some form of written proposal.</li>
+<li>You should also accept that the CC Attribution–NoDerivs 4.0 covering most of the project will be relaxed at some point.</li>
+<li>You will be credited, at the very least by preserving the git history of the project.</li>
+<li>You are clearly able to distribute any standalone contribution you made as you wish. It is your code.</li>
+</ul>
+<h3 id="what-about-those-parts-covered-by-the-no-derivatives-clauses">What about those parts covered by the no-derivatives clauses?<a class="headerlink" href="#what-about-those-parts-covered-by-the-no-derivatives-clauses" title="Permanent link">#</a></h3>
+<p>Those clauses are just intended to protect this project in its early life, not to prevent people from contributing.<br />
+If your plan is not to make your own fork and distribute an alternative version of <code>vs</code>, we are totally fine with that!</p>
+<h3 id="why-this-strange-licence">Why this strange licence?<a class="headerlink" href="#why-this-strange-licence" title="Permanent link">#</a></h3>
+<p>You are strange!<br />
+Jokes aside, I <em>really</em> don&rsquo;t want this project to be taken apart by sharks before it is able to run on its own legs.<br />
+Or at the very least, I am trying to make it as hard as legally possible.</p>
+<p><code>vs</code> is extremely opinionated, and with opinions come division.<br />
+XML or JSON, runtime DOM or not, and of course&hellip; data sources or arbitrary fetches in embedded scripts.<br />
+My reluctance in adopting a less restrictive licence at this stage is well explained in the <a href="https://geminiprotocol.net/docs/faq.gmi">gemini&rsquo;s faq</a>.<br />
+If I had to explain it more with my own words, let&rsquo;s think about a cost function describing the utility of frameworks like <code>vs</code>.<br />
+There are many local minima in which such frameworks could end up stuck during development, be it as a necessary but temporary phase or as the unfortunate outcome of short-sighted design decisions.<br />
+A good <em>vision</em> is the only thing which allows a project to jump across, or at least get quickly out from the local minima of comfort-food.<br />
+I am not saying my own is &ldquo;right&rdquo; nor immutable, just that I have few high-level objectives for this project that others might not share.<br />
+Allowing <code>vs</code> to be freely forked at this stage comes with the very real risk of me being thrown in a competition I never asked for, unable to provide more than shallow promises on why my intention &amp; my objectives would be &ldquo;better&rdquo;.<br />
+As I don&rsquo;t plan on making the development of this project a painful exercise in demagogy and convincing, I temporarily opted for a licencing model which prevents that.<br />
+Once this project is robust enough to survive a hostile fork, I would be very glad to relicense it under permissive terms.</p>
+<p>That being said, if you feel something in the direction of the project or the technical solutions proposed are not good, please reach out!<br />
+I really appreciate any structured criticism, and I am grateful of any time others might want to put into that.<br />
+I am not the kind of person which get stuck in their own positions just because they hold them at some point 😊.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../LICENCE/" class="btn btn-neutral float-left" title="LICENCE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../developers/" class="btn btn-neutral float-right" title="Index">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../LICENCE/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../developers/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Safety policies - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Safety policies";
+        var mkdocs_page_input_path = "users/safety-policies.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developers/versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../developers/old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Safety policies</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Users</li>
+      <li class="breadcrumb-item active">Safety policies</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/users/safety-policies.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="risk-assessment-guidelines">Risk assessment guidelines<a class="headerlink" href="#risk-assessment-guidelines" title="Permanent link">#</a></h2>
+<p><code>vs</code> should always be considered as an unsafe runtime.<br />
+While there is a fair amount of effort in sandboxing and gatekeeping the underlying system to any embedded script, these are mitigations for user errors at best and not safety features.<br />
+The actual degree of safety widely varies depending on the type of embedded script and component being used.<br />
+For this reason it is possible to configure what is allowed and where as part of a risk mitigation strategy in the user configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Component type</th>
+<th>Risk level</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic XML</td>
+<td>Lowest</td>
+<td>As long as pugixml and vs don&rsquo;t have nasty bugs it is fine</td>
+</tr>
+<tr>
+<td>Preprocessed XML</td>
+<td>Lowest</td>
+<td>Same as before (aside from vulnerabilities in the preprocessor)</td>
+</tr>
+<tr>
+<td>XML + Native</td>
+<td>Highest</td>
+<td>It is very easy to break the thin sandbox and run arbitrary code</td>
+</tr>
+<tr>
+<td>XML + QuickJS</td>
+<td>Medium</td>
+<td>QuickJS is sandboxed, but there could be vulnerabilities in the parser leading to exploits</td>
+</tr>
+<tr>
+<td>XML + WASM</td>
+<td>Low</td>
+<td>As long as you trust WAMR to be sound it will be fine</td>
+</tr>
+<tr>
+<td>XML + Lua</td>
+<td>Medium</td>
+<td>Like QuickJS, it is possible for Lua to have vulnerabilities in its parser or runtime</td>
+</tr>
+<tr>
+<td>XML + LuaJIT</td>
+<td>High</td>
+<td>Not as bad as pure native code,yet the sandbox of LuaJIT is not designed for that</td>
+</tr>
+<tr>
+<td>Native components</td>
+<td>Highest</td>
+<td>Arbitrary code doing arbitrary things, unless externally constrained</td>
+</tr>
+<tr>
+<td>WASI components</td>
+<td>Low</td>
+<td>As long as WAMR holds and our interface has no hole, they are much safer (and portable) alternatives to native components</td>
+</tr>
+</tbody>
+</table>
+<p>High-risk combinations should only be ever used when you fully trust your source of code and the chain to obtain it.<br />
+It is <strong>really</strong> unadvisable to keep them enabled for apps/components fetched via <code>http</code>, even if the source is trusted as you might be victim of <em>man in the middle</em> attacks.</p>
+<h2 id="definition-of-policies">Definition of policies<a class="headerlink" href="#definition-of-policies" title="Permanent link">#</a></h2>
+<p>Policies are rules which are enforced by the engine to determine which operations and which feature are allowed based on contextual information.<br />
+They can be used, for example, to allow local applications to run scripts usually considered as less safe, and disallow the same when coming from all internet sources but few selected addresses.</p>
+<p>During runtime, there are three main source determining policies:</p>
+<ul>
+<li>Via coarse-grained environment variables made available. Those are used as root for derivation for every policy coming after. For example setting <code>VS_NETWORKING_POLICY=none</code> as a variable will ensure networking will always be disabled no matter what.</li>
+<li>Via user profiles. As part of each user&rsquo;s configuration, it is possible to store rules that for more or less specific path patterns and app uuid will apply specialized policies.</li>
+<li>Via meta information in the XML of components and applications. Those are only hints, and it is up to the engine to decide whether they should be accepted or not, at times with an explicit request to the user.</li>
+</ul>
+<p>It is possible that a single component or app can have multiple viable rule sets matching their path, base id or uuid. Only one set should be applied at any time, and it is the one with the highest match. For example:</p>
+<ul>
+<li><code>https://**</code> will match any request performed via https.</li>
+<li><code>https://app.example.org/**</code> will match any request associated to a specific domain.</li>
+<li><code>#app-id:xxxxxxx</code> will match a specific app id (possibly cloned) given by a vendor.</li>
+<li><code>unique#app-id:xxxxxxx</code> will match the unique id determined by the app id, its location AND the secret user key.
+  The more specific set which applies will be the one selected.<br />
+  Rule sets can be specified as a combination of requirements like URL patterns AND unique identifier.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../file-types/" class="btn btn-neutral float-left" title="File types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../file-types/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+\doxysection{vs.\+h}
+\hypertarget{bindings_2native_2include_2vs_8h_source}{}\label{bindings_2native_2include_2vs_8h_source}\index{bindings/native/include/vs.h@{bindings/native/include/vs.h}}
+\mbox{\hyperlink{bindings_2native_2include_2vs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}fixed-\/types.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \ \textcolor{keywordtype}{void}*\ node\_t;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ VS\ stuff}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ node\_t\ vs\_self;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ log\_severety\_t\{}
+\DoxyCodeLine{00023\ \ \ LOG\_INFO,}
+\DoxyCodeLine{00024\ \ \ LOG\_OK,}
+\DoxyCodeLine{00025\ \ \ LOG\_WARNING,}
+\DoxyCodeLine{00026\ \ \ LOG\_CONTINUE,}
+\DoxyCodeLine{00027\ \ \ LOG\_PANIC,}
+\DoxyCodeLine{00028\ \ \ LOG\_LOG,}
+\DoxyCodeLine{00029\ \ \ LOG\_LVL\_NORMAL\ =\ 0x00,}
+\DoxyCodeLine{00030\ \ \ LOG\_LVL\_SILENT\ =\ 0x10,}
+\DoxyCodeLine{00031\ \ \ LOG\_LVL\_VERBOSE\ =\ 0x20,}
+\DoxyCodeLine{00032\ \ \ LOG\_LVL\_DEBUG\ =\ 0x40,}
+\DoxyCodeLine{00033\ \}log\_severety\_t;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\{}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00037\ \ \ \ \ UNKNOWN=1,\ CALLBACK,\ DRAW,\ SETTER,\ GETTER,}
+\DoxyCodeLine{00038\ \ \ \}\ mode:3;}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00040\ \ \ \ \ NATIVE=1,\ QUICKJS,\ WASM,\ EXTERNAL,\ LUA}
+\DoxyCodeLine{00041\ \ \ \}\ type:5;}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ symbol;}
+\DoxyCodeLine{00043\ \}\mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}}\{}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\ symbol;}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{struct____symbol__t}{\_\_symbol\_t}}\ ctx\_apply;}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ found\_at;}
+\DoxyCodeLine{00050\ \}\mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ vs\_types\_t\{}
+\DoxyCodeLine{00054\ \ \ TYPE\_FLAG=1,}
+\DoxyCodeLine{00055\ \ \ TYPE\_ENUM,}
+\DoxyCodeLine{00056\ \ \ TYPE\_RAW,}
+\DoxyCodeLine{00057\ \ \ TYPE\_PATH,}
+\DoxyCodeLine{00058\ \ \ TYPE\_CSTRING,}
+\DoxyCodeLine{00059\ \ \ TYPE\_STRING\_VIEW,}
+\DoxyCodeLine{00060\ \ \ TYPE\_COLOR,}
+\DoxyCodeLine{00061\ \ \ TYPE\_ISCALAR\_1,}
+\DoxyCodeLine{00062\ \ \ TYPE\_ISCALAR\_2,}
+\DoxyCodeLine{00063\ \ \ TYPE\_ISCALAR\_3,}
+\DoxyCodeLine{00064\ \ \ TYPE\_ISCALAR\_4,}
+\DoxyCodeLine{00065\ \ \ TYPE\_FSCALAR\_1,}
+\DoxyCodeLine{00066\ \ \ TYPE\_FSCALAR\_2,}
+\DoxyCodeLine{00067\ \ \ TYPE\_FSCALAR\_3,}
+\DoxyCodeLine{00068\ \ \ TYPE\_FSCALAR\_4}
+\DoxyCodeLine{00069\ \}\ vs\_types\_t;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs__field__model__t}{vs\_field\_model\_t}}\{}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{00074\ \ \ int(*setter)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00075\ \ \ int(*getter)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**);}
+\DoxyCodeLine{00076\ \}\ \mbox{\hyperlink{structvs__field__model__t}{vs\_field\_model\_t}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}\{}
+\DoxyCodeLine{00079\ \ \ u32\ type:\ 22;}
+\DoxyCodeLine{00080\ \ \ u32\ valod:\ 1;}
+\DoxyCodeLine{00081\ \ \ u32\ need\_cleanup:\ 1;}
+\DoxyCodeLine{00082\ \ \ u32\ subtype:\ 8;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{union}\{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FLAG;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ ENUM;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ RAW;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \ \ \ \ \ CSTRING;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ ptr;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00092\ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STRING\_VIEW;}
+\DoxyCodeLine{00093\ \ \ \ \ u8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ COLOR[4];}
+\DoxyCodeLine{00094\ \ \ \ \ u32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ISCALAR\_1[1];}
+\DoxyCodeLine{00095\ \ \ \ \ u32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ISCALAR\_2[2];}
+\DoxyCodeLine{00096\ \ \ \ \ u32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ISCALAR\_3[3];}
+\DoxyCodeLine{00097\ \ \ \ \ u32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ISCALAR\_4[4];}
+\DoxyCodeLine{00098\ \ \ \ \ fp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FSCALAR\_1[1];}
+\DoxyCodeLine{00099\ \ \ \ \ fp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FSCALAR\_2[2];}
+\DoxyCodeLine{00100\ \ \ \ \ fp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FSCALAR\_3[3];}
+\DoxyCodeLine{00101\ \ \ \ \ fp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FSCALAR\_4[4];}
+\DoxyCodeLine{00102\ \ \ \}storage;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \}\ \mbox{\hyperlink{structvs__field__t}{vs\_field\_t}};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}*\ vs\_field\_make();}
+\DoxyCodeLine{00109\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ vs\_field\_destroy(\mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}*\ obj);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ as\_flag(\mbox{\hyperlink{structvs__field__t}{vs\_field\_t}}*\ field)\{}
+\DoxyCodeLine{00112\ \ \ \textcolor{comment}{//TODO:\ throw()\ if\ runtime\ type\ not\ equal\ to\ flag}}
+\DoxyCodeLine{00113\ \ \ \textcolor{comment}{//return\ payload\ reference}}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_log(\textcolor{keywordtype}{int}\ severety,\ node\_t\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string},\ ...);}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ \$\$log(self,sev,string,\ ...)\ vs\_log(sev,self,string,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ \$log(sev,string,\ ...)\ vs\_log(sev,vs\_self,string,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{extern}\ node\_t\ vs\_resolve\_name(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00122\ \textcolor{keyword}{extern}\ node\_t\ vs\_resolve\_name\_path(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ \$\$(self,string)\ vs\_resolve\_name\_path(self,string)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ \$(string)\ vs\_resolve\_name\_path(vs\_self,string)}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structsymbol__ret__t}{symbol\_ret\_t}}\ vs\_resolve\_symbol(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ \$\$resolve\_symbol(self,string)\ vs\_resolve\_symbol(self,string)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ \$resolve\_symbol(string)\ vs\_resolve\_symbol(vs\_self,string)}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_apply\_prop(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ v);}
+\DoxyCodeLine{00131\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_get\_computed(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ v);}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ \$\$prop(self,key,value)\ vs\_apply\_prop(self,key,value)}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ \$\$computed(self,key,value)\ vs\_get\_computed(self,key,value)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ \$\$mixin(self,value)\ vs\_apply\_prop(self,"{}mixin"{},value)}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ \$prop(key,value)\ vs\_apply\_prop(vs\_self,key,value)}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ \$computed(key,value)\ vs\_get\_computed(vs\_self,key,value)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ \$mixin(value)\ vs\_apply\_prop(vs\_self,"{}mixin"{},value)}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_set(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ v);}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ \$\$set(self,k,v)\ vs\_set(self,k,v)}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ \$set(k,v)\ vs\_set(vs\_self,k,v)}}
+\DoxyCodeLine{00142\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vs\_get(node\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ k,\ \textcolor{keywordtype}{char}**\ v);}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ \$\$get(self,k,v)\ vs\_get(self,k,\&v)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ \$get(k,v)\ vs\_get(vs\_self,k,\&v)}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ vs\_debug(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ \$\$debug(k,v)\ vs\_debug(k,v)}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ CONCAT\_(prefix,\ suffix)\ prefix\#\#suffix}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ CONCAT(prefix,\ suffix)\ CONCAT\_(prefix,\ suffix)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ MAKE\_UNIQUE\_VARIABLE\_NAME(prefix)\ CONCAT(prefix\#\#\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{comment}{//Utility\ functions\ to\ export\ symbols}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ \$callback(x)\ \ void*\ \_\_EXPORT\_CB\_\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ \$cb(x)\ \ \ \ \ \ \ \ void*\ \_\_EXPORT\_CB\_\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ \$plotter(x)\ \ \ void*\ \_\_EXPORT\_DRW\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ \$field\ \ \ \ \ \ \ \ vs\_field\_t\ MAKE\_UNIQUE\_VARIABLE\_NAME(\_\_EXPORT\_FIELD\_)=\ }}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ \$fn(x)\ \ \ \ \ \ \ \ void*\ \_\_EXPORT\_UKN\_\#\#x\ =\ x;}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{//Extra\ functions}}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{char}*\ itoa(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{char}*\ result,\ \textcolor{keywordtype}{int}\ base);}
+
+\end{DoxyCode}

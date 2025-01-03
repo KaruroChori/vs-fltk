@@ -1,0 +1,106 @@
+\doxysection{memory-\/storage.hpp}
+\hypertarget{memory-storage_8hpp_source}{}\label{memory-storage_8hpp_source}\index{include/cache/memory-\/storage.hpp@{include/cache/memory-\/storage.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//Temporary\ cache\ storing\ files\ from\ fs,\ remote\ sources\ or\ pre-\/compiled.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//This\ is\ not\ the\ final\ cache\ based\ on\ sqlite,\ but\ entries\ might\ be\ promoted\ under\ some\ conditions.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//This\ cache\ exists\ regardless\ of\ the\ other\ types\ being\ enabled\ or\ not,\ and\ has\ a\ functional\ purpose\ to\ support\ the\ xml\ parsing.}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//Once\ the\ build\ process\ of\ an\ app\ is\ completed,\ its\ content\ is\ fully\ before\ running\ (with\ a\ flag\ for\ those\ objects\ which\ must\ persist).}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//This\ cache\ is\ exposed\ as\ a\ global\ singleton.}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//Its\ content\ is\ not\ exposed\ via\ any\ sort\ of\ API\ to\ embedded\ scripts.}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <span>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <utils/strings.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <ui-\/frame.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}commons.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}utils/resources.hpp"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }cache\{}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\_key\_t}}\{}
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ location;\ \ \ \textcolor{comment}{//Location\ in\ fs\ or\ URI\ of\ the\ requested\ resource}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ local\_id:16=0;\ \ \ \ \ \textcolor{comment}{//Unique\ local\ id\ identifying\ the\ position\ of\ this\ resource\ in\ location.\ If\ left\ "{}"{}\ it\ represents\ the\ full\ file.}}
+\DoxyCodeLine{00029\ \ \ \ \ resource\_t\ resource:4=resource\_t::NONE;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ to\_promote:1=\textcolor{keyword}{false};\ \ \ \ \ \ \textcolor{comment}{//Consider\ for\ promotion\ to\ higher\ tier\ cache}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ to\_keep:1=\textcolor{keyword}{true};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//To\ be\ kept\ at\ runtime.}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\_key\_t}}\ \&other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (location\ ==\ other.location}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ local\_id\ ==\ other.local\_id\ \&\&\ resource==other.resource);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }std::hash<vs::cache::mem\_key\_t>}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ std::size\_t\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{vs::cache::mem\_key\_t}}\&\ k)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ (std::hash<std::string>()(k.location)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \string^\ std::hash<std::string>()(k.location));}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{namespace\ }cache\{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvs_1_1cache_1_1mem__storage__t}{mem\_storage\_t}}\{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1mem__storage__t_1_1entry__t}{entry\_t}}\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ std::variant<vs::res::component\_t,\ vs::res::script\_t>\ format\_t;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<void>\ ref;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ format\_t\ format;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ std::unordered\_map<mem\_key\_t,\ entry\_t>::const\_iterator\ entry\_it;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::unordered\_map<mem\_key\_t,\ entry\_t>\ entries;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\_key\_t}}\ unique\_name(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ctx);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ entry\_it\ end()\ \{\textcolor{keywordflow}{return}\ entries.end();\}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structvs_1_1cache_1_1mem__key__t}{mem\_key\_t}}\ empty\_key\ =\ \{\textcolor{stringliteral}{"{}"{}},0,resource\_t::NONE\};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Add\ a\ memory\ entry\ from\ various\ sources.\ Interpreting\ it\ is\ a\ task\ for\ the\ consumer\ later\ on,\ based\ on\ the\ resource\ type\ tag.}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_buffer(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ std::span<uint8\_t\ const>\ str,\ entry\_t::format\_t\ format);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_cstring(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ std::string\_view\ str,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_fs(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ if\ defined\ VS\_USE\_NETWORKING\_CURL\ ||\ defined\ VS\_USE\_NETWORKING\_SIMPLE}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_http(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ endif}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ if\ defined\ VS\_USE\_NETWORKING\_CURL}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_https(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_gemini(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ endif}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_res\_storage(\textcolor{keyword}{const}\ mem\_key\_t\&\ path,\ entry\_t::format\_t\ \ format);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ entry\_it\ fetch\_from\_shared(\textcolor{keyword}{const}\ mem\_key\_t\&\ key,\ \textcolor{keyword}{const}\ std::shared\_ptr<void>\&\ src,\ entry\_t::format\_t\ format);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ drop(\textcolor{keyword}{const}\ mem\_key\_t\&);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ entry\_t*\ get(\textcolor{keyword}{const}\ mem\_key\_t\&);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Remove\ all\ entries\ which\ are\ no\ longer\ needed\ (be\ it\ because\ already\ consumed,\ or\ because\ copies\ of\ shared\_ptr\ are\ all\ in\ place)}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ cleanup();}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+
+\end{DoxyCode}

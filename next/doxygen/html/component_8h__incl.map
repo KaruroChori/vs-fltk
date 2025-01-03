@@ -1,0 +1,7 @@
+<map id="include/cbindings/component.h" name="include/cbindings/component.h">
+<area shape="rect" id="Node000001" title="C interface that all native components which are loaded MUST fulfill." alt="" coords="5,5,229,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="32,79,107,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,33,87,69,82,66,107,30"/>
+<area shape="rect" id="Node000003" href="$stdint_8h_source.html" title=" " alt="" coords="131,79,202,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,29,153,66,149,69,123,33"/>
+</map>

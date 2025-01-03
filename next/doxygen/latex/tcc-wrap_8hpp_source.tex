@@ -1,0 +1,98 @@
+\doxysection{tcc-\/wrap.hpp}
+\hypertarget{tcc-wrap_8hpp_source}{}\label{tcc-wrap_8hpp_source}\index{include/utils/tcc-\/wrap.hpp@{include/utils/tcc-\/wrap.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#if\ VS\_USE\_TCC}}
+\DoxyCodeLine{00004\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ Utility\ library\ to\ simplify\ the\ usage\ of\ libtcc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <libtcc.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }tcc\{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{using\ }error\_fn\ =\ TCCErrorFunc;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ TCCState*\ ctx\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{inline}\ tcc()\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ ctx=tcc\_new();}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{inline}\ tcc(TCCState*\ ctx)\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ this-\/>ctx=ctx;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ has\_ctx()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ ctx!=\textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ new\_ctx()\ \{\textcolor{keywordflow}{if}(ctx!=\textcolor{keyword}{nullptr})tcc\_delete(ctx);ctx=tcc\_new();\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}\ \string~tcc()\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ctx!=\textcolor{keyword}{nullptr})tcc\_delete(ctx);}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{enum}\ out\_type\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ memory=1,\ \textcolor{comment}{//6h\ wasted\ because\ of\ that\ 1}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ exe,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ dll,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ obj,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ preprocesss}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_lib\_path(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{tcc\_set\_lib\_path(ctx,\ path);\}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_error\_fn(\textcolor{keywordtype}{void}*\ error\_opaque,\ error\_fn*\ error\_func)\textcolor{keyword}{noexcept}\{tcc\_set\_error\_func(ctx,\ error\_opaque,\ error\_func);\}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_opts(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \textcolor{keyword}{noexcept}\{tcc\_set\_options(ctx,\ str);\}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//Preprocessor}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_include\_path(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_include\_path(ctx,\ path);\}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_sysinclude\_path(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_sysinclude\_path(ctx,\ path);\}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ def\_preprocessor\_sym(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sym,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value)\textcolor{keyword}{noexcept}\{tcc\_define\_symbol(ctx,\ sym,\ value);\}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ undef\_preprocessor\_sym(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sym)\textcolor{keyword}{noexcept}\{tcc\_undefine\_symbol(ctx,sym);\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//Compiling}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_file(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_file(ctx,\ path);\}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ compile\_str(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ code)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_compile\_string(ctx,\ code);\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ compile\_str\_embedded(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ head,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ body,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ footer)\textcolor{keyword}{noexcept}\{\ \textcolor{keywordflow}{return}\ tcc\_compile\_string\_wrapped(ctx,\ head,body,footer);\}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//Linking}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ set\_out\_type(out\_type\ type)\{\textcolor{keywordflow}{return}\ tcc\_set\_output\_type(ctx,\ type);\}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_lib\_path(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_library\_path(ctx,\ path);\}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_lib(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_library(ctx,\ path);\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ add\_sym(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sym,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ value)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_add\_symbol(ctx,\ sym,\ value);\}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}*\ get\_sym(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_get\_symbol(ctx,\ name);\}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ls\_sym(\textcolor{keywordtype}{void}*\ c,\ \textcolor{keywordtype}{void}\ (*symbol\_cb)(\textcolor{keywordtype}{void}\ *c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *val))\textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_list\_symbols(ctx,\ c,\ symbol\_cb);\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ out(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename)\textcolor{keyword}{noexcept}\{\textcolor{keywordflow}{return}\ tcc\_output\_file(ctx,\ filename);\}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ run(\textcolor{keywordtype}{int}\ argc=0,\ \textcolor{keywordtype}{char}\ **argv=\textcolor{keyword}{nullptr})noexcept\{\textcolor{keywordflow}{return}\ tcc\_run(ctx,argc,argv);\}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ relocate()noexcept\{\textcolor{keywordflow}{return}\ tcc\_relocate(ctx);\}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ LIBTCCAPI\ void\ *\_tcc\_setjmp(TCCState\ *s1,\ void\ *jmp\_buf,\ void\ *top\_func,\ void\ *longjmp);}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \#define\ tcc\_setjmp(s1,jb,f)\ setjmp(\_tcc\_setjmp(s1,\ jb,\ f,\ longjmp))}}
+\DoxyCodeLine{00074\ \textcolor{comment}{}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ typedef\ int\ TCCBtFunc(void\ *udata,\ void\ *pc,\ const\ char\ *file,\ int\ line,\ const\ char*\ func,\ const\ char\ *msg);}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ LIBTCCAPI\ void\ tcc\_set\_backtrace\_func(TCCState\ *s1,\ void*\ userdata,\ TCCBtFunc*);}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ std::optional<std::unique\_ptr<tcc>>\ gen\_component(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ source)\{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ std::unique\_ptr<tcc>\ compileA\{\textcolor{keyword}{new}\ tcc()\};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ compileA-\/>set\_opts(\textcolor{stringliteral}{"{}-\/nostdlib"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ compileA-\/>add\_sysinclude\_path(\textcolor{stringliteral}{"{}./subprojects/libtcc/include/"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ compileA-\/>set\_out\_type(tcc::memory);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(compileA-\/>compile\_str(source)!=0)\textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ compileA-\/>relocate();}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(compileA);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,75 @@
+\doxysection{ui-\/tree.hpp}
+\hypertarget{ui-tree_8hpp_source}{}\label{ui-tree_8hpp_source}\index{include/ui-\/tree.hpp@{include/ui-\/tree.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}globals.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}pipelines/commons.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ui-\/frame.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ui.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cache/commons.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }vs\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{enum\ class}\ type\_t\{}
+\DoxyCodeLine{00013\ \ \ \ \ NONE,\ APP,\ COMPONENT,\ COMPONENT\_THIN,\ FRAGMENT}
+\DoxyCodeLine{00014\ \ \ \}type;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//Define\ the\ embedded\ mode\ supported.}}
+\DoxyCodeLine{00017\ \ \ frame\_mode\_t\ mode\ =\ frame\_mode\_t::AUTO;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//Book-\/keeping.\ Duplicated\ info\ on\ nested\ structures,\ but\ they\ are\ short\ lived,\ and\ it\ is\ better\ compared\ to\ unrolling\ the\ stack\ each\ time.}}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{structvs_1_1global__ctx__t}{global\_ctx\_t}}*\ globals\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//Book-\/keeping.\ Duplicated\ info\ on\ nested\ structures,\ but\ they\ are\ short\ lived,\ and\ it\ is\ better\ compared\ to\ unrolling\ the\ stack\ each\ time.}}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{structvs_1_1pipelines_1_1link__with__t}{pipelines::link\_with\_t}}\ link\_with\ =\ \{\textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}*\ parent\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \textcolor{comment}{//Set\ if\ there\ is\ an\ explict\ owner\ of\ this\ root,\ for\ example\ a\ viewport/app.}}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ caller\_ui\_node=\textcolor{keyword}{nullptr};\ \ \textcolor{comment}{//Element\ from\ a\ parent\ tree\ calling\ me}}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ root\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Base\ element\ of\ this\ tree}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{structvs_1_1policies__t}{policies\_t}}\ policies;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Computed\ policies\ for\ this\ tree}}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{structvs_1_1scoped__rpath__t}{scoped\_rpath\_t}}\ local;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Full\ path\ for\ the\ location\ of\ this\ component.\ Redundant\ but\ used\ to\ make\ some\ operations\ faster.}}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{structvs_1_1scoped__rpath__t}{scoped\_rpath\_t}}\ fullname;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Full\ path\ with\ name\ for\ the\ location\ of\ this\ component.}}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{size\_t}\ local\_unique\_counter\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Globals}}
+\DoxyCodeLine{00034\ \ \ std::map<std::string,std::string>\ imports;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ std::map<std::string,\ std::string,\ std::less<>>\ props\_from\_above;}
+\DoxyCodeLine{00037\ \ \ std::map<std::string,\ ui<>\ *,\ std::less<>>\ slots\_from\_above;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ std::vector<ui\_base*>\ nodes;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Support\ during\ navigation}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//Run\ test\ propagating\ from\ the\ root.}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{bool}\ string2key256(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str,\ uint8\_t\ array[256/32]\ );}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//TODO:\ It\ is\ likely\ \ I\ want\ this\ stuff\ moved\ from\ here.}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ \ \ \ \ \ Also\ a\ lot\ of\ it\ might\ end\ up\ in\ the\ codegen\ machine.}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structvs_1_1ui__tree}{\string~ui\_tree}}();}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cleanup();}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ runtime\_testsuite();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ build()\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ load(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ type\_t\ type)\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}(\mbox{\hyperlink{structvs_1_1ui__tree}{ui\_tree}}*\ parent,\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*\ caller\_ui\_node)\{}
+\DoxyCodeLine{00058\ \ \ \ \ this-\/>parent=parent;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}(parent!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ link\_with=parent-\/>link\_with;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ globals=parent-\/>globals;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ this-\/>caller\_ui\_node=caller\_ui\_node;}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{//\ namespace\ vs}}
+
+\end{DoxyCode}

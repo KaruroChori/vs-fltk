@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Xml format - vs.fltk</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Xml format";
+        var mkdocs_page_input_path = "developers/old-technical/xml-format.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Old technical</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Xml format</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developers</li>
+          <li class="breadcrumb-item">Old technical</li>
+      <li class="breadcrumb-item active">Xml format</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/developers/old-technical/xml-format.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="roots">Roots<a class="headerlink" href="#roots" title="Permanent link">#</a></h2>
+<p>The top level object is marked as <code>app</code> and is effectively the application root.<br />
+The loader in running mode will require an xml with such an entry point (the root cannot be a native object).
+The tag <code>component</code> is used as the top level for any reusable component.</p>
+<h2 id="tag-conventions">Tag conventions<a class="headerlink" href="#tag-conventions" title="Permanent link">#</a></h2>
+<p>UI components are not scoped in a namespace, however by convention they are all written in lower letters.<br />
+Custom user components should have the first letter as capital, or use some namespace like <code>hello:world</code>.</p>
+<h2 id="attribute-conventions">Attribute conventions<a class="headerlink" href="#attribute-conventions" title="Permanent link">#</a></h2>
+<p>Attributes can often be composed, like multiple parts making up the full attribute, at least logically.<br />
+For example <code>box</code> can be split in <code>box.x</code>, <code>box.y</code>, <code>box.w</code> and <code>box.h</code>.<br />
+If intersective, the more nested variant takes priority.<br />
+So <code>box="0,0,0,0" box.x="10"</code> will be equivalent to <code>box="10,0,0,0"</code> regardless of order.</p>
+<h2 id="reserved-names">Reserved names<a class="headerlink" href="#reserved-names" title="Permanent link">#</a></h2>
+<ul>
+<li><code>app</code></li>
+<li><code>component</code></li>
+<li><code>use</code></li>
+<li><code>import</code></li>
+<li><code>script</code></li>
+<li><code>script.global</code></li>
+<li><code>data</code></li>
+<li><code>res</code> for externally loaded resources, later usable via its name symbol</li>
+<li><code>namespace</code> to scope names within a component, limit upper and lower visibility, filter events and determine</li>
+</ul>
+<p>Within each, some additional tags might be reserved. All the other names are free, except for widgets based on your distribution.<br />
+As for attributes there are only a handful which are always reserved:</p>
+<ul>
+<li><code>name</code></li>
+<li><code>groups</code></li>
+<li><code>on.*</code>: can only be used to define callbacks. Custom events are possible, but they have a specific semantics &amp; side effects.</li>
+<li><code>auth</code> and all its sub-arguments</li>
+<li><code>src</code> and all its sub-arguments</li>
+<li><code>body</code> and all its sub-arguments</li>
+</ul>
+<p>There are few that, while not restricted, should only be used if following the same semantics:</p>
+<ul>
+<li><code>box</code></li>
+<li><code>label</code></li>
+<li><code>visible</code></li>
+<li><code>enabled</code></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../two-pass/" class="btn btn-neutral float-left" title="Main rendering loop (to revised)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../full-specs/" class="btn btn-neutral float-right" title="Index">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../two-pass/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../full-specs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+\doxysection{bindings/native/include/vs.h File Reference}
+\hypertarget{bindings_2native_2include_2vs_8h}{}\label{bindings_2native_2include_2vs_8h}\index{bindings/native/include/vs.h@{bindings/native/include/vs.h}}
+
+
+Just some types to simplify and prettify code.  
+
+
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include "{}fixed-\/types.\+h"{}}\newline
+Include dependency graph for vs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{bindings_2native_2include_2vs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{bindings_2native_2include_2vs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct____symbol__t}{\+\_\+\+\_\+symbol\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structsymbol__ret__t}{symbol\+\_\+ret\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structvs__field__model__t}{vs\+\_\+field\+\_\+model\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a32c36871523ca3d6c6d8491df3ff94e5}\label{bindings_2native_2include_2vs_8h_a32c36871523ca3d6c6d8491df3ff94e5} 
+\#define {\bfseries log}(self,  sev,  string, ...)~vs\+\_\+log(sev,self,string, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_abaec21dae5c806e346781323a8a04fa7}\label{bindings_2native_2include_2vs_8h_abaec21dae5c806e346781323a8a04fa7} 
+\#define {\bfseries log}(sev,  string, ...)~vs\+\_\+log(sev,vs\+\_\+self,string, \#\#\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a211343b9c64dbd216c5bbd6c1409f11d}\label{bindings_2native_2include_2vs_8h_a211343b9c64dbd216c5bbd6c1409f11d} 
+\#define {\bfseries self}~,string) vs\+\_\+resolve\+\_\+name\+\_\+path(self,string)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a25093e36e9fb377b246945a84745823f}\label{bindings_2native_2include_2vs_8h_a25093e36e9fb377b246945a84745823f} 
+\#define {\bfseries string}~) vs\+\_\+resolve\+\_\+name\+\_\+path(vs\+\_\+self,string)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a8b8209eaac50d9d85dfdc32e89242a39}\label{bindings_2native_2include_2vs_8h_a8b8209eaac50d9d85dfdc32e89242a39} 
+\#define {\bfseries resolve\+\_\+symbol}(self,  string)~vs\+\_\+resolve\+\_\+symbol(self,string)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_ac90ce344ad0704af3ab73ac1121bc204}\label{bindings_2native_2include_2vs_8h_ac90ce344ad0704af3ab73ac1121bc204} 
+\#define {\bfseries resolve\+\_\+symbol}(string)~vs\+\_\+resolve\+\_\+symbol(vs\+\_\+self,string)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a78103b67288bf536c755d29525ca1b9b}\label{bindings_2native_2include_2vs_8h_a78103b67288bf536c755d29525ca1b9b} 
+\#define {\bfseries prop}(self,  key,  value)~vs\+\_\+apply\+\_\+prop(self,key,value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a1316a21f24ddfbe50e0185983122eca4}\label{bindings_2native_2include_2vs_8h_a1316a21f24ddfbe50e0185983122eca4} 
+\#define {\bfseries computed}(self,  key,  value)~vs\+\_\+get\+\_\+computed(self,key,value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_aaf80973a1556ddc6325d83d34e6ae1fc}\label{bindings_2native_2include_2vs_8h_aaf80973a1556ddc6325d83d34e6ae1fc} 
+\#define {\bfseries mixin}(self,  value)~vs\+\_\+apply\+\_\+prop(self,"{}mixin"{},value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a7e34f7f83a2dc01f146647b4bdacf973}\label{bindings_2native_2include_2vs_8h_a7e34f7f83a2dc01f146647b4bdacf973} 
+\#define {\bfseries prop}(key,  value)~vs\+\_\+apply\+\_\+prop(vs\+\_\+self,key,value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a6b31adaf13304603ea6f350652d5b1a8}\label{bindings_2native_2include_2vs_8h_a6b31adaf13304603ea6f350652d5b1a8} 
+\#define {\bfseries computed}(key,  value)~vs\+\_\+get\+\_\+computed(vs\+\_\+self,key,value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a708a7e54516d48787f6a079e850700da}\label{bindings_2native_2include_2vs_8h_a708a7e54516d48787f6a079e850700da} 
+\#define {\bfseries mixin}(value)~vs\+\_\+apply\+\_\+prop(vs\+\_\+self,"{}mixin"{},value)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a145f574720a4cdfe50041ed9af134007}\label{bindings_2native_2include_2vs_8h_a145f574720a4cdfe50041ed9af134007} 
+\#define {\bfseries set}(self,  k,  v)~vs\+\_\+set(self,k,v)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_aae722ce3e50a375a619db396bb2f9b4f}\label{bindings_2native_2include_2vs_8h_aae722ce3e50a375a619db396bb2f9b4f} 
+\#define {\bfseries set}(k,  v)~vs\+\_\+set(vs\+\_\+self,k,v)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_ab4bcbdf853b75c8ef37ce138ad0028b4}\label{bindings_2native_2include_2vs_8h_ab4bcbdf853b75c8ef37ce138ad0028b4} 
+\#define {\bfseries get}(self,  k,  v)~vs\+\_\+get(self,k,\&v)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a149e4c8585d8d1955453a63b9205fa4d}\label{bindings_2native_2include_2vs_8h_a149e4c8585d8d1955453a63b9205fa4d} 
+\#define {\bfseries get}(k,  v)~vs\+\_\+get(vs\+\_\+self,k,\&v)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a107ec626ab658b1b7a87c31add0435d3}\label{bindings_2native_2include_2vs_8h_a107ec626ab658b1b7a87c31add0435d3} 
+\#define {\bfseries debug}(k,  v)~vs\+\_\+debug(k,v)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a1fc3add03ad5c32a0969b61611051859}\label{bindings_2native_2include_2vs_8h_a1fc3add03ad5c32a0969b61611051859} 
+\#define {\bfseries CONCAT\+\_\+}(prefix,  suffix)~prefix\#\#suffix
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a177e127f2b66e2ddc03dfac44fe35385}\label{bindings_2native_2include_2vs_8h_a177e127f2b66e2ddc03dfac44fe35385} 
+\#define {\bfseries CONCAT}(prefix,  suffix)~CONCAT\+\_\+(prefix, suffix)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a866a176a54de35e6959183aa92c1a805}\label{bindings_2native_2include_2vs_8h_a866a176a54de35e6959183aa92c1a805} 
+\#define {\bfseries MAKE\+\_\+\+UNIQUE\+\_\+\+VARIABLE\+\_\+\+NAME}(prefix)~CONCAT(prefix\#\#\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_af1a61673a37e42cadabcc4b4db4d9388}\label{bindings_2native_2include_2vs_8h_af1a61673a37e42cadabcc4b4db4d9388} 
+\#define {\bfseries callback}(x)~void\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+EXPORT\+\_\+\+CB\+\_\+\+\_\+\#\#x = x;
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a28f95193cd8411f6c867c8c7383a816c}\label{bindings_2native_2include_2vs_8h_a28f95193cd8411f6c867c8c7383a816c} 
+\#define {\bfseries cb}(x)~void\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+EXPORT\+\_\+\+CB\+\_\+\+\_\+\#\#x = x;
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a0271669eaf4a5fc41d6e6d9f2f155233}\label{bindings_2native_2include_2vs_8h_a0271669eaf4a5fc41d6e6d9f2f155233} 
+\#define {\bfseries plotter}(x)~void\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+EXPORT\+\_\+\+DRW\+\_\+\#\#x = x;
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_ae3f1c9af83678fb3218d52343712b71b}\label{bindings_2native_2include_2vs_8h_ae3f1c9af83678fb3218d52343712b71b} 
+\#define {\bfseries field}~\mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}} MAKE\+\_\+\+UNIQUE\+\_\+\+VARIABLE\+\_\+\+NAME(\+\_\+\+\_\+\+EXPORT\+\_\+\+FIELD\+\_\+)=
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a26f9e04eee810fdbc22895a13a8cb8fb}\label{bindings_2native_2include_2vs_8h_a26f9e04eee810fdbc22895a13a8cb8fb} 
+\#define {\bfseries fn}(x)~void\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+EXPORT\+\_\+\+UKN\+\_\+\#\#x = x;
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_abfb56918fa18aeedccab46c5a54f9288}\label{bindings_2native_2include_2vs_8h_abfb56918fa18aeedccab46c5a54f9288} 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries node\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_acf3ab5138975ed6d9f843889585e56c6}\label{bindings_2native_2include_2vs_8h_acf3ab5138975ed6d9f843889585e56c6} 
+typedef enum log\+\_\+severety\+\_\+t {\bfseries log\+\_\+severety\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_af19e8a55eb55d0315752410a00434db1}\label{bindings_2native_2include_2vs_8h_af19e8a55eb55d0315752410a00434db1} 
+typedef struct \mbox{\hyperlink{struct____symbol__t}{\+\_\+\+\_\+symbol\+\_\+t}} {\bfseries \+\_\+\+\_\+symbol\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a638059a4fcafc8f83db06c1567e98c68}\label{bindings_2native_2include_2vs_8h_a638059a4fcafc8f83db06c1567e98c68} 
+typedef struct \mbox{\hyperlink{structsymbol__ret__t}{symbol\+\_\+ret\+\_\+t}} {\bfseries symbol\+\_\+ret\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a40196be18c42e8ba2e642176fad1f48d}\label{bindings_2native_2include_2vs_8h_a40196be18c42e8ba2e642176fad1f48d} 
+typedef enum vs\+\_\+types\+\_\+t {\bfseries vs\+\_\+types\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a89c141eaa3b31f7bc597eb567a7bea01}\label{bindings_2native_2include_2vs_8h_a89c141eaa3b31f7bc597eb567a7bea01} 
+typedef struct \mbox{\hyperlink{structvs__field__model__t}{vs\+\_\+field\+\_\+model\+\_\+t}} {\bfseries vs\+\_\+field\+\_\+model\+\_\+t}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a4e69a303c9c94659293f2d070a50faac}\label{bindings_2native_2include_2vs_8h_a4e69a303c9c94659293f2d070a50faac} 
+typedef struct \mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}} {\bfseries vs\+\_\+field\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a277208142c842c11a57c991ceb283c04}\label{bindings_2native_2include_2vs_8h_a277208142c842c11a57c991ceb283c04} 
+enum {\bfseries log\+\_\+severety\+\_\+t} \{ \newline
+{\bfseries LOG\+\_\+\+INFO}
+, {\bfseries LOG\+\_\+\+OK}
+, {\bfseries LOG\+\_\+\+WARNING}
+, {\bfseries LOG\+\_\+\+CONTINUE}
+, \newline
+{\bfseries LOG\+\_\+\+PANIC}
+, {\bfseries LOG\+\_\+\+LOG}
+, {\bfseries LOG\+\_\+\+LVL\+\_\+\+NORMAL} = 0x00
+, {\bfseries LOG\+\_\+\+LVL\+\_\+\+SILENT} = 0x10
+, \newline
+{\bfseries LOG\+\_\+\+LVL\+\_\+\+VERBOSE} = 0x20
+, {\bfseries LOG\+\_\+\+LVL\+\_\+\+DEBUG} = 0x40
+ \}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a3b629e4f2f609ee5684eebd9b63b84df}\label{bindings_2native_2include_2vs_8h_a3b629e4f2f609ee5684eebd9b63b84df} 
+enum {\bfseries vs\+\_\+types\+\_\+t} \{ \newline
+{\bfseries TYPE\+\_\+\+FLAG} =1
+, {\bfseries TYPE\+\_\+\+ENUM}
+, {\bfseries TYPE\+\_\+\+RAW}
+, {\bfseries TYPE\+\_\+\+PATH}
+, \newline
+{\bfseries TYPE\+\_\+\+CSTRING}
+, {\bfseries TYPE\+\_\+\+STRING\+\_\+\+VIEW}
+, {\bfseries TYPE\+\_\+\+COLOR}
+, {\bfseries TYPE\+\_\+\+ISCALAR\+\_\+1}
+, \newline
+{\bfseries TYPE\+\_\+\+ISCALAR\+\_\+2}
+, {\bfseries TYPE\+\_\+\+ISCALAR\+\_\+3}
+, {\bfseries TYPE\+\_\+\+ISCALAR\+\_\+4}
+, {\bfseries TYPE\+\_\+\+FSCALAR\+\_\+1}
+, \newline
+{\bfseries TYPE\+\_\+\+FSCALAR\+\_\+2}
+, {\bfseries TYPE\+\_\+\+FSCALAR\+\_\+3}
+, {\bfseries TYPE\+\_\+\+FSCALAR\+\_\+4}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_afbc5868f01c23df0507683a5125507a3}\label{bindings_2native_2include_2vs_8h_afbc5868f01c23df0507683a5125507a3} 
+\mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries vs\+\_\+field\+\_\+make} ()
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_aee1c4762e4508528aa5a6cc58e18b189}\label{bindings_2native_2include_2vs_8h_aee1c4762e4508528aa5a6cc58e18b189} 
+void {\bfseries vs\+\_\+field\+\_\+destroy} (\mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_aadb390045c834ae0c2f27cf0c01ec6cb}\label{bindings_2native_2include_2vs_8h_aadb390045c834ae0c2f27cf0c01ec6cb} 
+int {\bfseries as\+\_\+flag} (\mbox{\hyperlink{structvs__field__t}{vs\+\_\+field\+\_\+t}} \texorpdfstring{$\ast$}{*}field)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a4ed38a5617fc6b5b3637f193e287c818}\label{bindings_2native_2include_2vs_8h_a4ed38a5617fc6b5b3637f193e287c818} 
+int {\bfseries vs\+\_\+log} (int severety, node\+\_\+t self, const char \texorpdfstring{$\ast$}{*}string,...)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_aab727b363401fb3e2c3fe7be469a8ad2}\label{bindings_2native_2include_2vs_8h_aab727b363401fb3e2c3fe7be469a8ad2} 
+node\+\_\+t {\bfseries vs\+\_\+resolve\+\_\+name} (node\+\_\+t, const char \texorpdfstring{$\ast$}{*}string)
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_a0d4f36c0545dbfe4090353b64c65b59e}\label{bindings_2native_2include_2vs_8h_a0d4f36c0545dbfe4090353b64c65b59e} 
+node\+\_\+t {\bfseries vs\+\_\+resolve\+\_\+name\+\_\+path} (node\+\_\+t, const char \texorpdfstring{$\ast$}{*}string)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bindings_2native_2include_2vs_8h_ae67af223ef602cf389c6f9d185b2482b}\label{bindings_2native_2include_2vs_8h_ae67af223ef602cf389c6f9d185b2482b} 
+node\+\_\+t {\bfseries vs\+\_\+self}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Just some types to simplify and prettify code. 
+
+Main interface of bindings between c-\/native scripts and vs.
+
+\begin{DoxyAuthor}{Author}
+karurochari (\href{mailto:public@karurochari.com}{\texttt{ public@karurochari.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}

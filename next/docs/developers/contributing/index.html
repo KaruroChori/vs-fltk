@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Contributing - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Contributing";
+        var mkdocs_page_input_path = "developers/contributing.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building/">Building</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Contributing</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developers</li>
+      <li class="breadcrumb-item active">Contributing</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/developers/contributing.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="structure-of-the-repo">Structure of the repo<a class="headerlink" href="#structure-of-the-repo" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>src</strong> where most of the source for <strong>vs.app</strong> and the <strong>vs.fltk</strong> library are located.</li>
+<li><strong>include</strong> like before for the header files. Directories mostly mirrors what is in <code>src</code>.</li>
+<li><strong>schemas</strong> high level specs, main source of information for documentation and automatic code-gen.</li>
+<li><strong>commons</strong> extra public files part of every <strong>vs</strong> distribution (some of them are auto-generated).</li>
+<li><strong>docs</strong> &amp; <strong>examples</strong>: this documentation &amp; and all examples. As part of the build process, they are shipped as part of the commons.</li>
+<li><strong>bindings</strong> bindings for all languages supported in embedded <code>script</code>.</li>
+<li><strong>test</strong> &amp; <strong>benchmark</strong>: test suite &amp; benchmarks for <strong>vs</strong> &amp; the <strong>vs.fltk</strong> library.</li>
+<li><strong>scripts</strong> utility scripts (mostly in TS/JS) to handle code generation, the build process and some workflows.</li>
+<li><strong>experiments</strong> playground where new ideas or semi-standalone prototypes are tested.</li>
+<li><strong>metadata</strong> information for distribution (icons, manifest files etc.).</li>
+<li><strong>dist</strong> most of these files are automatically generated and not tracked, the rest of them are needed to distribute the final website with docs.</li>
+<li><strong>docker</strong> anything related to the docker images used to build <code>vs</code>.</li>
+</ul>
+<h2 id="language-format-guidelines">Language &amp; format guidelines<a class="headerlink" href="#language-format-guidelines" title="Permanent link">#</a></h2>
+<h2 id="variables-of-environment">Variables of environment<a class="headerlink" href="#variables-of-environment" title="Permanent link">#</a></h2>
+<p>They are frequently used for both <em>benchmarks</em> and <em>tests</em>.<br />
+They can also be useful for the developer while testing new functionality, so they have been all covered in <a href="./env-vars.md">here</a> for reference.</p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">#</a></h2>
+<h3 id="debug-logging">Debug logging<a class="headerlink" href="#debug-logging" title="Permanent link">#</a></h3>
+<p><strong>vs</strong> has some features to simplify debugging, mostly to support automatic tests and benchmarks, but they might be useful in other scenarios as well.
+<code>vs::globals::debug</code> is responsible for that, and it is exposed in several ways:</p>
+<ul>
+<li>within embedded scripts</li>
+<li>via a special xml <code>debug</code> tag</li>
+<li>in the <code>vs.fltk</code> C interface as well
+  While using it you can define a key and value. The current timestamp at nanoseconds resolution is also automatically recorded.<br />
+  Records are saved to a file with name <code>VS_DEBUG_FILE</code> if set, otherwise no output will be emitted. Older content is destroyed.<br />
+  The file format is just a simple CSV with horizontal tabs as separator of fields and newlines for rows. The order is <em>key</em>, <em>value</em> &amp; <em>timestamp</em>.</li>
+</ul>
+<p><code>vs::globals::debug</code> should not be confused with the ordinary logging functions which are also exposed in similar ways, but which are generally contextual and they mostly output to <code>stdout</code>.</p>
+<h2 id="testing-benchmarking">Testing &amp; Benchmarking<a class="headerlink" href="#testing-benchmarking" title="Permanent link">#</a></h2>
+<ul>
+<li>Static build tests for <code>vs</code> to ensure it can be compiled on all and for all supported platforms.</li>
+<li>Static tests/benchmarks on <code>vs.fltk</code> functionalities provided by the library, like path resolution, mixin logic etc.</li>
+<li>Runtime tests/benchmarks on <code>vs</code>in headless mode with automatic actions, with optional memory profiling.</li>
+<li>Runtime tests on <code>vs</code> with a headless x11 server to obtain screenshot to highlight possible visual regressions.</li>
+</ul>
+<h3 id="testing-features-of-the-vs-fltk-library">Testing features of the vs-fltk library<a class="headerlink" href="#testing-features-of-the-vs-fltk-library" title="Permanent link">#</a></h3>
+<h3 id="memory-profile-of-vs">Memory profile of vs<a class="headerlink" href="#memory-profile-of-vs" title="Permanent link">#</a></h3>
+<h3 id="benchmarking-features-of-the-vs-fltk-library">Benchmarking features of the vs-fltk library<a class="headerlink" href="#benchmarking-features-of-the-vs-fltk-library" title="Permanent link">#</a></h3>
+<h3 id="runtime-tests-in-vs">Runtime tests in vs<a class="headerlink" href="#runtime-tests-in-vs" title="Permanent link">#</a></h3>
+<p>Supported actions are described in <a href="./auto-ui-actions.md">here</a>.</p>
+<h2 id="programming-guidelines">Programming guidelines<a class="headerlink" href="#programming-guidelines" title="Permanent link">#</a></h2>
+<h3 id="about-exceptions">About exceptions<a class="headerlink" href="#about-exceptions" title="Permanent link">#</a></h3>
+<p>Exceptions are fully allowed in the CLI at <code>/src/app</code>.<br />
+However, they are strongly discouraged anywhere else in the library code, and it is possible they will be fully disabled via <code>-fno-exceptions</code> at some point. The main reason is that the UI should be fault-tolerant and provide as much functionality as possible even if parts of it are broken, like malformed XML files, some scripts failing compilation, missing resources and so on. Exceptions, in this sense, are internally handled and semantically supported by providing subtrees to be rendered in case of failure events.<br />
+Exceptions should only be used in those cases when the application <strong>must</strong> stop, either because the error is not recoverable or because it would leave the rest of the application in an inconsistent state.</p>
+<h3 id="memory-allocations">Memory allocations<a class="headerlink" href="#memory-allocations" title="Permanent link">#</a></h3>
+<p>As for memory allocations, spawning small dynamic objects is also discouraged. If possible, stack allocations are a better alternative. Arrays with variable length on stack are totally fine to be used in place of local objects allocated on heap.<br />
+<code>std::string</code> is also highly discouraged, make sure <code>std::string_view</code> is used instead whenever possible.</p>
+<h3 id="about-log-levels">About log levels<a class="headerlink" href="#about-log-levels" title="Permanent link">#</a></h3>
+<p>Internally these are the log levels supported and their relative semantics:</p>
+<ul>
+<li><strong>INFO</strong> to present informational messages, often as a result of user requests</li>
+<li><strong>OK</strong> to notify that a certain operation completed successfully.</li>
+<li><strong>WARNING</strong> to notify that a certain operation was not able to fully succeed, something should be fixed, but everything is fine.</li>
+<li><strong>CONTINUE</strong> to notify that a certain operation was skipped by design.</li>
+<li><strong>PANIC</strong> to notify that a certain operation failed in a way which cannot be recovered (but the application can still run)</li>
+<li><strong>LOG</strong> to introduce a log without any further connotation.</li>
+</ul>
+<p>For example, loading a remote resource:</p>
+<ul>
+<li>If the file was already cached, a <code>continue</code> message will be notified</li>
+<li>If no proper answer has been received from the remote host, a <code>panic</code> message is generated, since that content cannot be recovered</li>
+<li>If everything loaded fine, an <code>ok</code> message can be used</li>
+<li>If the component is using features which are not allowed by policies, <code>warning</code> messages can be generated.</li>
+</ul>
+<p>Log levels are:</p>
+<ul>
+<li><strong>NORMAL</strong> to be emitted when running the program normally</li>
+<li><strong>SILENT</strong> to be emitted when running the program even in silent mode</li>
+<li><strong>VERBOSE</strong> to be emitted when running the program in verbose mode only</li>
+<li><strong>DEBUG</strong> to be emitted always when running a debug build or in debugging mode.</li>
+</ul>
+<p>Each message must specify their semantic type and log level (normal by default). Usually:</p>
+<ul>
+<li><code>panic</code> messages have a <code>silent</code> log level</li>
+<li><code>ok</code> and <code>continue</code> messages are usually <code>verbose</code></li>
+<li><code>info</code>, <code>warning</code> and <code>log</code> are usually <code>normal</code></li>
+</ul>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h2>
+<p>Documentation is written in markdown. Files within <code>docs</code> will be shipped with <code>vs</code> and are expected to read by the internal markdown component.<br />
+As such:</p>
+<ul>
+<li>They must be written in <a href="https://commonmark.org/">CommonMark</a> (with some possible extensions like the block headers for notices or warnings).</li>
+<li>They shall not include HTML within them. XML will be parsed as normal <code>vs</code> code.</li>
+</ul>
+<p>Files which are written in markdown, but are outside the <code>docs</code>, can follow a more relaxed format and target github/gitlab extensions for visualization.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../building/" class="btn btn-neutral float-left" title="Building"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../releasing/" class="btn btn-neutral float-right" title="Releasing">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../building/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../releasing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

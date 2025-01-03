@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Sandboxing - vs.fltk</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sandboxing";
+        var mkdocs_page_input_path = "developers/ideas/sandboxing.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ideas</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Sandboxing</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developers</li>
+          <li class="breadcrumb-item">Ideas</li>
+      <li class="breadcrumb-item active">Sandboxing</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/developers/ideas/sandboxing.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="app-class-keys">App-Class Keys<a class="headerlink" href="#app-class-keys" title="Permanent link">#</a></h2>
+<p>App-Class keys are the main mechanism to ensure data sandboxing across applications, even when part of the same rendered UI.</p>
+<ul>
+<li>App-class keys are meant to be unique across a class of apps which can be considered as <em>strongly related</em>.<br />
+  For example the equivalent of web pages from the same domain would likely share the same app-class key under vs.</li>
+<li>App keys are not used as they appear in source, but are computed based on the parent one. For top level app-class keys, the parent key used for mixing is the secret one for each user.</li>
+<li>It is possible to record metadata for app-class keys, like the owner and which domains are allowed to use it. It might be a good idea to provide some form of registry shipped with vs and updated of known entries.</li>
+</ul>
+<h2 id="viewports">Viewports<a class="headerlink" href="#viewports" title="Permanent link">#</a></h2>
+<p>Viewports are a way to break the chain of keys, ensuring that an embedded app can be directly attached to the user root key, no matter how nested it is located. This poses some safety concerns, so there are strong restrictions in how viewports are handled:</p>
+<ul>
+<li>No information can be exchanged between its content and the parent for example.</li>
+<li>Some application might refuse to run within a viewport, unless all its parent up to root are restricted to some specific safety policies.</li>
+</ul>
+<h2 id="visibility-specifiers">Visibility specifiers<a class="headerlink" href="#visibility-specifiers" title="Permanent link">#</a></h2>
+<p>Visibility specifiers are the third and last way to sandbox content, and it is by limiting access to nodes in the UI tree.</p>
+<ul>
+<li><strong>leaf</strong> terminal node. No named children below (and even if there are, we cannot see it; in that case slot should be used).</li>
+<li><strong>node</strong> pass-through both up and down.</li>
+<li><strong>container</strong> children cannot go up beyond the container.</li>
+<li><strong>slot</strong> parents cannot get any lower, beyond the slot.</li>
+<li><strong>slot-container</strong> children cannot go up, parents cannot go down.</li>
+</ul>
+<p>Notice! There is some unintuitive behaviour based on these rules: given <code>node:A -&gt; slot:B -&gt; leaf:C</code> as starting from <code>A</code>, <code>B</code> can be resolved, <code>C</code> cannot. However, <code>B/C</code> is resolved as one can reach <code>B</code> from <code>A</code> and <code>C</code> from <code>B</code>. To avoid propagation, boundary elements should be kept nameless so that they cannot be later recalled in a path expression and are purged from all serializations.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../revised-namespaces/" class="btn btn-neutral float-left" title="Revised namespaces"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../signals/" class="btn btn-neutral float-right" title="Signals">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../revised-namespaces/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../signals/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<map id="vs::ui_root_app" name="vs::ui_root_app">
+<area shape="rect" id="Node000001" title=" " alt="" coords="257,373,378,399"/>
+<area shape="rect" id="Node000002" href="$classvs_1_1ui__root__component.html" title=" " alt="" coords="232,299,403,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,338,320,373,315,373,315,338"/>
+<area shape="rect" id="Node000003" href="$classvs_1_1ui__root__thin__component.html" title=" " alt="" coords="5,211,208,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,239,290,296,288,301,147,244"/>
+<area shape="rect" id="Node000004" href="$classvs_1_1ui__base.html" title=" " alt="" coords="103,108,198,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="135,146,128,158,117,186,111,211,106,210,112,185,123,156,130,144"/>
+<area shape="poly" id="edge9_Node000004_Node000004" title=" " alt="" coords="213,112,225,120,216,129,199,131,198,126,214,124,219,121,210,116"/>
+<area shape="rect" id="Node000005" href="$classvs_1_1frame.html" title=" " alt="" coords="233,211,317,236"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="145,147,143,167,149,185,179,197,233,210,232,216,178,202,145,189,137,167,139,146"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="248,204,231,189,206,159,171,136,174,131,210,155,235,185,252,200"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="332,214,343,223,335,232,318,234,317,229,333,227,338,223,329,219"/>
+<area shape="rect" id="Node000006" href="$structvs_1_1symbol__t.html" title=" " alt="" coords="294,108,399,133"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="342,147,334,168,322,188,296,212,292,208,318,185,329,166,337,145"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="414,112,426,120,418,129,400,131,399,126,415,124,421,121,412,116"/>
+<area shape="rect" id="Node000007" href="$structvs_1_1app__env__t.html" title=" " alt="" coords="479,211,591,236"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="494,244,348,301,346,296,492,239"/>
+<area shape="rect" id="Node000008" href="$structvs_1_1policies__t.html" title=" " alt="" coords="485,108,592,133"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="539,147,539,157,537,211,532,210,533,157,534,147"/>
+<area shape="rect" id="Node000009" href="$structvs_1_1policies__t_1_1networking__t.html" title=" " alt="" coords="331,13,531,38"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="456,45,527,106,524,110,453,49"/>
+<area shape="rect" id="Node000010" href="$structvs_1_1policies__t_1_1embedded__scripts__t.html" title=" " alt="" coords="555,5,739,45"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="616,56,554,110,551,106,613,52"/>
+<area shape="rect" id="Node000011" href="$structvs_1_1scoped__rpath__t.html" title=" " alt="" coords="620,108,764,133"/>
+<area shape="poly" id="edge14_Node000007_Node000011" title=" " alt="" coords="689,147,680,169,664,189,629,209,591,220,590,215,627,204,661,185,675,166,684,145"/>
+</map>

@@ -1,0 +1,45 @@
+\doxysection{commons.\+hpp}
+\hypertarget{cache_2commons_8hpp_source}{}\label{cache_2commons_8hpp_source}\index{include/cache/commons.hpp@{include/cache/commons.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ui-\/frame.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <utils/strings.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }cache\{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1script__t}{script\_t}}\{}
+\DoxyCodeLine{00012\ \ \ std::shared\_ptr<void>\ script;}
+\DoxyCodeLine{00013\ \ \ std::shared\_ptr<smap<symbol\_t>>\ symbols;}
+\DoxyCodeLine{00014\ \ \ frame\_mode\_t\ mode;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1buffer__t}{buffer\_t}}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t*\ data;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{enum\ class}\ resource\_t\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ NONE,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ BUFFER,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//uint8\_t[]}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ XML\_TREE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//pugi::xml\_document}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ SCRIPT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//struct\ script\_t}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ PATH,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//a\ string\ used\ as\ path\ reference,\ basically\ like\ buffer.\ Used\ to\ save\ info\ about\ path\ resolution.}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ OTHER\_RESOURCE,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//?}}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{//\_\_attribute\_\_((packed))\ string\ sucks,\ it\ is\ non-\/POD}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1cache_1_1ctx__t}{ctx\_t}}\{}
+\DoxyCodeLine{00033\ \ \ uint8\_t\ src\_key[256/8];\ \ \ \ \ \ \ \textcolor{comment}{//Key\ as\ it\ appears\ on\ the\ app\ definition}}
+\DoxyCodeLine{00034\ \ \ uint8\_t\ computed\_key[256/8];\ \ \textcolor{comment}{//Key\ after\ the\ parent\ one\ has\ been\ applied.\ Root\ keys\ is\ the\ one\ of\ the\ parent.\ Needed\ to\ avoid\ nasty\ secrets\ violations}}
+\DoxyCodeLine{00035\ \ \ std::string\ page\_tag;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Used\ to\ identify\ different\ apps\ all\ sharing\ the\ same\ key.\ While\ permanent\ data\ is\ shared,\ secrets\ are\ tagged\ to\ match\ a\ specific\ "{}page"{}}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}

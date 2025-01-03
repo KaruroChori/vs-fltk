@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Index - vs.fltk</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Index";
+        var mkdocs_page_input_path = "full-specs/index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/todo/">Todo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../developers/versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developers/old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Index</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#structure-of-an-application">Structure of an application</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Full specs</li>
+      <li class="breadcrumb-item active">Index</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/full-specs/index.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>This project is very much in its infancy.
+ These specs will provide information about features which are yet to be implemented.<br />
+ Broadly speaking, they target <strong>at least</strong> <code>v0.5.x</code> from the <a href="./milestones.md">milestone page</a></p>
+</div>
+<h1 id="quick-overview">Quick overview<a class="headerlink" href="#quick-overview" title="Permanent link">#</a></h1>
+<p><code>vs</code> is a lightweight runtime to design and run custom user interfaces based on <a href="https://www.fltk.org/">fltk</a>.<br />
+It aims to be fast, to fit on systems with limited resources available, and to run on virtually any platform.<br />
+The <code>vs</code> runtime ships with several built-in features, tools and libraries:</p>
+<ul>
+<li>A self-hosted workspace/explorer to quickly access local and remote apps, to update <code>vs</code>, and to visually customize user settings.</li>
+<li>A self-hosted UI builder/IDE to visually inspect, debug or write custom components and applications.</li>
+<li>C bindings to expose most features and allow custom native components from third parties.</li>
+<li>A language server &amp; extension to directly handle <code>.vs</code> and <code>.tvs</code> files in vscode and compatible editors.</li>
+</ul>
+<h2 id="structure-of-an-application">Structure of an application<a class="headerlink" href="#structure-of-an-application" title="Permanent link">#</a></h2>
+<ul>
+<li>An entry-point file referred as <strong>app</strong>, whose root element is <code>app</code>.</li>
+<li><strong>Components</strong>, whose root element is <code>component</code>, either used from the entry-point file or other components.</li>
+<li><strong>Data sources</strong>, usually files with a specific format or endpoints with a well-defined interface.</li>
+<li><strong>Assets</strong> like images.</li>
+<li>An optional <strong>external application</strong> usually as a dynamic library linked with the <strong>app</strong>, or indirectly used via a Unix socket domain.</li>
+</ul>
+<p>Furthermore, there are additional elements which are not controlled by those writing the app, but on the user side:</p>
+<ul>
+<li>A storage where secrets and persistent data can be saved.</li>
+<li>A profile with clear permissions and safety policies. An application can provide one as asset suggesting the user to adopt it, but it has no control over what the user decides.</li>
+</ul>
+<p>Both <strong>apps</strong> and <strong>components</strong> can be either specified as final <code>vs</code> xml files, or they can be the result of some static data and a template compiled down into &ldquo;final&rdquo; xml files.</p>
+<h1 id="basic-vs-elements">Basic VS elements<a class="headerlink" href="#basic-vs-elements" title="Permanent link">#</a></h1>
+<h3 id="basic-attributes-for-frame-able-components">basic attributes for frame-able components<a class="headerlink" href="#basic-attributes-for-frame-able-components" title="Permanent link">#</a></h3>
+<p>Except for some special entity or those which cannot have a <code>vs</code> frame, there are some attributes shared by everyone</p>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string?</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>mixins</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>frame.mode</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>frame.access</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>frame.type</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-attributes-for-flxxx">basic attributes for fl:xxx<a class="headerlink" href="#basic-attributes-for-flxxx" title="Permanent link">#</a></h3>
+<p>TODO: Add link to automatically generated docs</p>
+<h2 id="app">app<a class="headerlink" href="#app" title="Permanent link">#</a></h2>
+<h3 id="attributes">attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td><code>blob(256)?</code></td>
+<td><code>null</code></td>
+<td>If set, this is the class key used by the component. It requires <em>fat</em> components</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td><code>string?</code></td>
+<td><code>null</code></td>
+<td>If set, this is the <em>page-tag</em> information to distinguish different pages within the same class keys</td>
+</tr>
+<tr>
+<td><code>link-with</code></td>
+<td><code>path?</code></td>
+<td><code>null</code></td>
+<td>If set, the dynamic library to expose to each embedded script</td>
+</tr>
+</tbody>
+</table>
+<h2 id="component">component<a class="headerlink" href="#component" title="Permanent link">#</a></h2>
+<h3 id="attributes_1">attributes<a class="headerlink" href="#attributes_1" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thin</code></td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>If true, this component will not allow storing app class keys, policies and path information</td>
+</tr>
+<tr>
+<td><code>auto-prune</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If true, remove this component from the tree, directly expanding its children. Incompatible with <code>thin: false</code></td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>blob(256)?</code></td>
+<td><code>null</code></td>
+<td>If set, this is the class key used by the component. It requires <em>fat</em> components</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td><code>string?</code></td>
+<td><code>null</code></td>
+<td>If set, this is the <em>page-tag</em> information to distinguish different pages within the same class keys</td>
+</tr>
+</tbody>
+</table>
+<h2 id="namespace">namespace<a class="headerlink" href="#namespace" title="Permanent link">#</a></h2>
+<h2 id="metadata">metadata<a class="headerlink" href="#metadata" title="Permanent link">#</a></h2>
+<p><code>metadata</code> are is a pseudo-element which must be placed as direct children of an <code>app</code> or <code>component</code> entity.<br />
+Entries inside it will be parsed for documentation, attribution or to provide versioning information.</p>
+<h2 id="import">import<a class="headerlink" href="#import" title="Permanent link">#</a></h2>
+<p><code>import</code> are directives which must be placed as direct children of an <code>app</code> or <code>component</code> entity.</p>
+<h2 id="use">use<a class="headerlink" href="#use" title="Permanent link">#</a></h2>
+<h2 id="data">data<a class="headerlink" href="#data" title="Permanent link">#</a></h2>
+<h3 id="attributes_2">attributes<a class="headerlink" href="#attributes_2" title="Permanent link">#</a></h3>
+<ul>
+<li><code>src</code></li>
+<li><code>filter</code></li>
+<li><code>sort</code></li>
+<li><code>order</code></li>
+</ul>
+<h2 id="debug">debug<a class="headerlink" href="#debug" title="Permanent link">#</a></h2>
+<h3 id="attributes_3">attributes<a class="headerlink" href="#attributes_3" title="Permanent link">#</a></h3>
+<ul>
+<li><code>key</code></li>
+<li><code>value</code></li>
+</ul>
+<h2 id="viewport">viewport<a class="headerlink" href="#viewport" title="Permanent link">#</a></h2>
+<h3 id="attributes_4">attributes<a class="headerlink" href="#attributes_4" title="Permanent link">#</a></h3>
+<ul>
+<li><code>src</code></li>
+</ul>
+<h2 id="elements-with-a-frame">elements with a frame<a class="headerlink" href="#elements-with-a-frame" title="Permanent link">#</a></h2>
+<h4 id="attributes_5">attributes<a class="headerlink" href="#attributes_5" title="Permanent link">#</a></h4>
+<ul>
+<li><code>name</code></li>
+<li><code>mixins</code></li>
+<li><code>frame.mode</code></li>
+<li><code>frame.acces</code></li>
+<li><code>frame.type</code></li>
+</ul>
+<h3 id="script">script<a class="headerlink" href="#script" title="Permanent link">#</a></h3>
+<p><code>script</code>s are pseudo-entities which must be placed as direct children of a frame-able entity. Only one for each frame-able entity can be defined.</p>
+<h4 id="attributes_6">attributes<a class="headerlink" href="#attributes_6" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lang</code></td>
+<td><code>string?</code></td>
+<td><code>null</code></td>
+<td>If unset, the language will be automatically inferred from contextual information</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td><code>path?</code></td>
+<td><code>null</code></td>
+<td>If set, its content will only be used as fall-back and the src content will be preferred.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><em>single</em>, <em>module</em></td>
+<td><em>single</em></td>
+<td>Used to specify if it should be handled as a single user script or a shared one (TODO:link)</td>
+</tr>
+<tr>
+<td><code>compact</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If set, all code is assumed to be inside the body of the default callback.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mixin">mixin<a class="headerlink" href="#mixin" title="Permanent link">#</a></h3>
+<p><code>mixin</code>s are pseudo-entities which must be placed as direct children of a frame-able entity. Only one for each frame-able entity can be defined.</p>
+<h4 id="attributes_7">attributes<a class="headerlink" href="#attributes_7" title="Permanent link">#</a></h4>
+<h3 id="semantics">semantics<a class="headerlink" href="#semantics" title="Permanent link">#</a></h3>
+<h1 id="using-components">Using components<a class="headerlink" href="#using-components" title="Permanent link">#</a></h1>
+<p>There are two ways to use other components inside others or within your app:</p>
+<ul>
+<li>Via <code>vs:use</code>, suggested for cases where it is only needed once.</li>
+<li>Adding a <code>vs:import</code> directive in the app/component, and using it as an element under the specified name.</li>
+</ul>
+<p>There is also <code>vs:viewport</code> which does something similar, but in this case a new root is rendered within your document, with no event or symbol being passed top/down or bottom/up.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
+<pre><code class="language-xml">&lt;vs:component tag.suggested=&quot;component-a&quot;&gt;
+    &lt;vs:import src=&quot;this://component-b.vs&quot; tag=&quot;component-b&quot;/&gt;
+
+    &lt;component-b prop-1=&quot;value-1&quot;/&gt;
+&lt;/vs:component&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;vs:component tag.suggested=&quot;component-a&quot;&gt;
+    &lt;vs:use vs:src=&quot;this://component-b.vs&quot; prop-1=&quot;value-1&quot;/&gt;
+&lt;/vs:component&gt;
+</code></pre>
+<h2 id="names">Names<a class="headerlink" href="#names" title="Permanent link">#</a></h2>
+<p>Names are unique identifiers within a namespace for components.<br />
+Adding a name to a component instance also implies that a vs frame is created for it. The converse is also true, and if no explicit name is assigned, one will be automatically generated.<br />
+Related to names there are two undefined behaviours:</p>
+<ul>
+<li>Giving the same name to two or more elements within the same namespace.</li>
+<li>Accessing elements for which the name has not been manually defined.</li>
+</ul>
+<h3 id="restrictions-on-names">Restrictions on names<a class="headerlink" href="#restrictions-on-names" title="Permanent link">#</a></h3>
+<p>At this time, no restriction on names has been defined nor implemented.</p>
+<h2 id="scope-of-visibility">Scope of visibility<a class="headerlink" href="#scope-of-visibility" title="Permanent link">#</a></h2>
+<p>The scope within names are visible is called <em>namespace</em>. A namespace is not strictly speaking equivalent to the UI tree structure, and all elements within a namespace, regardless of their child/parent ordering, are mutually visible.</p>
+<h3 id="transparent-nodes">Transparent nodes<a class="headerlink" href="#transparent-nodes" title="Permanent link">#</a></h3>
+<p>Some elements will have their associated frame and name, but their mode is set to <code>transparent</code>.<br />
+In this case any child will be part of the same namespace as their parent, ignoring their tree dependency.</p>
+<h3 id="limitations-on-visibility">Limitations on visibility<a class="headerlink" href="#limitations-on-visibility" title="Permanent link">#</a></h3>
+<p>Elements for which their mode is set to <code>container</code> or <code>slot-container</code> will prevent name resolution upwards from children.<br />
+Elements for which their mode is set to <code>slot</code> or <code>slot-container</code> will prevent name resolution downwards to its children from nodes above it.<br />
+A node, will always be able to access up and down, regardless of the mode set. Limitations are only for others going through it.</p>
+<h2 id="props">Props<a class="headerlink" href="#props" title="Permanent link">#</a></h2>
+<h2 id="computed-values">Computed values<a class="headerlink" href="#computed-values" title="Permanent link">#</a></h2>
+<h2 id="symbols">Symbols<a class="headerlink" href="#symbols" title="Permanent link">#</a></h2>
+<h3 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">#</a></h3>
+<h3 id="unknowns">Unknowns<a class="headerlink" href="#unknowns" title="Permanent link">#</a></h3>
+<h3 id="fields-settergetters">Fields (Setter/Getters)<a class="headerlink" href="#fields-settergetters" title="Permanent link">#</a></h3>
+<h3 id="dispatcher">Dispatcher<a class="headerlink" href="#dispatcher" title="Permanent link">#</a></h3>
+<h3 id="draw">Draw<a class="headerlink" href="#draw" title="Permanent link">#</a></h3>
+<h2 id="event-propagation">Event propagation<a class="headerlink" href="#event-propagation" title="Permanent link">#</a></h2>
+<h2 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">#</a></h2>
+<p>Embedded scripts are</p>
+<h3 id="single-user-scripts">Single user scripts<a class="headerlink" href="#single-user-scripts" title="Permanent link">#</a></h3>
+<h3 id="module-scripts">Module scripts<a class="headerlink" href="#module-scripts" title="Permanent link">#</a></h3>
+<h2 id="mixins">Mixins<a class="headerlink" href="#mixins" title="Permanent link">#</a></h2>
+<h3 id="special-mixins">Special mixins<a class="headerlink" href="#special-mixins" title="Permanent link">#</a></h3>
+<ul>
+<li><code>*</code></li>
+<li><code>+tagName</code></li>
+</ul>
+<h1 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">#</a></h1>
+<ul>
+<li><a href="templating/">Templating</a></li>
+<li><a href="data/">Data</a></li>
+<li><a href="scripting/">Scripting</a></li>
+<li><a href="paths/">Virtual paths</a></li>
+<li><a href="settings/">Settings &amp; user profiles</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../developers/old-technical/xml-format/" class="btn btn-neutral float-left" title="Xml format"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="data/" class="btn btn-neutral float-right" title="Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../developers/old-technical/xml-format/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="data/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

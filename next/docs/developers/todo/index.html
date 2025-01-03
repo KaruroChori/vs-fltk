@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Todo - vs.fltk</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Todo";
+        var mkdocs_page_input_path = "developers/todo.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> vs.fltk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../LICENCE/">LICENCE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building/">Building</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasing/">Releasing</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Todo</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#scripts">Scripts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-github-actions">Setup github actions</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../versioning/">Versioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ideas</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/auto-ui-actions/">Auto ui actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/caching/">Caching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/expected-new-getters/">Expected new getters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/revised-namespaces/">Revised namespaces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/sandboxing/">Sandboxing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ideas/signals/">Signals</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Old technical</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/specs/">Specs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/two-pass/">Main rendering loop (to revised)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../old-technical/xml-format/">Xml format</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Full specs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/data/">Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/scripting/">Scripting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/settings/">Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../full-specs/templating/">Templating</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Releases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../releases/v0.1.1-alpha/">V0.1.1 alpha</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Users</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/env-vars/">Env vars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/file-types/">File types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../users/safety-policies/">Safety policies</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">vs.fltk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developers</li>
+      <li class="breadcrumb-item active">Todo</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/karurochori/vs-fltk/edit/master/docs/developers/todo.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="missing-for-release-011">Missing for release 0.1.1<a class="headerlink" href="#missing-for-release-011" title="Permanent link">#</a></h2>
+<h3 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> turn off (for now) app linking capabilities</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Make all paths being used by the c and js pipeline portable.</li>
+</ul>
+<h3 id="setup-github-actions">Setup github actions<a class="headerlink" href="#setup-github-actions" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> ? To run tests and save its reports on some backend</li>
+<li class="task-list-item"><input type="checkbox" disabled/> ? To run benchmarks and save its reports on some backend (variable system load will destroy performance metrics?)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> ? To run the full flatpak-builder. For referencehttps://github.com/flatpak/flatpak-github-actions</li>
+</ul>
+<h1 id="current">Current<a class="headerlink" href="#current" title="Permanent link">#</a></h1>
+<p>All these notes should be progressively removed from here and recorded as github issues.</p>
+<h3 id="xsd-rng">XSD -&gt; RNG?<a class="headerlink" href="#xsd-rng" title="Permanent link">#</a></h3>
+<p>XSD as an XML schema format is not that good. RelaxNG better captures the flexible nature of vs files, so I would be better off considering it as I did for <code>vs.templ</code> already.</p>
+<h3 id="loading-xml-issues">Loading XML issues<a class="headerlink" href="#loading-xml-issues" title="Permanent link">#</a></h3>
+<pre><code>[INFO]     : Loading component file://./two-buttons.xml @ [/app/fl:window/TwoButtons]
+[INFO]     : Requested loading of file `file://./two-buttons.xml`
+[PANIC]    : Oh no! Loading failed `file://./two-buttons.xml` for 2
+[INFO]     : Loading failed, file cannot be opened file://./two-buttons.xml @ [/app/fl:window/TwoButtons]
+</code></pre>
+<p>At times it fails, at times it does not. Investigate and check against syntax in specs.</p>
+<pre><code>    &lt;import src=&quot;this://two-buttons.xml&quot; as=&quot;TwoButtons&quot; /&gt;
+</code></pre>
+<p>works but</p>
+<pre><code>    &lt;import src=&quot;file://./two-buttons.xml&quot; as=&quot;TwoButtons&quot; /&gt;
+</code></pre>
+<p>does not somehow. But just <code>./two-buttons.xml</code> does? Check why!</p>
+<h3 id="infrastructural">Infrastructural<a class="headerlink" href="#infrastructural" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add namespaces for vs elements and fltk elements</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Expose some sort of inverse for apply_prop, where selected fields can be read from a widget.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> (?) Add special <code>inherit</code> value to props to remove the current one and let it be computed based on its parents? I have to decide if we want this one.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Serialize the current UI structure in some format to be consumed by other services (AI assistants, speech dispatcher etc)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add pipelines for compilation &amp; testing on github/gitea</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Basic LSP for the vs syntax. Implementation @ https://github.com/KaruroChori/vs-fltk-lsp</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Make some dependencies and their related features toggleable at build-time (tcc, quickjs, lua, wamr).</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Decide what to do about swift.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> I probably want https://github.com/fmtlib/fmt</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Signal/event propagation mechanisms</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add special logging to generate output used by more complex tests. They must also be exposed to scripts.<br />
+       These logs are only recorded if VS_DEBUG_FILE is set to a file name, and will result in a key,value dictionary which is later checked against reference as part of the test.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Namespace support</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> In the root of app or components search for <code>xmlns</code> attributes, and define local namespaces based on <code>vs</code>, <code>vs.templ</code> &amp; <code>vs.fltk</code>.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Codegen for reserved elements &amp; attributes in the vs namespace. Like for <code>vs.fltk</code>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Evaluate and check if possible to replace sqlite with https://github.com/tursodatabase/libsql as it looks like the better (it supports alteration of foreign keys for example)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Installation!</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Rewrite TS stuff in meson directly</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Update internal paths to work in both build and installed mode.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Man page</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <del>deb (mounted on opt, as most dependencies are needed recent and potentially forked)</del></li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> flatpak<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Swift6 is added, but meson cannot find swiftc. Why?</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Unable to append args to meson setup</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Escape vs_debug (tabs).</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add TESTING flag in scripts to determine if some content should be run or not.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add contextual information in app and component (keys, policies &amp; paths). Remove them from ui_tree as they can be accessed via root.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Once that is done, properly implement the path type for props, to resolve correctly.</li>
+</ul>
+<h3 id="scripting">Scripting<a class="headerlink" href="#scripting" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Expose path and the fetcher to embedded script at some degree.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Make errors in C scripts less useless</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add <code>#line</code> to C library to properly count lines for error location</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Support for compact scripts</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> C script</li>
+<li class="task-list-item"><input type="checkbox" disabled/> JS script</li>
+</ul>
+<h3 id="components">Components<a class="headerlink" href="#components" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Enable codegen</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Simplify codegen for all computed/props types which are not <code>raw</code> by writing more or the boilerplate.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> and port the current code over the new codegen architecture.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Viewport element.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Fix on.failure and on.loading to match specs in <code>use</code> element.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add properties on containers to set their type/mode whatever.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Split align property</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Split font property</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add debug component</li>
+</ul>
+<h3 id="paths">Paths<a class="headerlink" href="#paths" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Extend support for more virtual paths (all but those based on sqlite which will be handled later on)</li>
+</ul>
+<h3 id="dynamic-library-linking">Dynamic Library linking<a class="headerlink" href="#dynamic-library-linking" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Add support of loading of so/dylib/dll modules</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Test linking</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> On http/s &amp; gemini (the cache is now generic)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Without libc?</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> If nobuiltin is not usable, I need to add more of libtcc to meson targets.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Fix building process of tcc to generate the minimal libraries needed.</li>
+</ul>
+<h3 id="policies">Policies<a class="headerlink" href="#policies" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add support for env variables to fully disable native code, internet access and to run headless.<br />
+       Once profiles are ready this will be obsoleted, but for now I need for testing and to let people use it &ldquo;safely&rdquo;</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Policies are so complex to write manually and very easy to mess them up.
+      Maybe code generation starting from a schema might be a better option.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Support basic embedded script policies.</li>
+</ul>
+<h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Caching all done (no SQLITE, for that there is a different milestone)</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Source files</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> From fs</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> From network</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Pugi XML documents</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Cache support</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Save XML trees while parsing</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Scripts</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Caching all done (SQLITE part)</p>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled/> kv</li>
+<li class="task-list-item"><input type="checkbox" disabled/> res</li>
+<li class="task-list-item"><input type="checkbox" disabled/> secrets</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> DB schemas</li>
+</ul>
+<h1 id="props-computed-getters-and-setters">Props, computed, getters and setters<a class="headerlink" href="#props-computed-getters-and-setters" title="Permanent link">#</a></h1>
+<p>I would like to implement an architectural change how these concepts are handled.<br />
+Schemas will be defining objects for which <code>getters</code> and <code>setters</code> are defined.<br />
+Some component might allow for arbitrary definitions (already the case for the dispatcher which could be recycled), but most are fixed.<br />
+Props are just calls to setters for which expression evaluation from a string is available.<br />
+They are just an artifact of XML components, native ones for the most part are only going to use <code>getters</code> and <code>setters</code> directly.</p>
+<p>It is also possible to mark specific objects as <code>persistent</code>. Those will be recorded as secrets &amp; recovered if so desired.
+It is also possible to mark specific objects as <code>semantic</code>. Those will be reported in the serialization.</p>
+<h1 id="supported-environments">Supported environments<a class="headerlink" href="#supported-environments" title="Permanent link">#</a></h1>
+<h2 id="tcc">TCC<a class="headerlink" href="#tcc" title="Permanent link">#</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add basic support for TCC</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Provide extensive bindings for TCC</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Stage 0</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Stage 1 Full subset of libc</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Stage 2 Full interface for ui tree operations</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> UI base support of module scripts</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> UI base support of getters/setters.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add an alternative backend like Cello</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add an alternative backend like Vala (?)</li>
+</ul>
+<p>All done for now</p>
+<h2 id="wasmwasi">WASM/WASI<a class="headerlink" href="#wasmwasi" title="Permanent link">#</a></h2>
+<p>Why is WASM so frustrating to work with!?! No compiler can compile itself into a wasm/wasi binary.<br />
+AssemblyScript is a mess that is barely able to generate itself with WASI, but still it requires binaryen distributed alongside.<br />
+Because of a series of requirements, V8 is basically the only runtime capable of running that combo.<br />
+An all LLVM versions for wasm/wasi I tried were failures (or half so).</p>
+<p>I am starting to regret java bytecode already.</p>
+<p>Notice: the wasmer registry seems to have a small collection of clang builds on it. It might be good enough to start experimenting.<br />
+https://wasmer.io/taybenlor/runno-clang</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Integrate an engine (WAMR)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <del>Find a way to have llvm/clang running as wasm an build to wasm (no emscripten)</del> cannot do that</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <del>Find a way to integrate assemblyscript as a language and embeding the compiler</del> ahah. not working</li>
+</ul>
+<h2 id="quickjs">QuickJS<a class="headerlink" href="#quickjs" title="Permanent link">#</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add quickjs to the repo</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Add basic support for quickjs embedded scripts.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> UI base support of module scripts</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Support of getters and setters</li>
+</ul>
+<h2 id="lua">LUA<a class="headerlink" href="#lua" title="Permanent link">#</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Add Lua &amp; LuaJIT to the repo</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add baseline support for Lua embedded scripts.</li>
+</ul>
+<h1 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h1>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Provide actual examples.</li>
+</ul>
+<h1 id="unclassified">Unclassified<a class="headerlink" href="#unclassified" title="Permanent link">#</a></h1>
+<h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">#</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Refactor the ui_tree to better handle different classes of components</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Prepare infrastructure for codegen (no impl yet)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Move all the tcc stuff in proper pipelines</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled checked/> Add more components to play with</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> For speed of development, many operations are written recursively.
+      The stack is pretty limited, so either there is tail recursion or stacks in heap must be used.</p>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add caching &amp; preloading to avoid making the process of building UI dog slow.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Partial implementation to support modules</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Partial implementation to load resources in memory within the session (they might be promoted once SQLITE gets integrated)</li>
+</ul>
+<h2 id="references-for-ffi-lua">References for FFI &amp; Lua<a class="headerlink" href="#references-for-ffi-lua" title="Permanent link">#</a></h2>
+<ul>
+<li>https://github.com/shajunxing/quickjs-ffi</li>
+<li>https://github.com/q66/cffi-lua</li>
+<li>https://github.com/LuaJIT/LuaJIT</li>
+<li>http://lua-users.org/wiki/SimpleLuaApiExample</li>
+</ul>
+<p>Probably I will allow switching between Lua &amp; LuaJIT with a compile flag.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../releasing/" class="btn btn-neutral float-left" title="Releasing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../versioning/" class="btn btn-neutral float-right" title="Versioning">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/karurochori/vs-fltk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../releasing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../versioning/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

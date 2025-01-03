@@ -1,0 +1,32 @@
+\doxysection{lua-\/lua.hpp}
+\hypertarget{lua-lua_8hpp_source}{}\label{lua-lua_8hpp_source}\index{include/pipelines/lua-\/lua.hpp@{include/pipelines/lua-\/lua.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ui.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <pugixml.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }pipelines\{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ lua\_error\_func\_xml(\textcolor{keyword}{const}\ pugi::xml\_node\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg);}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ lua\_log\_symbol\_func\_xml(\textcolor{keyword}{const}\ pugi::xml\_node\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//extern\ void\ lua\_error\_func\_native(void*\ env,\ const\ char\ *\ msg);}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//extern\ void\ lua\_log\_symbol\_func\_native(void*\ env,\ const\ char\ *\ msg,\ const\ char*\ name);}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00017\ \textcolor{comment}{extern\ std::shared\_ptr<lua>\ lua\_lua\_pipeline(bool\ is\_runtime,\ ui\_base*\ obj,\ const\ char*\ src,\ void*\ ctx,\ void(*error\_fn)(void*,const\ char*),\ const\ char\ *link\_with);}}
+\DoxyCodeLine{00018\ \textcolor{comment}{extern\ std::shared\_ptr<smap<symbol\_t>>\ lua\_lua\_pipeline\_apply(const\ std::shared\_ptr<lua>\&\ script,vs::ui\_base*\ obj,void*\ ctx,void(*register\_fn)(void*,const\ char*,\ const\ char*));}}
+\DoxyCodeLine{00019\ \textcolor{comment}{}}
+\DoxyCodeLine{00020\ \textcolor{comment}{inline\ std::shared\_ptr<lua>\ lua\_lua\_pipeline\_xml(bool\ is\_runtime,\ vs::ui\_base*\ obj,\ pugi::xml\_node\&\ ctx,\ \ const\ char\ *link\_with)\{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ return\ lua\_lua\_pipeline(is\_runtime,obj,ctx.text().as\_string(),\&ctx,(void(*)(void*,const\ char*))lua\_error\_func\_xml,link\_with);}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

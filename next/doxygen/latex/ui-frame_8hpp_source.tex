@@ -1,0 +1,77 @@
+\doxysection{ui-\/frame.hpp}
+\hypertarget{ui-frame_8hpp_source}{}\label{ui-frame_8hpp_source}\index{include/ui-\/frame.hpp@{include/ui-\/frame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }frame;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }ui\_base;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ symbol\_type\_t\{}
+\DoxyCodeLine{00014\ \ \ VOID,\ \textcolor{comment}{//Function\ not\ to\ be\ defined}}
+\DoxyCodeLine{00015\ \ \ UNKNOWN,\ \textcolor{comment}{//Function\ whose\ prototype\ is\ unknown/non-\/standard}}
+\DoxyCodeLine{00016\ \ \ CALLBACK,\ \textcolor{comment}{//Event\ callback}}
+\DoxyCodeLine{00017\ \ \ DRAW,\ \textcolor{comment}{//Drawing\ function}}
+\DoxyCodeLine{00018\ \ \ SETTER,\ }
+\DoxyCodeLine{00019\ \ \ GETTER,}
+\DoxyCodeLine{00020\ \ \ DISPATCHER,\ \textcolor{comment}{//Custom\ dispatcher}}
+\DoxyCodeLine{00021\ \ \ TEST\ \ \textcolor{comment}{//Test\ function\ used\ by\ robots,\ run\ during\ testing}}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum\ class}\ symbol\_mode\_t\{}
+\DoxyCodeLine{00025\ \ \ AUTO,}
+\DoxyCodeLine{00026\ \ \ NATIVE,}
+\DoxyCodeLine{00027\ \ \ QUICKJS,}
+\DoxyCodeLine{00028\ \ \ WASM,}
+\DoxyCodeLine{00029\ \ \ EXTERNAL,}
+\DoxyCodeLine{00030\ \ \ LUA,}
+\DoxyCodeLine{00031\ \ \ RISCV,}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\{}
+\DoxyCodeLine{00035\ \ \ symbol\_mode\_t\ mode:3;}
+\DoxyCodeLine{00036\ \ \ symbol\_type\_t\ type:5;}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ symbol;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ VOID;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//TODO:\ Very\ bad\ packing.\ Fix\ it\ at\ some\ point}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvs_1_1symbol__ret__t}{symbol\_ret\_t}}\{}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ symbol;}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{structvs_1_1symbol__t}{symbol\_t}}\ ctx\_apply;}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvs_1_1frame}{frame}}*\ found\_at;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*(*ctx\_apply\_fn)(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*);\ \ \ \ \ \ \ \ \textcolor{comment}{//Special\ type\ for\ the\ function\ setting\ context}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{typedef}\ void(*cb\_fn)(\mbox{\hyperlink{classvs_1_1ui__base}{ui\_base}}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Type\ for\ callbacks}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{typedef}\ void(*draw\_fn)();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Type\ for\ draw\ functions,\ used\ to\ define\ style\ of\ UI\ elements\ (TODO\ interface)}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{typedef}\ int(*set\_fn)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ src);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Field\ setter}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{typedef}\ int(*get\_fn)(\textcolor{keywordtype}{void}**\ src);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Field\ getter}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{typedef}\ int(*test\_fn)();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Test\ function\ for\ automatic\ testing}}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{enum\ class}\ frame\_type\_t\{}
+\DoxyCodeLine{00057\ \ \ SLOT\_CONTAINER,\ \ \ \textcolor{comment}{//Stop\ any\ request\ from\ moving\ in\ between.}}
+\DoxyCodeLine{00058\ \ \ CONTAINER,\ \ \ \ \ \ \ \ \textcolor{comment}{//Any\ bottom\ up\ request\ will\ stop\ here.}}
+\DoxyCodeLine{00059\ \ \ SLOT,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Any\ top\ down\ request\ will\ stop\ here.}}
+\DoxyCodeLine{00060\ \ \ LEAF,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//No\ children\ stored\ in\ here\ (but\ symbols\ are\ fine).\ Go\ to\ parent.}}
+\DoxyCodeLine{00061\ \ \ NODE,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//A\ namespace\ without\ constraints\ on\ moving\ in\ and\ out}}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ \textcolor{keyword}{enum\ class}\ frame\_access\_t\{}
+\DoxyCodeLine{00064\ \ \ PUBLIC,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Symbols\ can\ be\ searched\ inside,\ bottom\ up\ \&\ top\ down.}}
+\DoxyCodeLine{00065\ \ \ PRIVATE,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//There\ can\ be\ symbols,\ but\ they\ are\ only\ visible\ by\ self.\ Requests\ are\ passed}}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{typedef}\ \ symbol\_mode\_t\ frame\_mode\_t;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\doxysection{tcc-\/c.hpp}
+\hypertarget{tcc-c_8hpp_source}{}\label{tcc-c_8hpp_source}\index{include/pipelines/tcc-\/c.hpp@{include/pipelines/tcc-\/c.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#if\ VS\_USE\_TCC}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ui.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utils/tcc-\/wrap.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <pugixml.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}globals.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}commons.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }vs\{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }pipelines\{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ tcc\_error\_func\_xml(\textcolor{keyword}{const}\ pugi::xml\_node\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg);}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ tcc\_log\_symbol\_func\_xml(\textcolor{keyword}{const}\ pugi::xml\_node\&\ env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//extern\ void\ tcc\_error\_func\_native(void*\ env,\ const\ char\ *\ msg);}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//extern\ void\ tcc\_log\_symbol\_func\_native(void*\ env,\ const\ char\ *\ msg,\ const\ char*\ name);}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ std::shared\_ptr<tcc>\ tcc\_c\_pipeline(global\_ctx\_t\&\ globals,\ \textcolor{keywordtype}{bool}\ is\_runtime,\ ui\_base*\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src,\ \textcolor{keywordtype}{void}*\ ctx,\ \textcolor{keywordtype}{void}(*error\_fn)(\textcolor{keywordtype}{void}*,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*),\ \textcolor{keywordtype}{bool}\ compact,\ link\_with\_t\ link\_with);}
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ std::shared\_ptr<smap<symbol\_t>>\ tcc\_c\_pipeline\_apply(\textcolor{keyword}{const}\ std::shared\_ptr<tcc>\&\ script,\mbox{\hyperlink{classvs_1_1ui__base}{vs::ui\_base}}*\ obj,\textcolor{keywordtype}{void}*\ ctx,\textcolor{keywordtype}{void}(*register\_fn)(\textcolor{keywordtype}{void}*,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ std::shared\_ptr<tcc>\ tcc\_c\_pipeline\_xml(global\_ctx\_t\&\ globals,\ \textcolor{keywordtype}{bool}\ is\_runtime,\ \mbox{\hyperlink{classvs_1_1ui__base}{vs::ui\_base}}*\ obj,\ pugi::xml\_node\&\ ctx,\ \textcolor{keywordtype}{bool}\ compact,\ link\_with\_t\ link\_with)\{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ tcc\_c\_pipeline(globals,is\_runtime,obj,ctx.text().as\_string(),\&ctx,(\textcolor{keywordtype}{void}(*)(\textcolor{keywordtype}{void}*,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*))tcc\_error\_func\_xml,\ compact,\ link\_with);}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
