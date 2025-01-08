@@ -28,8 +28,6 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
           sudo apt update
-          sudo apt remove -y firefox
-          sudo apt upgrade -y
           sudo apt install -y \
             freeglut3-dev \
             libcurl4-openssl-dev \
@@ -38,8 +36,6 @@ jobs:
             python3-pip \
             python3-setuptools
           python3 -m pip install meson ninja
-          python3 -m pip uninstall cmake
-          python3 -m pip install cmake==3.30.5 # workaround https://github.com/mesonbuild/meson/issues/13888
           # for clang
           sudo apt install -y wget gpg gnupg software-properties-common
           curl -LO https://apt.llvm.org/llvm.sh

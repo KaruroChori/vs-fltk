@@ -44,8 +44,6 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
           sudo apt update
-          sudo apt remove -y firefox
-          sudo apt upgrade -y
           sudo apt install -y \
             freeglut3-dev \
             libcurl4-openssl-dev \
