@@ -169,12 +169,12 @@ I am seeking feedback, so you are very welcome to test it along!</p>
 The <a href="./MILESTONES.md">milestone</a> page also contains some related information.</p>
 <h3 id="whats-new">What&rsquo;s new?<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h3>
 <p>This is what has been implemented so far (and some missing feature for context):</p>
-<ul class="task-list">
+<ul>
 <li>Basic CLI features for the command <code>vs</code>. These are not expected to change for quite a while.</li>
 <li>Code generation infrastructure for fltk components and derived schemas.</li>
 <li>Infrastructure to handle the user sqlite database with proper schemas and migration.</li>
 <li>A small set of components from fltk being exposed, like buttons, labels, windows etc.</li>
-<li>Several features of <code>vs</code> exposed as XML elements:</li>
+<li>Several features of <code>vs</code> exposed as XML elements:<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled checked/> <code>mixin</code></li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> embedded <code>script</code></li>
 <li class="task-list-item"><input type="checkbox" disabled/> embedded <code>policies</code></li>
@@ -183,9 +183,11 @@ The <a href="./MILESTONES.md">milestone</a> page also contains some related info
 <li class="task-list-item"><input type="checkbox" disabled checked/> <code>use</code></li>
 <li class="task-list-item"><input type="checkbox" disabled/> caching directives</li>
 <li class="task-list-item"><input type="checkbox" disabled/> dynamic data</li>
+</ul>
+</li>
 <li>Basic XML builder (no full caching, no multithreading)</li>
 <li>Templating engine for vs components. Integration is complete, but there is ongoing work tracked in a <a href="https://github.com/KaruroChori/vs-templ">separate repo</a></li>
-<li>Embedded scripts:</li>
+<li>Embedded scripts:<ul>
 <li>Support for <code>c</code> via tcc<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled checked/> Modules</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Callbacks</li>
@@ -206,6 +208,8 @@ The <a href="./MILESTONES.md">milestone</a> page also contains some related info
 <li class="task-list-item"><input type="checkbox" disabled/> Setters/getters</li>
 <li class="task-list-item"><input type="checkbox" disabled/> FFI to external libraries</li>
 <li class="task-list-item"><input type="checkbox" disabled checked/> Debug interface</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Very early and limited c bindings for <code>vs.fltk</code>, mostly for testing purposes.</li>

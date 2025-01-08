@@ -162,7 +162,7 @@
 <h2 id="structure-of-a-settings-profile">Structure of a settings profile<a class="headerlink" href="#structure-of-a-settings-profile" title="Permanent link">#</a></h2>
 <p>This is the tree structure of any settings XML file:</p>
 <ul>
-<li><code>vs-profile</code></li>
+<li><code>vs-profile</code><ul>
 <li><code>locale</code><ul>
 <li><code>user</code>: dictionary of user data, mostly used for forms auto fill-in.</li>
 <li><code>languages</code>: dictionary of supported languages. They are ordered by preference (lower number higher preference) and when ambiguous by order in the XML file.</li>
@@ -193,6 +193,8 @@
 </li>
 <li><code>app</code><ul>
 <li><code>extends</code> comma separated list of sources to copy from.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

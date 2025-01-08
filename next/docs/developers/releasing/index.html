@@ -161,19 +161,23 @@ But for now they are not, so use this as a checklist for reference:</p>
 <li class="task-list-item"><input type="checkbox" disabled/> Run the full codegen step.</li>
 <li class="task-list-item"><input type="checkbox" disabled/> Commit &amp; push.</li>
 <li class="task-list-item"><input type="checkbox" disabled/> Double check CI are good.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Prepare a tagged release on github. This will trigger the construction of all artifacts.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Prepare a tagged release on github. This will trigger the construction of all artifacts.<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled/> Docker images</li>
 <li class="task-list-item"><input type="checkbox" disabled/> Full source archive including subprojects to fix their version</li>
+</ul>
+</li>
 </ul>
 <p>After release:</p>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled/> Update the version number in <code>meson.build</code> and <code>package.json</code> to the next <strong>even</strong> revision.</li>
 <li class="task-list-item"><input type="checkbox" disabled/> Clear content in <code>RELEASE.md</code></li>
 <li class="task-list-item"><input type="checkbox" disabled/> Manually trigger a release for distribution on the other repository by tagging a new version under the same number.
-      This will generate:</li>
+      This will generate:<ul>
 <li>Deb packages</li>
 <li>Flatpak</li>
 <li>et cetera</li>
+</ul>
+</li>
 </ul>
               
             </div>
