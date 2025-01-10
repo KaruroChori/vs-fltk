@@ -206,8 +206,7 @@ json_proj = subproject('nlohmann_json')
 json_dep = json_proj.get_variable('nlohmann_json_dep')
 
 #VS.TEMPL
-vs_templ_proj = subproject('vs-templ') #TODO: Make it a system dependency
-vs_templ_dep = vs_templ_proj.get_variable('vs_templ_dep')
+vs_templ_dep = dependency('vs-templ', version: '>=0.3.15', fallback: ['vs-templ', 'vs_templ_dep'])
 
 #TREESITTER
 treesitter_proj = subproject('tree-sitter')
@@ -222,6 +221,24 @@ sqlite_dep = dependency(
     fallback: ['sqlite3', 'sqlite3_dep'],
     default_options: 'default_library=static',
 )
+
+if get_option('use_lua_base')
+    lua_dep = dependency(
+        'lua',
+        version: '>=5.3',
+        fallback: ['lua', 'lua_dep'],
+    )
+    vs_fltk_deps += lua_dep
+endif
+
+if get_option('use_lua_jit')
+    lua_dep = dependency(
+        'luajit',
+        version: '>=5.3',
+        fallback: ['luajit', 'luajit_dep'],
+    )
+    vs_fltk_deps += lua_dep
+endif
 
 if get_option('use_networking_curl') and get_option('use_networking_simple')
     error('Only one networking solution can be selected between curl and simple')
@@ -300,7 +317,7 @@ vs_fltk = shared_library(
         './src/ui-fields.cpp',
 
         './src/pipelines/tcc-c.cpp',
-        './src/pipelines/tcc-cello.cpp',
+        './src/pipelines/riscv-unknown.cpp',
         './src/pipelines/quickjs-js.cpp',
         './src/pipelines/wasm-wat.cpp',
         './src/pipelines/lua-lua.cpp',
