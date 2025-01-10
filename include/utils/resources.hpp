@@ -11,7 +11,8 @@ namespace res{
 enum struct script_t{
     NONE,
     C,
-    JS
+    JS,
+    LUA
 };
 
 enum struct component_t{

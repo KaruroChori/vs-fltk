@@ -1,5 +1,3 @@
-#include "ui-tree.hpp"
-#include "ui-frame.hpp"
 #include <cstdarg>
 #include <unistd.h>
 #include <memory>
@@ -12,12 +10,16 @@
 
 #include <pipelines/tcc-c.hpp>
 #include <pipelines/quickjs-js.hpp>
+#include <pipelines/lua-lua.hpp>
+
 
 #include <utils.hpp>
 #include <utils/paths.hpp>
 #include <utils/policies.hpp>
 
 #include <ui.hpp>
+#include "ui-tree.hpp"
+#include "ui-frame.hpp"
 #include <ui-frame.private.hpp>
 #include <ui-tree.xml.hpp>
 
@@ -26,6 +28,7 @@
 #include <fetcher.hpp>
 
 #include <utils/paths.hpp>
+
 
 #if __has_include("components/autogen/index.hpp")
 #include <components/autogen/index.hpp>
@@ -493,10 +496,30 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
         }
       }
       if (mode == frame_mode_t::LUA || mode == frame_mode_t::AUTO) {
-        const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::QUICKJS?"lua":"");
+        const auto &lang = root.attribute("lang").as_string(mode==frame_mode_t::LUA?"lua":"");
         if (strcmp(lang, "lua") == 0) {
-          //TODO
+          #ifdef VS_USE_LUA
+          auto compiler = pipelines::lua_lua_pipeline_xml(*globals,true, is_module?nullptr:current, root, link_with);
+            if(compiler!=nullptr){
+              current->set_mode(frame_mode_t::LUA);
+              current->attach_script(compiler,is_module);
+              auto symbols = pipelines::lua_lua_pipeline_apply(compiler, current, (void*)&root, (void(*)(void*,const char*, const char*))pipelines::lua_log_symbol_func_xml);
+              current->set_symbols(symbols);
+              if(is_module){
+                auto tmp = std::make_shared<cache::script_t>(cache::script_t{
+                  compiler, symbols, frame_mode_t::LUA
+                });
+                globals->mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::JS);
+                local_unique_counter++;
+              }
+            }
+          continue;
+          #endif
         }
+      }
+      if (mode == frame_mode_t::RISCV || mode == frame_mode_t::AUTO) {
+        const auto &lang = root.attribute("lang").as_string();
+        //TODO search for assigned compiler for a given language. Compiling pipeline must be generic and made uniform for each one of them.
       }
       if (mode == frame_mode_t::WASM || mode == frame_mode_t::AUTO) {
         const auto &lang = root.attribute("lang").as_string();
@@ -505,7 +528,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
 
       {
           log(severety_t::CONTINUE, root,
-              "Unsupported language `%s` for frame type `%i`. The script will not be handled.",
+              "Unsupported language `%s` for frame type `%i`. This script will be skipped.",
               root.attribute("lang").as_string(), mode);
       }
     }
