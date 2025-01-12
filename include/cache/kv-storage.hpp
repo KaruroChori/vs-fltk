@@ -3,15 +3,6 @@
 #include "commons.hpp"
 //Permanent key/value storage. Each app class has its own.
 
-/*
-Cache ctx:
-- original app-class token
-- computed app-class token
-- page tag
-
-All these are directly taken from the ui-tree
-*/
-
 namespace vs{
 namespace cache{
 

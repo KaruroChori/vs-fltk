@@ -1,7 +1,7 @@
 site_name: vs.fltk
 repo_url: https://github.com/karurochori/vs-fltk
-site_dir: dist/website/docs
-docs_dir: docs
+site_dir: ../website/docs
+docs_dir: ../../docs
 
 theme:
   name: readthedocs
