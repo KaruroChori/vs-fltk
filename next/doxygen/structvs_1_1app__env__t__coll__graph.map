@@ -1,0 +1,13 @@
+<map id="vs::app_env_t" name="vs::app_env_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="153,211,265,236"/>
+<area shape="rect" id="Node000002" href="$structvs_1_1app__ctx__t.html" title="Context for a page. Used to determine permissions and readability in cache." alt="" coords="27,108,135,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,140,196,209,193,213,105,144"/>
+<area shape="rect" id="Node000003" href="$structvs_1_1policies__t.html" title=" " alt="" coords="160,108,267,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,147,213,157,212,211,207,210,208,157,209,147"/>
+<area shape="rect" id="Node000004" href="$structvs_1_1policies__t_1_1networking__t.html" title=" " alt="" coords="5,13,205,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="131,45,202,106,198,110,127,49"/>
+<area shape="rect" id="Node000005" href="$structvs_1_1policies__t_1_1embedded__scripts__t.html" title=" " alt="" coords="229,5,413,45"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="291,56,229,110,225,106,287,52"/>
+<area shape="rect" id="Node000006" href="$structvs_1_1scoped__rpath__t.html" title=" " alt="" coords="295,108,439,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="364,147,354,169,339,189,304,209,266,220,265,215,302,204,336,185,350,166,359,145"/>
+</map>

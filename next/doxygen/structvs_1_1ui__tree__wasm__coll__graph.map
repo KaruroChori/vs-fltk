@@ -1,0 +1,43 @@
+<map id="vs::ui_tree_wasm" name="vs::ui_tree_wasm">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1460,350,1596,376"/>
+<area shape="rect" id="Node000002" href="$structvs_1_1ui__tree.html" title=" " alt="" coords="1320,350,1411,376"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1424,360,1460,360,1460,366,1424,366"/>
+<area shape="poly" id="edge15_Node000002_Node000002" title=" " alt="" coords="1350,336,1355,327,1365,324,1374,326,1380,333,1379,351,1373,350,1375,335,1371,331,1365,329,1358,331,1355,338"/>
+<area shape="rect" id="Node000003" href="$structvs_1_1global__ctx__t.html" title="Global context structure." alt="" coords="1014,238,1138,264"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1124,266,1332,348,1331,353,1122,271"/>
+<area shape="rect" id="Node000004" href="$structvs_1_1app__env__t.html" title=" " alt="" coords="713,189,825,214"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="839,209,984,231,1014,237,1013,242,984,236,838,214"/>
+<area shape="rect" id="Node000005" href="$structvs_1_1app__ctx__t.html" title="Context for a page. Used to determine permissions and readability in cache." alt="" coords="360,198,468,224"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="482,210,648,208,712,204,712,210,648,214,482,215"/>
+<area shape="rect" id="Node000006" href="$structvs_1_1policies__t.html" title=" " alt="" coords="361,328,467,353"/>
+<area shape="poly" id="edge23_Node000002_Node000006" title=" " alt="" coords="481,340,521,342,1320,360,1320,365,521,347,481,346"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="481,341,578,338,619,332,646,320,655,309,659,299,658,275,657,250,661,237,670,224,689,210,711,203,713,208,692,215,674,228,666,239,663,250,664,275,664,300,660,312,650,324,621,337,578,344,481,346"/>
+<area shape="rect" id="Node000007" href="$structvs_1_1policies__t_1_1networking__t.html" title=" " alt="" coords="5,298,205,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="219,319,361,333,360,338,219,325"/>
+<area shape="rect" id="Node000008" href="$structvs_1_1policies__t_1_1embedded__scripts__t.html" title=" " alt="" coords="13,348,197,388"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="211,360,306,352,360,346,361,351,307,358,211,366"/>
+<area shape="rect" id="Node000009" href="$structvs_1_1scoped__rpath__t.html" title=" " alt="" coords="342,109,486,134"/>
+<area shape="poly" id="edge24_Node000002_Node000009" title=" " alt="" coords="429,96,466,52,492,31,520,15,555,5,584,3,648,15,844,51,923,69,996,90,1065,118,1136,155,1212,203,1298,266,1319,286,1336,309,1360,349,1356,352,1332,312,1315,290,1294,271,1209,208,1133,159,1063,123,994,95,922,74,843,56,648,20,583,9,556,10,522,20,495,36,470,56,433,100"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="485,135,713,187,712,192,484,140"/>
+<area shape="rect" id="Node000010" href="$structvs_1_1path__env__t.html" title=" " alt="" coords="710,114,827,140"/>
+<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="500,120,709,124,709,129,500,126"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="830,141,905,165,985,197,1056,236,1054,241,983,202,903,170,829,146"/>
+<area shape="rect" id="Node000011" href="$structvs_1_1js__rt__t.html" title=" " alt="" coords="726,238,811,264"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="825,248,1013,248,1013,254,825,254"/>
+<area shape="rect" id="Node000012" href="$classvs_1_1cache_1_1mem__storage__t.html" title=" " alt="" coords="672,288,865,313"/>
+<area shape="poly" id="edge12_Node000003_Node000012" title=" " alt="" coords="878,285,984,269,1020,261,1021,266,984,274,879,290"/>
+<area shape="rect" id="Node000013" href="$structvs_1_1cache_1_1mem__key__t.html" title=" " alt="" coords="331,248,497,273"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="511,269,672,287,671,292,511,274"/>
+<area shape="rect" id="Node000014" href="$structvs_1_1pipelines_1_1link__with__t.html" title=" " alt="" coords="1008,400,1144,440"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="1158,416,1225,409,1295,394,1342,374,1344,378,1297,399,1226,414,1158,421"/>
+<area shape="rect" id="Node000015" href="$classvs_1_1ui__base.html" title=" " alt="" coords="1029,508,1123,533"/>
+<area shape="poly" id="edge16_Node000002_Node000015" title=" " alt="" coords="1136,510,1215,489,1256,472,1294,450,1315,433,1332,412,1355,375,1360,378,1336,416,1318,437,1298,455,1259,477,1217,494,1138,515"/>
+<area shape="poly" id="edge22_Node000015_Node000015" title=" " alt="" coords="1048,493,1057,485,1076,481,1092,483,1102,490,1105,499,1100,509,1095,506,1099,499,1098,493,1090,488,1076,486,1059,489,1052,497"/>
+<area shape="rect" id="Node000016" href="$classvs_1_1frame.html" title=" " alt="" coords="1323,553,1407,578"/>
+<area shape="poly" id="edge19_Node000016_Node000015" title=" " alt="" coords="1138,524,1296,547,1324,553,1323,558,1296,552,1137,530"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="1310,577,1241,579,1203,576,1167,567,1154,559,1143,549,1113,536,1115,531,1145,545,1157,554,1169,562,1204,570,1241,574,1309,571"/>
+<area shape="poly" id="edge18_Node000016_Node000016" title=" " alt="" coords="1350,538,1355,530,1365,526,1374,529,1380,536,1379,553,1373,553,1375,538,1371,533,1365,532,1358,534,1355,541"/>
+<area shape="rect" id="Node000017" href="$structvs_1_1symbol__t.html" title=" " alt="" coords="1023,598,1129,624"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="1143,610,1217,607,1295,594,1340,576,1342,581,1297,599,1217,612,1143,615"/>
+<area shape="poly" id="edge21_Node000017_Node000017" title=" " alt="" coords="1048,584,1057,575,1076,572,1092,574,1102,581,1105,590,1100,600,1095,597,1099,589,1098,584,1090,579,1076,577,1059,580,1052,588"/>
+</map>
