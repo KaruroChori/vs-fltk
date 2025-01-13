@@ -33,6 +33,7 @@ jobs:
             libcurl4-openssl-dev \
             libpng-dev \
             libsqlite3-0 \
+            liblua5.4-dev \
             python3-pip \
             python3-setuptools
           python3 -m pip install meson ninja
