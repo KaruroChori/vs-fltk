@@ -200,9 +200,9 @@ int ui_tree_xml::build(){
     auto tmp_app = new ui_root_app(frame_mode_t::AUTO);
     base = (ui_base*)tmp_app;
     {//TODO: Handle app.class token & page tag
-      auto token = string2key256(xml_root.attribute("class-token").as_string(nullptr), tmp_app->local_env.src_key);
+      auto token = string2key256(xml_root.attribute("class-token").as_string(nullptr), tmp_app->local_env.ctx.src_key);
       //cache_ctx.computed_key = key256compose(token, cache_ctx.computed_key);
-      tmp_app->local_env.page_tag = xml_root.attribute("page").as_string("");
+      tmp_app->local_env.ctx.page_tag = xml_root.attribute("page").as_string("");
     }
 
     link_with = {
@@ -234,9 +234,9 @@ int ui_tree_xml::build(){
 
     if(!thin){//TODO: Handle app.class token & page tag
       ui_root_component* tmp_component  = (ui_root_component*)base;
-      auto token = string2key256(xml_root.attribute("class-token").as_string(nullptr), tmp_component->local_env.src_key);
+      auto token = string2key256(xml_root.attribute("class-token").as_string(nullptr), tmp_component->local_env.ctx.src_key);
       //cache_ctx.computed_key = key256compose(token, cache_ctx.computed_key);
-      tmp_component->local_env.page_tag = xml_root.attribute("page").as_string("");
+      tmp_component->local_env.ctx.page_tag = xml_root.attribute("page").as_string("");
     }
   }
   else base = caller_ui_node;
@@ -509,7 +509,7 @@ void ui_tree_xml::_build_base_widget_extended_attr(const pugi::xml_node &root, u
                 auto tmp = std::make_shared<cache::script_t>(cache::script_t{
                   compiler, symbols, frame_mode_t::LUA
                 });
-                globals->mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::JS);
+                globals->mem_storage.fetch_from_shared({this->fullname.as_string().c_str(),local_unique_counter+1,cache::resource_t::SCRIPT,false,false}, tmp, res::script_t::LUA);
                 local_unique_counter++;
               }
             }

@@ -1,6 +1,7 @@
 #pragma once
 //Very similar to the key/value storage, it is designed to keep blobs of remote resources to avoid wasting time.
 
+#include "app.hpp"
 #include "commons.hpp"
 //Resource key/value storage. Each app class has its own.
 
@@ -17,9 +18,9 @@ namespace vs{
 namespace cache{
 
 struct res_storage_t{
-    buffer_t get(const cache::ctx_t& ctx, const char* src);
-    bool set(const cache::ctx_t& ctx, const char* src, buffer_t value, int lifetime=-1);
-    bool reset(const cache::ctx_t& ctx, const char* key);
+    buffer_t get(const app_ctx_t& ctx, const char* src);
+    bool set(const app_ctx_t& ctx, const char* src, buffer_t value, int lifetime=-1);
+    bool reset(const app_ctx_t& ctx, const char* key);
 };
 
 }

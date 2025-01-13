@@ -15,7 +15,6 @@
 #include <iostream>
 #include <filesystem>
 
-#include <utils/env.hpp>
 #include <loader.hpp>
 #include <themes/default-cute.hpp>
 #include <globals.hpp>

@@ -1,5 +1,4 @@
 #pragma once
-#include "utils/app-env.hpp"
 #include <pugixml.hpp>
 #include <utils/paths.hpp>
 #include <globals.hpp>

@@ -78,7 +78,7 @@ class tcc{
 
 
 
-    static std::optional<std::unique_ptr<tcc>> gen_component(const char* source){
+    /*static std::optional<std::unique_ptr<tcc>> gen_component(const char* source){
         std::unique_ptr<tcc> compileA{new tcc()};
         compileA->set_opts("-nostdlib");
         compileA->add_sysinclude_path("./subprojects/libtcc/include/");
@@ -86,7 +86,7 @@ class tcc{
         if(compileA->compile_str(source)!=0)return {};
         compileA->relocate();
         return std::move(compileA);
-    }
+    }*/
 };
 
 #endif
