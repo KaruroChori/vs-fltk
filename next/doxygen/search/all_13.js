@@ -13,9 +13,8 @@ var searchData=
   ['storage_5ft_10',['storage_t',['../unionvs_1_1field__t_1_1storage__t.html',1,'vs::field_t']]],
   ['store_5ffrom_5fdata_11',['store_from_data',['../structvs_1_1field__t.html#a6a51771665eb9c794d5477a9b622b4bb',1,'vs::field_t']]],
   ['store_5ffrom_5ffield_12',['store_from_field',['../structvs_1_1field__t.html#a4dce5d92822f22ea59f8796b10f4631a',1,'vs::field_t']]],
-  ['string_5fkey_5ft_13',['string_key_t',['../structstring__key__t.html',1,'']]],
-  ['string_5fview_14',['string_view',['../structstring__view.html',1,'']]],
-  ['symbol_5fret_5ft_15',['symbol_ret_t',['../structvs_1_1symbol__ret__t.html',1,'vs::symbol_ret_t'],['../structsymbol__ret__t.html',1,'symbol_ret_t']]],
-  ['symbol_5ft_16',['symbol_t',['../structvs_1_1symbol__t.html',1,'vs']]],
-  ['symbols_17',['symbols',['../structvs_1_1cache_1_1script__t.html#ab58991c16eabe670e9803a8399e794d1',1,'vs::cache::script_t']]]
+  ['string_5fview_13',['string_view',['../structstring__view.html',1,'']]],
+  ['symbol_5fret_5ft_14',['symbol_ret_t',['../structvs_1_1symbol__ret__t.html',1,'vs::symbol_ret_t'],['../structsymbol__ret__t.html',1,'symbol_ret_t']]],
+  ['symbol_5ft_15',['symbol_t',['../structvs_1_1symbol__t.html',1,'vs']]],
+  ['symbols_16',['symbols',['../structvs_1_1cache_1_1script__t.html#ab58991c16eabe670e9803a8399e794d1',1,'vs::cache::script_t']]]
 ];

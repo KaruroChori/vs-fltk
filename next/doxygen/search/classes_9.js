@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['js_5frt_5ft_0',['js_rt_t',['../structvs_1_1js__rt__t.html',1,'vs']]]
+  ['kv_5fstorage_5ft_0',['kv_storage_t',['../structvs_1_1cache_1_1kv__storage__t.html',1,'vs::cache']]]
 ];
