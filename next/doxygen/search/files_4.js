@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ui_2dfields_2ehpp_0',['ui-fields.hpp',['../ui-fields_8hpp.html',1,'']]]
+  ['vs_2eh_0',['vs.h',['../bindings_2native_2include_2vs_8h.html',1,'(Global Namespace)'],['../include_2cbindings_2vs_8h.html',1,'(Global Namespace)']]]
 ];
