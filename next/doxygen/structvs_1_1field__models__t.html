@@ -100,31 +100,32 @@ Public Types</h2></td></tr>
 , <b>ENUM</b>
 , <b>RAW</b>
 , <br />
-&#160;&#160;<b>PATH</b>
-, <b>CSTRING</b>
+&#160;&#160;<b>CSTRING</b>
 , <b>STRING_VIEW</b>
 , <b>COLOR</b>
+, <b>ISCALAR_1</b>
 , <br />
-&#160;&#160;<b>ISCALAR_1</b>
-, <b>ISCALAR_2</b>
+&#160;&#160;<b>ISCALAR_2</b>
 , <b>ISCALAR_3</b>
 , <b>ISCALAR_4</b>
+, <b>FSCALAR_1</b>
 , <br />
-&#160;&#160;<b>FSCALAR_1</b>
-, <b>FSCALAR_2</b>
+&#160;&#160;<b>FSCALAR_2</b>
 , <b>FSCALAR_3</b>
 , <b>FSCALAR_4</b>
-, <br />
-&#160;&#160;<b>__LAST</b>
+, <b>__LAST</b>
 <br />
  }</td></tr>
 <tr class="separator:ad4807de34c9a17766bd1d8ec20c6c673"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13e9f37dfcb526e4b9cf43bcfbeafeb1" id="r_a13e9f37dfcb526e4b9cf43bcfbeafeb1"><td class="memItemLeft" align="right" valign="top"><a id="a13e9f37dfcb526e4b9cf43bcfbeafeb1" name="a13e9f37dfcb526e4b9cf43bcfbeafeb1"></a>
-<a class="el" href="structvs_1_1field__model__t.html">field_model_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int i)</td></tr>
-<tr class="separator:a13e9f37dfcb526e4b9cf43bcfbeafeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812dc151fdd925b7c5b1f61f62f5588d" id="r_a812dc151fdd925b7c5b1f61f62f5588d"><td class="memItemLeft" align="right" valign="top"><a id="a812dc151fdd925b7c5b1f61f62f5588d" name="a812dc151fdd925b7c5b1f61f62f5588d"></a>
+field_ret_t&#160;</td><td class="memItemRight" valign="bottom"><b>deserialize</b> (types model, <a class="el" href="structvs_1_1field__t.html">field_t</a> *_dst, const char *src, const <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *env)</td></tr>
+<tr class="separator:a812dc151fdd925b7c5b1f61f62f5588d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35604e83bf096360d7c3a3b76f98cd2f" id="r_a35604e83bf096360d7c3a3b76f98cd2f"><td class="memItemLeft" align="right" valign="top"><a id="a35604e83bf096360d7c3a3b76f98cd2f" name="a35604e83bf096360d7c3a3b76f98cd2f"></a>
+field_ret_t&#160;</td><td class="memItemRight" valign="bottom"><b>serialize</b> (types model, const <a class="el" href="structvs_1_1field__t.html">field_t</a> *_src, const char **dst, const <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *env)</td></tr>
+<tr class="separator:a35604e83bf096360d7c3a3b76f98cd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -132,8 +133,9 @@ Public Attributes</h2></td></tr>
 <a class="el" href="structvs_1_1field__model__t.html">field_model_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>models</b> []</td></tr>
 <tr class="separator:a8059697b8972464901a07bcffa016a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>include/<a class="el" href="ui-fields_8hpp_source.html">ui-fields.hpp</a></li>
+<li>src/<b>ui-fields.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

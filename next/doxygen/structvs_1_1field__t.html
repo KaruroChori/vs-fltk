@@ -105,17 +105,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba0a73128d64a2794b0b4c49e817592b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dce5d92822f22ea59f8796b10f4631a" id="r_a4dce5d92822f22ea59f8796b10f4631a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvs_1_1field__t.html#a4dce5d92822f22ea59f8796b10f4631a">store_from_field</a> (const <a class="el" href="structvs_1_1field__t.html">field_t</a> *src, bool weak=false)</td></tr>
 <tr class="separator:a4dce5d92822f22ea59f8796b10f4631a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a51771665eb9c794d5477a9b622b4bb" id="r_a6a51771665eb9c794d5477a9b622b4bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvs_1_1field__t.html#a6a51771665eb9c794d5477a9b622b4bb">store_from_data</a> (<a class="el" href="unionvs_1_1field__t_1_1storage__t.html">storage_t</a> data, bool weak=false)</td></tr>
-<tr class="separator:a6a51771665eb9c794d5477a9b622b4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d8d577c40c6310b8ea22786ff13eb67" id="r_a6d8d577c40c6310b8ea22786ff13eb67"><td class="memItemLeft" align="right" valign="top"><a id="a6d8d577c40c6310b8ea22786ff13eb67" name="a6d8d577c40c6310b8ea22786ff13eb67"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~field_t</b> ()</td></tr>
 <tr class="memdesc:a6d8d577c40c6310b8ea22786ff13eb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the field object If set for cleanup and of compatible type, raw, cstring or stringview content will be freed. <br /></td></tr>
 <tr class="separator:a6d8d577c40c6310b8ea22786ff13eb67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f46bff4670eb4321f49c057cd3f3c05" id="r_a3f46bff4670eb4321f49c057cd3f3c05"><td class="memItemLeft" align="right" valign="top"><a id="a3f46bff4670eb4321f49c057cd3f3c05" name="a3f46bff4670eb4321f49c057cd3f3c05"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="memdesc:a3f46bff4670eb4321f49c057cd3f3c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset content of the field. To be used for deletions or before setting. <br /></td></tr>
+<tr class="separator:a3f46bff4670eb4321f49c057cd3f3c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6ecc793ccf9e1e74d446414d33da81" id="r_adb6ecc793ccf9e1e74d446414d33da81"><td class="memItemLeft" align="right" valign="top"><a id="adb6ecc793ccf9e1e74d446414d33da81" name="adb6ecc793ccf9e1e74d446414d33da81"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> ()</td></tr>
+<tr class="memdesc:adb6ecc793ccf9e1e74d446414d33da81"><td class="mdescLeft">&#160;</td><td class="mdescRight">From a weak to a strong field. Copy data from parent. <br /></td></tr>
+<tr class="separator:adb6ecc793ccf9e1e74d446414d33da81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ba18a43f98ee72dada426b699dfbd6" id="r_af8ba18a43f98ee72dada426b699dfbd6"><td class="memItemLeft" align="right" valign="top"><a id="af8ba18a43f98ee72dada426b699dfbd6" name="af8ba18a43f98ee72dada426b699dfbd6"></a>
+field_ret_t&#160;</td><td class="memItemRight" valign="bottom"><b>from_string</b> (const char *str, const <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *env=nullptr)</td></tr>
+<tr class="separator:af8ba18a43f98ee72dada426b699dfbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bce0102de915fffb94a94a8c7a858df" id="r_a5bce0102de915fffb94a94a8c7a858df"><td class="memItemLeft" align="right" valign="top"><a id="a5bce0102de915fffb94a94a8c7a858df" name="a5bce0102de915fffb94a94a8c7a858df"></a>
+field_ret_t&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (const char **str, const <a class="el" href="classvs_1_1ui__base.html">ui_base</a> *env=nullptr)</td></tr>
+<tr class="separator:a5bce0102de915fffb94a94a8c7a858df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab5e67b60d9a3c33c124c982c3151d862" id="r_ab5e67b60d9a3c33c124c982c3151d862"><td class="memItemLeft" align="right" valign="top"><a id="ab5e67b60d9a3c33c124c982c3151d862" name="ab5e67b60d9a3c33c124c982c3151d862"></a>
-field_models_t::types&#160;</td><td class="memItemRight" valign="bottom"><b>type</b>: sizeof(field_models_t::types)*8-10</td></tr>
+field_models_t::types&#160;</td><td class="memItemRight" valign="bottom"><b>type</b>: sizeof(field_models_t::types)*8-11</td></tr>
 <tr class="separator:ab5e67b60d9a3c33c124c982c3151d862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf6b1dfaad95c64533e60dfe80f13e60" id="r_acf6b1dfaad95c64533e60dfe80f13e60"><td class="memItemLeft" align="right" valign="top"><a id="acf6b1dfaad95c64533e60dfe80f13e60" name="acf6b1dfaad95c64533e60dfe80f13e60"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b>: 1</td></tr>
@@ -125,6 +137,10 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b>: 1</td>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>need_cleanup</b>: 1</td></tr>
 <tr class="memdesc:a7a7b013abe1f92d439a610828bb010f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, the embedded script must handle the cleanup of this field when out of scope. If false ownership is externally handled by the engine. <br /></td></tr>
 <tr class="separator:a7a7b013abe1f92d439a610828bb010f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bd498e95b565ad920cae961df6aef2" id="r_a76bd498e95b565ad920cae961df6aef2"><td class="memItemLeft" align="right" valign="top"><a id="a76bd498e95b565ad920cae961df6aef2" name="a76bd498e95b565ad920cae961df6aef2"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>is_inline</b>: 1</td></tr>
+<tr class="memdesc:a76bd498e95b565ad920cae961df6aef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not implemented for not. Later, if set for raw or cstring it will allow elements up to 16 bytes to be stored directly in <code>storage</code> <br /></td></tr>
+<tr class="separator:a76bd498e95b565ad920cae961df6aef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21b7f9271bdcbe610c89e1b2a9102a77" id="r_a21b7f9271bdcbe610c89e1b2a9102a77"><td class="memItemLeft" align="right" valign="top"><a id="a21b7f9271bdcbe610c89e1b2a9102a77" name="a21b7f9271bdcbe610c89e1b2a9102a77"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>subtype</b>: 8</td></tr>
 <tr class="separator:a21b7f9271bdcbe610c89e1b2a9102a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,42 +203,6 @@ static constexpr void *(*&#160;</td><td class="memItemRight" valign="bottom"><b>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6a51771665eb9c794d5477a9b622b4bb" name="a6a51771665eb9c794d5477a9b622b4bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a51771665eb9c794d5477a9b622b4bb">&#9670;&#160;</a></span>store_from_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int vs::field_t::store_from_data </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="unionvs_1_1field__t_1_1storage__t.html">storage_t</a>&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>weak</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">src</td><td>the source field to use to copy data from </td></tr>
-    <tr><td class="paramname">weak</td><td>if data should be copied weakly. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int 0 if all fine, else error codes </dd></dl>
-
-</div>
-</div>
 <a id="a4dce5d92822f22ea59f8796b10f4631a" name="a4dce5d92822f22ea59f8796b10f4631a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4dce5d92822f22ea59f8796b10f4631a">&#9670;&#160;</a></span>store_from_field()</h2>
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['store_5ffrom_5fdata_0',['store_from_data',['../structvs_1_1field__t.html#a6a51771665eb9c794d5477a9b622b4bb',1,'vs::field_t']]],
-  ['store_5ffrom_5ffield_1',['store_from_field',['../structvs_1_1field__t.html#a4dce5d92822f22ea59f8796b10f4631a',1,'vs::field_t']]]
+  ['reset_0',['reset',['../structvs_1_1field__t.html#a3f46bff4670eb4321f49c057cd3f3c05',1,'vs::field_t']]],
+  ['run_1',['run',['../structvs_1_1loader__t.html#a0bef58ba0662f38217ea0c4235a8e8f2',1,'vs::loader_t']]]
 ];

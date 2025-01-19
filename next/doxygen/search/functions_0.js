@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['field_5ft_0',['field_t',['../structvs_1_1field__t.html#aba0a73128d64a2794b0b4c49e817592b',1,'vs::field_t']]]
+  ['copy_0',['copy',['../structvs_1_1field__t.html#adb6ecc793ccf9e1e74d446414d33da81',1,'vs::field_t']]]
 ];
