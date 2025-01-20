@@ -251,10 +251,12 @@ This can be good to meet specific safety targets by removing some available opti
 <p>Builds distributed from this repository are based on the default options unless explicitly specified.</p>
 <h2 id="building-requirements">Building requirements<a class="headerlink" href="#building-requirements" title="Permanent link">#</a></h2>
 <p>You will need a proper Linux environment, with a modern C++ toolchain installed.<br />
-Specifically, I suggest <code>clang-19</code> or higher, as this repo is using modern C23 features like <code>#embed</code> to make everyone&rsquo;s (my) life a bit easier.
-In addition to that, this repo makes use of:</p>
+Specifically, I suggest <code>clang-19</code> or higher, as this repo is using modern C23 features like <code>#embed</code> to make everyone&rsquo;s (my) life a bit easier.<br />
+Also, this project will make use of features from older standards which have not been integrated in the C++ runtime up <a href="https://github.com/lazy-eggplant/vs.templ/issues/17">until very recently</a>.<br />
+This might require very modern versions of your toolchains.</p>
+<p>In addition to that, this repo makes use of:</p>
 <ul>
-<li><a href="https://mesonbuild.com/">meson</a> as its main build system. Any recent-ish version will do (unless you want <code>zig</code> to simplify cross-compiling; for that, &gt;= 1.60 is needed)</li>
+<li><a href="https://mesonbuild.com/">meson</a> as its main build system (alternatives like muon/samurai should be also usable but untested). Any recent-ish version will do (unless you want <code>zig</code> to simplify cross-compiling; for that, &gt;= 1.60 is needed)</li>
 <li><a href="https://bun.sh/">bun</a> as the ts/js runtime to support all the code generation tasks and some of the more complex pipelines.<br />
    I hate bash, and this is what replaces it for any complex task.</li>
 <li><a href="https://www.swift.org/documentation/swift-compiler/">swiftc</a> barely used for now, but many of the native components shipped within <code>vs</code> will be written in swift (or so I am planning). Version 6 or higher is needed.</li>
