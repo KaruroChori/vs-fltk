@@ -1284,9 +1284,10 @@ It lacks the ability to properly describe information about it and its distribut
 Also, it forces the distribution of an application in multiple files, which might not always be desirable.<br />
 Even less so if the plan is to distribute them as single executables at some point.<br />
 So&hellip;</p>
-<pre><code class="language-xml">&lt;package circuit=&quot;vs.fltk&quot; name=&quot;...&quot; type=&quot;app&quot; version=&quot;&quot;&gt; &lt;!-- types can be app/lib/patch/data for now --&gt;
+<pre><code class="language-xml">&lt;package framework=&quot;vs.fltk&quot; name=&quot;...&quot; origin=&quot;url&quot; type=&quot;app&quot; version=&quot;&quot;&gt; &lt;!-- types can be app/lib/patch/data for now --&gt;
+    &lt;!-- Strings for internationalization --&gt;
     &lt;i18n src=&quot;...&quot; default=&quot;en-uk&quot;&gt;
-        &lt;!--This part is very limited and only related to the file itself. It is not i18n for the underlying app--&gt;
+        &lt;!--This part is very limited and only related to this specific file--&gt;
         &lt;entry tag=&quot;...&quot; desc=&quot;...&quot;&gt;
             &lt;locale lang=&quot;en&quot; country=&quot;uk&quot;&gt;...&lt;/locale&gt;
         &lt;/entry&gt;
@@ -1307,6 +1308,9 @@ So&hellip;</p>
         &lt;/links&gt;
         &lt;signature authority=&quot;...&quot; value=&quot;...&quot;/&gt;
         &lt;package-id&gt;...&lt;/package-id&gt;
+        &lt;icon&gt;&lt;/icon&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;repo ref=&quot;...&quot;/&gt;
     &lt;/metadata&gt;
 
     &lt;link-with&gt;
