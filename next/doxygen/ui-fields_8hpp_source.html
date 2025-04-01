@@ -110,21 +110,21 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structvs_1_1field__enums__t.html">   35</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvs_1_1field__enums__t.html">field_enums_t</a>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="structvs_1_1field__enum__t.html">field_enum_t</a> enums[];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structvs_1_1field__enum__t.html">field_enum_t</a> operator[](<span class="keywordtype">int</span> i ){</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <span class="keywordflow">if</span>(i&lt;__LAST &amp;&amp; i&gt;__FIRST)<span class="keywordflow">return</span> enums[i];</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      <span class="comment">/*Unrecognized field model*/</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <span class="keywordflow">throw</span> <span class="stringliteral">&quot;Not implemented&quot;</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">enum</span> types{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        __FIRST,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        ALIGN_POSITION, ALIGN_IMAGE, ALIGN_WRAP, ALIGN_CLIP, ALIGN_INSIDE, </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        FONT, </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        BOXTYPE, </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        FLEX_LAYOUT,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        __LAST</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">enum</span> types{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      __FIRST,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      ALIGN_POSITION, ALIGN_IMAGE, ALIGN_WRAP, ALIGN_CLIP, ALIGN_INSIDE, </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      FONT, </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      BOXTYPE, </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      FLEX_LAYOUT,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      __LAST</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    };</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_struct" href="structvs_1_1field__enum__t.html">field_enum_t</a> enums[__LAST];</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structvs_1_1field__enum__t.html">field_enum_t</a> operator[](<span class="keywordtype">int</span> i ){</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      <span class="keywordflow">if</span>(i&lt;__LAST &amp;&amp; i&gt;__FIRST)<span class="keywordflow">return</span> enums[i];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      <span class="comment">/*Unrecognized field model*/</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      <span class="keywordflow">throw</span> <span class="stringliteral">&quot;Not implemented&quot;</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
@@ -139,21 +139,21 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structvs_1_1field__models__t.html">   61</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvs_1_1field__models__t.html">field_models_t</a>{</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_struct" href="structvs_1_1field__model__t.html">field_model_t</a> models[];</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">enum</span> types{</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        __FIRST, </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        FLAG, </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        ENUM, </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        RAW, </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="comment">//PATH, //TODO: this was defined but never later used. I need to check in specs if this had any meaning or if it was just a mistake left in there</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        CSTRING, </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        STRING_VIEW, </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        COLOR,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        ISCALAR_1, ISCALAR_2, ISCALAR_3, ISCALAR_4,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        FSCALAR_1, FSCALAR_2, FSCALAR_3, FSCALAR_4,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        __LAST</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">enum</span> types{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      __FIRST, </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      FLAG, </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      ENUM, </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      RAW, </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      <span class="comment">//PATH, //TODO: this was defined but never later used. I need to check in specs if this had any meaning or if it was just a mistake left in there</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      CSTRING, </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      STRING_VIEW, </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      COLOR,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      ISCALAR_1, ISCALAR_2, ISCALAR_3, ISCALAR_4,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      FSCALAR_1, FSCALAR_2, FSCALAR_3, FSCALAR_4,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      __LAST</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_struct" href="structvs_1_1field__model__t.html">field_model_t</a> models[__LAST];</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    field_ret_t deserialize(types model, <a class="code hl_struct" href="structvs_1_1field__t.html">field_t</a>* _dst, <span class="keyword">const</span> <span class="keywordtype">char</span>* src, <span class="keyword">const</span> <a class="code hl_class" href="classvs_1_1ui__base.html">ui_base</a>* env);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    field_ret_t serialize(types model, <span class="keyword">const</span> <a class="code hl_struct" href="structvs_1_1field__t.html">field_t</a>* _src, <span class="keyword">const</span> <span class="keywordtype">char</span>**  dst, <span class="keyword">const</span> <a class="code hl_class" href="classvs_1_1ui__base.html">ui_base</a>* env);</div>
