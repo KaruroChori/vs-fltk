@@ -1,15 +1,26 @@
 project(
     'vs-fltk',
     ['c', 'cpp'],
-    #<inject-version>
-    version: '0.1.2-alpha',
-    #</inject-version>
+    version: files('version.txt'),
     meson_version: '>= 1.1',
     default_options: [
         'c_std=gnu23',
         'cpp_std=gnu++23',
     ],
 )
+
+version_components = meson.project_version().split('.')
+major_version = version_components[0]
+minor_version = version_components[1]
+rev_version = version_components[2]
+
+conf = configuration_data()
+conf.set('VSFLTK_VERSION_MAJOR', major_version)
+conf.set('VSFLTK_VERSION_MINOR', minor_version)
+conf.set('VSFLTK_VERSION_REV', rev_version)
+conf.set_quoted('VSFLTK_VERSION', major_version + '.' + minor_version + '.' + rev_version)
+config_h = configure_file(output : 'config.h', configuration : conf)
+
 cmake = import('cmake')
 
 cc = meson.get_compiler('c')

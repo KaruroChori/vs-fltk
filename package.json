@@ -4,7 +4,8 @@
   "version": "0.1.2-alpha",
   "license": "UNLICENSED",
   "scripts": {
-    "codegen": "bun ./scripts/codegen/index.ts",
+    "version": "jq -r '.version' package.json > version.txt",
+    "codegen": "bun version && bun ./scripts/codegen/index.ts",
     "codegen.quick": "bun ./scripts/codegen/index.ts quick",
     "meson-devenv": "meson devenv -C build",
     "meson-setup.release": "meson setup --prefix=/usr -Db_lto=true -Db_thinlto_cache=true --reconfigure build/ --buildtype=release",
