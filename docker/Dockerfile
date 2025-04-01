@@ -6,10 +6,10 @@ ENV DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 RUN \
     apt update && apt upgrade -y && \
     apt install -y curl && \
-    curl -s https://archive.swiftlang.xyz/install.sh | bash && \
+    apt install -y wget gpg gnupg lsb-release &&\
+    wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh 20 &&\
     apt install -y \
         ca-certificates \
-        clang-19 \
         cmake \
         freeglut3-dev \
         git \
@@ -20,7 +20,6 @@ RUN \
         meson \
         pkg-config \
         sudo \
-        swiftlang \
         unzip \
         wget
 
