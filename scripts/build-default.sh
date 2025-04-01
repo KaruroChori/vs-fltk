@@ -14,7 +14,7 @@ set -v
 if [ "CI" != "true" ]; then
   # Update subprojects no more than every 7 days, or force with '-f'
   CHECK_DATE_FILE="subprojects/.check-date"
-  CURRENT_DAY=$(date +%j) # Day of the year (001-366)
+  CURRENT_DAY=$(date +%j | awk '{print int($1)}') # Day of the year (001-366)
 
   if [ "$1" = "-f" ]; then
     echo "Force update requested. Performing subproject update..."
@@ -22,7 +22,7 @@ if [ "CI" != "true" ]; then
     echo "$CURRENT_DAY" > "$CHECK_DATE_FILE"
   else
     if [ -f "$CHECK_DATE_FILE" ]; then
-      LAST_CHECK_DAY=$(cat "$CHECK_DATE_FILE")
+      LAST_CHECK_DAY=$(awk '{print int($1)}' "$CHECK_DATE_FILE")
       DAYS_DIFF=$((CURRENT_DAY - LAST_CHECK_DAY))
 
       # Account for year rollover
