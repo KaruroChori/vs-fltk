@@ -22,17 +22,17 @@ executable(
     install: false,
 )
 
-executable(
-    'riscv',
-    ['./riscv.cpp'],
-    dependencies: [
-        pugixml_dep, 
-        riscv_dep, 
-        #libtcc_rv64_dep
-    ],
-    override_options: ['c_std=c23', 'cpp_std=c++20'],
-    install: false,
-)
+#executable(
+#    'riscv',
+#    ['./riscv.cpp'],
+#    dependencies: [
+#        pugixml_dep, 
+#        riscv_dep, 
+#        #libtcc_rv64_dep
+#    ],
+#    override_options: ['c_std=c23', 'cpp_std=c++20'],
+#    install: false,
+#)
 
 executable(
     'parse-elf',
