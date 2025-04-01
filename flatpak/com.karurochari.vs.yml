@@ -3,11 +3,11 @@ runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - "org.freedesktop.Sdk.Extension.llvm19"
   - "org.freedesktop.Sdk.Extension.swift6"
+  - "org.freedesktop.Sdk.Extension.llvm20"
 build-options:
-  append-path: "/usr/lib/sdk/llvm19/bin:/usr/lib/sdk/swift6/bin"
-  prepend-ld-library-path: "/usr/lib/sdk/llvm19/lib:/usr/lib/sdk/swift6/lib"
+  append-path: "/usr/lib/sdk/swift6/bin:/usr/lib/sdk/llvm20/bin"
+  prepend-ld-library-path: "/usr/lib/sdk/swift6/lib:/usr/lib/sdk/llvm20/lib"
 command: vs
 modules:
   - shared-modules/glu/glu-9.json
