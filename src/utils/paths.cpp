@@ -56,11 +56,20 @@ std::pair<bool, std::string> resolve_path::normalizer(const char *parent, const 
     memset(ret+parent_len,0,child_len+1);
     memcpy(ret,parent,parent_len);
     int ptr = parent_len;
-    
+
     for(int j=0; j<child_len; ){
         if(tkn(child+j,"../")){
             //Go back to the past /
             if(ptr<=1)return {false, ""}; //Early failure, cannot track back.
+            if (j > 0) {
+                if (child[j-1] != '/') {
+                    uint8_t i = 0;
+                    for(;i<=sizeof "../";i++) {
+                        ret[ptr++] = child[j++];
+                    }
+                    continue;
+                }
+            }
             ptr-=2;
             for(;ret[ptr]!='/';ptr--);
             j+=3;
@@ -72,23 +81,16 @@ std::pair<bool, std::string> resolve_path::normalizer(const char *parent, const 
             j+=2;   //Just skip this.
             continue;
         }
-        else if(child[j]=='/' && child[j+1]=='/'){
+        else if(child[j]=='/' && j!=child_len-1){
             j++;
-            continue;
-        }
-        else if(child[j]=='/'){
-            j++;
+            ret[ptr]='/';
+            ptr++;
         }
         else{
             ret[ptr]=child[j];
             ptr++;
             j++;
             continue;
-        }
-
-        if(j!=child_len){
-            ret[ptr]='/';
-            ptr++;
         }
     }
 
