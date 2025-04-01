@@ -1,6 +1,6 @@
 project(
     'vs-fltk',
-    ['c', 'cpp', 'swift'],
+    ['c', 'cpp'],
     #<inject-version>
     version: '0.1.2-alpha',
     #</inject-version>
@@ -157,21 +157,15 @@ if get_option('use_riscv_vm')
 
 endif
 
-if get_option('use_quickjs')
-    opt_quickjs = cmake.subproject_options()
-    opt_quickjs.add_cmake_defines(
-        {
-            'CMAKE_POSITION_INDEPENDENT_CODE': true,
-            'CMAKE_INSTALL_LIBDIR': get_option('libdir'),
-        },
-    )
 
-    quickjs_proj = cmake.subproject('quickjs', options: opt_quickjs)
-    quickjs_dep = quickjs_proj.dependency('qjs')
+
+if get_option('use_quickjs')
+    quickjs_proj = subproject('quickjs')
+    quickjs_dep = quickjs_proj.get_variable('qjs_dep')
 
     vs_fltk_deps += quickjs_dep
-
 endif
+
 
 if get_option('use_tcc')
     libtcc_proj = subproject('libtcc')
@@ -369,14 +363,6 @@ executable(
     override_options: ['c_std=gnuc23', 'cpp_std=gnu++23'],
     install: true,
     #install_rpath: ''
-)
-
-executable(
-    'swift_vs',
-    [
-        './src/swift-app/app.swift',
-    ],
-    dependencies: [vs_fltk_dep],
 )
 
 subdir(['./experiments/'])

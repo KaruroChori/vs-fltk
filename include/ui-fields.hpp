@@ -33,21 +33,21 @@ enum struct field_ret_t{
 };
 
 struct field_enums_t{
-    field_enum_t enums[];
+    enum types{
+      __FIRST,
+      ALIGN_POSITION, ALIGN_IMAGE, ALIGN_WRAP, ALIGN_CLIP, ALIGN_INSIDE, 
+      FONT, 
+      BOXTYPE, 
+      FLEX_LAYOUT,
+      __LAST
+    };
+
+    field_enum_t enums[__LAST];
 
     inline field_enum_t operator[](int i ){
       if(i<__LAST && i>__FIRST)return enums[i];
       /*Unrecognized field model*/
       throw "Not implemented";
-    };
-
-    enum types{
-        __FIRST,
-        ALIGN_POSITION, ALIGN_IMAGE, ALIGN_WRAP, ALIGN_CLIP, ALIGN_INSIDE, 
-        FONT, 
-        BOXTYPE, 
-        FLEX_LAYOUT,
-        __LAST
     };
 };
 
@@ -59,21 +59,21 @@ struct field_model_t{
 };
 
 struct field_models_t{
-    field_model_t models[];
-
     enum types{
-        __FIRST, 
-        FLAG, 
-        ENUM, 
-        RAW, 
-        //PATH, //TODO: this was defined but never later used. I need to check in specs if this had any meaning or if it was just a mistake left in there
-        CSTRING, 
-        STRING_VIEW, 
-        COLOR,
-        ISCALAR_1, ISCALAR_2, ISCALAR_3, ISCALAR_4,
-        FSCALAR_1, FSCALAR_2, FSCALAR_3, FSCALAR_4,
-        __LAST
+      __FIRST, 
+      FLAG, 
+      ENUM, 
+      RAW, 
+      //PATH, //TODO: this was defined but never later used. I need to check in specs if this had any meaning or if it was just a mistake left in there
+      CSTRING, 
+      STRING_VIEW, 
+      COLOR,
+      ISCALAR_1, ISCALAR_2, ISCALAR_3, ISCALAR_4,
+      FSCALAR_1, FSCALAR_2, FSCALAR_3, FSCALAR_4,
+      __LAST
     };
+
+    field_model_t models[__LAST];
 
     field_ret_t deserialize(types model, field_t* _dst, const char* src, const ui_base* env);
     field_ret_t serialize(types model, const field_t* _src, const char**  dst, const ui_base* env);

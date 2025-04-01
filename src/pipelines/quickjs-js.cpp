@@ -244,7 +244,7 @@ std::shared_ptr<quickjs_t> qjs_js_pipeline(global_ctx_t& globals, bool is_runtim
         auto result = JS_Eval(ctx, prefix, sizeof(prefix)-1, "<input>", JS_EVAL_TYPE_GLOBAL);
         if (JS_IsException(result)) {
             JSValue exception = JS_GetException(ctx);
-            JS_BOOL is_error = JS_IsError(ctx, exception);
+            bool is_error = JS_IsError(ctx, exception);
             dump_value_to_stream(ctx, exception, error_fn, nctx);
             if (is_error) {
                 JSValue stack = JS_GetPropertyStr(ctx, exception, "stack");
@@ -264,7 +264,7 @@ std::shared_ptr<quickjs_t> qjs_js_pipeline(global_ctx_t& globals, bool is_runtim
         auto result = JS_Eval(ctx, src, strlen(src), "<input>", JS_EVAL_TYPE_GLOBAL);
         if (JS_IsException(result)) {
             JSValue exception = JS_GetException(ctx);
-            JS_BOOL is_error = JS_IsError(ctx, exception);
+            bool is_error = JS_IsError(ctx, exception);
             dump_value_to_stream(ctx, exception, error_fn, nctx);
             if (is_error) {
                 JSValue stack = JS_GetPropertyStr(ctx, exception, "stack");
