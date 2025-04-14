@@ -59,7 +59,9 @@ jobs:
           chmod +x llvm.sh
           sudo ./llvm.sh 20 # install clang-20
       - name: Configure and build
-        run: scripts/build-default.sh
+        run: |
+          scripts/build-default.sh
+          bun run test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         if: failure()
@@ -96,7 +98,9 @@ jobs:
           echo "PATH=$PATH" >> $GITHUB_ENV
 
       - name: Configure and build
-        run: scripts/build-default.sh
+        run: |
+          scripts/build-default.sh
+          bun run test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         if: failure()
