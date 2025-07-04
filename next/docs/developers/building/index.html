@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1652,8 +1652,8 @@
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>It was decided that distribution &amp; building will be split.<br />
- Distribution is to be handled <a href="https://github.com/lazy-eggplant/vs.autobuilds">here</a>, while everything build-related stays.<br />
- Docker images are excluded, as they are meant for developers of <code>vs</code>, not distribution of the final runtime.</p>
+Distribution is to be handled <a href="https://github.com/lazy-eggplant/vs.autobuilds">here</a>, while everything build-related stays.<br />
+Docker images are excluded, as they are meant for developers of <code>vs</code>, not distribution of the final runtime.</p>
 </div>
 <h2 id="supported-platforms">Supported platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">#</a></h2>
 <p>At the moment, only Linux is supported for building and running <code>vs</code> as its primary target.<br />
@@ -1763,12 +1763,10 @@ On debian-like systems the followings are needed:</p>
 <h3 id="additional-documentation">Additional documentation<a class="headerlink" href="#additional-documentation" title="Permanent link">#</a></h3>
 <p>To generate the additional documentation for distribution and consumption:</p>
 <ul>
-<li><a href="https://www.mkdocs.org/">mkdocs</a> and several packages for themes and extensions.<ul>
+<li><a href="https://www.mkdocs.org/">mkdocs</a> and several packages for themes and extensions.</li>
 <li><code>mkdocs</code></li>
 <li><code>mkdocs-github-admonitions-plugin</code></li>
 <li>more to be documented</li>
-</ul>
-</li>
 <li><a href="https://www.doxygen.nl/">doxygen</a> for documentation generated from the code itself.</li>
 </ul>
 <h3 id="ide-integrations">IDE integrations<a class="headerlink" href="#ide-integrations" title="Permanent link">#</a></h3>
@@ -1782,32 +1780,32 @@ In the same repo there is also a vscode client extension.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This project uses meson, so there are no git submodules for the most part.
- One exception is made for <code>flatpak-builder</code> to be usable, but it is being deprecated.<br />
- If you plan on using it to generate new flatpak images, please ensure submodules are also cloned with the rest of the repository.</p>
+One exception is made for <code>flatpak-builder</code> to be usable, but it is being deprecated.<br />
+If you plan on using it to generate new flatpak images, please ensure submodules are also cloned with the rest of the repository.</p>
 </div>
 <p>Start by installing all the <code>bun</code> dependencies needed:</p>
-<pre><code class="language-bash">bun install
-</code></pre>
+<div class="highlight"><pre><span></span><code>bun<span class="w"> </span>install
+</code></pre></div>
 <p>Then run the following NPM scripts:</p>
-<pre><code class="language-bash">bun run codegen                     #Initial codegen from schemas
-bun run meson-setup.release         #Set up the meson build directory.
-bun run meson-build                 #Build everything!
-</code></pre>
+<div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>codegen<span class="w">                     </span><span class="c1">#Initial codegen from schemas</span>
+bun<span class="w"> </span>run<span class="w"> </span>meson-setup.release<span class="w">         </span><span class="c1">#Set up the meson build directory.</span>
+bun<span class="w"> </span>run<span class="w"> </span>meson-build<span class="w">                 </span><span class="c1">#Build everything!</span>
+</code></pre></div>
 <p>You might want to use <code>meson-setup.clang-release</code> to use clang-19 if found on your system, and your default compiler or choice might not support some modern functions used in this project.</p>
 <p>To perform tests and benchmarks:</p>
-<pre><code class="language-bash">bun run test
-bun run benchmark
-</code></pre>
+<div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
+bun<span class="w"> </span>run<span class="w"> </span>benchmark
+</code></pre></div>
 <p>To run the dev demo where features under development are usually being tested:</p>
-<pre><code class="language-bash">bun run vs.example
-</code></pre>
+<div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>vs.example
+</code></pre></div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Don&rsquo;t install it via <code>meson install ...</code> without a custom <code>DESTDIR</code> set, as shown by its wrapper in <code>package.json</code> script.<br />
- Some library names will most surely clash with those already installed on your system, and will be overridden.<br />
- Or future system updates might break <code>vs</code>.<br />
- Also consider https://github.com/KaruroChori/vs-fltk/issues/3 and its impact.<br />
+Some library names will most surely clash with those already installed on your system, and will be overridden.<br />
+Or future system updates might break <code>vs</code>.<br />
+Also consider https://github.com/KaruroChori/vs-fltk/issues/3 and its impact.<br />
 <code>vs.fltk</code> is using very recent versions which have not been rolled out yet in most distribution. Or even worse, custom forks.</p>
 </div>
 <p><code>bun run meson-install</code> is now implemented &amp; tested. By default, it installs everything in <code>./build/dist</code>.</p>
@@ -1819,20 +1817,20 @@ bun run benchmark
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need a modern version of <code>flatpak-builder</code> to be installed.<br />
- Some EOL or LTS will not ship with one. Anything &gt; 1.4 should be ok.<br />
- Also, make sure your runtime is not using a cmake version in $[3.31.0,3.31.2)$.<br />
- A regression later fixed prevents building cmake via meson. Tracked <a href="https://github.com/KaruroChori/vs-fltk/issues/46">here</a>.</p>
+Some EOL or LTS will not ship with one. Anything &gt; 1.4 should be ok.<br />
+Also, make sure your runtime is not using a cmake version in $[3.31.0,3.31.2)$.<br />
+A regression later fixed prevents building cmake via meson. Tracked <a href="https://github.com/KaruroChori/vs-fltk/issues/46">here</a>.</p>
 </div>
 <p>Flatpak is not really the ideal approach to deliver <code>vs</code> due to the intrinsic cost of having a separate runtime already installed on each system.<br />
 Also, its sandboxing &amp; permission system might raise some issues (but also help to mitigate the current lack of safety features).<br />
 Still, it is good to support it at these early stages, since many libraries &amp; build dependencies are bleeding-edge, and other forms of distribution are not as convenient.</p>
-<pre><code class="language-sh">flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-</code></pre>
+<div class="highlight"><pre><span></span><code>flatpak<span class="w"> </span>--user<span class="w"> </span>remote-add<span class="w"> </span>--if-not-exists<span class="w"> </span>flathub<span class="w"> </span>https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></div>
 <p>if you never configured <code>--user</code> on your system.<br />
 Then</p>
-<pre><code class="language-sh">bun run codegen           #If not run already
-bun run flatpak-builder
-</code></pre>
+<div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>codegen<span class="w">           </span><span class="c1">#If not run already</span>
+bun<span class="w"> </span>run<span class="w"> </span>flatpak-builder
+</code></pre></div>
 
 
 
@@ -1884,7 +1882,7 @@ bun run flatpak-builder
       <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1379,52 +1379,52 @@ It lacks the ability to properly describe information about it and its distribut
 Also, it forces the distribution of an application in multiple files, which might not always be desirable.<br />
 Even less so if the plan is to distribute them as single executables at some point.<br />
 So&hellip;</p>
-<pre><code class="language-xml">&lt;package framework=&quot;vs.fltk&quot; name=&quot;...&quot; origin=&quot;url&quot; type=&quot;app&quot; version=&quot;&quot;&gt; &lt;!-- types can be app/lib/patch/data for now --&gt;
-    &lt;!-- Strings for internationalization --&gt;
-    &lt;i18n src=&quot;...&quot; default=&quot;en-uk&quot;&gt;
-        &lt;!--This part is very limited and only related to this specific file--&gt;
-        &lt;entry tag=&quot;...&quot; desc=&quot;...&quot;&gt;
-            &lt;locale lang=&quot;en&quot; country=&quot;uk&quot;&gt;...&lt;/locale&gt;
-        &lt;/entry&gt;
-    &lt;/i18n&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;package</span><span class="w"> </span><span class="na">framework=</span><span class="s">&quot;vs.fltk&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">origin=</span><span class="s">&quot;url&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;app&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="w"> </span><span class="cm">&lt;!-- types can be app/lib/patch/data for now --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Strings for internationalization --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;i18n</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;en-uk&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!--This part is very limited and only related to this specific file--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">tag=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">desc=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;locale</span><span class="w"> </span><span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">country=</span><span class="s">&quot;uk&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/locale&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/entry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/i18n&gt;</span>
 
-    &lt;metadata&gt;
-        &lt;authors&gt;
-            &lt;entry src=&quot;...&quot; covers=&quot;&quot; excludes=&quot;&quot;/&gt;
-        &lt;/authors&gt;
-        &lt;licences&gt;
-            &lt;entry src=&quot;...&quot; covers=&quot;&quot; excludes=&quot;&quot;/&gt;
-        &lt;/licences&gt;
-        &lt;changelog&gt;
-            &lt;entry src=&quot;...&quot; version=&quot;&quot;/&gt;
-        &lt;/changelog&gt;
-        &lt;links&gt;
-            &lt;entry ref=&quot;...&quot; label=&quot;...&quot;&gt;
-        &lt;/links&gt;
-        &lt;signature authority=&quot;...&quot; value=&quot;...&quot;/&gt;
-        &lt;package-id&gt;...&lt;/package-id&gt;
-        &lt;icon&gt;&lt;/icon&gt;
-        &lt;description&gt;&lt;/description&gt;
-        &lt;repo ref=&quot;...&quot;/&gt;
-    &lt;/metadata&gt;
+<span class="w">    </span><span class="nt">&lt;metadata&gt;</span>
+<span class="w">        </span><span class="nt">&lt;authors&gt;</span>
+<span class="w">            </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">covers=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">excludes=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/authors&gt;</span>
+<span class="w">        </span><span class="nt">&lt;licences&gt;</span>
+<span class="w">            </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">covers=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">excludes=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/licences&gt;</span>
+<span class="w">        </span><span class="nt">&lt;changelog&gt;</span>
+<span class="w">            </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/changelog&gt;</span>
+<span class="w">        </span><span class="nt">&lt;links&gt;</span>
+<span class="w">            </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/links&gt;</span>
+<span class="w">        </span><span class="nt">&lt;signature</span><span class="w"> </span><span class="na">authority=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package-id&gt;</span>...<span class="nt">&lt;/package-id&gt;</span>
+<span class="w">        </span><span class="nt">&lt;icon&gt;&lt;/icon&gt;</span>
+<span class="w">        </span><span class="nt">&lt;description&gt;&lt;/description&gt;</span>
+<span class="w">        </span><span class="nt">&lt;repo</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/metadata&gt;</span>
 
-    &lt;link-with&gt;
-        &lt;entry src.object=&quot;&quot; src.header=&quot;&quot;/&gt;
-    &lt;/link-with&gt;
+<span class="w">    </span><span class="nt">&lt;link-with&gt;</span>
+<span class="w">        </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">src.object=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">src.header=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/link-with&gt;</span>
 
-    &lt;policies&gt;
-    &lt;/policies&gt;
+<span class="w">    </span><span class="nt">&lt;policies&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/policies&gt;</span>
 
-    &lt;deps&gt;
-        &lt;dep name=&quot;&quot; src=&quot;&quot; version=&quot;&quot; excludes=&quot;&quot; signature=&quot;&quot;/&gt;  &lt;!--body is foldback--&gt;
-        &lt;patch for=&quot;&quot; src=&quot;&quot; signature=&quot;&quot;/&gt; &lt;!--body is foldback--&gt;
-    &lt;/deps&gt;
+<span class="w">    </span><span class="nt">&lt;deps&gt;</span>
+<span class="w">        </span><span class="nt">&lt;dep</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">excludes=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">signature=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!--body is foldback--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;patch</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">signature=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!--body is foldback--&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/deps&gt;</span>
 
-    &lt;entry src=&quot;...&quot;&gt;
-       &lt;!--Alternative if `src` fails or is not specified --&gt;
-    &lt;/entry&gt;
-&lt;/package&gt;
-</code></pre>
+<span class="w">    </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span><span class="nt">&gt;</span>
+<span class="w">       </span><span class="cm">&lt;!--Alternative if `src` fails or is not specified --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/entry&gt;</span>
+<span class="nt">&lt;/package&gt;</span>
+</code></pre></div>
 
 
 
@@ -1476,7 +1476,7 @@ So&hellip;</p>
       <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>

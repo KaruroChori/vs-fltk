@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1440,8 +1440,8 @@
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>This project is very much in its infancy.
- These specs will provide information about features which are yet to be implemented.<br />
- Broadly speaking, they target <strong>at least</strong> <code>v0.5.x</code> from the <a href="./milestones.md">milestone page</a></p>
+These specs will provide information about features which are yet to be implemented.<br />
+Broadly speaking, they target <strong>at least</strong> <code>v0.5.x</code> from the <a href="./milestones.md">milestone page</a></p>
 </div>
 <h1 id="quick-overview">Quick overview<a class="headerlink" href="#quick-overview" title="Permanent link">#</a></h1>
 <p><code>vs</code> is a lightweight runtime to design and run custom user interfaces based on <a href="https://www.fltk.org/">fltk</a>.<br />
@@ -1670,16 +1670,16 @@ Entries inside it will be parsed for documentation, attribution or to provide ve
 </ul>
 <p>There is also <code>vs:viewport</code> which does something similar, but in this case a new root is rendered within your document, with no event or symbol being passed top/down or bottom/up.</p>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
-<pre><code class="language-xml">&lt;vs:component tag.suggested=&quot;component-a&quot;&gt;
-    &lt;vs:import src=&quot;this://component-b.vs&quot; tag=&quot;component-b&quot;/&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;vs:component</span><span class="w"> </span><span class="na">tag.suggested=</span><span class="s">&quot;component-a&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;vs:import</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;this://component-b.vs&quot;</span><span class="w"> </span><span class="na">tag=</span><span class="s">&quot;component-b&quot;</span><span class="nt">/&gt;</span>
 
-    &lt;component-b prop-1=&quot;value-1&quot;/&gt;
-&lt;/vs:component&gt;
-</code></pre>
-<pre><code class="language-xml">&lt;vs:component tag.suggested=&quot;component-a&quot;&gt;
-    &lt;vs:use vs:src=&quot;this://component-b.vs&quot; prop-1=&quot;value-1&quot;/&gt;
-&lt;/vs:component&gt;
-</code></pre>
+<span class="w">    </span><span class="nt">&lt;component-b</span><span class="w"> </span><span class="na">prop-1=</span><span class="s">&quot;value-1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/vs:component&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;vs:component</span><span class="w"> </span><span class="na">tag.suggested=</span><span class="s">&quot;component-a&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;vs:use</span><span class="w"> </span><span class="na">vs:src=</span><span class="s">&quot;this://component-b.vs&quot;</span><span class="w"> </span><span class="na">prop-1=</span><span class="s">&quot;value-1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/vs:component&gt;</span>
+</code></pre></div>
 <h2 id="names">Names<a class="headerlink" href="#names" title="Permanent link">#</a></h2>
 <p>Names are unique identifiers within a namespace for components.<br />
 Adding a name to a component instance also implies that a vs frame is created for it. The converse is also true, and if no explicit name is assigned, one will be automatically generated.<br />
@@ -1713,13 +1713,13 @@ A node, will always be able to access up and down, regardless of the mode set. L
 <h3 id="single-user-scripts">Single user scripts<a class="headerlink" href="#single-user-scripts" title="Permanent link">#</a></h3>
 <h3 id="module-scripts">Module scripts<a class="headerlink" href="#module-scripts" title="Permanent link">#</a></h3>
 <h2 id="mixins">Mixins<a class="headerlink" href="#mixins" title="Permanent link">#</a></h2>
-<pre><code class="language-xml">&lt;app&gt;
-    &lt;mixin name=&quot;...&quot; args.../&gt;
-    &lt;mixins src=&quot;&quot;/&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;app&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mixin</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="err">args...</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mixins</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
 
-    &lt;item mixin=&quot;class1,class2,class3&quot; overrides.../&gt;
-&lt;/app&gt;
-</code></pre>
+<span class="w">    </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">mixin=</span><span class="s">&quot;class1,class2,class3&quot;</span><span class="w"> </span><span class="err">overrides...</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/app&gt;</span>
+</code></pre></div>
 <p>Mixins can be for:</p>
 <ul>
 <li><code>*</code> Everyone</li>
@@ -1786,7 +1786,7 @@ A node, will always be able to access up and down, regardless of the mode set. L
       <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>

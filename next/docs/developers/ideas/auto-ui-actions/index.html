@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1492,7 +1492,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>None of what follows has been implemented yet. These are just specs to sketch out the idea.<br />
- It will probably its own separate project like <code>vs.templ</code> as it needs a tight <code>fltk</code> integration.</p>
+It will probably its own separate project like <code>vs.templ</code> as it needs a tight <code>fltk</code> integration.</p>
 </div>
 <p>Automatic UI actions are sourced from a XML file, and run sequentially once the UI has been fully built.<br />
 These actions are designed for machine usage and macros. Typical scenarios can be:
@@ -1510,10 +1510,12 @@ These actions are designed for machine usage and macros. Typical scenarios can b
 </ul>
 <h2 id="special-blocks-for-testing">Special blocks for testing<a class="headerlink" href="#special-blocks-for-testing" title="Permanent link">#</a></h2>
 <ul>
-<li><code>test</code> the test is resolved. 
-    - <code>deny</code> the test ends and is marked as unresolved.
-    - <code>accept</code> if unresolved, continue with the next operation.
-    - <code>exit</code> to end the application.</li>
+<li><code>test</code> the test is resolved. <ul>
+<li><code>deny</code> the test ends and is marked as unresolved.</li>
+<li><code>accept</code> if unresolved, continue with the next operation.</li>
+<li><code>exit</code> to end the application.</li>
+</ul>
+</li>
 </ul>
 <h2 id="support-in-documentation">Support in documentation<a class="headerlink" href="#support-in-documentation" title="Permanent link">#</a></h2>
 <p>Documentation for vs projects is intended to be written in Markdown.<br />
@@ -1522,8 +1524,8 @@ The special component <code>fl:inline-helper</code> can embed UI actions in it, 
 <h2 id="additional-props-to-handle-semantics">Additional props to handle semantics<a class="headerlink" href="#additional-props-to-handle-semantics" title="Permanent link">#</a></h2>
 <p>Additional explicit information should be provided to ensure the semantic of the exposed UI components is explained.<br />
 This is done by nesting a <code>semantics</code> element to each element needing that. Elements with <code>semantics</code> specified should also have a <code>name</code> attribute.  <br />
-For example:</p>
-<pre><code>&lt;fl:container&gt;
+For example:
+<div class="highlight"><pre><span></span><code>&lt;fl:container&gt;
 &lt;script&gt;
     void on_new(){}
     void on_open(){}
@@ -1542,7 +1544,7 @@ For example:</p>
 &lt;fl:button on.callback=&quot;on_open&quot; label=&quot;New&quot;/&gt;
 &lt;fl:button on.callback=&quot;on_delete&quot; label=&quot;New&quot;/&gt;
 &lt;/fl:container&gt;
-</code></pre>
+</code></pre></div></p>
 <p>This additional context is extremely good to automatically generate documentation, but also to ensure proper contextual information is given to autonomous agents using the UI.</p>
 
 
@@ -1595,7 +1597,7 @@ For example:</p>
       <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>
