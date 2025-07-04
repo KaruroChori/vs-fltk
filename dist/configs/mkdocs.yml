@@ -7,13 +7,22 @@ theme:
   name: material
   #logo: commons/assets/logos/vs.light.svg
 markdown_extensions:
+  - footnotes
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.tilde
   - pymdownx.tasklist
   - mdx_truly_sane_lists
+  - sane_lists
   - smarty
   - toc:
       permalink: "#"
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 plugins:
   - search
   - gh-admonitions

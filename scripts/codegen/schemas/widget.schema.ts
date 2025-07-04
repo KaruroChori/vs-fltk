@@ -28,8 +28,9 @@ const entries_schema = t.Record(t.String(), t.Object({
     //`serialize` would be the dual of parse, but it is not needed as types are all defined and serialization methods will not be custom.
     setter: t.Optional(t.Union([t.String(), t.Null()], { default: undefined, description: "Operations on setting. If undefined, this field is only available as a computed value. If null use default" })),
     getter: t.Optional(t.Union([t.String(), t.Null()], { default: undefined, description: "Implementation on how to extract value from object. If undefined the field is not observable. If null use default" })),
+    defval: t.Optional(t.Union([t.String(), t.Null()], { default: undefined, description: "Default value when resetting" })),
     description: t.Optional(t.String()),
-    semantic: t.Optional(t.Boolean({ default: false, description: 'If true, this field has a strong semantic meaning. Used for semantic serialization of a document.' })),
+    semantic: t.Optional(t.Boolean({ default: false, description: 'If true, this field has a strong semantic meaning. Used for semantic serialization of a document (like passing it to external agents).' })),
     alias: t.Optional(t.Array(t.String(), { description: "alias names", default: [] }))
 }, { additionalProperties: false }))
 
