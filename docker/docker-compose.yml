@@ -3,6 +3,9 @@ services:
     image: "${IMAGE:-ghcr.io/karurochori/vs-fltk:build-env}"
     container_name: "${VS_NAME:-vs-fltk-env}"
     entrypoint: "${ENTRYPOINT:-/entry-default.sh}"
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
 
     # Only variables used within the container should be here
     environment:
