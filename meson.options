@@ -1,4 +1,5 @@
 option('tests', type: 'boolean', value: true)
+option('benchmarks', type: 'boolean', value: true)
 
 option('use_networking_curl', type: 'boolean', value: true)
 option('use_networking_simple', type: 'boolean', value: false)

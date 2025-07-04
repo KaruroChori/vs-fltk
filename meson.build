@@ -9,30 +9,6 @@ project(
     ],
 )
 
-version_components = meson.project_version().split('.')
-major_version = version_components[0]
-minor_version = version_components[1]
-rev_version = version_components[2]
-
-conf = configuration_data()
-conf.set('VSFLTK_VERSION_MAJOR', major_version)
-conf.set('VSFLTK_VERSION_MINOR', minor_version)
-conf.set('VSFLTK_VERSION_REV', rev_version)
-conf.set_quoted('VSFLTK_VERSION', major_version + '.' + minor_version + '.' + rev_version)
-
-configure_file(output: 'config.hpp', configuration: conf)
-
-#TODO: It is likely we will move the lower `use_xxx` options to flags in this configuration file instead of injecting them via compiler. Or at least to duplicate this information.
-
-cfgfile = custom_target('make-config',
-  input : join_paths(meson.current_build_dir(), 'config.hpp'),
-  output : ['config.hpp.fake-meson'],
-  command : ['sh', '-c', 'rm -f ../include/config.hpp && ln -s @INPUT0@ ../include/config.hpp'],
-  capture : true,
-  install : false,
-  build_by_default: true
-)
-
 cmake = import('cmake')
 
 cc = meson.get_compiler('c')
@@ -349,7 +325,7 @@ vs_fltk = shared_library(
     override_options: ['c_std=gnu23', 'cpp_std=gnu++23'],
     cpp_args: vs_fltk_flags,
     c_args: vs_fltk_flags,
-    link_depends: [cfgfile],
+    link_depends: [],
     install: true,
 )
 
