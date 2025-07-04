@@ -1,24 +1,29 @@
-FROM debian:trixie-slim
+FROM alpine
+RUN \
+    apk update && apk upgrade && \
+    apk add --no-cache curl
 
-ARG DEBIAN_FRONTEND=noninteractive
-ENV DEBIAN_FRONTEND=$DEBIAN_FRONTEND
+# [SR-4632] Swift on Alpine Linux (support musl libc)
+# https://github.com/swiftlang/swift/issues/47209
+# Swift on Alpine not yet supported
+#
+# RUN curl -s https://archive.swiftlang.xyz/install.sh | bash && \
 
 RUN \
-    apt update && apt upgrade -y && \
-    apt install -y curl && \
-    apt install -y wget gpg gnupg lsb-release &&\
-    wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh 20 &&\
-    apt install -y \
+    apk add --no-cache \
+        bash \
         ca-certificates \
+        clang \
         cmake \
-        freeglut3-dev \
+        curl-dev \
+        freeglut-dev \
         git \
-        libcurl4-openssl-dev \
-        libpango1.0-dev \
         libpng-dev \
         lsb-release \
         meson \
-        pkg-config \
+        pango-dev \
+        pkgconf \
+        shadow # For useradd \
         sudo \
         unzip \
         wget
