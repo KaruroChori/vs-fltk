@@ -47,6 +47,9 @@ fi
 
 bun install
 if [ -d "build" ]; then
+  if [ ! -f "build/compile_commands.json" ]; then
+    meson setup build --reconfigure
+  fi
   bun run meson-build
 else
   bun run codegen
