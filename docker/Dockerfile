@@ -35,8 +35,8 @@ USER builder
 
 RUN curl -fsSL https://bun.sh/install | bash
 RUN \
-    echo "export BUN_INSTALL=\"\$HOME/.bun\"" >> $HOME/.profile && \
-    echo "export PATH=\"\$BUN_INSTALL/bin:\$PATH\"" >> $HOME/.profile
+    echo "export BUN_INSTALL=\"\$HOME/.bun\"" >> $HOME/.bashrc && \
+    echo "export PATH=\"\$BUN_INSTALL/bin:\$PATH\"" >> $HOME/.bashrc
 
 USER root
 WORKDIR /
