@@ -19,7 +19,9 @@ RUN \
         freeglut-dev \
         git \
         libpng-dev \
+        lld \
         lsb-release \
+        make \
         meson \
         pango-dev \
         pkgconf \
