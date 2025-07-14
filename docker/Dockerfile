@@ -23,7 +23,8 @@ RUN \
         meson \
         pango-dev \
         pkgconf \
-        shadow # For useradd \
+        # shadow is needed for useradd
+        shadow \
         sudo \
         unzip \
         wget
