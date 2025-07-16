@@ -1,7 +1,7 @@
 project(
     'vs-fltk',
     ['c', 'cpp'],
-    version: files('VERSION'),
+    version: files('.version'),
     meson_version: '>= 1.1',
     default_options: [
         'c_std=gnu23',

@@ -13,7 +13,7 @@ import { $ } from "bun"
 */
 import pkg from "@/package.json"
 
-const version = (await Bun.file('./VERSION').text()).trim();
+const version = (await Bun.file('./.version').text()).trim();
 console.log(`Version is ${version}`);
 
 // This code is now duplicated in the meson file, at some point deprecate this one in favour of the other by adding a simple wrapper.
