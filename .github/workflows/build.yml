@@ -38,7 +38,7 @@ jobs:
       CC: clang-20
       CXX: clang++-20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install dependencies
         run: |
           curl -fsSL https://bun.sh/install | bash
@@ -74,7 +74,7 @@ jobs:
       LDFLAGS: "-L/opt/homebrew/opt/llvm/lib"
       CPPFLAGS: "-I/opt/homebrew/opt/llvm/include"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install dependencies
         run: |
           curl -fsSL https://bun.sh/install | bash
